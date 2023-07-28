@@ -192,8 +192,8 @@ export default async function Home() {
             >
               Agrivoltaics
             </a>
-            , the intersection of solar energy and agriculture and is on a
-            mission to 100× the deployment solar energy.
+            , the intersection of solar energy and agriculture, and is on a
+            mission to 100× the deployment of solar energy.
           </p>
           <ContactButtons />
         </FadeIn>
