@@ -70,7 +70,7 @@ function Header({
             filled={logoHovered}
           />
         </Link>
-        <div className="flex items-center gap-x-8">
+        <div className=":flex hidden items-center gap-x-8">
           {/*  <Button href="#contact-us" invert={invert}>
             Contact us
           </Button> */}
