@@ -14,6 +14,22 @@ import { unifiedConditional } from 'unified-conditional'
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ['jsx', 'mdx'],
+  i18n: {
+    locales: ['en-US', 'de'],
+    defaultLocale: 'en-US',
+    domains: [
+      {
+        // Note: subdomains must be included in the domain value to be matched
+        // e.g. www.example.com should be used if that is the expected hostname
+        domain: 'solarpunk2077.com',
+        defaultLocale: 'en-US',
+      },
+      {
+        domain: 'solarpunk.sh',
+        defaultLocale: 'de',
+      },
+    ],
+  },
 }
 
 function remarkMDXLayout(source) {
