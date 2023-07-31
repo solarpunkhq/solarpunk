@@ -14,7 +14,7 @@ import { unifiedConditional } from 'unified-conditional'
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ['jsx', 'mdx'],
-  i18n: {
+  /* i18n: {
     locales: ['en', 'de'],
     defaultLocale: 'en',
     domains: [
@@ -29,7 +29,7 @@ const nextConfig = {
         defaultLocale: 'de',
       },
     ],
-  },
+  }, */
 }
 
 function remarkMDXLayout(source) {
