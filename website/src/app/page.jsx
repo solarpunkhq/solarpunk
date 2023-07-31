@@ -116,7 +116,7 @@ function CaseStudies({ caseStudies }) {
 
 function Roadmap() {
   return (
-    <div className="prose prose-xl mx-auto">
+    <div id="roadmap" className="prose prose-xl mx-auto">
       <SectionIntro title="Roadmap" className="mx-auto mt-24 sm:mt-32 lg:mt-40">
         <p>
           Our mission is to 100× the deployment of solar energy with the help of
