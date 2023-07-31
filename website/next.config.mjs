@@ -15,14 +15,14 @@ import { unifiedConditional } from 'unified-conditional'
 const nextConfig = {
   pageExtensions: ['jsx', 'mdx'],
   i18n: {
-    locales: ['en-US', 'de'],
-    defaultLocale: 'en-US',
+    locales: ['en', 'de'],
+    defaultLocale: 'en',
     domains: [
       {
         // Note: subdomains must be included in the domain value to be matched
         // e.g. www.example.com should be used if that is the expected hostname
         domain: 'solarpunk2077.com',
-        defaultLocale: 'en-US',
+        defaultLocale: 'en',
       },
       {
         domain: 'solarpunk.sh',
