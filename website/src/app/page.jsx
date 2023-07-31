@@ -14,7 +14,6 @@ import logoGreenLife from '@/images/clients/green-life/logo-light.svg'
 import logoHomeWork from '@/images/clients/home-work/logo-light.svg'
 import logoMailSmirk from '@/images/clients/mail-smirk/logo-light.svg'
 import logoNorthAdventures from '@/images/clients/north-adventures/logo-light.svg'
-import logoPhobiaDark from '@/images/clients/phobia/logo-dark.svg'
 import logoPhobiaLight from '@/images/clients/phobia/logo-light.svg'
 import logoUnseal from '@/images/clients/unseal/logo-light.svg'
 import imageLaptop from '@/images/solarpunk-background.jpg'
@@ -112,6 +111,87 @@ function CaseStudies({ caseStudies }) {
         </FadeInStagger>
       </Container>
     </>
+  )
+}
+
+function Roadmap() {
+  return (
+    <div className="prose prose-xl mx-auto">
+      <SectionIntro title="Roadmap" className="mx-auto mt-24 sm:mt-32 lg:mt-40">
+        <p>
+          Our mission is to 100× the deployment of solar energy with the help of
+          agrivoltaics. To achieve this, we are splitting our project into three
+          phases to reduce risk, understand the market and achieve our Solarpunk
+          future.
+        </p>
+        <h4>Phase 1: </h4>
+        <p>
+          The initial stage, Phase 1, revolves around the creation of a
+          marketplace that connects landowners with energy partners.
+        </p>
+        <p>
+          The intention is to connect landowners, our supply chain's core, with
+          energy partners who make up the demand side. We aim to establish a
+          thriving marketplace that is connecting both parties.
+        </p>
+        <p>
+          A critical aspect of this phase is to identify whether supply or
+          demand is the bottleneck inhibiting our growth.
+        </p>
+        <p>
+          By understanding the potential constraints within our marketplace, we
+          can develop strategic solutions to alleviate them. As we progress
+          through this phase, we also place a strong emphasis on learning, as
+          this experience will provide invaluable insights to guide our future
+          actions.
+        </p>
+        <p>
+          Our business model for this phase is straightforward and rewarding for
+          all parties involved. We take a small percentage as commission for
+          each successful connection, ensuring we remain invested in the
+          efficacy of each partnership we facilitate.
+        </p>
+        <h4>Phase 2:</h4>
+        <p>
+          Phase 2 focuses on addressing the technical challenges associated with
+          agrivoltaics. The ultimate objective is to tackle the most demanding
+          technical obstacles by raising venture funding and tackling the
+          technical challenges with ongoing research and development.
+        </p>
+        <p>
+          With financial backing, we aim to assemble a dedicated, highly-skilled
+          team capable of overcoming these challenges. This phase&rsquo;s
+          success would not only highlight our problem-solving capabilities but
+          also enable us to develop prototypes based on the lessons learned
+          during the initial phase.
+        </p>
+        <p>
+          The goal of this stage is to apply the knowledge acquired from Phase
+          1, construct an effective prototype, and market these prototypes to
+          our initial partners. This will demonstrate our practical
+          understanding of the industry's needs and our ability to provide
+          innovative solutions.
+        </p>
+        <h4>Phase 3:</h4>
+        <p>
+          In Phase 3, we start to provide more services to become a full-stack
+          energy company. Our primary strategy will be to leverage our newly
+          developed technology to approach farmland owners and reduce the
+          initial costs of agrivoltaic solar parks.
+        </p>
+        <p>
+          Our Phase 3 plan also includes the acquisition of more funding and
+          debt to help launch solar parks, either run by us or by Solarpunk
+          Franchise Partners.
+        </p>
+        <p>
+          The goal of this phase is clear: 100× the deployment of solar energy
+          with our full-stack energy company and drive down costs at scale. In
+          each phase, our dedication to innovation, sustainability, and
+          partnership is the driving force behind our mission.
+        </p>
+      </SectionIntro>
+    </div>
   )
 }
 
@@ -215,6 +295,8 @@ export default async function Home() {
       <CaseStudies caseStudies={caseStudies} />
 
       <Services />
+
+      <Roadmap />
 
       <ContactSection />
     </>
