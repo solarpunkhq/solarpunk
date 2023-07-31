@@ -1,5 +1,6 @@
 # Building the Solarpunk Future.
-![Hero Image](https://github.com/solarpunk2077/solarpunk/assets/8019099/234b5d54-550e-421e-abc7-6ec8601b3372)
+
+<a href="https://solarpunk2077.com"><img src="https://github.com/solarpunk2077/solarpunk/assets/8019099/234b5d54-550e-421e-abc7-6ec8601b3372" alt="Solarpunk Hero"></a>
 
 
 
