@@ -70,10 +70,10 @@ function Header({
             filled={logoHovered}
           />
         </Link>
-        <div className=":flex hidden items-center gap-x-8">
-          {/*  <Button href="#contact-us" invert={invert}>
+        <div className="flex items-center gap-x-8">
+          <Button href="https://cal.com/team/solarpunk" invert={invert}>
             Contact us
-          </Button> */}
+          </Button>
           <button
             ref={toggleRef}
             type="button"
@@ -131,7 +131,7 @@ function Navigation() {
         <NavigationItem href="/why-now">Why now</NavigationItem>
       </NavigationRow>
       <NavigationRow>
-        <NavigationItem href="/about">About us</NavigationItem>
+        <NavigationItem href="/team">The Team</NavigationItem>
         <NavigationItem href="/blog">Blog</NavigationItem>
       </NavigationRow>
     </nav>

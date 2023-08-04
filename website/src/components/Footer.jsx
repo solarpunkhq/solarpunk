@@ -25,7 +25,7 @@ const navigation = [
   {
     title: 'Company',
     links: [
-      { title: 'About', href: '/about' },
+      { title: 'Team', href: '/team' },
       { title: 'Process', href: '/process' },
       { title: 'Blog', href: '/blog' },
       { title: 'Contact us', href: '/contact' },
@@ -123,7 +123,7 @@ export function Footer() {
             <Logo className="h-8" fillOnHover />
           </Link>
           <p className="text-sm text-neutral-700">
-            © {new Date().getFullYear()} Solarpunk 2077, Inc.
+            © {new Date().getFullYear()} Solarpunk 2077
           </p>
         </div>
       </FadeIn>

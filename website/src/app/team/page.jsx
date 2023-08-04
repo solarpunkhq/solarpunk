@@ -9,23 +9,17 @@ import { PageIntro } from '@/components/PageIntro'
 import { PageLinks } from '@/components/PageLinks'
 import { SectionIntro } from '@/components/SectionIntro'
 import { StatList, StatListItem } from '@/components/StatList'
-import imageAngelaFisher from '@/images/team/angela-fisher.jpeg'
-import imageBenjaminRussel from '@/images/team/benjamin-russel.jpeg'
-import imageBlakeReid from '@/images/team/blake-reid.jpeg'
-import imageChelseaHagon from '@/images/team/chelsea-hagon.jpeg'
-import imageDriesVincent from '@/images/team/dries-vincent.jpeg'
-import imageEmmaDorsey from '@/images/team/emma-dorsey.jpeg'
-import imageJeffreyWebb from '@/images/team/jeffrey-webb.jpeg'
-import imageKathrynMurphy from '@/images/team/kathryn-murphy.jpeg'
-import imageLeonardKrasner from '@/images/team/leonard-krasner.jpeg'
-import imageLeslieAlexander from '@/images/team/leslie-alexander.jpeg'
-import imageMichaelFoster from '@/images/team/michael-foster.jpeg'
-import imageWhitneyFrancis from '@/images/team/whitney-francis.jpeg'
+import imagePeer from '@/images/team/peer.jpeg'
+import imageToge from '@/images/team/töge.jpeg'
+import imageEsther from '@/images/team/esther.jpeg'
+import imageOmar from '@/images/team/omar.jpeg'
+import imageClaus from '@/images/team/claus-peter.jpg'
+import imageJames from '@/images/team/james.jpeg'
 import { loadMDXMetadata } from '@/lib/loadMDXMetadata'
 
 function Culture() {
   return (
-    <div className="mt-24 rounded-4xl bg-neutral-950 py-24 sm:mt-32 lg:mt-40 lg:py-32">
+    <div className="mt-24 bg-neutral-950 py-24 sm:mx-4 sm:mt-32 sm:rounded-4xl lg:mt-40 lg:py-32">
       <SectionIntro
         eyebrow="Our culture"
         title="Balance your passion with your passion for life."
@@ -57,72 +51,37 @@ function Culture() {
 
 const team = [
   {
-    title: 'Leadership',
-    people: [
-      {
-        name: 'Leslie Alexander',
-        role: 'Co-Founder / CEO',
-        image: { src: imageLeslieAlexander },
-      },
-      {
-        name: 'Michael Foster',
-        role: 'Co-Founder / CTO',
-        image: { src: imageMichaelFoster },
-      },
-      {
-        name: 'Dries Vincent',
-        role: 'Partner & Business Relations',
-        image: { src: imageDriesVincent },
-      },
-    ],
-  },
-  {
     title: 'Team',
     people: [
       {
-        name: 'Chelsea Hagon',
-        role: 'Senior Developer',
-        image: { src: imageChelseaHagon },
+        name: 'Töge Feldhoff',
+        role: 'Co-Founder, M.S. Renewable Energy',
+        image: { src: imageToge },
       },
       {
-        name: 'Emma Dorsey',
-        role: 'Senior Designer',
-        image: { src: imageEmmaDorsey },
+        name: 'Peer Richelsen',
+        role: 'Co-Founder',
+        image: { src: imagePeer },
       },
       {
-        name: 'Leonard Krasner',
-        role: 'VP, User Experience',
-        image: { src: imageLeonardKrasner },
+        name: 'Omar McAdam',
+        role: 'R&D Engineer',
+        image: { src: imageOmar },
       },
       {
-        name: 'Blake Reid',
-        role: 'Junior Copywriter',
-        image: { src: imageBlakeReid },
+        name: 'Esther Lizardo Garcia',
+        role: 'Frontend Developer',
+        image: { src: imageEsther },
       },
       {
-        name: 'Kathryn Murphy',
-        role: 'VP, Human Resources',
-        image: { src: imageKathrynMurphy },
+        name: 'Claus-Peter Richelsen',
+        role: 'Advisor – Farmer, Mayor of Ausacker',
+        image: { src: imageClaus },
       },
       {
-        name: 'Whitney Francis',
-        role: 'Content Specialist',
-        image: { src: imageWhitneyFrancis },
-      },
-      {
-        name: 'Jeffrey Webb',
-        role: 'Account Coordinator',
-        image: { src: imageJeffreyWebb },
-      },
-      {
-        name: 'Benjamin Russel',
-        role: 'Senior Developer',
-        image: { src: imageBenjaminRussel },
-      },
-      {
-        name: 'Angela Fisher',
-        role: 'Front-end Developer',
-        image: { src: imageAngelaFisher },
+        name: 'James Sinka',
+        role: 'Advisor – B.S. Chemistry and Materials Science',
+        image: { src: imageJames },
       },
     ],
   },
@@ -134,7 +93,7 @@ function Team() {
       <div className="space-y-24">
         {team.map((group) => (
           <FadeInStagger key={group.title}>
-            <Border as={FadeIn} />
+            {/* <Border as={FadeIn} /> */}
             <div className="grid grid-cols-1 gap-6 pt-12 sm:pt-16 lg:grid-cols-4 xl:gap-8">
               <FadeIn>
                 <h2 className="font-display text-2xl font-semibold text-neutral-950">
@@ -153,7 +112,7 @@ function Team() {
                           <Image
                             alt=""
                             {...person.image}
-                            className="h-96 w-full object-cover grayscale transition duration-500 motion-safe:group-hover:scale-105"
+                            className="h-96 w-full object-cover grayscale transition duration-500 group-hover:grayscale-0 motion-safe:group-hover:scale-105"
                           />
                           <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black to-black/0 to-40% p-6">
                             <p className="font-display text-base/6 font-semibold tracking-wide text-white">
@@ -188,7 +147,7 @@ export default async function About() {
 
   return (
     <>
-      <PageIntro eyebrow="About us" title="Our strength is collaboration">
+      {/*  <PageIntro eyebrow="About us" title="Our strength is collaboration">
         <p>
           We believe that our strength lies in our collaborative approach, which
           puts our clients at the center of everything we do.
@@ -207,25 +166,27 @@ export default async function About() {
             ask that they keep themselves there until at least 6:30pm.
           </p>
         </div>
-      </PageIntro>
+      </PageIntro> */}
+      {/* 
       <Container className="mt-16">
         <StatList>
           <StatListItem value="35" label="Underpaid employees" />
           <StatListItem value="52" label="Placated clients" />
           <StatListItem value="$25M" label="Invoices billed" />
         </StatList>
-      </Container>
+      </Container> */}
 
-      <Culture />
+      {/*  <Culture /> */}
 
       <Team />
+      {/* 
 
       <PageLinks
         className="mt-24 sm:mt-32 lg:mt-40"
         title="From the blog"
         intro="Our team of experienced designers and developers has just one thing on their mind; working on your ideas to draw a smile on the face of your users worldwide. From conducting Brand Sprints to UX Design."
         pages={blogArticles}
-      />
+      /> */}
 
       <ContactSection />
     </>
