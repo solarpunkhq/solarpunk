@@ -19,6 +19,7 @@ import logoUnseal from '@/images/clients/unseal/logo-light.svg'
 import imageLaptop from '@/images/solarpunk-background.jpg'
 import { loadMDXMetadata } from '@/lib/loadMDXMetadata'
 import CTA, { ContactButtons } from '@/components/CTA'
+import Herovideo from '@/components/Herovideo'
 
 const clients = [
   ['Phobia', logoPhobiaLight],
@@ -168,9 +169,10 @@ function Roadmap() {
         <p>
           The goal of this stage is to apply the knowledge acquired from Phase
           1, construct an effective prototype, and market these prototypes to
-          our initial partners. This will demonstrate our practical
-          understanding of the industry's needs and our ability to provide
-          innovative solutions.
+          our initial partners. The most important goal is to{' '}
+          <strong>
+            drive down the cost of deployment by an order of magnitude.
+          </strong>
         </p>
         <h4>Phase 3:</h4>
         <p>
@@ -258,24 +260,29 @@ export default async function Home() {
   return (
     <>
       <Container className="mt-24 sm:mt-32 md:mt-56">
-        <FadeIn className="max-w-3xl">
-          <h1 className="font-display text-5xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-7xl">
-            Building the Solarpunk Future.
-          </h1>
-          <p className="mt-6 text-xl text-neutral-600">
-            <span className="font-display">Solarpunk 2077</span> is exploring{' '}
-            <a
-              className="text-black underline"
-              href="https://en.wikipedia.org/wiki/Agrivoltaics"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Agrivoltaics
-            </a>
-            , the intersection of solar energy and agriculture, and is on a
-            mission to 100× the deployment of solar energy.
-          </p>
-          <ContactButtons />
+        <FadeIn className="gap-2 lg:flex">
+          <div className="mb-8 max-w-3xl">
+            <h1 className="font-display text-5xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-7xl">
+              Building the Solarpunk Future.
+            </h1>
+            <p className="mt-6 text-xl text-neutral-600">
+              <span className="font-display">Solarpunk 2077</span> is exploring{' '}
+              <a
+                className="text-black underline"
+                href="https://en.wikipedia.org/wiki/Agrivoltaics"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Agrivoltaics
+              </a>
+              , the intersection of solar energy and agriculture, and is on a
+              mission to 100× the deployment of solar energy.
+            </p>
+            <ContactButtons />
+          </div>
+          <div className="w-full">
+            <Herovideo />
+          </div>
         </FadeIn>
       </Container>
       {/* 
