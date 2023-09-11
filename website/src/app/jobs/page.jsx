@@ -104,7 +104,7 @@ function Job({ name, location, salary }) {
     <li>
       <a
         href={`mailto:jobs@solarpunk2077.com?subject=${name}`}
-        className="-mt-px border-t p-4 hover:bg-gray-50 md:flex md:space-x-4"
+        className="-mt-px block w-full border-t p-4 hover:bg-gray-50 md:flex md:space-x-4"
       >
         <div className="w-full">{name}</div>
         <div className="w-full">{location}</div>

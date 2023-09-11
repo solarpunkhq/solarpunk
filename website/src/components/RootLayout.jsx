@@ -128,11 +128,15 @@ function Navigation() {
     <nav className="mt-px font-display text-5xl font-medium tracking-tight text-white">
       <NavigationRow>
         <NavigationItem href="/agrivoltaics">Agrivoltaics</NavigationItem>
-        <NavigationItem href="/why-now">Why now</NavigationItem>
+        {/*         <NavigationItem href="/why-now">Why now</NavigationItem>
+         */}
+        <NavigationItem href="/team">The Team</NavigationItem>
       </NavigationRow>
       <NavigationRow>
-        <NavigationItem href="/team">The Team</NavigationItem>
         <NavigationItem href="/jobs">Jobs</NavigationItem>
+        <NavigationItem href="https://cal.com/team/solarpunk">
+          Contact us
+        </NavigationItem>
       </NavigationRow>
     </nav>
   )

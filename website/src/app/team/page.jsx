@@ -60,7 +60,7 @@ const team = [
       },
       {
         name: 'Peer Richelsen',
-        role: 'Co-Founder',
+        role: 'Co-Founder, Advisor, Chairman',
         image: { src: imagePeer },
       },
       {
