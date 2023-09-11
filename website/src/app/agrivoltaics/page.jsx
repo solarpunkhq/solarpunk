@@ -43,14 +43,14 @@ function Section({ title, image, children }) {
   )
 }
 
-function Discover() {
+function History() {
   return (
-    <Section title="The History" image={{ src: imageWhiteboard }}>
+    <Section title="The History" image={{ src: imageLaptop }}>
       <div className="space-y-6 text-base text-neutral-600">
         <p>
-          Agrivoltaics, combining agriculture with solar energy, emerged in the
-          1980s. Dr. Goetzberger proposed it to optimize land use. Dr. Weber
-          later emphasized its benefits.
+          Agrivoltaics is combining land for agriculture and solar energy. It
+          emerged in the 1980s after Dr. Goetzberger proposed it to optimize
+          land use. Dr. Weber later emphasized its benefits.
         </p>
         <p>
           Pilot projects in the 2010s showed improved crop yield and energy
@@ -58,105 +58,109 @@ function Discover() {
           sustainability and resilience.
         </p>
         <p>
-          Today, it continues to grow as a promising solution to environmental
-          challenges, bridging agriculture and renewable energy.
+          Today, after many years of research and refinement, it continues to
+          grow as a promising solution to environmental challenges, bridging
+          agriculture and renewable energy.
         </p>
       </div>
     </Section>
   )
 }
 
-function Build() {
+function Why() {
   return (
-    <Section title="Build" image={{ src: imageLaptop, shape: 1 }}>
+    <Section
+      title="Why is Agrivoltaics important"
+      image={{ src: imageWhiteboard, shape: 1 }}
+    >
       <div className="space-y-6 text-base text-neutral-600">
         <p>
-          Based off of the discovery phase, we develop a comprehensive roadmap
-          for each product and start working towards delivery. The roadmap is an
-          intricately tangled mess of technical nonsense designed to drag the
-          project out as long as possible.
+          The world's needs for energy and food are increasing. We will soon be
+          beyond the current capacity. We need to dramatically increase
+          production without increasing costs. Just to sustain the population.
         </p>
         <p>
-          Each client is assigned a key account manager to keep lines of
-          communication open and obscure the actual progress of the project.
-          They act as a buffer between the client’s incessant nagging and the
-          development team who are hard at work scouring open source projects
-          for code to re-purpose.
+          Increasing food production with current methods means increased water
+          usage. Because of the global temperatures rise, water is becoming more
+          expensive and less efficient to use.
+          <br /> Increasing energy production means greater consumption of
+          fossil fuels, or large nuclear power plants that demand large
+          investments and time to build and maintain.
         </p>
         <p>
-          Our account managers are trained to only reply to client emails after
-          9pm, several days after the initial email. This reinforces the general
-          aura that we are very busy and dissuades clients from asking for
-          changes.
+          Agrivoltaics offer a unique solution by combining land usage for both
+          food and energy production. It simultaneously reduces water
+          consumption and increases crop yield. With the shade from the solar
+          panels, plants focus energy on their growth rather than hydration
+          management.
+        </p>
+        <Blockquote
+          author={{
+            name: 'Jennifer Bousselot',
+            role: 'Colorado State University researcher',
+          }}
+          className="mt-12"
+        >
+          When you think about our population into the future, having nine
+          billion people by mid-century, we have to start looking at that to
+          build resilience.
+        </Blockquote>
+        <p>
+          For farmers and land owners agrivoltaics diversifies income. With a
+          greater cashflow, you can reinvest in your land and equipment. For
+          energy providers it offers a more stable and easier to implement
+          energy production, without the headache of bureaucratic processes or
+          time needed for planning and building.
         </p>
       </div>
-
-      <Blockquote
-        author={{ name: 'Debra Fiscal', role: 'CEO of Unseal' }}
-        className="mt-12"
-      >
-        Studio were so regular with their progress updates we almost began to
-        think they were automated!
-      </Blockquote>
     </Section>
   )
 }
 
-function Deliver() {
+function How() {
   return (
-    <Section title="Deliver" image={{ src: imageMeeting, shape: 2 }}>
+    <Section
+      title="How Agrivoltaics works"
+      image={{ src: imageLaptop, shape: 2 }}
+    >
       <div className="space-y-6 text-base text-neutral-600">
         <p>
-          About halfway through the Build phase, we push each project out by 6
-          weeks due to a change in{' '}
+          Solar panels are placed on in rows on elevated frames. The spacing
+          between rows is carefully calculated to{' '}
           <strong className="font-semibold text-neutral-950">
-            requirements
+            maximize both crop yield and solar production
           </strong>
-          . This allows us to increase the budget a final time before launch.
+          .
         </p>
         <p>
-          Despite largely using pre-built components, most of the{' '}
-          <strong className="font-semibold text-neutral-950">progress</strong>{' '}
-          on each project takes place in the final 24 hours. The development
-          time allocated to each client is actually spent making augmented
-          reality demos that go viral on Twitter.
+          Each plant has a limit on how much sun they can actually use to grow,
+          called a{' '}
+          <strong className="font-semibold text-neutral-950">
+            "light saturation point"
+          </strong>
+          . Once they pass this point, the plant starts spending it's energy to
+          replace evaporating water.
         </p>
         <p>
-          We ensure that the main pages of the site are{' '}
+          Solar panels are positioned to give the crops{' '}
           <strong className="font-semibold text-neutral-950">
-            fully functional
-          </strong>{' '}
-          at launch — the auxiliary pages will, of course, be lorem ipusm shells
-          which get updated as part of our exorbitant{' '}
-          <strong className="font-semibold text-neutral-950">
-            maintenance
-          </strong>{' '}
-          retainer.
+            enough direct sunlight to reach the light saturation point
+          </strong>
+          . The crop can spend the remainder of the day focusing energy on
+          growth as it receives indirect sunlight.
+        </p>
+        <p>
+          The solar panels help provide the ideal humidity for the crops and
+          since evaporation is reduced, less water is needed overall. All the
+          excess energy is captured by the panels and converted into usable
+          electricity.
         </p>
       </div>
-
-      <h3 className="mt-12 font-display text-base font-semibold text-neutral-950">
-        Included in this phase
-      </h3>
-      <List className="mt-8">
-        <ListItem title="Testing">
-          Our projects always have 100% test coverage, which would be impressive
-          if our tests weren’t as porous as a sieve.
-        </ListItem>
-        <ListItem title="Infrastructure">
-          To ensure reliability we only use the best Digital Ocean droplets that
-          $4 a month can buy.
-        </ListItem>
-        <ListItem title="Support">
-          Because we hold the API keys for every critical service your business
-          uses, you can expect a lifetime of support, and invoices, from us.
-        </ListItem>
-      </List>
     </Section>
   )
 }
 
-function Values() {
+function Benefits() {
   return (
     <div className="relative mt-24 pt-24 sm:mt-32 sm:pt-32 lg:mt-40 lg:pt-40">
       <div className="absolute inset-x-0 top-0 -z-10 h-[884px] overflow-hidden rounded-t-4xl bg-gradient-to-b from-neutral-50">
@@ -167,43 +171,46 @@ function Values() {
       </div>
 
       <SectionIntro
-        eyebrow="Our values"
-        title="Balancing reliability and innovation"
+        eyebrow="The Agrivoltaic Benefits"
+        title="The sustainable future for agriculture and energy"
       >
         <p>
-          We strive to stay at the forefront of emerging trends and
-          technologies, while completely ignoring them and forking that old
-          Rails project we feel comfortable using. We stand by our core values
-          to justify that decision.
+          Agrivoltaics is still in its infancy. Every year new studies are
+          released. Land owners, farmers and energy providers all receive
+          measurable benefits.
         </p>
+        <p>
+          With time, we discover new things that make agrivoltaics an even more
+          obvious choice for the sustainable future for agriculture and energy.
+        </p>
+        <p>Agrivoltaics makes sense.</p>
       </SectionIntro>
 
       <Container className="mt-24">
         <GridList>
-          <GridListItem title="Meticulous">
-            The first part of any partnership is getting our designer to put
-            your logo in our template. The second step is getting them to do the
-            colors.
+          <GridListItem title="Use less water">
+            Plants receive enough sun to focus on growth, and no longer need to
+            waste energy fighting for water
           </GridListItem>
-          <GridListItem title="Efficient">
-            We pride ourselves on never missing a deadline which is easy because
-            most of the work was done years ago.
+          <GridListItem title="Increased crop yield">
+            Crops that are grown in Agrivoltaic fields produce more yield,
+            anywhere from 5% to 200%
           </GridListItem>
-          <GridListItem title="Adaptable">
-            Every business has unique needs and our greatest challenge is
-            shoe-horning those needs into something we already built.
+          <GridListItem title="Extend seasons">
+            Reducing crop evaporation helps maintain the right humidity levels
+            helping the growth seasons last longer
           </GridListItem>
-          <GridListItem title="Honest">
-            We are transparent about all of our processes, banking on the simple
-            fact our clients never actually read anything.
+          <GridListItem title="Diversify income">
+            Land owners receive an additional income from the same land
+            improving cashflow
           </GridListItem>
-          <GridListItem title="Loyal">
-            We foster long-term relationships with our clients that go beyond
-            just delivering a product, allowing us to invoice them for decades.
+          <GridListItem title="Capture wasted energy">
+            Instead of the sun's energy dehydrating plants, its captured and
+            turned into electricity
           </GridListItem>
-          <GridListItem title="Innovative">
-            The technological landscape is always evolving and so are we. We are
-            constantly on the lookout for new open source projects to clone.
+          <GridListItem title="Faster implementation">
+            Energy providers can start capturing energy sooner than spending
+            years stuck in bureaucratic processes
           </GridListItem>
         </GridList>
       </Container>
@@ -213,8 +220,7 @@ function Values() {
 
 export const metadata = {
   title: 'What is agrivoltaics?',
-  description:
-    'We believe in efficiency and maximizing our resources to provide the best value to our clients.',
+  description: 'The sustainable future for agriculture and energy',
 }
 
 export default function Process() {
@@ -222,20 +228,23 @@ export default function Process() {
     <>
       <PageIntro eyebrow="An introduction" title="What is agrivoltaics?">
         <p>
-          Agrivoltaics is the simultaneous use of areas of land for both solar
-          panels and agriculture. This has many benefits such as increased crop
-          yield, reduced water usage but most importantly, less bureaucratic
-          hurdles to get solar panels installed.
+          Agrivoltaics (also known as Agri PV) is the simultaneous use of land
+          for both agriculture and solar energy generation.
+        </p>
+        <p>
+          It creates many benefits for land owners, farmers and energy
+          providers, accelerating our transition to more sustainable energy and
+          food productions.
         </p>
       </PageIntro>
 
       <div className="mt-24 space-y-24 [counter-reset:section] sm:mt-32 sm:space-y-32 lg:mt-40 lg:space-y-40">
-        <Discover />
-        <Build />
-        <Deliver />
+        <History />
+        <Why />
+        <How />
       </div>
 
-      <Values />
+      <Benefits />
 
       <ContactSection />
     </>
