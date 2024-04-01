@@ -10,7 +10,7 @@ import { PageLinks } from '@/components/PageLinks'
 import { SectionIntro } from '@/components/SectionIntro'
 import { StatList, StatListItem } from '@/components/StatList'
 import imagePeer from '@/images/team/peer.jpeg'
-import imageToge from '@/images/team/töge.jpeg'
+import imageSchuyler from '@/images/team/schuyler.jpg'
 import imageEsther from '@/images/team/esther.jpeg'
 import imageOmar from '@/images/team/omar.jpeg'
 import imageClaus from '@/images/team/claus-peter.jpg'
@@ -54,13 +54,13 @@ const team = [
     title: 'Team',
     people: [
       {
-        name: 'Töge Feldhoff',
-        role: 'Co-Founder, M.S. Renewable Energy',
-        image: { src: imageToge },
+        name: 'Schuyler Deerman',
+        role: 'Co-Founder, CEO & President',
+        image: { src: imageSchuyler },
       },
       {
         name: 'Peer Richelsen',
-        role: 'Co-Founder, Advisor, Chairman',
+        role: 'Co-Founder, Chairman',
         image: { src: imagePeer },
       },
       {
