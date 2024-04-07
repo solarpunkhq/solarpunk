@@ -123,7 +123,7 @@ export function Footer() {
             <Logo className="h-8" fillOnHover />
           </Link>
           <p className="text-sm text-neutral-700">
-            © {new Date().getFullYear()} Solarpunk 2077
+            © {new Date().getFullYear()} Solarpunk
           </p>
         </div>
       </FadeIn>

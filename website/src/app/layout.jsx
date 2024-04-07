@@ -4,9 +4,9 @@ import '@/styles/tailwind.css'
 
 export const metadata = {
   title: {
-    template: '%s - Solarpunk 2077',
+    template: '%s - Solarpunk',
     default:
-      'Solarpunk 2077 - Exploring Agrivoltaics, the intersection of solar energy and agriculture',
+      'Solarpunk - Exploring Agrivoltaics, the intersection of solar energy and agriculture',
   },
 }
 

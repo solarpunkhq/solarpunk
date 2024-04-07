@@ -261,22 +261,14 @@ export default async function Home() {
     <>
       <Container className="mt-24 sm:mt-32 md:mt-56">
         <FadeIn className="gap-2 lg:flex">
-          <div className="mb-8 max-w-3xl">
-            <h1 className="font-display text-5xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-7xl">
-              Building the Solarpunk Future.
+          <div className="mb-8 max-w-2xl">
+            <h1 className="text-5xl font-light tracking-tight text-neutral-950 [text-wrap:balance] sm:text-7xl">
+              Transforming traditional agriculture into{' '}
+              <strong className="font-display">Solarpunk</strong> farms.
             </h1>
-            <p className="mt-6 text-xl text-neutral-600">
-              <span className="font-display">Solarpunk 2077</span> is exploring{' '}
-              <a
-                className="text-black underline"
-                href="https://en.wikipedia.org/wiki/Agrivoltaics"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Agrivoltaics
-              </a>
-              , the intersection of solar energy and agriculture, and is on a
-              mission to 100× the deployment of solar energy.
+            <p className="mt-6 max-w-xl text-xl text-neutral-600">
+              We upfront the costs for a solar deployment and handle everything
+              end-to-end for farmers and land owners.
             </p>
             <ContactButtons />
           </div>

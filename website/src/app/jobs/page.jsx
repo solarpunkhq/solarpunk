@@ -80,18 +80,11 @@ export default function Contact() {
         <ul className="rounded border bg-white">
           <Job
             name="Fullstack Typescript Developer"
-            location="Remote or Northern Germany"
-            salary="100,000 + Equity"
+            location="Remote, Los Angeles or Northern Germany"
           />
           <Job
             name="Industrial Designer"
-            location="Remote or Northern Germany"
-            salary="100,000 + Equity"
-          />
-          <Job
-            name="Project Manager"
-            location="Remote or Northern Germany"
-            salary="100,000 + Equity"
+            location="Remote, Los Angeles or Northern Germany"
           />
         </ul>
       </Container>
@@ -103,12 +96,11 @@ function Job({ name, location, salary }) {
   return (
     <li>
       <a
-        href={`mailto:jobs@solarpunk2077.com?subject=${name}`}
+        href="https://cal.com/team/solarpunk/jobs"
         className="-mt-px block w-full border-t p-4 hover:bg-gray-50 md:flex md:space-x-4"
       >
         <div className="w-full">{name}</div>
         <div className="w-full">{location}</div>
-        <div className="w-full">${salary}</div>
         <div className="w-full md:text-right">
           <span className="underline">Apply</span>
         </div>

@@ -2,15 +2,9 @@
 import clsx from 'clsx'
 import { getCalApi } from '@calcom/embed-react'
 import { useEffect } from 'react'
+import Link from 'next/link'
 
-export default function CTA({
-  invert,
-  link,
-  href,
-  className,
-  children,
-  ...props
-}) {
+export function CTA({ invert, link, href, className, children, ...props }) {
   className = clsx(
     className,
     'inline-flex rounded-full px-4 py-1.5 text-sm font-semibold transition',
@@ -45,9 +39,14 @@ export default function CTA({
 export function ContactButtons() {
   return (
     <div className="mt-4 gap-2 space-y-2 md:flex md:space-y-0">
-      <CTA link="team/solarpunk/farmland">I want to provide land for solar</CTA>
-      <CTA invert link="team/solarpunk/operate-agrivoltaics">
-        I want to lease farmland for solar
+      <Link
+        className="inline-flex rounded-full bg-neutral-950 px-4 py-1.5 text-sm font-semibold text-white transition hover:bg-neutral-800"
+        href="/get-started"
+      >
+        Get started
+      </Link>
+      <CTA invert link="team/solarpunk/farmland">
+        Contact us
       </CTA>
     </div>
   )

@@ -1,6 +1,6 @@
 # Building the Solarpunk Future.
 
-Solarpunk 2077 is exploring [Agrivoltaics](https://en.wikipedia.org/wiki/Agrivoltaics), the intersection of solar energy and agriculture and is on a mission to 100× the deployment solar energy.
+Solarpunk is exploring [Agrivoltaics](https://en.wikipedia.org/wiki/Agrivoltaics), the intersection of solar energy and agriculture and is on a mission to 100× the deployment solar energy.
 
 ## Getting started
 

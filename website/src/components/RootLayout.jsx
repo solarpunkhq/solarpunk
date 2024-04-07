@@ -216,7 +216,7 @@ function RootLayoutInner({ children }) {
                 <div className="grid grid-cols-1 gap-y-10 pb-16 pt-10 text-white sm:grid-cols-2 sm:pt-16">
                   <div>
                     <h2 className="font-display text-base font-semibold">
-                      Solarpunk 2077
+                      Solarpunk
                     </h2>
                     <p className="max-w-[410px]">
                       Our mission is to 100x the deployment of solar panels by
