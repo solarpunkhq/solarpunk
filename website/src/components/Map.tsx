@@ -1,7 +1,7 @@
-import React from "react";
-import { MapContainer, TileLayer } from "react-leaflet";
-import { GeomanControl } from "./GeomanControl";
-import Events from "./Events";
+import React from 'react'
+import { MapContainer, TileLayer } from 'react-leaflet'
+import { GeomanControl } from './GeomanControl'
+import Events from './Events'
 
 const Map = () => {
   return (
@@ -10,7 +10,12 @@ const Map = () => {
         center={[51.505, -0.09]}
         zoom={13}
         scrollWheelZoom={true}
-        style={{ width: "100vw", height: "100vh" }}
+        style={{
+          width: '95vw',
+          height: '100vh',
+          margin: '0 auto',
+          borderRadius: '32px',
+        }}
       >
         <TileLayer
           attribution='<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
@@ -21,7 +26,7 @@ const Map = () => {
         <Events />
       </MapContainer>
     </>
-  );
-};
+  )
+}
 
-export default Map;
+export default Map
