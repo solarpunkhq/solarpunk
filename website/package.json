@@ -10,7 +10,11 @@
   },
   "browserslist": "defaults, not ie <= 11",
   "dependencies": {
+    "leaflet": "^1.9.4",
+    "react-leaflet": "^4.2.1",
+    "@geoman-io/leaflet-geoman-free": "^2.16.0",
     "@algora/sdk": "^0.1.2",
+    "@calcom/atoms": "^1.0.20",
     "@calcom/embed-react": "^1.2.2",
     "@leafac/rehype-shiki": "^2.2.1",
     "@mdx-js/loader": "^2.3.0",
@@ -36,6 +40,7 @@
     "unified-conditional": "0.0.2"
   },
   "devDependencies": {
+    "@types/leaflet": "^1.9.10",
     "@tailwindcss/typography": "^0.5.9",
     "eslint": "8.26.0",
     "eslint-config-next": "13.0.2",

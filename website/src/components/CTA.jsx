@@ -39,13 +39,15 @@ export function CTA({ invert, link, href, className, children, ...props }) {
 export function ContactButtons() {
   return (
     <div className="mt-4 gap-2 space-y-2 md:flex md:space-y-0">
-      <Link
+      {/*    <Link
         className="inline-flex rounded-full bg-neutral-950 px-4 py-1.5 text-sm font-semibold text-white transition hover:bg-neutral-800"
-        href="/get-started"
+        href="/onboarding"
       >
         Get started
-      </Link>
-      <CTA invert link="team/solarpunk/farmland">
+      </Link> */}
+
+      <CTA link="team/solarpunk/farmland">Get started</CTA>
+      <CTA invert link="team/solarpunk/founders">
         Contact us
       </CTA>
     </div>
