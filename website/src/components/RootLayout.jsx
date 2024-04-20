@@ -253,7 +253,7 @@ function RootLayoutInner({ children }) {
 
           <main className="w-full flex-auto">{children}</main>
 
-          <Footer />
+          {/* <Footer /> */}
         </motion.div>
       </motion.div>
     </MotionConfig>
