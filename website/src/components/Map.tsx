@@ -9,12 +9,14 @@ const Map = () => {
       <MapContainer
         center={[51.505, -0.09]}
         zoom={13}
+        className="rounded-l-2xl"
         scrollWheelZoom={true}
         style={{
-          width: '95vw',
-          height: '100vh',
+          width: '100%',
+          height: '80vh',
           margin: '0 auto',
-          borderRadius: '32px',
+          borderTopLeftRadius: '40px',
+          borderBottomLeftRadius: '40px',
         }}
       >
         <TileLayer
