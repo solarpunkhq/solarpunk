@@ -55,7 +55,7 @@ const team = [
     people: [
       {
         name: 'Schuyler Deerman',
-        role: 'Co-Founder, CEO & President',
+        role: 'Co-Founder',
         image: { src: imageSchuyler },
       },
       {
