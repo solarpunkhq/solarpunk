@@ -7,7 +7,7 @@ const Map = () => {
   return (
     <>
       <MapContainer
-        center={[51.505, -0.09]}
+        center={[34.0549, -118.2426]}
         zoom={13}
         className="rounded-l-2xl"
         scrollWheelZoom={true}
@@ -24,7 +24,24 @@ const Map = () => {
           url="https://api.maptiler.com/maps/streets-v2/256/{z}/{x}/{y}.png?key=FTejVijNkqKWPbQui8i9"
         />
 
-        <GeomanControl position="topleft" oneBlock />
+        <GeomanControl
+          position="topleft"
+          drawMarker={false}
+          drawPolyline={false}
+          drawCircle={false}
+          drawRectangle={false}
+          drawText={false}
+          dragMode={false}
+          cutPolygon={false}
+          splitMode={false}
+          scaleMode={false}
+          pinningOption={false}
+          snappingOption={false}
+          drawCircleMarker={false}
+          rotateMode={false}
+          snapGuidesOption={false}
+          autoTracingOption={false}
+        />
         <Events />
       </MapContainer>
     </>
