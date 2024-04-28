@@ -21,6 +21,9 @@ const Geoman = L.Control.extend({
     map.pm.addControls({
       ...this.options,
     })
+    map.pm.setGlobalOptions({
+      measurements: { measurement: true, displayFormat: 'metric' },
+    })
   },
 })
 

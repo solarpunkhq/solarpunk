@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { MapContainer, TileLayer } from 'react-leaflet'
 import { GeomanControl } from './GeomanControl'
 import Events from './Events'
 
-const Map = () => {
+export default function Map() {
+  const lng = 34.0549
+  const lat = -118.2426
+  const [location, setLocation] = useState([lng, lat])
+
   return (
     <>
       <MapContainer
-        center={[34.0549, -118.2426]}
+        center={location}
         zoom={13}
         className="rounded-l-2xl"
         scrollWheelZoom={true}
@@ -28,6 +32,7 @@ const Map = () => {
           position="topleft"
           drawMarker={false}
           drawPolyline={false}
+          measurement
           drawCircle={false}
           drawRectangle={false}
           drawText={false}
@@ -47,5 +52,3 @@ const Map = () => {
     </>
   )
 }
-
-export default Map
