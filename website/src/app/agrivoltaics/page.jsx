@@ -9,7 +9,8 @@ import { PageIntro } from '@/components/PageIntro'
 import { SectionIntro } from '@/components/SectionIntro'
 import { StylizedImage } from '@/components/StylizedImage'
 import { TagList, TagListItem } from '@/components/TagList'
-import imageLaptop from '@/images/solarpunk-background.jpg'
+import imageHero2 from '@/images/solarpunk-background.jpg'
+import imageHero from '@/images/solarpunk-hero.jpg'
 
 function Section({ title, image, children }) {
   return (
@@ -43,7 +44,7 @@ function Section({ title, image, children }) {
 
 function History() {
   return (
-    <Section title="The History" image={{ src: imageLaptop }}>
+    <Section title="The History" image={{ src: imageHero2 }}>
       <div className="space-y-6 text-base text-neutral-600">
         <p>
           Agrivoltaics is combining land for agriculture and solar energy. It
@@ -69,7 +70,7 @@ function Why() {
   return (
     <Section
       title="Why is Agrivoltaics important"
-      image={{ src: imageWhiteboard, shape: 1 }}
+      image={{ src: imageHero, shape: 1 }}
     >
       <div className="space-y-6 text-base text-neutral-600">
         <p>
@@ -119,7 +120,7 @@ function How() {
   return (
     <Section
       title="How Agrivoltaics works"
-      image={{ src: imageLaptop, shape: 2 }}
+      image={{ src: imageHero2, shape: 2 }}
     >
       <div className="space-y-6 text-base text-neutral-600">
         <p>
