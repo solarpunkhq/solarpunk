@@ -5,8 +5,7 @@ import '@/styles/tailwind.css'
 export const metadata = {
   title: {
     template: '%s - Solarpunk',
-    default:
-      'Solarpunk - Exploring Agrivoltaics, the intersection of solar energy and agriculture',
+    default: 'Solarpunk - Covering farms with solar panels',
   },
 }
 

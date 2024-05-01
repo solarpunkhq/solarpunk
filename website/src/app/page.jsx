@@ -33,7 +33,7 @@ const clients = [
 ]
 
 export const metadata = {
-  description: 'Exploring the intersection of solar energy and agriculture',
+  description: 'Covering farms with solar panels',
 }
 
 export default async function Home() {
