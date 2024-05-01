@@ -19,7 +19,7 @@ import logoUnseal from '@/images/clients/unseal/logo-light.svg'
 import imageLaptop from '@/images/solarpunk-background.jpg'
 import { loadMDXMetadata } from '@/lib/loadMDXMetadata'
 import CTA, { ContactButtons } from '@/components/CTA'
-import Herovideo from '@/components/Herovideo'
+import heroImage from '@/images/solarpunk-hero.jpg'
 
 const clients = [
   ['Phobia', logoPhobiaLight],
@@ -31,6 +31,64 @@ const clients = [
   ['Bright Path', logoBrightPath],
   ['North Adventures', logoNorthAdventures],
 ]
+
+export const metadata = {
+  description: 'Exploring the intersection of solar energy and agriculture',
+}
+
+export default async function Home() {
+  let caseStudies = (await loadMDXMetadata('work')).slice(0, 3)
+
+  return (
+    <>
+      <Container className="sm:mt-32 md:mt-56">
+        <Image
+          src={heroImage}
+          alt="Hero"
+          className="absolute inset-0 -z-10 -mt-24 min-h-[1000px] w-full object-cover"
+          unoptimized
+        />{' '}
+        <FadeIn className="gap-2 lg:flex">
+          <div className="mb-8 mt-24 max-w-2xl md:-mt-12">
+            <h1
+              style={{
+                textShadow:
+                  '0.25px 0.25px #0A4769, 0.5px 0.5px #0A4769, 0.75px 0.75px #0A4769, 1px 1px #0A4769, 1.25px 1.25px #0A4769, 1.5px 1.5px #0A4769, 1.75px 1.75px #0A4769, 2px 2px #0A4769, 2.25px 2.25px #0A4769, 2.5px 2.5px #0A4769, 2.75px 2.75px #0A4769, 3px 3px #0A4769, 3.25px 3.25px #0A4769, 3.5px 3.5px #0A4769, 3.75px 3.75px #0A4769, 4px 4px #0A4769, 4.25px 4.25px #0A4769, 4.5px 4.5px #0A4769, 4.75px 4.75px #0A4769, 5px 5px #0A4769, 5.25px 5.25px #0A4769, 5.5px 5.5px #0A4769, 5.75px 5.75px #0A4769, 6px 6px #0A4769',
+              }}
+              className="font-display text-7xl text-white [text-wrap:balance]"
+            >
+              Covering farm land with solar.
+            </h1>
+            <p></p>
+            <ContactButtons />
+          </div>
+        </FadeIn>
+      </Container>
+      {/* 
+      <Clients />
+      */}
+      {/* <Testimonial
+        className="mt-24 sm:mt-32 lg:mt-40"
+        client={{ name: 'Thomas Edison' }}
+      >
+        We are like tenant farmers chopping down the fence around our house for
+        fuel when we should be using natures inexhaustible sources of energy –
+        sun, wind and tide. I'd put my money on the sun and solar energy. What a
+        source of power! I hope we don’t have to wait until oil and coal run out
+        before we tackle that.
+      </Testimonial> */}
+
+      {/* <CaseStudies caseStudies={caseStudies} />
+
+      <Services />
+
+      <Roadmap />
+ */}
+      {/* 
+      <ContactSection /> */}
+    </>
+  )
+}
 
 function Clients() {
   return (
@@ -246,58 +304,6 @@ function Services() {
           </List>
         </div>
       </Container>
-    </>
-  )
-}
-
-export const metadata = {
-  description: 'Exploring the intersection of solar energy and agriculture',
-}
-
-export default async function Home() {
-  let caseStudies = (await loadMDXMetadata('work')).slice(0, 3)
-
-  return (
-    <>
-      <Container className="mt-24 sm:mt-32 md:mt-56">
-        <FadeIn className="gap-2 lg:flex">
-          <div className="mb-8 max-w-2xl">
-            <h1 className="text-5xl font-light tracking-tight text-neutral-950 [text-wrap:balance] sm:text-7xl">
-              Transforming traditional agriculture into{' '}
-              <strong className="font-display">Solarpunk</strong> farms.
-            </h1>
-            <p className="mt-6 max-w-xl text-xl text-neutral-600">
-              We upfront the costs for a solar deployment and handle everything
-              end-to-end for farmers and land owners.
-            </p>
-            <ContactButtons />
-          </div>
-          <div className="w-full">
-            <Herovideo />
-          </div>
-        </FadeIn>
-      </Container>
-      {/* 
-      <Clients />
-      */}
-      <Testimonial
-        className="mt-24 sm:mt-32 lg:mt-40"
-        client={{ name: 'Thomas Edison' }}
-      >
-        We are like tenant farmers chopping down the fence around our house for
-        fuel when we should be using natures inexhaustible sources of energy –
-        sun, wind and tide. I'd put my money on the sun and solar energy. What a
-        source of power! I hope we don’t have to wait until oil and coal run out
-        before we tackle that.
-      </Testimonial>
-
-      <CaseStudies caseStudies={caseStudies} />
-
-      <Services />
-
-      <Roadmap />
-
-      <ContactSection />
     </>
   )
 }

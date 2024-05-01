@@ -71,9 +71,9 @@ function Header({
           />
         </Link>
         <div className="flex items-center gap-x-8">
-          <Button href="https://cal.com/team/solarpunk" invert={invert}>
+          {/* <Button href="https://cal.com/team/solarpunk" invert={invert}>
             Contact us
-          </Button>
+          </Button> */}
           <button
             ref={toggleRef}
             type="button"

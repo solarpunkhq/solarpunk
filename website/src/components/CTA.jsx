@@ -46,9 +46,11 @@ export function ContactButtons() {
         Get started
       </Link> */}
 
-      <CTA link="team/solarpunk/farmland">Get started</CTA>
-      <CTA invert link="team/solarpunk/founders">
-        Contact us
+      <CTA
+        className="mt-6 flex h-12 items-center bg-white text-lg text-black shadow-lg hover:bg-white"
+        link="team/solarpunk/farmland"
+      >
+        See if you qualify
       </CTA>
     </div>
   )
