@@ -57,7 +57,7 @@ export default async function Home() {
               }}
               className="font-display text-7xl text-white [text-wrap:balance]"
             >
-              Covering farm land with solar.
+              Covering farms with solar panels
             </h1>
             <p></p>
             <ContactButtons />
