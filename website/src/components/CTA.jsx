@@ -27,7 +27,7 @@ export function CTA({
       const cal = await getCalApi()
       cal('ui', {
         theme: 'light',
-        styles: { branding: { brandColor: '#0A0A0A' } },
+        styles: { branding: { brandColor: '#F97315' } },
         hideEventTypeDetails: false,
         layout: 'month_view',
       })

@@ -50,8 +50,11 @@ export default async function Home() {
         />
 
         <video
-          autoplay
+          autoPlay
           loop
+          controls
+          playsinline
+          muted
           className="absolute inset-0 -z-10 -mt-24 hidden min-h-[1000px] w-full object-cover sm:block"
         >
           <source type="video/mp4" src="/solarpunk-hero.mp4" />
@@ -73,8 +76,8 @@ export default async function Home() {
               <br />
               <strong>You farm the soil. We'll farm the sun.</strong>
             </p>
-            <div className="absolute -left-64 -top-4 -z-10 h-[400px] w-[900px] rounded-full bg-black opacity-50 blur-2xl" />
-            <div className="absolute -left-64 -top-4 -z-10 h-[420px] w-[1000px] rounded-full bg-black opacity-25 blur-3xl" />
+            <div className="absolute -left-64 -top-12 -z-10 h-[400px] w-[900px] rounded-full bg-black opacity-50 blur-2xl" />
+            <div className="absolute -left-64 -top-12 -z-10 h-[420px] w-[1000px] rounded-full bg-black opacity-25 blur-3xl" />
             <div className="l fixed -left-64 bottom-0 top-0 -z-10 flex h-full w-[1000px] bg-gradient-to-r from-black to-transparent opacity-25" />
             <ContactButtons />
           </div>
