@@ -54,12 +54,25 @@ export function ContactButtons() {
         Get started
       </Link> */}
 
-      <CTA
-        className="mt-6 flex h-12 items-center bg-orange-500 text-lg shadow-lg  hover:bg-orange-700 "
-        link="team/solarpunk/farmland"
-      >
-        See if you qualify
-      </CTA>
+      <div>
+        <CTA
+          className="group mt-6 flex h-12 items-center border-2 border-orange-500 bg-orange-500 px-4 text-lg shadow-lg hover:border-orange-700 hover:bg-orange-500"
+          link="team/solarpunk/farmland"
+        >
+          <img
+            src="https://cal.com/api/avatar/bb2fd2c4-9df6-4837-ba82-87b38b2cb5ba.png"
+            className="h-6 w-6 rounded-full border-2 border-orange-500"
+          />
+          <img
+            src="https://cal.com/api/avatar/8d4e5764-ade0-4ff1-bc95-7a31a3572267.png"
+            className="-ml-2 h-6 w-6 rounded-full border-2 border-orange-500"
+          />
+          <span className="ml-2 mt-px inline-block">Schedule a call</span>
+        </CTA>
+        <small className="block text-center text-white">
+          see if you qualify
+        </small>
+      </div>
     </div>
   )
 }
