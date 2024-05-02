@@ -78,7 +78,6 @@ export default async function Home() {
             </p>
             <div className="absolute -left-64 -top-12 -z-10 h-[400px] w-[900px] rounded-full bg-black opacity-50 blur-2xl" />
             <div className="absolute -left-64 -top-12 -z-10 h-[420px] w-[1000px] rounded-full bg-black opacity-25 blur-3xl" />
-            <div className="l fixed -left-64 bottom-0 top-0 -z-10 flex h-full w-[1000px] bg-gradient-to-r from-black to-transparent opacity-25" />
             <ContactButtons />
           </div>
         </FadeIn>
