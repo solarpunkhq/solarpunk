@@ -17,3 +17,12 @@
   font-stretch: 75% 125%;
   src: url('../fonts/CalSans-SemiBold.woff2') format('woff2');
 }
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

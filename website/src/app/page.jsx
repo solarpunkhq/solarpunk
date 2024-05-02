@@ -41,23 +41,23 @@ export default async function Home() {
 
   return (
     <>
-      <Container className="sm:mt-32 md:mt-56">
-        <Image
-          src={heroImage}
-          alt="Hero"
-          className="absolute inset-0 -z-10 -mt-24 min-h-[1000px] w-full object-cover sm:hidden"
-          unoptimized
-        />
+      <Image
+        src={heroImage}
+        alt="Hero"
+        className="absolute inset-0 -z-10 -mt-24 min-h-[calc(100vh+96px)] w-full object-cover sm:hidden"
+        unoptimized
+      />
 
-        <video
-          autoPlay
-          loop
-          playsinline
-          muted
-          className="absolute inset-0 -z-10 -mt-24 hidden min-h-[1000px] w-full object-cover sm:block"
-        >
-          <source type="video/mp4" src="/solarpunk-hero.mp4" />
-        </video>
+      <video
+        autoPlay
+        loop
+        playsinline
+        muted
+        className="absolute inset-0 -z-10 -mt-24 hidden min-h-[calc(100vh+96px)] w-full object-cover sm:block"
+      >
+        <source type="video/mp4" src="/solarpunk-hero.mp4" />
+      </video>
+      <Container className="sm:mt-32 md:mt-56">
         <FadeIn className="gap-2 lg:flex">
           <div className="relative mb-8 mt-24 max-w-2xl md:-mt-12">
             <h1
