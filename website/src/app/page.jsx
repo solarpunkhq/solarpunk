@@ -63,7 +63,7 @@ export default async function Home() {
             <h1
               style={{
                 textShadow:
-                  '0.25px 0.25px #0A4769, 0.5px 0.5px #0A4769, 0.75px 0.75px #0A4769, 1px 1px #0A4769, 1.25px 1.25px #0A4769, 1.5px 1.5px #0A4769, 1.75px 1.75px #0A4769, 2px 2px #0A4769, 2.25px 2.25px #0A4769, 2.5px 2.5px #0A4769, 2.75px 2.75px #0A4769, 3px 3px #0A4769, 3.25px 3.25px #0A4769, 3.5px 3.5px #0A4769, 3.75px 3.75px #0A4769, 4px 4px #0A4769, 4.25px 4.25px #0A4769, 4.5px 4.5px #0A4769, 4.75px 4.75px #0A4769, 5px 5px #0A4769, 5.25px 5.25px #0A4769, 5.5px 5.5px #0A4769, 5.75px 5.75px #0A4769, 6px 6px #0A4769',
+                  '0.25px 0.25px #000, 0.5px 0.5px #000, 0.75px 0.75px #000, 1px 1px #000, 1.25px 1.25px #000, 1.5px 1.5px #000, 1.75px 1.75px #000, 2px 2px #000, 2.25px 2.25px #000, 2.5px 2.5px #000, 2.75px 2.75px #000, 3px 3px #000, 3.25px 3.25px #000, 3.5px 3.5px #000, 3.75px 3.75px #000, 4px 4px #000, 4.25px 4.25px #000, 4.5px 4.5px #000, 4.75px 4.75px #000, 5px 5px #000, 5.25px 5.25px #000, 5.5px 5.5px #000, 5.75px 5.75px #000, 6px 6px #000',
               }}
               className="mb-6 font-display text-7xl text-white [text-wrap:balance]"
             >
