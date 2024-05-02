@@ -35,7 +35,7 @@ export default function Layout({ children }) {
           defer
         ></script>
       </head>
-      <body className="flex min-h-full flex-col">
+      <body className="flex min-h-full flex-col bg-black">
         <RootLayout>{children}</RootLayout>
       </body>
     </html>

@@ -19,7 +19,6 @@ import logoUnseal from '@/images/clients/unseal/logo-light.svg'
 import imageLaptop from '@/images/solarpunk-background.jpg'
 import { loadMDXMetadata } from '@/lib/loadMDXMetadata'
 import CTA, { ContactButtons } from '@/components/CTA'
-import heroImage from '@/images/solarpunk-hero.jpg'
 
 const clients = [
   ['Phobia', logoPhobiaLight],
@@ -42,14 +41,22 @@ export default async function Home() {
   return (
     <>
       <Container className="sm:mt-32 md:mt-56">
-        <Image
+        {/* <Image
           src={heroImage}
           alt="Hero"
           className="absolute inset-0 -z-10 -mt-24 min-h-[1000px] w-full object-cover"
           unoptimized
-        />{' '}
+        />{' '} */}
+
+        <video
+          autoplay
+          loop
+          className="absolute inset-0 -z-10 -mt-24 min-h-[1000px] w-full object-cover"
+        >
+          <source type="video/mp4" src="/solarpunk-hero.mp4" />
+        </video>
         <FadeIn className="gap-2 lg:flex">
-          <div className="mb-8 mt-24 max-w-2xl md:-mt-12">
+          <div className="relative mb-8 mt-24 max-w-2xl md:-mt-12">
             <h1
               style={{
                 textShadow:
@@ -59,16 +66,15 @@ export default async function Home() {
             >
               Covering farms with solar panels
             </h1>
-            <p className="inline rounded-2xl bg-white px-4 py-3 text-black">
-              <span className="pe-2">
-                We help plan, finance and build solar parks on your existing
-                farmland.
-              </span>
+            <p className="inline rounded-2xl text-xl text-white">
+              We help plan, finance and build solar parks on your existing
+              farmland.
               <br />
-              <span className="ps-4">
-                You are farming the soil. We are farming the sun.
-              </span>
+              <strong>You farm the soil. We'll farm the sun.</strong>
             </p>
+            <div className="absolute -left-64 -top-4 -z-10 h-[400px] w-[900px] rounded-full bg-black opacity-50 blur-2xl" />
+            <div className="absolute -left-64 -top-4 -z-10 h-[420px] w-[1000px] rounded-full bg-black opacity-25 blur-3xl" />
+            <div className="l fixed -left-64 bottom-0 top-0 -z-10 flex h-full w-[1000px] bg-gradient-to-r from-black to-transparent opacity-25" />
             <ContactButtons />
           </div>
         </FadeIn>
