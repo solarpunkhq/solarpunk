@@ -69,7 +69,7 @@ export function ContactButtons() {
           />
           <span className="ml-2 mt-px inline-block">Schedule a call</span>
         </CTA>
-        <small className="block text-center text-white">
+        <small className="block text-center !text-white">
           see if you qualify
         </small>
       </div>

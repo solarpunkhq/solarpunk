@@ -27,9 +27,7 @@ export function ContactSection() {
             >
               Talk to us about your Solarpunk project
             </h2>
-            <div className="invert">
-              <ContactButtons />
-            </div>
+            <ContactButtons />
             {/* <div className="mt-10 border-t border-white/10 pt-10">
               <h3 className="font-display text-base font-semibold text-white">
                 Our offices
