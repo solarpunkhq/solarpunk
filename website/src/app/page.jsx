@@ -19,6 +19,7 @@ import logoUnseal from '@/images/clients/unseal/logo-light.svg'
 import imageLaptop from '@/images/solarpunk-background.jpg'
 import { loadMDXMetadata } from '@/lib/loadMDXMetadata'
 import CTA, { ContactButtons } from '@/components/CTA'
+import heroImage from '@/images/solarpunk-hero.jpg'
 
 const clients = [
   ['Phobia', logoPhobiaLight],
@@ -41,17 +42,17 @@ export default async function Home() {
   return (
     <>
       <Container className="sm:mt-32 md:mt-56">
-        {/* <Image
+        <Image
           src={heroImage}
           alt="Hero"
-          className="absolute inset-0 -z-10 -mt-24 min-h-[1000px] w-full object-cover"
+          className="absolute inset-0 -z-10 -mt-24 min-h-[1000px] w-full object-cover sm:hidden"
           unoptimized
-        />{' '} */}
+        />
 
         <video
           autoplay
           loop
-          className="absolute inset-0 -z-10 -mt-24 min-h-[1000px] w-full object-cover"
+          className="absolute inset-0 -z-10 -mt-24 hidden min-h-[1000px] w-full object-cover sm:block"
         >
           <source type="video/mp4" src="/solarpunk-hero.mp4" />
         </video>
