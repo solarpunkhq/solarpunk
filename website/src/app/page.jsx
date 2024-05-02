@@ -60,8 +60,14 @@ export default async function Home() {
               Covering farms with solar panels
             </h1>
             <p className="inline rounded-2xl bg-white px-4 py-3 text-black">
-              We help plan, finance and build solar parks on your existing
-              farmland.
+              <span className="pe-2">
+                We help plan, finance and build solar parks on your existing
+                farmland.
+              </span>
+              <br />
+              <span className="ps-4">
+                You are farming the soil. We are farming the sun.
+              </span>
             </p>
             <ContactButtons />
           </div>

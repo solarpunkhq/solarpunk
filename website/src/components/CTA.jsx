@@ -55,7 +55,7 @@ export function ContactButtons() {
       </Link> */}
 
       <CTA
-        className="mt-6 flex h-12 items-center bg-white text-lg !text-black shadow-lg hover:bg-white"
+        className="mt-6 flex h-12 items-center bg-orange-500 text-lg shadow-lg  hover:bg-orange-700 "
         link="team/solarpunk/farmland"
       >
         See if you qualify
