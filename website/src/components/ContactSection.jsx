@@ -9,14 +9,14 @@ import Image from 'next/image'
 export function ContactSection() {
   return (
     <Container className="mt-24 sm:mt-32 lg:mt-40">
-      <FadeIn className="relative -z-20 -mx-6 mb-12 overflow-hidden bg-black px-6 py-20 sm:mx-0 sm:rounded-4xl sm:py-32 md:px-12">
+      <FadeIn className="relative z-0 -mx-6 mb-12 overflow-hidden bg-black px-6 py-20 sm:mx-0 sm:rounded-4xl sm:py-32 md:px-12">
         <Image
           src={heroImage}
           alt="Hero"
           className="absolute inset-0 -z-10 -mt-96 min-h-[1000px] w-full object-cover opacity-40"
           unoptimized
         />{' '}
-        <div className="mx-auto max-w-4xl">
+        <div className="relative z-30 mx-auto max-w-4xl">
           <div className="max-w-lg">
             <h2
               style={{
