@@ -1,7 +1,36 @@
 # Building the Solarpunk Future.
 
-<a href="https://solarpunk2077.com"><img src="https://github.com/solarpunk2077/solarpunk/assets/8019099/234b5d54-550e-421e-abc7-6ec8601b3372" alt="Solarpunk Hero"></a>
+Solarpunk is exploring [Agrivoltaics](https://en.wikipedia.org/wiki/Agrivoltaics), the intersection of solar energy and agriculture and is on a mission to 100× the deployment solar energy.
 
+## Getting started
 
+To get started with this template, first install the npm dependencies:
 
-Solarpunk 2077 is exploring Agrivoltaics, the intersection of solar energy and agriculture, and is on a mission to 100× the deployment of solar energy.
+```bash
+npm install
+```
+
+Next, run the development server:
+
+```bash
+npm run dev
+```
+
+Finally, open [http://localhost:3000](http://localhost:3000) in your browser to view the website.
+
+## Customizing
+
+You can start editing this template by modifying the files in the `/src` folder. The site will auto-update as you edit these files.
+
+## License
+
+This site template is a commercial product and is licensed under the [Tailwind UI license](https://tailwindui.com/license).
+
+## Learn more
+
+To learn more about the technologies used in this site template, see the following resources:
+
+- [Tailwind CSS](https://tailwindcss.com/docs) - the official Tailwind CSS documentation
+- [Next.js](https://nextjs.org/docs) - the official Next.js documentation
+- [Framer Motion](https://www.framer.com/docs/) - the official Framer Motion documentation
+- [MDX](https://mdxjs.com/) - the official MDX documentation
