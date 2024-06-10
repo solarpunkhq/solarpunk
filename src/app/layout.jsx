@@ -1,4 +1,6 @@
 import { RootLayout } from '@/components/RootLayout'
+import { Inter as FontSans } from 'next/font/google'
+import { cn } from '@/lib/utils'
 
 import '@/styles/tailwind.css'
 
@@ -8,6 +10,11 @@ export const metadata = {
     default: 'Solarpunk - Covering farms with solar panels',
   },
 }
+
+const fontSans = FontSans({
+  subsets: ['latin'],
+  variable: '--font-sans',
+})
 
 export default function Layout({ children }) {
   return (
@@ -35,7 +42,12 @@ export default function Layout({ children }) {
           defer
         ></script>
       </head>
-      <body className="flex min-h-full flex-col bg-black">
+      <body
+        className={cn(
+          'flex min-h-screen flex-col bg-black font-sans antialiased',
+          fontSans.variable
+        )}
+      >
         <RootLayout>{children}</RootLayout>
       </body>
     </html>
