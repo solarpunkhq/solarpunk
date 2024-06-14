@@ -9,7 +9,7 @@ import Image from 'next/image'
 export function ContactSection() {
   return (
     <Container className="mt-24 sm:mt-32 lg:mt-40">
-      <FadeIn className="relative z-0 -mx-6 mb-12 overflow-hidden bg-black px-6 py-20 sm:mx-0 sm:rounded-4xl sm:py-32 md:px-12">
+      <FadeIn className="relative z-0 -mx-6 mb-12 overflow-hidden bg-black px-6 py-20 sm:mx-0 sm:rounded-3xl sm:py-32 md:px-12">
         <Image
           src={heroImage}
           alt="Hero"

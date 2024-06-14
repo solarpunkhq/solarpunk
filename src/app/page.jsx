@@ -65,7 +65,7 @@ export default async function Home() {
                 textShadow:
                   '0.25px 0.25px #000, 0.5px 0.5px #000, 0.75px 0.75px #000, 1px 1px #000, 1.25px 1.25px #000, 1.5px 1.5px #000, 1.75px 1.75px #000, 2px 2px #000, 2.25px 2.25px #000, 2.5px 2.5px #000, 2.75px 2.75px #000, 3px 3px #000, 3.25px 3.25px #000, 3.5px 3.5px #000, 3.75px 3.75px #000, 4px 4px #000, 4.25px 4.25px #000, 4.5px 4.5px #000, 4.75px 4.75px #000, 5px 5px #000, 5.25px 5.25px #000, 5.5px 5.5px #000, 5.75px 5.75px #000, 6px 6px #000',
               }}
-              className="font-display mb-6 text-7xl text-white [text-wrap:balance]"
+              className="mb-6 font-display text-7xl text-white [text-wrap:balance]"
             >
               Covering farms with solar panels
             </h1>
@@ -84,7 +84,7 @@ export default async function Home() {
       {/* 
       <Clients />
       */}
-      {/* <Testimonial
+      <Testimonial
         className="mt-24 sm:mt-32 lg:mt-40"
         client={{ name: 'Thomas Edison' }}
       >
@@ -93,16 +93,14 @@ export default async function Home() {
         sun, wind and tide. I'd put my money on the sun and solar energy. What a
         source of power! I hope we don’t have to wait until oil and coal run out
         before we tackle that.
-      </Testimonial> */}
+      </Testimonial>
 
-      {/* <CaseStudies caseStudies={caseStudies} />
+      <CaseStudies caseStudies={caseStudies} />
 
       <Services />
 
       <Roadmap />
- */}
-      {/* 
-      <ContactSection /> */}
+      <ContactSection />
     </>
   )
 }
@@ -112,7 +110,7 @@ function Clients() {
     <div className="rounded-4xl mt-24 bg-neutral-950 py-20 sm:mt-32 sm:py-32 lg:mt-56">
       <Container>
         <FadeIn className="flex items-center gap-x-8">
-          <h2 className="font-display text-center text-sm font-semibold tracking-wider text-white sm:text-left">
+          <h2 className="text-center font-display text-sm font-semibold tracking-wider text-white sm:text-left">
             We’ve worked with hundreds of amazing people
           </h2>
           <div className="h-px flex-auto bg-neutral-800" />
@@ -175,7 +173,7 @@ function CaseStudies({ caseStudies }) {
                   </span>
                   <span>Report</span>
                 </p>
-                <p className="font-display mt-6 text-2xl font-semibold text-neutral-950">
+                <p className="mt-6 font-display text-2xl font-semibold text-neutral-950">
                   {caseStudy.title}
                 </p>
                 <p className="mt-4 text-base text-neutral-600">
@@ -193,7 +191,10 @@ function CaseStudies({ caseStudies }) {
 function Roadmap() {
   return (
     <div id="roadmap" className="prose prose-xl mx-auto">
-      <SectionIntro title="Roadmap" className="mx-auto mt-24 sm:mt-32 lg:mt-40">
+      <SectionIntro
+        title="Roadmap"
+        className="mx-auto mt-24 space-y-4 sm:mt-32 lg:mt-40"
+      >
         <p>
           Our mission is to 100× the deployment of solar energy with the help of
           agrivoltaics. To achieve this, we are splitting our project into three
