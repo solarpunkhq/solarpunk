@@ -8,7 +8,7 @@ const Map = dynamic(() => import('../../components/Map'), {
 
 export default function Contact() {
   return (
-    <div className="-mb-[200px] mt-12 ">
+    <div className="mb-[200px] mt-12 ">
       <div className="flex px-8">
         <Map />
         <aside className="w-full max-w-96 rounded-r-4xl border border-l-0 bg-white p-8">
