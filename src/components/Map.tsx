@@ -2,11 +2,13 @@ import React, { useState } from 'react'
 import { MapContainer, TileLayer } from 'react-leaflet'
 import { GeomanControl } from './GeomanControl'
 import Events from './Events'
+import { LatLngTuple } from 'leaflet'
+import { GeomanSearchControl } from './GeomanSearch'
 
 export default function Map() {
   const lng = 34.0549
   const lat = -118.2426
-  const [location, setLocation] = useState([lng, lat])
+  const [location, setLocation] = useState<LatLngTuple>([lng, lat])
 
   return (
     <>
@@ -47,6 +49,7 @@ export default function Map() {
           snapGuidesOption={false}
           autoTracingOption={false}
         />
+        <GeomanSearchControl showMarker={false} />
         <Events />
       </MapContainer>
     </>
