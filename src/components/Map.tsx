@@ -2,14 +2,24 @@ import React, { useState } from 'react'
 import { MapContainer, TileLayer } from 'react-leaflet'
 import { GeomanControl } from './GeomanControl'
 import Events from './Events'
-import { LatLngTuple } from 'leaflet'
+import { LatLngTuple, Layer } from 'leaflet'
 import { GeomanSearchControl } from './GeomanSearch'
 import { EnableVertexTool } from './EnableVertexTool'
+import { EventsHandler } from './EventsHandler'
 
-export default function Map() {
+export default function Map({ setOutlinedAreas }: { setOutlinedAreas: any }) {
   const lng = 34.0549
   const lat = -118.2426
   const [location, setLocation] = useState<LatLngTuple>([lng, lat])
+
+  function handleLayerCreateEvent(e: { shape: string; layer: Layer }) {
+    if (e.shape === 'Polygon') {
+      const geoJson = e.layer.toGeoJSON()
+      const coordinates = geoJson.geometry.coordinates
+      const areaSqm = e.layer.pm.measurements.area
+      setOutlinedAreas((prev) => [...prev, { coordinates, areaSqm }])
+    }
+  }
 
   return (
     <>
@@ -53,6 +63,8 @@ export default function Map() {
         <GeomanSearchControl showMarker={false} />
 
         <EnableVertexTool />
+        <EventsHandler handleLayerCreateEvent={handleLayerCreateEvent} />
+
         <Events />
       </MapContainer>
     </>
