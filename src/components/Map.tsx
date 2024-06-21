@@ -4,6 +4,7 @@ import { LatLngTuple } from 'leaflet'
 import { GeomanControl } from './GeomanControl'
 import { GeoSearch } from './GeoSearch'
 import Events from './Events'
+import { SelectTool } from './SelectTool'
 
 export default function Map() {
   const lng = 34.0549
@@ -50,6 +51,7 @@ export default function Map() {
           autoTracingOption={false}
         />
         <Events />
+        <SelectTool toolName="Polygon" />
         <GeoSearch/>
       </MapContainer>
     </>
