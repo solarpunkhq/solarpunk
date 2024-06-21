@@ -4,6 +4,7 @@ import { GeomanControl } from './GeomanControl'
 import Events from './Events'
 import { LatLngTuple } from 'leaflet'
 import { GeomanSearchControl } from './GeomanSearch'
+import { EnableVertexTool } from './EnableVertexTool'
 
 export default function Map() {
   const lng = 34.0549
@@ -50,6 +51,8 @@ export default function Map() {
           autoTracingOption={false}
         />
         <GeomanSearchControl showMarker={false} />
+
+        <EnableVertexTool />
         <Events />
       </MapContainer>
     </>
