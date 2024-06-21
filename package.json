@@ -27,6 +27,7 @@
     "focus-visible": "^5.2.0",
     "framer-motion": "^10.12.16",
     "leaflet": "^1.9.4",
+    "leaflet-geosearch": "^4.0.0",
     "lucide-react": "^0.390.0",
     "next": "13.4.9",
     "postcss-focus-visible": "^6.0.4",
