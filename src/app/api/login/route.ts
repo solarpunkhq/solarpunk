@@ -12,7 +12,7 @@ export async function POST(request: Request) {
     email: email,
     options: {
       shouldCreateUser: true,
-      emailRedirectTo: process.env.EMAIL_REDIRECT_TO,
+      emailRedirectTo: `/dashboard`,
     },
   })
   console.log(data, error)

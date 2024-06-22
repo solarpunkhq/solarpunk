@@ -1,7 +1,5 @@
-'use client'
-
-import { createClient } from '@/utils/supabase/client'
 import CurrentStep from '@/components/CurrentStep'
+import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
 
 export default async function DashboardPage() {
@@ -10,8 +8,10 @@ export default async function DashboardPage() {
   const { data, error } = await supabase.auth.getUser()
 
   const { user } = data
-  console.log(data, user, error)
-  if (user === undefined || user === null) {
+
+  console.log(user)
+
+  if (user === null || user === undefined) {
     redirect('/login')
   }
 

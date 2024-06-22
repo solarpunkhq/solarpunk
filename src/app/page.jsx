@@ -51,7 +51,7 @@ export default async function Home() {
       <video
         autoPlay
         loop
-        playsinline
+        playsInline
         muted
         className="absolute inset-0 -z-10 -mt-24 hidden min-h-[calc(100vh+96px)] w-full object-cover sm:block"
       >
