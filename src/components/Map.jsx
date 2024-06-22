@@ -13,9 +13,7 @@ const Search = (props) => {
   const map = useMap()
   const { provider } = props
 
-  //@ts-ignore
   useEffect(() => {
-    //@ts-ignore
     const searchControl = new GeoSearchControl({
       provider,
       style: 'bar',
@@ -29,16 +27,10 @@ const Search = (props) => {
   return null
 }
 
-export default function Map({
-  acres,
-  setAcres,
-}: {
-  acres: Acre[]
-  setAcres: (acres: Acre[]) => void
-}) {
+export default function Map({ acres, setAcres }) {
   const lng = 34.0549
   const lat = -118.2426
-  const [location, setLocation] = useState<LatLngTuple>([lng, lat])
+  const [location, setLocation] = useState < LatLngTuple > [lng, lat]
 
   return (
     <>

@@ -12,9 +12,10 @@ export async function POST(request: Request) {
     email: email,
     options: {
       shouldCreateUser: true,
-      emailRedirectTo: 'localhost:3000/dashboard',
+      emailRedirectTo: process.env.EMAIL_REDIRECT_TO,
     },
   })
+  console.log(data, error)
 
   return NextResponse.json(
     { message: 'Submitted Successfully' },

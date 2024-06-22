@@ -22,7 +22,7 @@ export async function POST(request: Request) {
   })
 
   const { data, error } = await resend.emails.send({
-    from: 'onboarding@resend.dev',
+    from: 'varun@varunbalani.com',
     to: body.email,
     subject: 'Welcome to SolarPunkHQ',
     react: ThankYouTemplate({}),
