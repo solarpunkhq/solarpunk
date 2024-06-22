@@ -36,6 +36,7 @@ const nextConfig = {
       '@react-email/render',
       '@react-email/tailwind',
     ],
+    serverActions: {},
   },
 }
 
