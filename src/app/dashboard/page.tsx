@@ -1,27 +1,23 @@
-import { redirect } from 'next/navigation'
-import { useSearchParams } from 'next/navigation'
-import { createClient } from '@/utils/supabase/server'
+'use client'
 
-export default async function DashboardPage({
-  params,
-  searchParams,
-}: {
-  params: { slug: string }
-  searchParams?: { [key: string]: string | undefined }
-}) {
+import { createClient } from '@/utils/supabase/client'
+import CurrentStep from '@/components/CurrentStep'
+import { redirect } from 'next/navigation'
+
+export default async function DashboardPage() {
   const supabase = createClient()
-  console.log(params, searchParams)
-  const code = searchParams?.code
-  if (!code) {
+
+  const { data, error } = await supabase.auth.getUser()
+
+  const { user } = data
+  console.log(data, user, error)
+  if (user === undefined || user === null) {
     redirect('/login')
   }
 
-  await supabase.auth.exchangeCodeForSession(code)
-
   return (
     <div className="flex h-full w-full flex-col items-center justify-center">
-      <h1 className="text-xl font-bold">Dashboard</h1>
-      <div>Dashboard page content</div>
+      <CurrentStep email={user.email ? user.email : null} />
     </div>
   )
 }

@@ -30,7 +30,7 @@ const Search = (props) => {
 export default function Map({ acres, setAcres }) {
   const lng = 34.0549
   const lat = -118.2426
-  const [location, setLocation] = useState < LatLngTuple > [lng, lat]
+  const [location, setLocation] = useState([lng, lat])
 
   return (
     <>

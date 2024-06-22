@@ -17,7 +17,7 @@ export async function POST(request: Request) {
       acres: {
         create: body.acres,
       },
-      current_step: 1,
+      current_step: 0,
     },
   })
 
