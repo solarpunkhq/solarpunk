@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic'
 import { Button } from '@/components/Button'
 import { useState } from 'react'
 import { Acre } from '@/utils/types'
+import { useRouter } from 'next/navigation'
 
 const Map = dynamic(() => import('../../components/Map'), {
   ssr: false,
@@ -13,6 +14,8 @@ export default function Contact() {
 
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
+
+  const router = useRouter()
 
   const submitForm = async () => {
     try {
@@ -31,7 +34,7 @@ export default function Contact() {
       if (response.ok) {
         const data = await response.json()
         console.log('Response data:', data)
-        // Handle successful response
+        router.push('/onboarding/success')
       } else {
         console.error('Error:', response.statusText)
         // Handle error response
