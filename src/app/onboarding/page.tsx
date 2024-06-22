@@ -14,18 +14,6 @@ export default function Contact() {
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
 
-  const handleRevenueChange = (
-    index: number,
-    event: React.FocusEvent<HTMLTableCellElement>
-  ) => {
-    const newRevenue = event.currentTarget.textContent || ''
-    setAcres((prevAcres) => {
-      const newAcres = [...prevAcres]
-      newAcres[index] = { ...newAcres[index], revenue: newRevenue }
-      return newAcres
-    })
-  }
-
   const submitForm = async () => {
     try {
       const response = await fetch('/api/submit_onboarding', {
@@ -83,12 +71,9 @@ export default function Contact() {
                       >
                         Area {index + 1}
                       </th>
-                      <td
-                        className="cell-editable px-6 py-4"
-                        contentEditable={true}
-                        data-placeholder="Revenue/yr"
-                        onBlur={(e) => handleRevenueChange(index, e)}
-                      ></td>
+                      <td className="px-6 py-4">
+                        ${acre.revenue.toLocaleString()}/yr
+                      </td>
                     </tr>
                   ))}
                   {acres.length === 0 && (

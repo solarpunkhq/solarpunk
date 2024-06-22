@@ -12,11 +12,20 @@ const Events = ({
 }) => {
   const map = useMap()
 
-  // any since geoman types
+  const calculateRevenueForAcre = (area) => {
+    const revenuePerAcre = 14000 // Assuming average conditions
+    const revenue = Math.floor(area * revenuePerAcre)
+
+    return revenue
+  }
+
   const layerToAcre = (layer: any) => {
     const acre: Acre = {
       latlngs: layer._latlngs,
-      area: layer.pm.measurements.area / 1000000,
+      area: (layer.pm.measurements.area / 1000000) * 247.105,
+      revenue: calculateRevenueForAcre(
+        (layer.pm.measurements.area / 1000000) * 247.105
+      ),
     }
     return acre
   }

@@ -1,10 +1,33 @@
 import React, { useState } from 'react'
-import { MapContainer, TileLayer } from 'react-leaflet'
+import { MapContainer } from 'react-leaflet'
 import { GeomanControl } from './GeomanControl'
 import Events from './Events'
 import { LatLngTuple } from 'leaflet'
 import ReactLeafletGoogleLayer from 'react-leaflet-google-layer'
 import { Acre } from '@/utils/types'
+import { useMap } from 'react-leaflet'
+import { useEffect } from 'react'
+import { GeoSearchControl, GoogleProvider } from 'leaflet-geosearch'
+
+const Search = (props) => {
+  const map = useMap()
+  const { provider } = props
+
+  //@ts-ignore
+  useEffect(() => {
+    //@ts-ignore
+    const searchControl = new GeoSearchControl({
+      provider,
+      style: 'bar',
+      showMarker: false,
+    })
+
+    map.addControl(searchControl)
+    return () => map.removeControl(searchControl)
+  }, [props])
+
+  return null
+}
 
 export default function Map({
   acres,
@@ -33,7 +56,7 @@ export default function Map({
         }}
       >
         <ReactLeafletGoogleLayer
-          apiKey={process.env.MAPS_API_KEY}
+          apiKey={process.env.NEXT_PUBLIC_MAPS_API_KEY}
           type={'hybrid'}
         />
 
@@ -55,6 +78,11 @@ export default function Map({
           rotateMode={false}
           snapGuidesOption={false}
           autoTracingOption={false}
+        />
+        <Search
+          provider={
+            new GoogleProvider({ apiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY })
+          }
         />
         <Events acres={acres} setAcres={setAcres} />
       </MapContainer>

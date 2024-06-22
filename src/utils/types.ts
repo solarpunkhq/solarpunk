@@ -6,5 +6,5 @@ export interface LatLng {
 export interface Acre {
   area: number
   latlngs: LatLng[]
-  revenue?: string
+  revenue: number
 }
