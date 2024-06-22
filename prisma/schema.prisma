@@ -8,10 +8,23 @@ generator client {
   provider = "prisma-client-js"
 }
 
+model User {
+  id              Int     @id @default(autoincrement())
+  name            String
+  email           String
+  phone_number    String?
+  about_farm      String?
+  current_step    Int?
+  finance_option  String?
+  acres           Acre[]
+}
+
 model Acre {
   id        Int     @id @default(autoincrement())
   revenue   Float   
+  latlngs   Json[]
   area      Float
-  user      String
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
 }
 
