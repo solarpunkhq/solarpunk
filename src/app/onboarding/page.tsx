@@ -11,6 +11,49 @@ const Map = dynamic(() => import('../../components/Map'), {
 export default function Contact() {
   const [acres, setAcres] = useState<Acre[]>([])
 
+  const [email, setEmail] = useState('')
+  const [name, setName] = useState('')
+
+  const handleRevenueChange = (
+    index: number,
+    event: React.FocusEvent<HTMLTableCellElement>
+  ) => {
+    const newRevenue = event.currentTarget.textContent || ''
+    setAcres((prevAcres) => {
+      const newAcres = [...prevAcres]
+      newAcres[index] = { ...newAcres[index], revenue: newRevenue }
+      return newAcres
+    })
+  }
+
+  const submitForm = async () => {
+    try {
+      const response = await fetch('/api/submit_onboarding', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          name,
+          acres,
+        }),
+      })
+
+      if (response.ok) {
+        const data = await response.json()
+        console.log('Response data:', data)
+        // Handle successful response
+      } else {
+        console.error('Error:', response.statusText)
+        // Handle error response
+      }
+    } catch (error) {
+      console.error('Fetch error:', error)
+      // Handle network or other errors
+    }
+  }
+
   return (
     <div className="-mb-[200px] mt-12 ">
       <div className="flex px-8">
@@ -32,33 +75,6 @@ export default function Contact() {
                   </tr>
                 </thead>
                 <tbody>
-                  {/* <tr className="border-b bg-white ">
-                    <th
-                      scope="row"
-                      className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 "
-                    >
-                      Area 01
-                    </th>
-                    <td className="px-6 py-4">$700,000/yr</td>
-                  </tr>
-                  <tr className="border-b bg-white ">
-                    <th
-                      scope="row"
-                      className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 "
-                    >
-                      Area 02
-                    </th>
-                    <td className="px-6 py-4">$600,000/yr</td>
-                  </tr>
-                  <tr className="bg-gray-50">
-                    <th
-                      scope="row"
-                      className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 "
-                    >
-                      Total
-                    </th>
-                    <td className="px-6 py-4">$1,300,00/yr</td>
-                  </tr> */}
                   {acres.map((acre, index) => (
                     <tr key={index} className="border-b bg-white ">
                       <th
@@ -71,7 +87,8 @@ export default function Contact() {
                         className="cell-editable px-6 py-4"
                         contentEditable={true}
                         data-placeholder="Revenue/yr"
-                      ></td>{' '}
+                        onBlur={(e) => handleRevenueChange(index, e)}
+                      ></td>
                     </tr>
                   ))}
                   {acres.length === 0 && (
@@ -82,17 +99,32 @@ export default function Contact() {
                       >
                         Select an area
                       </th>
-                      <td className="px-6 py-4">$xxx,yyy/yr</td>{' '}
+                      <td className="px-6 py-4">$xxx,yyy/yr</td>
                     </tr>
                   )}
                 </tbody>
               </table>
             </div>
             <input
-              className="mt-4 w-full rounded border px-4"
+              className="mt-4 w-full rounded border p-2"
               placeholder="Email"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
             />
-            <Button className="mx-auto mt-4">Submit Info</Button>
+            <input
+              className="mt-4 w-full rounded border p-2"
+              placeholder="Name"
+              onChange={(e) => setName(e.target.value)}
+              value={name}
+            />
+            <Button
+              className="mx-auto mt-4"
+              onClick={() => {
+                submitForm()
+              }}
+            >
+              Submit Info
+            </Button>
           </div>
         </aside>
       </div>

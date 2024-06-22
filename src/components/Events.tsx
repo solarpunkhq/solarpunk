@@ -12,7 +12,8 @@ const Events = ({
 }) => {
   const map = useMap()
 
-  const layerToAcre = (layer: Layer) => {
+  // any since geoman types
+  const layerToAcre = (layer: any) => {
     const acre: Acre = {
       latlngs: layer._latlngs,
       area: layer.pm.measurements.area / 1000000,

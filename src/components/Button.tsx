@@ -4,12 +4,14 @@ import clsx from 'clsx'
 export function Button({
   invert,
   href,
+  onClick,
   className,
   children,
   ...props
 }: {
   invert?: boolean
   href?: string
+  onClick?: () => void
   className?: string
   children: React.ReactNode
 }) {
@@ -32,7 +34,7 @@ export function Button({
   }
 
   return (
-    <button className={className} {...props}>
+    <button onClick={onClick} className={className} {...props}>
       {inner}
     </button>
   )
