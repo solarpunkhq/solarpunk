@@ -13,13 +13,10 @@ export async function GET(request: Request) {
       current_step: true,
     },
   })
-  console.log(current_step)
+  console.log('Current Step: ', current_step)
   if (!current_step) {
     return NextResponse.json({ current_step: 0 }, { status: 200 })
   }
 
-  return NextResponse.json(
-    { current_step: current_step.current_step },
-    { status: 200 }
-  )
+  return NextResponse.json({ current_step: current_step }, { status: 200 })
 }

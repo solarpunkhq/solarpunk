@@ -1,8 +1,7 @@
 'use client'
 
 import { Step, Stepper, useStepper, type StepItem } from '@/components/stepper'
-import { Button } from '@/components/ui/button'
-import useSWR from 'swr'
+import { AdditionalDetailsForm } from './AdditionalDetailsForm'
 
 const steps = [
   { label: 'Details' },
@@ -11,72 +10,29 @@ const steps = [
   { label: 'Deployment' },
 ] satisfies StepItem[]
 
-export default function CurrentStep({ email }: { email: string }) {
-  const fetcher = async (url: string, user: string) => {
-    const res = await fetch(`${url}?user=${user}`)
-    return res.json()
-  }
-  const { data: current_step_data } = useSWR('/api/current_step', (url) =>
-    fetcher(url, email)
-  )
-  console.log(current_step_data)
-
+export default function CurrentStep({
+  step,
+  email,
+}: {
+  step: number
+  email: string
+}) {
   return (
-    <div className="flex w-full flex-col gap-4">
-      <Stepper initialStep={0} steps={steps}>
+    <div className="mt-16 flex h-full w-1/2 flex-col gap-4">
+      <Stepper initialStep={step} steps={steps}>
         {steps.map(({ label }, index) => {
           return (
             <Step key={label} label={label}>
-              <div className="my-4 flex h-40 items-center justify-center rounded-md border bg-secondary text-primary">
-                <h1 className="text-xl">Step {index + 1}</h1>
-              </div>
+              {step === 0 && <AdditionalDetailsForm email={email} />}
+              {step === 1 && (
+                <div className="mt-16 flex items-center justify-center">
+                  We are currently reviewing your application.
+                </div>
+              )}
             </Step>
           )
         })}
-        <Footer />
       </Stepper>
     </div>
-  )
-}
-
-const Footer = () => {
-  const {
-    nextStep,
-    prevStep,
-    resetSteps,
-    isDisabledStep,
-    hasCompletedAllSteps,
-    isLastStep,
-    isOptionalStep,
-  } = useStepper()
-  return (
-    <>
-      {hasCompletedAllSteps && (
-        <div className="my-4 flex h-40 items-center justify-center rounded-md border bg-secondary text-primary">
-          <h1 className="text-xl">Woohoo! All steps completed! 🎉</h1>
-        </div>
-      )}
-      <div className="flex w-full justify-end gap-2">
-        {hasCompletedAllSteps ? (
-          <Button size="sm" onClick={resetSteps}>
-            Reset
-          </Button>
-        ) : (
-          <>
-            <Button
-              disabled={isDisabledStep}
-              onClick={prevStep}
-              size="sm"
-              variant="secondary"
-            >
-              Prev
-            </Button>
-            <Button size="sm" onClick={nextStep}>
-              {isLastStep ? 'Finish' : isOptionalStep ? 'Skip' : 'Next'}
-            </Button>
-          </>
-        )}
-      </div>
-    </>
   )
 }

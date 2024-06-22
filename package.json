@@ -14,6 +14,7 @@
     "@calcom/atoms": "^1.0.20",
     "@calcom/embed-react": "^1.2.2",
     "@geoman-io/leaflet-geoman-pro": "^2.12.0",
+    "@hookform/resolvers": "^3.6.0",
     "@leafac/rehype-shiki": "^2.2.1",
     "@mdx-js/loader": "^2.3.0",
     "@mdx-js/react": "^2.3.0",
@@ -21,7 +22,8 @@
     "@prisma/client": "^5.15.1",
     "@radix-ui/react-collapsible": "^1.1.0",
     "@radix-ui/react-label": "^2.1.0",
-    "@radix-ui/react-slot": "^1.0.2",
+    "@radix-ui/react-radio-group": "^1.2.0",
+    "@radix-ui/react-slot": "^1.1.0",
     "@react-email/components": "^0.0.19",
     "@supabase/auth-helpers-nextjs": "^0.10.0",
     "@supabase/ssr": "^0.3.0",
@@ -41,6 +43,7 @@
     "postcss-focus-visible": "^6.0.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.52.0",
     "react-leaflet": "^4.2.1",
     "react-leaflet-google-layer": "^2.2.0",
     "react-lite-youtube-embed": "^2.3.52",
@@ -56,7 +59,8 @@
     "tailwindcss-animate": "^1.0.7",
     "unified-conditional": "0.0.2",
     "utf-8-validate": "^6.0.4",
-    "ws": "^8.17.1"
+    "ws": "^8.17.1",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.9",
