@@ -81,3 +81,12 @@
 .prose p {
   margin-bottom: 14px;
 }
+
+.cell-editable[contenteditable='true']:empty:before {
+  content: attr(data-placeholder);
+  color: #aaa;
+  display: block; /* Ensures the placeholder text takes up space */
+}
+.cell-editable[contenteditable='true']:focus:before {
+  content: '';
+}

@@ -2,11 +2,20 @@ import React, { useState } from 'react'
 import { MapContainer, TileLayer } from 'react-leaflet'
 import { GeomanControl } from './GeomanControl'
 import Events from './Events'
+import { LatLngTuple } from 'leaflet'
+import ReactLeafletGoogleLayer from 'react-leaflet-google-layer'
+import { Acre } from '@/utils/types'
 
-export default function Map() {
+export default function Map({
+  acres,
+  setAcres,
+}: {
+  acres: Acre[]
+  setAcres: (acres: Acre[]) => void
+}) {
   const lng = 34.0549
   const lat = -118.2426
-  const [location, setLocation] = useState([lng, lat])
+  const [location, setLocation] = useState<LatLngTuple>([lng, lat])
 
   return (
     <>
@@ -23,9 +32,9 @@ export default function Map() {
           borderBottomLeftRadius: '40px',
         }}
       >
-        <TileLayer
-          attribution='<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
-          url="https://api.maptiler.com/maps/streets-v2/256/{z}/{x}/{y}.png?key=sYQTqz7Q6H7zcmIU8B4d"
+        <ReactLeafletGoogleLayer
+          apiKey={process.env.MAPS_API_KEY}
+          type={'hybrid'}
         />
 
         <GeomanControl
@@ -47,7 +56,7 @@ export default function Map() {
           snapGuidesOption={false}
           autoTracingOption={false}
         />
-        <Events />
+        <Events acres={acres} setAcres={setAcres} />
       </MapContainer>
     </>
   )

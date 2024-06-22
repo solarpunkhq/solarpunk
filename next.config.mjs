@@ -13,7 +13,7 @@ import { unifiedConditional } from 'unified-conditional'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  pageExtensions: ['jsx', 'mdx'],
+  pageExtensions: ['jsx', 'mdx', 'tsx'],
   /* i18n: {
     locales: ['en', 'de'],
     defaultLocale: 'en',
