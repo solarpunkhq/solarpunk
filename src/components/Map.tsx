@@ -15,7 +15,7 @@ export default function Map({ setOutlinedAreas }: { setOutlinedAreas: any }) {
   function handleLayerCreateEvent(e: { shape: string; layer: Layer }) {
     if (e.shape === 'Polygon') {
       const geoJson = e.layer.toGeoJSON()
-      const coordinates = geoJson.geometry.coordinates
+      const coordinates = geoJson.geometry.coordinates[0]
       const areaSqm = e.layer.pm.measurements.area
       setOutlinedAreas((prev) => [...prev, { coordinates, areaSqm }])
     }
