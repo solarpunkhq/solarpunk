@@ -8,6 +8,7 @@ import { Acre } from '@/utils/types'
 import { useMap } from 'react-leaflet'
 import { useEffect } from 'react'
 import { GeoSearchControl, GoogleProvider } from 'leaflet-geosearch'
+import { EnableVertexControl, EnableVertexTool } from './EnableVertexControl'
 
 const Search = (props) => {
   const map = useMap()
@@ -71,6 +72,7 @@ export default function Map({ acres, setAcres }) {
           snapGuidesOption={false}
           autoTracingOption={false}
         />
+        <EnableVertexControl />
         <Search
           provider={
             new GoogleProvider({ apiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY })
