@@ -42,7 +42,17 @@ export default function Contact() {
                       {/* Assumption that revenue per acre per year is $1000 */}
                       <td className="px-6 py-4">$ {(acre.area*1000).toFixed(2)}</td>
                     </tr>
-                  ))}</> : <tr className="border-b bg-white ">
+                  ))}
+                  <tr className="bg-gray-50">
+                    <th
+                      scope="row"
+                      className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 "
+                    >
+                      Total
+                    </th>
+                    <td className="px-6 py-4">$ {(acres.reduce((acc,a)=> acc+a.area,0)* 1000).toFixed(2)} </td>
+                  </tr>
+                  </> : <tr className="border-b bg-white ">
                     <th
                       scope="row"
                       className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 "
