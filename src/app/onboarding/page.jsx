@@ -33,7 +33,6 @@ function formatCurrency(amount) {
 }
 
 function calculatePriceBasedOnArea(areaSqm) {
-  console.log('calculating for', areaSqm)
   if (areaSqm > 200000) {
     return 250000
   }
@@ -70,7 +69,11 @@ export default function Contact() {
   const [outlinedAreas, setOutlinedAreas] = useState([])
 
   useEffect(() => {
-    supabase.auth.getSession().then((data) => console.log('auth user', data))
+    supabase.auth.getSession().then((data) => {
+      if (data.data.session) {
+        router.push('/home')
+      }
+    })
   }, [])
 
   const {

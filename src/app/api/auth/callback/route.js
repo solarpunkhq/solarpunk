@@ -21,11 +21,13 @@ export async function GET(request) {
       data: { user },
     } = await supabase.auth.getUser()
 
-    await supabaseAdmin.from('profiles').upsert({
-      email: user.email,
-      verified: true,
-      user_id: user.id,
-    })
+    await supabaseAdmin
+      .from('profiles')
+      .update({
+        verified: true,
+        user_id: user.id,
+      })
+      .eq('email', user.email)
   }
 
   // URL to redirect to after sign up process completes

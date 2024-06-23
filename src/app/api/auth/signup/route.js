@@ -1,6 +1,8 @@
 import { createServerClient } from '@/lib/supabase/server'
 import { createAdminClient } from '@/lib/supabase/adminServer'
 import { NextResponse } from 'next/server'
+import { Resend } from 'resend'
+import { UserSignupConfirmationEmail } from '@/components/emails/UserSignupConfirmationEmail'
 
 export async function POST(request) {
   const { email, name, areas } = await request.json()
@@ -22,6 +24,7 @@ export async function POST(request) {
 
   const supabase = createServerClient()
   const supabaseAdmin = createAdminClient()
+  const resend = new Resend(process.env.RESEND_API_KEY)
 
   try {
     const { error: authError } = await supabase.auth.signInWithOtp({
@@ -30,16 +33,21 @@ export async function POST(request) {
         data: {
           language: 'de',
         },
-        emailRedirectTo: 'http://localhost:3000/api/auth/callback',
+        emailRedirectTo: `${process.env.PROJECT_URL}/api/auth/callback`,
       },
     })
     if (authError) {
-      console.log('ERROR ON AUTH MAGIC LINK')
-      console.log(authError)
       return new NextResponse(JSON.stringify({ error: authError.message }), {
         status: 500,
       })
     }
+
+    await resend.emails.send({
+      from: 'onboarding@resend.dev',
+      to: ['iamshanvy@gmail.com'],
+      subject: 'User signed up!',
+      react: UserSignupConfirmationEmail({ name: name, email: email }),
+    })
 
     const { data: profilesData } = await supabaseAdmin
       .from('profiles')
