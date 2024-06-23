@@ -10,6 +10,23 @@ const Map = dynamic(() => import('../../components/Map'), {
 
 export default function Contact() {
   const [acres, setAcres] = useState<Acre[]>([])
+  const [name, setName] = useState<string>('')
+  const [email, setEmail] = useState<string>('')
+  const onSubmit = async () => {
+    console.log('Name:', name)
+    console.log('Email:', email)
+    console.log('Acres:', acres)
+
+    const res = await fetch('/api/onboarding', {
+      method: 'POST',
+      body: JSON.stringify({ name, email }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+  }
+
+
   return (
     <div className="-mb-[200px] mt-12 ">
       <div className="flex px-8">
@@ -64,8 +81,9 @@ export default function Contact() {
                 </tbody>
               </table>
             </div>
-            <input className="mt-4 w-full rounded border px-4" placeholder="Email" />
-            <Button className="mx-auto mt-4">Submit Info</Button>
+            <input className="mt-4 w-full rounded border p-2" placeholder="Name" onChange={(e)=> setName(e.target.value)}/>
+            <input className="mt-4 w-full rounded border p-2" placeholder="Email" onChange={(e)=> setEmail(e.target.value)} />
+            <Button onClick={onSubmit} className="mx-auto mt-4">Submit Info</Button>
           </div>
         </aside>
       </div>

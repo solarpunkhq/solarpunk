@@ -7,9 +7,10 @@ type ButtonProps = {
   href?: string
   className?: string
   children: React.ReactNode
+  onClick?: () => void
 } 
 
-export function Button({ invert, href, className, children, ...props }: ButtonProps) {
+export function Button({ invert, href, className, children,onClick, ...props }: ButtonProps) {
   className = clsx(
     className,
     'inline-flex rounded-full px-4 py-1.5 text-sm font-semibold transition',
@@ -29,7 +30,7 @@ export function Button({ invert, href, className, children, ...props }: ButtonPr
   }
 
   return (
-    <button className={className} {...props}>
+    <button onClick={onClick} className={className} {...props}>
       {inner}
     </button>
   )
