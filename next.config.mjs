@@ -13,7 +13,7 @@ import { unifiedConditional } from 'unified-conditional'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  pageExtensions: ['jsx', 'mdx'],
+  pageExtensions: ['jsx', 'mdx', 'tsx', 'ts', 'ts'],
   /* i18n: {
     locales: ['en', 'de'],
     defaultLocale: 'en',
@@ -30,6 +30,13 @@ const nextConfig = {
       },
     ],
   }, */
+  experimental: {
+    serverComponentsExternalPackages: [
+      '@react-email/components',
+      '@react-email/render',
+      '@react-email/tailwind',
+    ],
+  },
 }
 
 function remarkMDXLayout(source) {

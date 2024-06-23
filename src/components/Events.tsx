@@ -1,74 +1,73 @@
-import { useEffect } from "react";
-import { useMap } from "react-leaflet";
+import { Acre } from '@/utils/types'
+import { Layer } from 'leaflet'
+import { useEffect } from 'react'
+import { useMap } from 'react-leaflet'
 
-const Events = () => {
-  const map = useMap();
+const Events = ({
+  acres,
+  setAcres,
+}: {
+  acres: Acre[]
+  setAcres: (acres: Acre[]) => void
+}) => {
+  const map = useMap()
+
+  const calculateRevenueForAcre = (area) => {
+    const revenuePerAcre = 14000 // Assuming average conditions
+    const revenue = Math.floor(area * revenuePerAcre)
+
+    return revenue
+  }
+
+  const layerToAcre = (layer: any) => {
+    const acre: Acre = {
+      latlngs: layer._latlngs,
+      area: (layer.pm.measurements.area / 1000000) * 247.105,
+      revenue: calculateRevenueForAcre(
+        (layer.pm.measurements.area / 1000000) * 247.105
+      ),
+    }
+    return acre
+  }
+
+  const updateAcres = () => {
+    const layers = map.pm.getGeomanLayers()
+    const acres = layers.map((layer) => {
+      return layerToAcre(layer)
+    })
+    setAcres(acres)
+  }
 
   useEffect(() => {
     if (map) {
-      map.on("pm:create", (e) => {
-        console.log("Layer created:", e);
+      map.on('pm:create', (e) => {
+        console.log('Layer created:', e)
+        updateAcres()
 
-        e.layer.on("click", () => {
-          console.log("Layer clicked",e);
-        });
+        e.layer.on('pm:union', () => {
+          console.log('Layer union', e)
+          updateAcres()
+        })
 
-        e.layer.on("pm:edit", () => {
-          console.log("Layer edited",e);
-        });
+        e.layer.on('pm:edit', () => {
+          console.log('Layer edited', e)
+          updateAcres()
+        })
 
-        e.layer.on("pm:update", () => {
-          console.log("Layer updated",e);
-        });
+        e.layer.on('pm:update', () => {
+          console.log('Layer updated', e)
+          updateAcres()
+        })
 
-        e.layer.on("pm:remove", (e) => {
-          console.log("Layer removed:", e);
-        });
-
-        e.layer.on("pm:dragstart", (e) => {
-          console.log("Layer dragstart:", e);
-        });
-  
-        e.layer.on("pm:dragend", (e) => {
-          console.log("Layer dragend:", e);
-        });
-  
-      
-      });
-
-
-      map.on("pm:drawstart", (e) => {
-        console.log("Layer drawstart:", e);
-      });
-
-      map.on("pm:drawend", (e) => {
-        console.log("Layer drawend:", e);
-      });
-
-      map.on("pm:globaldrawmodetoggled", (e) => {
-        console.log("Layer globaldrawmodetoggled:", e);
-      });
-
-      map.on("pm:globaldragmodetoggled", (e) => {
-        console.log("Layer globaldragmodetoggled:", e);
-      });
-      
-      map.on("pm:globalremovalmodetoggled", (e) => {
-        console.log("Layer globalremovalmodetoggled:", e);
-      });
-
-      map.on("pm:globalcutmodetoggled", (e) => {
-        console.log("Layer globalcutmodetoggled:", e);
-      });
-
-      map.on("pm:globalrotatemodetoggled", (e) => {
-        console.log("Layer globalrotatemodetoggled:", e);
-      });
-
+        e.layer.on('pm:remove', (e) => {
+          console.log('Layer removed:', e)
+          updateAcres()
+        })
+      })
     }
-  }, [map]);
+  }, [map])
 
-  return null;
-};
+  return null
+}
 
-export default Events;
+export default Events
