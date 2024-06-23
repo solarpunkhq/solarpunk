@@ -1,6 +1,6 @@
-import { LatLngLiteral } from "leaflet";
+import { LatLng } from "leaflet";
 
 export type Acre = {
   area: number,
-  latlngPoints: LatLngLiteral[]
+  latlngPoints: LatLng[]
 }

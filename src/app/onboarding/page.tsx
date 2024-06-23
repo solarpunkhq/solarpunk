@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import dynamic from 'next/dynamic'
+import {useRouter} from 'next/navigation'
 import { Button } from '@/components/Button'
 import { Acre } from '@/lib/types'
 
@@ -12,6 +13,9 @@ export default function Contact() {
   const [acres, setAcres] = useState<Acre[]>([])
   const [name, setName] = useState<string>('')
   const [email, setEmail] = useState<string>('')
+
+  const router= useRouter()
+
   const onSubmit = async () => {
     console.log('Name:', name)
     console.log('Email:', email)
@@ -19,11 +23,16 @@ export default function Contact() {
 
     const res = await fetch('/api/onboarding', {
       method: 'POST',
-      body: JSON.stringify({ name, email }),
+      body: JSON.stringify({ name, email, acres }),
       headers: {
         'Content-Type': 'application/json',
       },
     })
+    const data = await res.json()
+    console.log('Data:', data)  
+    if(res.ok && data.success){
+      router.push('/onboarding/success')
+    }
   }
 
 

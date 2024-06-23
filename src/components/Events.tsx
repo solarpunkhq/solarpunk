@@ -10,10 +10,12 @@ const Events = ({onAreaChange}: MapEventProps) => {
   const calculateAcres = (layer: Layer) => {
     const acre : Acre = {
       // @ts-ignore
-      latlngPoints : layer._latlngs,
+      latlngPoints : layer._latlngs[0],
       // @ts-ignore
       area: layer.pm.measurements.area / 4046.8626697153, // 1 acre = 4046.8626697153 square meters
     }
+    console.log("Acre",acre)
+    console.log("Layer",layer)
     return acre;
   }
   const updateAcres = () =>{

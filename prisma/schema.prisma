@@ -1,0 +1,29 @@
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Profile {
+  id Int @id @default(autoincrement())
+  name String 
+  email String @unique
+  phone String?
+  about String?
+  financeOption String?
+  onboardingStep Int?
+  acres Acre[]
+}
+
+model Acre {
+  id Int @id @default(autoincrement())
+  profileId Int
+  area Float
+  latlngPoints Json[]
+  profile Profile @relation(fields: [profileId], references: [id])
+
+}
