@@ -37,7 +37,7 @@ export default function Contact() {
                         scope="row"
                         className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 "
                       >
-                        {acre.area.toFixed(2)} acres
+                        Area {index + 1}
                       </th>
                       {/* Assumption that revenue per acre per year is $1000 */}
                       <td className="px-6 py-4">$ {(acre.area*1000).toFixed(2)}</td>
