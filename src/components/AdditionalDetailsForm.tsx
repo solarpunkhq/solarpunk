@@ -18,6 +18,7 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from './ui/textarea'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { useStepper } from './stepper'
+import { useRouter } from 'next/navigation'
 
 const formSchema = z.object({
   phone_number: z.string().min(10, {
@@ -36,6 +37,9 @@ export function AdditionalDetailsForm({ email }: { email: string }) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
   })
+
+  const router = useRouter()
+
   const { nextStep } = useStepper()
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
@@ -55,6 +59,7 @@ export function AdditionalDetailsForm({ email }: { email: string }) {
         const data = await response.json()
         console.log('Response data:', data)
         nextStep()
+        router.refresh()
       } else {
         console.error('Error:', response.statusText)
         // Handle error response
