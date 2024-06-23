@@ -4,6 +4,8 @@ import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
 import { UserSignupConfirmationEmail } from '@/components/emails/UserSignupConfirmationEmail'
 
+import { iso1A2Code } from '@rapideditor/country-coder'
+
 export async function POST(request) {
   const { email, name, areas } = await request.json()
 
@@ -27,11 +29,13 @@ export async function POST(request) {
   const resend = new Resend(process.env.RESEND_API_KEY)
 
   try {
+    const firstCoordinates = areas[0].coordinates[0]
+    const countryCode = iso1A2Code(firstCoordinates)
     const { error: authError } = await supabase.auth.signInWithOtp({
       email: email,
       options: {
         data: {
-          language: 'de',
+          language: countryCode,
         },
         emailRedirectTo: `${process.env.PROJECT_URL}/api/auth/callback`,
       },
