@@ -2,6 +2,7 @@ import { Button } from '@/components/Button'
 import { Label } from '@/components/ui/label'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { useStepper } from '@/components/ui/stepper'
+import { LoaderCircle } from 'lucide-react'
 import { useForm, Controller } from 'react-hook-form'
 
 export function DetailsForm() {
@@ -155,7 +156,11 @@ export function DetailsForm() {
             size="sm"
             type="submit"
           >
-            Submit
+            {isSubmitting ? (
+              <LoaderCircle className="animate-spin text-center text-white" />
+            ) : (
+              'Submit'
+            )}
           </Button>
         </div>
       </div>
