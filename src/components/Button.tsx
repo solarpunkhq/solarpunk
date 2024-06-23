@@ -1,7 +1,15 @@
 import Link from 'next/link'
 import clsx from 'clsx'
+import React from 'react'
 
-export function Button({ invert, href, className, children, ...props }) {
+type ButtonProps = {
+  invert?: boolean
+  href?: string
+  className?: string
+  children: React.ReactNode
+} 
+
+export function Button({ invert, href, className, children, ...props }: ButtonProps) {
   className = clsx(
     className,
     'inline-flex rounded-full px-4 py-1.5 text-sm font-semibold transition',

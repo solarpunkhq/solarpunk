@@ -5,8 +5,12 @@ import { GeomanControl } from './GeomanControl'
 import { GeoSearch } from './GeoSearch'
 import Events from './Events'
 import { SelectTool } from './SelectTool'
+import { Acre } from '@/lib/types'
 
-export default function Map() {
+type MapProps = {
+  setAcres: (acres:Acre[]) => void
+}
+export default function Map({setAcres}: MapProps) {
   const lng = 34.0549
   const lat = -118.2426
   const [location, setLocation] = useState<LatLngTuple>([lng, lat])
@@ -50,7 +54,7 @@ export default function Map() {
           snapGuidesOption={false}
           autoTracingOption={false}
         />
-        <Events />
+        <Events onAreaChange={setAcres}/>
         <SelectTool toolName="Polygon" />
         <GeoSearch/>
       </MapContainer>
