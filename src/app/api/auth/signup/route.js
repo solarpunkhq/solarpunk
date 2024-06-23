@@ -47,8 +47,8 @@ export async function POST(request) {
     }
 
     await resend.emails.send({
-      from: 'onboarding@resend.dev',
-      to: ['iamshanvy@gmail.com'],
+      from: `${process.env.SEND_FROM_EMAIL_ADDRESS}`,
+      to: [`${process.env.ADMIN_EMAIL_ADDRESS}`],
       subject: 'User signed up!',
       react: UserSignupConfirmationEmail({ name: name, email: email }),
     })
