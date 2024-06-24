@@ -6,6 +6,7 @@ import { GeoSearch } from './GeoSearch'
 import Events from './Events'
 import { SelectTool } from './SelectTool'
 import { Acre } from '@/lib/types'
+import ReactLeafletGoogleLayer from 'react-leaflet-google-layer'
 
 type MapProps = {
   setAcres: (acres:Acre[]) => void
@@ -29,11 +30,10 @@ export default function Map({setAcres}: MapProps) {
           borderTopLeftRadius: '40px',
           borderBottomLeftRadius: '40px',
         }}
+        
       >
-        <TileLayer
-          attribution='<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
-          url="https://api.maptiler.com/maps/streets-v2/256/{z}/{x}/{y}.png?key=sYQTqz7Q6H7zcmIU8B4d"
-        />
+        <ReactLeafletGoogleLayer type="hybrid" apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY} />
+        
 
         <GeomanControl
           position="topleft"

@@ -31,7 +31,7 @@ export async function POST(req: Request) {
     })
 
     const { data, error } = await resend.emails.send({
-      from: 'onboarding@resend.dev',
+      from: 'onboarding@asingh.tech',
       to: profile.email,
       subject: 'Welcome to SolarPunkHQ',
       react: OnboardingEmailTemplate({name:profile.name}),
@@ -42,7 +42,7 @@ export async function POST(req: Request) {
     const area = profile.acres.reduce((acc, curr) => acc + curr.area, 0).toFixed(2)
 
     const { data: data_submission, error: error_submission } = await resend.emails.send({
-      from: 'onboarding@resend.dev',
+      from: 'onboarding@asingh.tech',
       to: process.env.ONBOARDING_ALERT_EMAIL,
       subject: 'New Acres Submitted',
       react: NewSubmissionEmailTemplate({ name: profile.name, area }),
