@@ -19,7 +19,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Inter'],
-        display: [['Cal Sans'], { fontVariationSettings: '"wdth" 125' }],
+        display: ['var(--font-cal-sans)'],
       },
       colors: {
         border: 'hsl(var(--border))',

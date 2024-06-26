@@ -1,5 +1,5 @@
 import { RootLayout } from '@/components/RootLayout'
-import { Inter as FontSans } from 'next/font/google'
+import localFont from '@next/font/local'
 import { cn } from '@/lib/utils'
 
 import '@/styles/tailwind.css'
@@ -11,9 +11,14 @@ export const metadata = {
   },
 }
 
-const fontSans = FontSans({
-  subsets: ['latin'],
-  variable: '--font-sans',
+const calSans = localFont({
+  src: [
+    {
+      path: '../../public/fonts/CalSans-SemiBold.ttf',
+      weight: '400',
+    },
+  ],
+  variable: '--font-cal-sans',
 })
 
 export default function Layout({ children }) {
@@ -45,7 +50,7 @@ export default function Layout({ children }) {
       <body
         className={cn(
           'flex min-h-screen flex-col bg-black font-sans antialiased',
-          fontSans.variable
+          calSans.variable
         )}
       >
         <RootLayout>{children}</RootLayout>
