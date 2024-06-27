@@ -20,7 +20,11 @@ import imageLaptop from '@/images/solarpunk-background.jpg'
 import { loadMDXMetadata } from '@/lib/loadMDXMetadata'
 import CTA, { ContactButtons } from '@/components/CTA'
 import heroImage from '@/images/solarpunk-hero.jpg'
-import SearchBar from '@/components/SearchBar'
+import dynamic from 'next/dynamic'
+
+const SearchBar = dynamic(() => import('@/components/SearchBar'), {
+  ssr: false,
+})
 
 const clients = [
   ['Phobia', logoPhobiaLight],

@@ -21,8 +21,10 @@ export default function Contact() {
   const searchParams = useSearchParams()
 
   let lat = parseFloat(searchParams.get('lat'))
+  let zoom = 15
   if (lat === null) {
     lat = -118.2426
+    zoom = 13
   }
   let lng = parseFloat(searchParams.get('lng'))
   if (lng === null) {
@@ -60,7 +62,13 @@ export default function Contact() {
   return (
     <div className="-mb-[200px] mt-12 ">
       <div className="flex px-8">
-        <Map lat={lat} lng={lng} acres={acres} setAcres={setAcres} />
+        <Map
+          zoom={zoom}
+          lat={lat}
+          lng={lng}
+          acres={acres}
+          setAcres={setAcres}
+        />
         <aside className="rounded-r-4xl w-full max-w-96 border border-l-0 bg-white p-8">
           <div className="text-center">
             <h1 className="font-display text-5xl">Mark your acres</h1>

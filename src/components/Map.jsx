@@ -28,14 +28,14 @@ const Search = (props) => {
   return null
 }
 
-export default function Map({ lat, lng, acres, setAcres }) {
+export default function Map({ zoom, lat, lng, acres, setAcres }) {
   const [location, setLocation] = useState([lng, lat])
 
   return (
     <>
       <MapContainer
         center={location}
-        zoom={13}
+        zoom={zoom}
         className="rounded-l-2xl"
         scrollWheelZoom={true}
         style={{
