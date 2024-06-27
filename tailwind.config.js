@@ -18,7 +18,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter'],
+        sans: ['var(--font-inter)'],
         display: ['var(--font-cal-sans)'],
       },
       colors: {

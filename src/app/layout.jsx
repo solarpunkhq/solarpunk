@@ -21,7 +21,7 @@ const calSans = localFont({
   variable: '--font-cal-sans',
 })
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export default function Layout({ children }) {
   return (
@@ -53,7 +53,7 @@ export default function Layout({ children }) {
         className={cn(
           'flex min-h-screen flex-col bg-black font-sans antialiased',
           calSans.variable,
-          inter.className
+          inter.variable
         )}
       >
         <RootLayout>{children}</RootLayout>
