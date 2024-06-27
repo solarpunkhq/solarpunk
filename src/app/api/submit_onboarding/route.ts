@@ -22,14 +22,14 @@ export async function POST(request: Request) {
   })
 
   const { data, error } = await resend.emails.send({
-    from: 'varun@varunbalani.com',
+    from: process.env.ONBOARDING_SEND_FROM_EMAIL,
     to: body.email,
     subject: 'Welcome to SolarPunkHQ',
     react: ThankYouTemplate({}),
   })
 
   const { data: data_two, error: error_two } = await resend.emails.send({
-    from: 'onboarding@resend.dev',
+    from: process.env.ONBOARDING_SEND_FROM_EMAIL,
     to: process.env.ONBOARDING_ALERT_EMAIL,
     subject: 'New Acres Submitted',
     react: SubmittedTemplate({ name: body.name }),
