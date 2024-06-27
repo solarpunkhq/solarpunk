@@ -1,8 +1,8 @@
 import { RootLayout } from '@/components/RootLayout'
-import localFont from '@next/font/local'
 import { cn } from '@/lib/utils'
-
+import localFont from 'next/font/local'
 import '@/styles/tailwind.css'
+import { Inter } from 'next/font/google'
 
 export const metadata = {
   title: {
@@ -20,6 +20,8 @@ const calSans = localFont({
   ],
   variable: '--font-cal-sans',
 })
+
+const inter = Inter({ subsets: ['latin'] })
 
 export default function Layout({ children }) {
   return (
@@ -50,7 +52,8 @@ export default function Layout({ children }) {
       <body
         className={cn(
           'flex min-h-screen flex-col bg-black font-sans antialiased',
-          calSans.variable
+          calSans.variable,
+          inter.className
         )}
       >
         <RootLayout>{children}</RootLayout>
