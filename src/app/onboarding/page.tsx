@@ -4,6 +4,7 @@ import { Button } from '@/components/Button'
 import { useState } from 'react'
 import { Acre } from '@/utils/types'
 import { useRouter } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
 
 const Map = dynamic(() => import('../../components/Map'), {
   ssr: false,
@@ -16,6 +17,17 @@ export default function Contact() {
   const [name, setName] = useState('')
 
   const router = useRouter()
+
+  const searchParams = useSearchParams()
+
+  let lat = parseFloat(searchParams.get('lat'))
+  if (lat === null) {
+    lat = -118.2426
+  }
+  let lng = parseFloat(searchParams.get('lng'))
+  if (lng === null) {
+    lng = 34.0549
+  }
 
   const submitForm = async () => {
     try {
@@ -48,7 +60,7 @@ export default function Contact() {
   return (
     <div className="-mb-[200px] mt-12 ">
       <div className="flex px-8">
-        <Map acres={acres} setAcres={setAcres} />
+        <Map lat={lat} lng={lng} acres={acres} setAcres={setAcres} />
         <aside className="rounded-r-4xl w-full max-w-96 border border-l-0 bg-white p-8">
           <div className="text-center">
             <h1 className="font-display text-5xl">Mark your acres</h1>

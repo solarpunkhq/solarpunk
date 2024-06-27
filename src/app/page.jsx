@@ -20,6 +20,7 @@ import imageLaptop from '@/images/solarpunk-background.jpg'
 import { loadMDXMetadata } from '@/lib/loadMDXMetadata'
 import CTA, { ContactButtons } from '@/components/CTA'
 import heroImage from '@/images/solarpunk-hero.jpg'
+import SearchBar from '@/components/SearchBar'
 
 const clients = [
   ['Phobia', logoPhobiaLight],
@@ -77,7 +78,8 @@ export default async function Home() {
             </p>
             <div className="absolute -left-64 -top-12 -z-10 h-[400px] w-[900px] rounded-full bg-black opacity-50 blur-2xl" />
             <div className="absolute -left-64 -top-12 -z-10 h-[420px] w-[1000px] rounded-full bg-black opacity-25 blur-3xl" />
-            <ContactButtons />
+            {/* <ContactButtons /> */}
+            <SearchBar />
           </div>
         </FadeIn>
       </Container>

@@ -28,9 +28,7 @@ const Search = (props) => {
   return null
 }
 
-export default function Map({ acres, setAcres }) {
-  const lng = 34.0549
-  const lat = -118.2426
+export default function Map({ lat, lng, acres, setAcres }) {
   const [location, setLocation] = useState([lng, lat])
 
   return (
