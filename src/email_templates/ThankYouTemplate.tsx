@@ -45,7 +45,7 @@ export const ThankYouTemplate = () => (
         </Text>
         <Hr style={hr} />
         <Text style={footer}>
-          470 Noor Ave STE B #1148, South San Francisco, CA 94080
+          Address 131e3, hbdehfr, San Francisco, CA 94080
         </Text>
       </Container>
     </Body>
