@@ -26,7 +26,7 @@ export default function SearchBar() {
   }
 
   return (
-    <div className="mt-6 w-3/4 rounded-sm bg-white">
+    <div className="mt-6 w-full rounded-sm bg-white md:w-3/4">
       <Input
         type="text"
         placeholder="Enter an address, neighborhood, city or ZIP code"

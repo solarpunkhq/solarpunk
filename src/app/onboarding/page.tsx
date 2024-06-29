@@ -22,12 +22,12 @@ export default function Contact() {
 
   let lat = parseFloat(searchParams.get('lat'))
   let zoom = 15
-  if (lat === null) {
+  if (lat === null || lat === undefined || Number.isNaN(lat)) {
     lat = -118.2426
     zoom = 13
   }
   let lng = parseFloat(searchParams.get('lng'))
-  if (lng === null) {
+  if (lng === null || lng === undefined || Number.isNaN(lng)) {
     lng = 34.0549
   }
 
@@ -60,8 +60,8 @@ export default function Contact() {
   }
 
   return (
-    <div className="-mb-[200px] mt-12 ">
-      <div className="flex px-8">
+    <div className="-mb-[200px] mt-12 h-full">
+      <div className="flex h-full w-full flex-col items-center justify-center px-8 md:flex-row md:items-stretch md:justify-start">
         <Map
           zoom={zoom}
           lat={lat}
@@ -69,11 +69,11 @@ export default function Contact() {
           acres={acres}
           setAcres={setAcres}
         />
-        <aside className="rounded-r-4xl w-full max-w-96 border border-l-0 bg-white p-8">
+        <div className="rounded-r-4xl h-full w-full max-w-96 border border-l-0 bg-white p-8">
           <div className="text-center">
             <h1 className="font-display text-5xl">Mark your acres</h1>
             <h2 className="">Use the map to outline your territory</h2>
-            <div className="relative overflow-x-auto">
+            <div className="relative flex overflow-x-auto">
               <table className="mt-4 w-full border text-left text-sm text-gray-500 dark:text-gray-400 rtl:text-right">
                 <thead className="bg-gray-50 text-xs uppercase text-gray-700 ">
                   <tr>
@@ -134,7 +134,7 @@ export default function Contact() {
               Submit Info
             </Button>
           </div>
-        </aside>
+        </div>
       </div>
     </div>
   )
