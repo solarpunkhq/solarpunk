@@ -18,21 +18,18 @@ export default function CurrentStep({
   email: string
 }) {
   return (
-    <div className="mt-16 flex h-full w-1/2 flex-col gap-4">
+    <div className="mt-16 flex h-full w-full flex-col gap-4 p-4 md:w-1/2 md:p-0">
       <Stepper initialStep={step} steps={steps}>
         {steps.map(({ label }, index) => {
-          return (
-            <Step key={label} label={label}>
-              {step === 0 && <AdditionalDetailsForm email={email} />}
-              {step === 1 && (
-                <div className="mt-16 flex items-center justify-center">
-                  We are currently reviewing your application.
-                </div>
-              )}
-            </Step>
-          )
+          return <Step key={label} label={label}></Step>
         })}
       </Stepper>
+      {step === 0 && <AdditionalDetailsForm email={email} />}
+      {step === 1 && (
+        <div className="mt-16 flex items-center justify-center">
+          We are currently reviewing your application.
+        </div>
+      )}
     </div>
   )
 }

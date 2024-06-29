@@ -72,7 +72,7 @@ export function AdditionalDetailsForm({ email }: { email: string }) {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="md:space-y-8">
         <FormField
           control={form.control}
           name="phone_number"
@@ -90,7 +90,7 @@ export function AdditionalDetailsForm({ email }: { email: string }) {
           control={form.control}
           name="about_farm"
           render={({ field }) => (
-            <FormItem>
+            <FormItem className="mt-4 md:mt-4">
               <FormLabel>Tell us more about your farm</FormLabel>
               <FormControl>
                 <Textarea
@@ -106,7 +106,7 @@ export function AdditionalDetailsForm({ email }: { email: string }) {
           control={form.control}
           name="finance_option"
           render={({ field }) => (
-            <FormItem className="space-y-3">
+            <FormItem className="mt-4 space-y-3 md:mt-4">
               <FormLabel>Preferred Finance Option</FormLabel>
               <FormControl>
                 <RadioGroup
@@ -144,7 +144,11 @@ export function AdditionalDetailsForm({ email }: { email: string }) {
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <div className="mt-4 flex items-center justify-center">
+          <Button type="submit" className="mt-4">
+            Submit
+          </Button>
+        </div>
       </form>
     </Form>
   )
