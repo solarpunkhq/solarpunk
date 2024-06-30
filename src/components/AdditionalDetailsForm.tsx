@@ -19,6 +19,8 @@ import { Textarea } from './ui/textarea'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { useStepper } from './stepper'
 import { useRouter } from 'next/navigation'
+import { useState } from 'react'
+import { Loader2 } from 'lucide-react'
 
 const formSchema = z.object({
   phone_number: z.string().min(10, {
@@ -40,9 +42,12 @@ export function AdditionalDetailsForm({ email }: { email: string }) {
 
   const router = useRouter()
 
+  const [loading, setLoading] = useState(false)
+
   const { nextStep } = useStepper()
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    setLoading(true)
     try {
       const response = await fetch('/api/submit_additional_details', {
         method: 'POST',
@@ -59,13 +64,15 @@ export function AdditionalDetailsForm({ email }: { email: string }) {
         const data = await response.json()
         console.log('Response data:', data)
         nextStep()
-        router.refresh()
+        window.location.reload()
       } else {
         console.error('Error:', response.statusText)
+        setLoading(false)
         // Handle error response
       }
     } catch (error) {
       console.error('Fetch error:', error)
+      setLoading(false)
       // Handle network or other errors
     }
   }
@@ -145,8 +152,9 @@ export function AdditionalDetailsForm({ email }: { email: string }) {
           )}
         />
         <div className="mt-4 flex items-center justify-center">
-          <Button type="submit" className="mt-4">
-            Submit
+          <Button type="submit" className="mt-4" disabled={loading}>
+            {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+            {loading ? 'Please wait' : 'Submit'}
           </Button>
         </div>
       </form>
