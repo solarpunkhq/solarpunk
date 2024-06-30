@@ -47,11 +47,17 @@ export default function LoginForm() {
         setDone(true)
       } else {
         console.error('Error:', response.statusText)
-        setError(response.statusText)
+        if (response.statusText === 'Not Found') {
+          setError('Please complete onboarding first')
+        } else {
+          setError(response.statusText)
+        }
+        setLoading(false)
       }
     } catch (error) {
       console.error('Fetch error:', error)
       setError('A fetch error occurred')
+      setLoading(false)
     }
   }
 
@@ -80,7 +86,7 @@ export default function LoginForm() {
         </CardContent>
         <CardFooter>
           <div className="flex w-full flex-col items-center justify-center">
-            {error && <p className="mb-2 text-red-500">{error}</p>}
+            {error && <p className="mb-2 text-sm text-red-500">{error}</p>}
             <Button
               className="w-full"
               onClick={sendMagicLink}
