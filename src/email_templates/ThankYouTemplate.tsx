@@ -44,9 +44,7 @@ export const ThankYouTemplate = () => (
           The Solarpunk team
         </Text>
         <Hr style={hr} />
-        <Text style={footer}>
-          Address 131e3, hbdehfr, San Francisco, CA 94080
-        </Text>
+        <Text style={footer}>2261 Market Street San Francisco, CA 94114</Text>
       </Container>
     </Body>
   </Html>
