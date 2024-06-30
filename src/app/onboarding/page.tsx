@@ -1,10 +1,11 @@
 'use client'
 import dynamic from 'next/dynamic'
-import { Button } from '@/components/Button'
+import { Button } from '@/components/ui/button'
 import { useState } from 'react'
 import { Acre } from '@/utils/types'
 import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
+import { Loader2 } from 'lucide-react'
 
 const Map = dynamic(() => import('../../components/Map'), {
   ssr: false,
@@ -12,9 +13,11 @@ const Map = dynamic(() => import('../../components/Map'), {
 
 export default function Contact() {
   const [acres, setAcres] = useState<Acre[]>([])
-
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
+
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
   const router = useRouter()
 
@@ -32,6 +35,22 @@ export default function Contact() {
   }
 
   const submitForm = async () => {
+    setLoading(true)
+    if (email === '') {
+      setError('Email is required')
+      setLoading(false)
+      return
+    }
+    if (name === '') {
+      setError('Name is required')
+      setLoading(false)
+      return
+    }
+    if (acres.length === 0) {
+      setError('Please select an area')
+      setLoading(false)
+      return
+    }
     try {
       const response = await fetch('/api/submit_onboarding', {
         method: 'POST',
@@ -51,11 +70,13 @@ export default function Contact() {
         router.push('/onboarding/success')
       } else {
         console.error('Error:', response.statusText)
-        // Handle error response
+        setError(response.statusText)
+        setLoading(false)
       }
     } catch (error) {
       console.error('Fetch error:', error)
-      // Handle network or other errors
+      setError('A fetch error occurred')
+      setLoading(false)
     }
   }
 
@@ -125,13 +146,16 @@ export default function Contact() {
               onChange={(e) => setName(e.target.value)}
               value={name}
             />
+            {error && <div className="mt-2 text-red-500">{error}</div>}
             <Button
-              className="mx-auto mt-4"
+              className="mx-auto mt-4 !px-5 !py-3"
               onClick={() => {
                 submitForm()
               }}
+              disabled={loading}
             >
-              Submit Info
+              {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+              {loading ? 'Please wait' : 'Submit'}
             </Button>
           </div>
         </div>

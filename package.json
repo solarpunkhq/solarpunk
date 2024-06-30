@@ -48,6 +48,7 @@
     "react-leaflet": "^4.2.1",
     "react-leaflet-google-layer": "^2.2.0",
     "react-lite-youtube-embed": "^2.3.52",
+    "react-rewards": "^2.0.4",
     "recma-import-images": "0.0.3",
     "remark-gfm": "^3.0.1",
     "remark-rehype-wrap": "0.0.3",

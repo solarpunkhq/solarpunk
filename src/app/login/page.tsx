@@ -12,14 +12,23 @@ import {
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { useState } from 'react'
+import { Loader2 } from 'lucide-react'
 
 export default function LoginForm() {
   const [email, setEmail] = useState('')
 
-  const [buttonMessage, setButtonMessage] = useState('Sign in')
+  const [loading, setLoading] = useState(false)
+  const [done, setDone] = useState(false)
+  const [error, setError] = useState('')
 
   const sendMagicLink = async () => {
-    setButtonMessage('Sending...')
+    setLoading(true)
+    setError('')
+    if (email === '') {
+      setError('Email is required')
+      setLoading(false)
+      return
+    }
     try {
       const response = await fetch('/api/login', {
         method: 'POST',
@@ -34,14 +43,15 @@ export default function LoginForm() {
       if (response.ok) {
         const data = await response.json()
         console.log('Response data:', data)
-        setButtonMessage('Sent')
+        setLoading(false)
+        setDone(true)
       } else {
         console.error('Error:', response.statusText)
-        // Handle error response
+        setError(response.statusText)
       }
     } catch (error) {
       console.error('Fetch error:', error)
-      // Handle network or other errors
+      setError('A fetch error occurred')
     }
   }
 
@@ -51,7 +61,8 @@ export default function LoginForm() {
         <CardHeader>
           <CardTitle className="text-2xl">Login</CardTitle>
           <CardDescription>
-            Enter your email below to login to your account.
+            Enter your email below to receive a magic link to sign in to your
+            account
           </CardDescription>
         </CardHeader>
         <CardContent className="grid gap-4">
@@ -68,9 +79,17 @@ export default function LoginForm() {
           </div>
         </CardContent>
         <CardFooter>
-          <Button className="w-full" onClick={sendMagicLink}>
-            {buttonMessage}
-          </Button>
+          <div className="flex w-full flex-col items-center justify-center">
+            {error && <p className="mb-2 text-red-500">{error}</p>}
+            <Button
+              className="w-full"
+              onClick={sendMagicLink}
+              disabled={loading}
+            >
+              {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+              {loading ? 'Please wait' : done ? 'Check your email' : 'Send'}
+            </Button>
+          </div>
         </CardFooter>
       </Card>
     </div>
