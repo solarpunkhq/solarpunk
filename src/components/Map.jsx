@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState } from 'react'
 import { MapContainer } from 'react-leaflet'
 import { GeomanControl } from './GeomanControl'
@@ -9,6 +11,11 @@ import { useMap } from 'react-leaflet'
 import { useEffect } from 'react'
 import { GeoSearchControl, GoogleProvider } from 'leaflet-geosearch'
 import { EnableVertexControl, EnableVertexTool } from './EnableVertexControl'
+import dynamic from 'next/dynamic'
+
+const MapTypeControl = dynamic(() => import('./MapTypeControl'), {
+  ssr: false,
+})
 
 const Search = (props) => {
   const map = useMap()
@@ -30,10 +37,12 @@ const Search = (props) => {
 
 export default function Map({ zoom, lat, lng, acres, setAcres }) {
   const [location, setLocation] = useState([lng, lat])
+  const [mapType, setMapType] = useState('hybrid')
 
   return (
     <>
       <MapContainer
+        key={mapType}
         center={location}
         zoom={zoom}
         className="rounded-l-2xl"
@@ -48,8 +57,9 @@ export default function Map({ zoom, lat, lng, acres, setAcres }) {
       >
         <ReactLeafletGoogleLayer
           apiKey={process.env.NEXT_PUBLIC_MAPS_API_KEY}
-          type={'hybrid'}
+          type={mapType}
         />
+        <MapTypeControl setMapType={setMapType} />
 
         <GeomanControl
           position="topleft"
