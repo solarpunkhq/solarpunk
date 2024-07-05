@@ -3,12 +3,16 @@ import prisma from '@/lib/prisma'
 import { Resend } from 'resend'
 import { ThankYouTemplate } from '@/email_templates/ThankYouTemplate'
 import { SubmittedTemplate } from '@/email_templates/SubmittedTemplate'
+import { iso1A2Code } from '@rapideditor/country-coder'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(request: Request) {
   const body = await request.json()
   console.log(body)
+
+  const coords = body.acres[0].latlngs[0]
+  const country = iso1A2Code([coords[0].lng, coords[0].lat])
 
   await prisma.user.create({
     data: {
@@ -18,6 +22,7 @@ export async function POST(request: Request) {
         create: body.acres,
       },
       current_step: 0,
+      country: country,
     },
   })
 

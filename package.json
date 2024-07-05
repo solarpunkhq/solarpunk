@@ -28,6 +28,7 @@
     "@radix-ui/react-radio-group": "^1.2.0",
     "@radix-ui/react-roving-focus": "^1.1.0",
     "@radix-ui/react-slot": "^1.1.0",
+    "@rapideditor/country-coder": "^5.2.2",
     "@react-email/components": "^0.0.19",
     "@supabase/auth-helpers-nextjs": "^0.10.0",
     "@supabase/ssr": "^0.3.0",
