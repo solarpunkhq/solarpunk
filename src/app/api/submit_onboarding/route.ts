@@ -5,6 +5,7 @@ import { ThankYouTemplate } from '@/email_templates/ThankYouTemplate'
 import { SubmittedTemplate } from '@/email_templates/SubmittedTemplate'
 import { iso1A2Code } from '@rapideditor/country-coder'
 import { promises as fs } from 'fs'
+import { onboardingTranslations } from '@/utils/onboardingTranslations'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
@@ -27,15 +28,9 @@ export async function POST(request: Request) {
     },
   })
 
-  const file = await fs.readFile(
-    process.cwd() + '/public/onboarding_translations.json',
-    'utf8'
-  )
-  const translations_data = JSON.parse(file)
-
-  let translations = translations_data[country]
-  if (!translations_data[country]) {
-    translations = translations_data['default']
+  let translations = onboardingTranslations[country]
+  if (!translations[country]) {
+    translations = translations['default']
   }
 
   const { data, error } = await resend.emails.send({
