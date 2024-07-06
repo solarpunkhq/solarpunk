@@ -4,6 +4,7 @@ import { Resend } from 'resend'
 import { ThankYouTemplate } from '@/email_templates/ThankYouTemplate'
 import { SubmittedTemplate } from '@/email_templates/SubmittedTemplate'
 import { iso1A2Code } from '@rapideditor/country-coder'
+import { promises as fs } from 'fs'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
@@ -26,11 +27,22 @@ export async function POST(request: Request) {
     },
   })
 
+  const file = await fs.readFile(
+    process.cwd() + '/public/onboarding_translations.json',
+    'utf8'
+  )
+  const translations_data = JSON.parse(file)
+
+  let translations = translations_data[country]
+  if (!translations_data[country]) {
+    translations = translations_data['default']
+  }
+
   const { data, error } = await resend.emails.send({
     from: process.env.ONBOARDING_SEND_FROM_EMAIL,
     to: body.email,
-    subject: 'Welcome to SolarPunkHQ',
-    react: ThankYouTemplate(),
+    subject: 'Welcome to SolarpunkHQ',
+    react: ThankYouTemplate({ translations: translations }),
   })
 
   const { data: data_two, error: error_two } = await resend.emails.send({
@@ -39,8 +51,6 @@ export async function POST(request: Request) {
     subject: 'New Acres Submitted',
     react: SubmittedTemplate({ name: body.name }),
   })
-
-  console.log(data, error, data_two, error_two)
 
   return NextResponse.json(
     { message: 'Submitted Successfully' },

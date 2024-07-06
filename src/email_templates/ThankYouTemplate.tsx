@@ -11,44 +11,44 @@ import {
   Text,
 } from '@react-email/components'
 import * as React from 'react'
-import clsx from 'clsx'
 
-export const ThankYouTemplate = () => (
-  <Html>
-    <Head />
-    <Preview>Thank you for submitting your acres</Preview>
-    <Body style={main}>
-      <Container style={container}>
-        <Img
-          src={`https://i.imgur.com/ieNnAcN.png`}
-          width="335"
-          height="87"
-          alt="Koala"
-          style={logo}
-        />
-        <Text style={paragraph}>Hello!</Text>
-        <Text style={paragraph}>
-          Welcome to Solarpunk, thank you for submitting your acres. We will get
-          back to you shortly. In the meantime, you can submit additional
-          details about your land or check the status of your application using
-          the link below.
-        </Text>
-        <Section style={btnContainer}>
-          <Button style={button} href="https://solarpunk.sh/login">
-            Login
-          </Button>
-        </Section>
-        <Text style={paragraph}>
-          Best,
-          <br />
-          The Solarpunk team
-        </Text>
-        <Hr style={hr} />
-        <Text style={footer}>2261 Market Street San Francisco, CA 94114</Text>
-      </Container>
-    </Body>
-  </Html>
-)
+export const ThankYouTemplate = ({
+  translations,
+}: {
+  translations: string[]
+}) => {
+  return (
+    <Html>
+      <Head />
+      <Preview>{translations['preview']}</Preview>
+      <Body style={main}>
+        <Container style={container}>
+          <Img
+            src={`https://i.imgur.com/ieNnAcN.png`}
+            width="335"
+            height="87"
+            alt="Koala"
+            style={logo}
+          />
+          <Text style={paragraph}>{translations['greeting']}</Text>
+          <Text style={paragraph}>{translations['content']}</Text>
+          <Section style={btnContainer}>
+            <Button style={button} href="https://solarpunk.sh/login">
+              {translations['button']}
+            </Button>
+          </Section>
+          <Text style={paragraph}>
+            {translations['signature']}
+            <br />
+            Solarpunk
+          </Text>
+          <Hr style={hr} />
+          <Text style={footer}>2261 Market Street San Francisco, CA 94114</Text>
+        </Container>
+      </Body>
+    </Html>
+  )
+}
 
 export default ThankYouTemplate
 
