@@ -29,8 +29,8 @@ export async function POST(request: Request) {
   })
 
   let translations = onboardingTranslations[country]
-  if (!translations[country]) {
-    translations = translations['default']
+  if (!translations) {
+    translations = onboardingTranslations.default
   }
 
   const { data, error } = await resend.emails.send({
