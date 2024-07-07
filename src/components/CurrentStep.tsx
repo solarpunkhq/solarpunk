@@ -2,6 +2,7 @@
 
 import { Step, Stepper, useStepper, type StepItem } from '@/components/stepper'
 import { AdditionalDetailsForm } from './AdditionalDetailsForm'
+import Link from 'next/link'
 
 const steps = [
   { label: 'Details' },
@@ -30,6 +31,12 @@ export default function CurrentStep({
           We are currently reviewing your application.
         </div>
       )}
+      <div className="mt-4 text-center text-sm text-gray-500">
+        Want to edit your acres submission?{' '}
+        <Link href="/dashboard/edit" className="underline">
+          Click here
+        </Link>
+      </div>
     </div>
   )
 }

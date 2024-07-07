@@ -1,10 +1,13 @@
+export const fetchCache = 'force-no-store'
+
 import CurrentStep from '@/components/CurrentStep'
 import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
 import prisma from '@/lib/prisma'
 import Link from 'next/link'
+import EditAcresForm from '@/components/EditAcresForm'
 
-export default async function DashboardPage() {
+export default async function EditPage() {
   const supabase = createClient()
 
   const { data, error } = await supabase.auth.getUser()
@@ -15,19 +18,29 @@ export default async function DashboardPage() {
     redirect('/login')
   }
 
-  const current_step = await prisma.user.findUnique({
+  const userData = await prisma.user.findUnique({
     where: {
       email: user.email,
     },
-    select: {
-      current_step: true,
+  })
+
+  const acreData = await prisma.acre.findMany({
+    where: {
+      userId: userData.id,
     },
   })
-  console.log('Current Step: ', current_step)
+  const acres = acreData.map((acre) => {
+    return acre.latlngs
+  })
+  console.log('Acres: ', acres)
 
   return (
     <div className="flex h-full w-full flex-col items-center justify-start">
-      <CurrentStep step={current_step.current_step} email={user.email} />
+      <EditAcresForm
+        user_data={userData}
+        acre_data={acreData}
+        existing_acres={acres}
+      />
     </div>
   )
 }

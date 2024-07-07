@@ -2,72 +2,50 @@
 import dynamic from 'next/dynamic'
 import { Button } from '@/components/ui/button'
 import { useState } from 'react'
-import { Acre } from '@/utils/types'
 import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
 import { Loader2 } from 'lucide-react'
 
-const Map = dynamic(() => import('../../components/Map'), {
+const Map = dynamic(() => import('@/components/Map'), {
   ssr: false,
 })
 
-export default function Contact() {
-  const [acres, setAcres] = useState<Acre[]>([])
-  const [email, setEmail] = useState('')
-  const [name, setName] = useState('')
+export default function EditAcresForm({
+  user_data,
+  acre_data,
+  existing_acres,
+}) {
+  const [acres, setAcres] = useState(acre_data)
 
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
   const router = useRouter()
 
-  const searchParams = useSearchParams()
-
-  let lat = parseFloat(searchParams.get('lat'))
-  let zoom = 15
-  if (lat === null || lat === undefined || Number.isNaN(lat)) {
-    lat = 34.0549
-    zoom = 13
-  }
-  let lng = parseFloat(searchParams.get('lng'))
-  if (lng === null || lng === undefined || Number.isNaN(lng)) {
-    lng = -118.2426
-  }
-
   const submitForm = async () => {
     setLoading(true)
-    if (email === '') {
-      setError('Email is required')
-      setLoading(false)
-      return
-    }
-    if (name === '') {
-      setError('Name is required')
-      setLoading(false)
-      return
-    }
     if (acres.length === 0) {
       setError('Please select an area')
       setLoading(false)
       return
     }
     try {
-      const response = await fetch('/api/submit_onboarding', {
+      const response = await fetch('/api/update_onboarding', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          email,
-          name,
-          acres,
+          email: user_data.email,
+          user_id: user_data.user_id,
+          acres: acres,
         }),
       })
 
       if (response.ok) {
         const data = await response.json()
         console.log('Response data:', data)
-        router.push('/onboarding/success')
+        router.push('/dashboard')
       } else {
         console.error('Error:', response.statusText)
         setError(response.statusText)
@@ -80,16 +58,19 @@ export default function Contact() {
     }
   }
 
+  const lat = existing_acres[0][0][0].lat
+  const lng = existing_acres[0][0][0].lng
+
   return (
-    <div className="-mb-[200px] mt-12 h-full">
+    <div className="-mb-[200px] mt-12 h-full w-full">
       <div className="flex h-full w-full flex-col items-center justify-center px-8 md:flex-row md:items-stretch md:justify-start">
         <Map
-          zoom={zoom}
+          zoom={13}
           lat={lat}
           lng={lng}
           acres={acres}
           setAcres={setAcres}
-          alreadyDrawnAcres={[]}
+          alreadyDrawnAcres={existing_acres}
         />
         <div className="rounded-r-4xl h-full w-full max-w-96 border border-l-0 bg-white p-8">
           <div className="text-center">
@@ -135,18 +116,6 @@ export default function Contact() {
                 </tbody>
               </table>
             </div>
-            <input
-              className="mt-4 w-full rounded border p-2"
-              placeholder="Email"
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
-            />
-            <input
-              className="mt-4 w-full rounded border p-2"
-              placeholder="Name"
-              onChange={(e) => setName(e.target.value)}
-              value={name}
-            />
             {error && <div className="mt-2 text-red-500">{error}</div>}
             <Button
               className="mx-auto mt-4 !px-5 !py-3"

@@ -67,6 +67,15 @@ const Events = ({
     }
   }, [map])
 
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      if (map) {
+        updateAcres()
+      }
+    }, 1000)
+    return () => clearInterval(intervalId)
+  }, [map])
+
   return null
 }
 

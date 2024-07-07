@@ -10,7 +10,8 @@ import { Acre } from '@/utils/types'
 import { useMap } from 'react-leaflet'
 import { useEffect } from 'react'
 import { GeoSearchControl, GoogleProvider } from 'leaflet-geosearch'
-import { EnableVertexControl, EnableVertexTool } from './EnableVertexControl'
+import { EnableVertexControl } from './EnableVertexControl'
+import { PreDrawnAcres } from './PreDrawnAcres'
 import dynamic from 'next/dynamic'
 
 const MapTypeControl = dynamic(() => import('./MapTypeControl'), {
@@ -35,9 +36,32 @@ const Search = (props) => {
   return null
 }
 
-export default function Map({ zoom, lat, lng, acres, setAcres }) {
-  const [location, setLocation] = useState([lng, lat])
+export default function Map({
+  zoom,
+  lat,
+  lng,
+  acres,
+  setAcres,
+  alreadyDrawnAcres,
+}) {
+  const [location, setLocation] = useState([lat, lng])
   const [mapType, setMapType] = useState('hybrid')
+  // alreadyDrawnAcres = [
+  //   [
+  //     {
+  //       lat: 34.0530560945386,
+  //       lng: -118.24876785278322,
+  //     },
+  //     {
+  //       lat: 34.07141197504988,
+  //       lng: -118.23331832885744,
+  //     },
+  //     {
+  //       lat: 34.054336866377106,
+  //       lng: -118.22010040283205,
+  //     },
+  //   ],
+  // ]
 
   return (
     <>
@@ -80,6 +104,7 @@ export default function Map({ zoom, lat, lng, acres, setAcres }) {
           snapGuidesOption={false}
           autoTracingOption={false}
         />
+        <PreDrawnAcres acres={alreadyDrawnAcres} />
         <EnableVertexControl />
         <Search
           provider={
