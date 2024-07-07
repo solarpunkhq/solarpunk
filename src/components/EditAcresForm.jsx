@@ -45,7 +45,7 @@ export default function EditAcresForm({
       if (response.ok) {
         const data = await response.json()
         console.log('Response data:', data)
-        router.push('/dashboard')
+        setLoading(false)
       } else {
         console.error('Error:', response.statusText)
         setError(response.statusText)
