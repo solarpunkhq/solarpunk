@@ -3,6 +3,7 @@ import { cn } from '@/lib/utils'
 import localFont from 'next/font/local'
 import '@/styles/tailwind.css'
 import { Inter } from 'next/font/google'
+import { Toaster } from '@/components/ui/toaster'
 
 export const metadata = {
   title: {
@@ -57,6 +58,7 @@ export default function Layout({ children }) {
         )}
       >
         <RootLayout>{children}</RootLayout>
+        <Toaster />
       </body>
     </html>
   )

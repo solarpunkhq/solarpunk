@@ -1,6 +1,6 @@
 import CurrentStep from '@/components/CurrentStep'
 import { createClient } from '@/utils/supabase/server'
-import { redirect } from 'next/navigation'
+import { redirect, useSearchParams } from 'next/navigation'
 import prisma from '@/lib/prisma'
 import Link from 'next/link'
 

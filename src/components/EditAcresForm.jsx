@@ -2,9 +2,8 @@
 import dynamic from 'next/dynamic'
 import { Button } from '@/components/ui/button'
 import { useState } from 'react'
-import { useRouter } from 'next/navigation'
-import { useSearchParams } from 'next/navigation'
 import { Loader2 } from 'lucide-react'
+import { useToast } from './ui/use-toast'
 
 const Map = dynamic(() => import('@/components/Map'), {
   ssr: false,
@@ -20,7 +19,7 @@ export default function EditAcresForm({
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
-  const router = useRouter()
+  const { toast } = useToast()
 
   const submitForm = async () => {
     setLoading(true)
@@ -46,6 +45,7 @@ export default function EditAcresForm({
         const data = await response.json()
         console.log('Response data:', data)
         setLoading(false)
+        toast({ description: 'Acres updated successfully' })
       } else {
         console.error('Error:', response.statusText)
         setError(response.statusText)
