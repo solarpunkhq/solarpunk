@@ -39,7 +39,7 @@ export default function SearchBar() {
           <div
             key={idx}
             className="px-4 py-1 leading-8"
-            onClick={() => redirectToOnboarding(result.x, result.y)}
+            onClick={() => redirectToOnboarding(result.y, result.x)}
           >
             {result.label}
           </div>
