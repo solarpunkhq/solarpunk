@@ -11,7 +11,7 @@ const Map = dynamic(() => import('../../components/Map'), {
   ssr: false,
 })
 
-export default function Contact() {
+export default function Onboarding() {
   const [acres, setAcres] = useState<Acre[]>([])
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
