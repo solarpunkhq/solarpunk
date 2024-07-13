@@ -92,8 +92,8 @@ export default function Onboarding() {
           alreadyDrawnAcres={[]}
         />
         <div className="rounded-r-4xl h-full w-full max-w-96 border border-l-0 bg-white p-8">
-          <div className="text-center">
-            <h1 className="font-display text-5xl">Mark your acres</h1>
+          <div>
+            <h1 className="font-display text-4xl">Mark your acres</h1>
             <h2 className="">Use the map to outline your territory</h2>
             <div className="relative flex overflow-x-auto">
               <table className="mt-4 w-full border text-left text-sm text-gray-500 dark:text-gray-400 rtl:text-right">
