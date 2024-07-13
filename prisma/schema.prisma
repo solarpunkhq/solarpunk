@@ -18,6 +18,7 @@ model User {
   finance_option      String?
   acres               Acre[]
   country             String
+  screenshot_url      String?
 }
 
 model Acre {

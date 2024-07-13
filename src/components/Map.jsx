@@ -43,25 +43,10 @@ export default function Map({
   acres,
   setAcres,
   alreadyDrawnAcres,
+  eventsRef,
 }) {
   const [location, setLocation] = useState([lat, lng])
   const [mapType, setMapType] = useState('hybrid')
-  // alreadyDrawnAcres = [
-  //   [
-  //     {
-  //       lat: 34.0530560945386,
-  //       lng: -118.24876785278322,
-  //     },
-  //     {
-  //       lat: 34.07141197504988,
-  //       lng: -118.23331832885744,
-  //     },
-  //     {
-  //       lat: 34.054336866377106,
-  //       lng: -118.22010040283205,
-  //     },
-  //   ],
-  // ]
 
   return (
     <>
@@ -111,7 +96,7 @@ export default function Map({
             new GoogleProvider({ apiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY })
           }
         />
-        <Events acres={acres} setAcres={setAcres} />
+        <Events ref={eventsRef} acres={acres} setAcres={setAcres} />
       </MapContainer>
     </>
   )

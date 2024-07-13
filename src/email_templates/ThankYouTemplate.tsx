@@ -14,8 +14,10 @@ import * as React from 'react'
 
 export const ThankYouTemplate = ({
   translations,
+  screenshot_url,
 }: {
   translations: string[]
+  screenshot_url: string
 }) => {
   return (
     <Html>
@@ -27,11 +29,12 @@ export const ThankYouTemplate = ({
             src={`https://i.imgur.com/ieNnAcN.png`}
             width="335"
             height="87"
-            alt="Koala"
+            alt="Solarpunk"
             style={logo}
           />
           <Text style={paragraph}>{translations['greeting']}</Text>
           <Text style={paragraph}>{translations['content']}</Text>
+          <Img src={screenshot_url} alt="Submitted url" />
           <Section style={btnContainer}>
             <Button style={button} href="https://solarpunk.sh/login">
               {translations['button']}

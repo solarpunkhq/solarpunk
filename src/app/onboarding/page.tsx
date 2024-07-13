@@ -1,7 +1,7 @@
 'use client'
 import dynamic from 'next/dynamic'
 import { Button } from '@/components/ui/button'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { Acre } from '@/utils/types'
 import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
@@ -18,6 +18,15 @@ export default function Onboarding() {
 
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+
+  const eventsRef = useRef(null)
+
+  const handleTakeScreenshot = async () => {
+    if (eventsRef.current) {
+      const screenshot = await eventsRef.current.takeScreenshot()
+      return screenshot
+    }
+  }
 
   const router = useRouter()
 
@@ -36,6 +45,7 @@ export default function Onboarding() {
 
   const submitForm = async () => {
     setLoading(true)
+    const screenshot = await handleTakeScreenshot()
     if (email === '') {
       setError('Email is required')
       setLoading(false)
@@ -51,17 +61,15 @@ export default function Onboarding() {
       setLoading(false)
       return
     }
+    const formData = new FormData()
+    formData.append('email', email)
+    formData.append('name', name)
+    formData.append('acres', JSON.stringify(acres))
+    formData.append('screenshot', screenshot, 'screenshot.png')
     try {
       const response = await fetch('/api/submit_onboarding', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email,
-          name,
-          acres,
-        }),
+        body: formData,
       })
 
       if (response.ok) {
@@ -90,6 +98,7 @@ export default function Onboarding() {
           acres={acres}
           setAcres={setAcres}
           alreadyDrawnAcres={[]}
+          eventsRef={eventsRef}
         />
         <div className="rounded-r-4xl h-full w-full max-w-96 border border-l-0 bg-white p-8">
           <div className="text-center">
