@@ -7,6 +7,7 @@ import { iso1A2Code } from '@rapideditor/country-coder'
 import { promises as fs } from 'fs'
 import { onboardingTranslations } from '@/utils/onboardingTranslations'
 import { createClient } from '@supabase/supabase-js'
+import { authEmailTranslations } from '@/utils/authEmailTranslations'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
@@ -44,10 +45,16 @@ export async function POST(request: Request) {
       },
     }
   )
+
+  let authTranslations = authEmailTranslations[country]
+  if (!translations) {
+    translations = authEmailTranslations.default
+  }
   const { data: create_data, error: create_error } =
     await supabase.auth.admin.createUser({
       email: body.email,
       email_confirm: true,
+      user_metadata: authTranslations,
     })
 
   const { data: link_data, error: link_error } =
