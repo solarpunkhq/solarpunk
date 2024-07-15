@@ -5,7 +5,6 @@ import { authEmailTranslations } from '@/utils/authEmailTranslations'
 
 export async function POST(request: Request) {
   const body = await request.json()
-  console.log(body)
   const email = body.email
 
   const supabase = createClient()

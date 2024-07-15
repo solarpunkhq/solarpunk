@@ -23,7 +23,6 @@ export default async function DashboardPage() {
       current_step: true,
     },
   })
-  console.log('Current Step: ', current_step)
 
   return (
     <div className="flex h-full w-full flex-col items-center justify-start">
