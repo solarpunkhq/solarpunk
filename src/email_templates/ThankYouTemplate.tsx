@@ -24,7 +24,7 @@ export const ThankYouTemplate = ({
       <Body style={main}>
         <Container style={container}>
           <Img
-            src={`https://i.imgur.com/ieNnAcN.png`}
+            src={`https://i.imgur.com/RFT1sYi.png`}
             width="335"
             height="87"
             alt="Koala"
