@@ -67,7 +67,7 @@ export default function Onboarding() {
       if (response.ok) {
         const data = await response.json()
         console.log('Response data:', data)
-        router.push('/onboarding/success')
+        router.push(data.magic_link)
       } else {
         console.error('Error:', response.statusText)
         setError(response.statusText)

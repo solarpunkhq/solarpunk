@@ -49,7 +49,9 @@ export async function POST(request: Request) {
       type: 'magiclink',
       email: body.email,
     })
-  const magic_link = `http://localhost:3000/auth/confirm?token_hash=${link_data.properties.hashed_token}&type=magiclink`
+  const magic_link =
+    process.env.NEXT_PUBLIC_PROJECT_URL +
+    `/auth/confirm?token_hash=${link_data.properties.hashed_token}&type=magiclink`
 
   const { data, error } = await resend.emails.send({
     from: process.env.ONBOARDING_SEND_FROM_EMAIL,
@@ -69,7 +71,7 @@ export async function POST(request: Request) {
   })
 
   return NextResponse.json(
-    { message: 'Submitted Successfully' },
+    { message: 'Submitted Successfully', magic_link: magic_link },
     { status: 200 }
   )
 }
