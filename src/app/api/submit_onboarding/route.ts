@@ -44,6 +44,12 @@ export async function POST(request: Request) {
       },
     }
   )
+  const { data: create_data, error: create_error } =
+    await supabase.auth.admin.createUser({
+      email: body.email,
+      email_confirm: true,
+    })
+
   const { data: link_data, error: link_error } =
     await supabase.auth.admin.generateLink({
       type: 'magiclink',
