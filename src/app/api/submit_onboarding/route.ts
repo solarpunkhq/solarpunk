@@ -47,8 +47,8 @@ export async function POST(request: Request) {
   )
 
   let authTranslations = authEmailTranslations[country]
-  if (!translations) {
-    translations = authEmailTranslations.default
+  if (!authTranslations) {
+    authTranslations = authEmailTranslations.default
   }
   const { data: create_data, error: create_error } =
     await supabase.auth.admin.createUser({
