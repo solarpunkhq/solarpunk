@@ -30,6 +30,6 @@ export async function GET(request: NextRequest) {
     }
   }
 
-  redirectTo.pathname = '/error'
+  redirectTo.pathname = '/login'
   return NextResponse.redirect(redirectTo)
 }

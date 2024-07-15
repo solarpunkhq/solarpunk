@@ -14,8 +14,10 @@ import * as React from 'react'
 
 export const ThankYouTemplate = ({
   translations,
+  magic_link,
 }: {
   translations: string[]
+  magic_link: string
 }) => {
   return (
     <Html>
@@ -33,7 +35,7 @@ export const ThankYouTemplate = ({
           <Text style={paragraph}>{translations['greeting']}</Text>
           <Text style={paragraph}>{translations['content']}</Text>
           <Section style={btnContainer}>
-            <Button style={button} href="https://solarpunk.sh/login">
+            <Button style={button} href={magic_link}>
               {translations['button']}
             </Button>
           </Section>
