@@ -8,10 +8,10 @@ export const onboardingTranslations = {
     signature: 'Best,',
   },
   DE: {
-    preview: 'Vielen Dank für die Einreichung Ihrer Morgen',
+    preview: 'Vielen Dank für die Einreichung Ihrer Flächen',
     greeting: 'Hallo!',
     content:
-      'Willkommen bei Solarpunk, danke für die Einreichung Ihrer Morgen. Wir werden uns in Kürze bei Ihnen melden. In der Zwischenzeit können Sie zusätzliche Details zu Ihrem Land einreichen oder den Status Ihrer Bewerbung über den unten stehenden Link überprüfen.',
+      'Willkommen bei Solarpunk, danke für die Einreichung Ihrer Flächen. Wir werden uns in Kürze bei Ihnen melden. In der Zwischenzeit können Sie zusätzliche Details zu Ihrem Land einreichen oder den Status Ihrer Bewerbung über den unten stehenden Link überprüfen.',
     button: 'Anmelden',
     signature: 'Beste,',
   },
