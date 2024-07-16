@@ -2,7 +2,6 @@
 
 import { Step, Stepper, useStepper, type StepItem } from '@/components/stepper'
 import { AdditionalDetailsForm } from './AdditionalDetailsForm'
-import Link from 'next/link'
 
 const steps = [
   { label: 'Details' },
@@ -18,6 +17,9 @@ export default function CurrentStep({
   step: number
   email: string
 }) {
+  const redirectToEdit = () => {
+    window.location.href = '/dashboard/edit'
+  }
   return (
     <div className="mt-16 flex h-full w-full flex-col gap-4 p-4 md:w-1/2 md:p-0">
       <Stepper initialStep={step} steps={steps}>
@@ -33,9 +35,9 @@ export default function CurrentStep({
       )}
       <div className="mt-4 text-center text-sm text-gray-500">
         Want to edit your acres submission?{' '}
-        <Link href="/dashboard/edit" className="underline">
+        <button onClick={redirectToEdit} className="underline">
           Click here
-        </Link>
+        </button>
       </div>
     </div>
   )
