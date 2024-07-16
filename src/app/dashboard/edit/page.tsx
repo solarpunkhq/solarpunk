@@ -1,10 +1,6 @@
-export const fetchCache = 'force-no-store'
-
-import CurrentStep from '@/components/CurrentStep'
 import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
 import prisma from '@/lib/prisma'
-import Link from 'next/link'
 import EditAcresForm from '@/components/EditAcresForm'
 
 export default async function EditPage() {
