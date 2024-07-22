@@ -18,6 +18,8 @@ model User {
   finance_option      String?
   acres               Acre[]
   country             String
+  created_timestamp   DateTime @default(now())
+  total_revenue       Float
 }
 
 model Acre {

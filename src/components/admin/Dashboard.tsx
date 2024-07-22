@@ -39,12 +39,21 @@ export function AdminDashboard() {
       <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
         <Tabs defaultValue="all">
           <div className="flex items-center">
-            <TabsList>
-              <TabsTrigger value="all">All</TabsTrigger>
-              <TabsTrigger value="active">Active</TabsTrigger>
-              <TabsTrigger value="draft">Draft</TabsTrigger>
-              <TabsTrigger value="archived" className="hidden sm:flex">
-                Archived
+            <TabsList className="hidden md:flex">
+              <TabsTrigger value="all" className="hidden md:flex">
+                All
+              </TabsTrigger>
+              <TabsTrigger value="details" className="hidden md:flex">
+                Details
+              </TabsTrigger>
+              <TabsTrigger value="review" className="hidden md:flex">
+                In Review
+              </TabsTrigger>
+              <TabsTrigger value="planning" className="hidden md:flex">
+                Planning
+              </TabsTrigger>
+              <TabsTrigger value="deployment" className="hidden md:flex">
+                Deployment
               </TabsTrigger>
             </TabsList>
             <div className="ml-auto flex items-center gap-2">
@@ -53,18 +62,19 @@ export function AdminDashboard() {
                   <Button variant="outline" size="sm" className="h-8 gap-1">
                     <ListFilter className="h-3.5 w-3.5" />
                     <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
-                      Filter
+                      Sort
                     </span>
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
-                  <DropdownMenuLabel>Filter by</DropdownMenuLabel>
+                  <DropdownMenuLabel>Sort by</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuCheckboxItem checked>
-                    Active
+                    Date Onboarded
                   </DropdownMenuCheckboxItem>
-                  <DropdownMenuCheckboxItem>Draft</DropdownMenuCheckboxItem>
-                  <DropdownMenuCheckboxItem>Archived</DropdownMenuCheckboxItem>
+                  <DropdownMenuCheckboxItem>
+                    Total Revenue
+                  </DropdownMenuCheckboxItem>
                 </DropdownMenuContent>
               </DropdownMenu>
               <Button size="sm" variant="outline" className="h-8 gap-1">
@@ -73,10 +83,14 @@ export function AdminDashboard() {
                   Export
                 </span>
               </Button>
-              <Button size="sm" className="h-8 gap-1">
+              <Button
+                size="sm"
+                className="h-8 gap-1"
+                onClick={() => (window.location.href = '/onboarding')}
+              >
                 <PlusCircle className="h-3.5 w-3.5" />
                 <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
-                  Add Product
+                  Add Submission
                 </span>
               </Button>
             </div>
@@ -84,10 +98,8 @@ export function AdminDashboard() {
           <TabsContent value="all">
             <Card x-chunk="dashboard-06-chunk-0">
               <CardHeader>
-                <CardTitle>Products</CardTitle>
-                <CardDescription>
-                  Manage your products and view their sales performance.
-                </CardDescription>
+                <CardTitle>Submissions</CardTitle>
+                <CardDescription>Manage user acre submissions.</CardDescription>
               </CardHeader>
               <CardContent>
                 <Table>

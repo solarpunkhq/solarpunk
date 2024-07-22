@@ -18,6 +18,12 @@ export async function POST(request: Request) {
   const coords = body.acres[0].latlngs[0]
   const country = iso1A2Code([coords[0].lng, coords[0].lat])
 
+  let total_revenue = 0
+  for (const acre of body.acres) {
+    let revenue = acre.revenue
+    total_revenue += revenue
+  }
+
   await prisma.user.create({
     data: {
       email: body.email,
@@ -27,6 +33,7 @@ export async function POST(request: Request) {
       },
       current_step: 0,
       country: country,
+      total_revenue: total_revenue,
     },
   })
 
