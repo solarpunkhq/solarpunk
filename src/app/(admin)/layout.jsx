@@ -1,21 +1,14 @@
-import { RootLayout } from '@/components/RootLayout'
 import { cn } from '@/lib/utils'
 import localFont from 'next/font/local'
 import '@/styles/tailwind.css'
 import { Inter } from 'next/font/google'
 import { Toaster } from '@/components/ui/toaster'
-
-export const metadata = {
-  title: {
-    template: '%s - Solarpunk',
-    default: 'Solarpunk - Covering farms with solar panels',
-  },
-}
+import { TooltipProvider } from '@radix-ui/react-tooltip'
 
 const calSans = localFont({
   src: [
     {
-      path: '../../public/fonts/CalSans-SemiBold.ttf',
+      path: '../../../public/fonts/CalSans-SemiBold.ttf',
       weight: '400',
     },
   ],
@@ -57,8 +50,10 @@ export default function Layout({ children }) {
           inter.variable
         )}
       >
-        <RootLayout>{children}</RootLayout>
-        <Toaster />
+        <TooltipProvider>
+          {children}
+          <Toaster />
+        </TooltipProvider>
       </body>
     </html>
   )
