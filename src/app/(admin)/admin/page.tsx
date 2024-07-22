@@ -3,7 +3,7 @@ import { createClient } from '@/utils/supabase/server'
 import { redirect, useSearchParams } from 'next/navigation'
 import prisma from '@/lib/prisma'
 import Link from 'next/link'
-import { Dashboard } from '@/components/admin/Dashboard'
+import { AdminDashboard } from '@/components/admin/Dashboard'
 
 export default async function AdminPage() {
   const supabase = createClient()
@@ -20,5 +20,5 @@ export default async function AdminPage() {
     redirect('/dashboard')
   }
 
-  return <Dashboard />
+  return <AdminDashboard />
 }
