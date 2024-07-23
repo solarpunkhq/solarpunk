@@ -58,8 +58,8 @@ export default function EditAcresForm({
     }
   }
 
-  const lat = existing_acres[0][0][0].lat
-  const lng = existing_acres[0][0][0].lng
+  const lat = 35
+  const lng = 34
 
   return (
     <div className="-mb-[200px] mt-12 h-full w-full">

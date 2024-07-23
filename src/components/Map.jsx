@@ -66,7 +66,7 @@ export default function Map({
           apiKey={process.env.NEXT_PUBLIC_MAPS_API_KEY}
           type={mapType}
         />
-        {/* <MapTypeControl setMapType={setMapType} />
+        <MapTypeControl setMapType={setMapType} />
 
         <GeomanControl
           position="topleft"
@@ -96,7 +96,7 @@ export default function Map({
             })
           }
         />
-        <Events acres={acres} setAcres={setAcres} /> */}
+        <Events acres={acres} setAcres={setAcres} />
       </MapContainer>
     </>
   )
