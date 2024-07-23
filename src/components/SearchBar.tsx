@@ -4,9 +4,10 @@ import React, { useState, useEffect } from 'react'
 import { GoogleProvider } from 'leaflet-geosearch'
 import { Input } from '@/components/ui/input'
 import { useRouter } from 'next/navigation'
+import CustomSearchProvider from '@/utils/customSearchProvider'
 
 export default function SearchBar() {
-  const provider = new GoogleProvider({
+  const provider = new CustomSearchProvider({
     apiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY,
   })
 
@@ -38,7 +39,7 @@ export default function SearchBar() {
         {results.map((result, idx) => (
           <div
             key={idx}
-            className="px-4 py-1 leading-8"
+            className="px-4 py-1 text-sm leading-8"
             onClick={() => redirectToOnboarding(result.y, result.x)}
           >
             {result.label}

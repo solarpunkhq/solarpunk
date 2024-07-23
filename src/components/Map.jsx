@@ -13,6 +13,7 @@ import { GeoSearchControl, GoogleProvider } from 'leaflet-geosearch'
 import { EnableVertexControl } from './EnableVertexControl'
 import { PreDrawnAcres } from './PreDrawnAcres'
 import dynamic from 'next/dynamic'
+import CustomSearchProvider from '@/utils/customSearchProvider'
 
 const MapTypeControl = dynamic(() => import('./MapTypeControl'), {
   ssr: false,
@@ -92,7 +93,9 @@ export default function Map({
         <EnableVertexControl />
         <Search
           provider={
-            new GoogleProvider({ apiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY })
+            new CustomSearchProvider({
+              apiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY,
+            })
           }
         />
         <Events acres={acres} setAcres={setAcres} />

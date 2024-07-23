@@ -105,284 +105,101 @@ export function AdminDashboard() {
                 <Table>
                   <TableHeader>
                     <TableRow>
-                      <TableHead className="hidden w-[100px] sm:table-cell">
-                        <span className="sr-only">Image</span>
-                      </TableHead>
                       <TableHead>Name</TableHead>
                       <TableHead>Status</TableHead>
                       <TableHead className="hidden md:table-cell">
-                        Price
-                      </TableHead>
-                      <TableHead className="hidden md:table-cell">
-                        Total Sales
+                        Total Revenue
                       </TableHead>
                       <TableHead className="hidden md:table-cell">
                         Created at
                       </TableHead>
-                      <TableHead>
-                        <span className="sr-only">Actions</span>
-                      </TableHead>
+                      <TableHead>Email</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
                     <TableRow>
-                      <TableCell className="hidden sm:table-cell">
-                        <Image
-                          alt="Product image"
-                          className="aspect-square rounded-md object-cover"
-                          height="64"
-                          src="/placeholder.svg"
-                          width="64"
-                        />
-                      </TableCell>
-                      <TableCell className="font-medium">
-                        Laser Lemonade Machine
+                      <TableCell className="font-medium underline">
+                        Varun Balani
                       </TableCell>
                       <TableCell>
-                        <Badge variant="outline">Draft</Badge>
+                        <Badge variant="outline">Planning</Badge>
                       </TableCell>
                       <TableCell className="hidden md:table-cell">
-                        $499.99
+                        $49,999,293
                       </TableCell>
-                      <TableCell className="hidden md:table-cell">25</TableCell>
                       <TableCell className="hidden md:table-cell">
-                        2023-07-12 10:42 AM
+                        2024-07-22 15:30:43
                       </TableCell>
-                      <TableCell>
-                        <DropdownMenu>
-                          <DropdownMenuTrigger asChild>
-                            <Button
-                              aria-haspopup="true"
-                              size="icon"
-                              variant="ghost"
-                            >
-                              <MoreHorizontal className="h-4 w-4" />
-                              <span className="sr-only">Toggle menu</span>
-                            </Button>
-                          </DropdownMenuTrigger>
-                          <DropdownMenuContent align="end">
-                            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                            <DropdownMenuItem>Edit</DropdownMenuItem>
-                            <DropdownMenuItem>Delete</DropdownMenuItem>
-                          </DropdownMenuContent>
-                        </DropdownMenu>
+                      <TableCell className="hidden md:table-cell">
+                        varunprahladb@gmail.com
                       </TableCell>
                     </TableRow>
                     <TableRow>
-                      <TableCell className="hidden sm:table-cell">
-                        <Image
-                          alt="Product image"
-                          className="aspect-square rounded-md object-cover"
-                          height="64"
-                          src="/placeholder.svg"
-                          width="64"
-                        />
-                      </TableCell>
-                      <TableCell className="font-medium">
-                        Hypernova Headphones
+                      <TableCell className="font-medium underline">
+                        Peer
                       </TableCell>
                       <TableCell>
-                        <Badge variant="outline">Active</Badge>
+                        <Badge variant="outline">Details</Badge>
                       </TableCell>
                       <TableCell className="hidden md:table-cell">
-                        $129.99
+                        $20,109,293
                       </TableCell>
                       <TableCell className="hidden md:table-cell">
-                        100
+                        2024-07-11 15:30:43
                       </TableCell>
                       <TableCell className="hidden md:table-cell">
-                        2023-10-18 03:21 PM
-                      </TableCell>
-                      <TableCell>
-                        <DropdownMenu>
-                          <DropdownMenuTrigger asChild>
-                            <Button
-                              aria-haspopup="true"
-                              size="icon"
-                              variant="ghost"
-                            >
-                              <MoreHorizontal className="h-4 w-4" />
-                              <span className="sr-only">Toggle menu</span>
-                            </Button>
-                          </DropdownMenuTrigger>
-                          <DropdownMenuContent align="end">
-                            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                            <DropdownMenuItem>Edit</DropdownMenuItem>
-                            <DropdownMenuItem>Delete</DropdownMenuItem>
-                          </DropdownMenuContent>
-                        </DropdownMenu>
+                        peer@gmail.com
                       </TableCell>
                     </TableRow>
                     <TableRow>
-                      <TableCell className="hidden sm:table-cell">
-                        <Image
-                          alt="Product image"
-                          className="aspect-square rounded-md object-cover"
-                          height="64"
-                          src="/placeholder.svg"
-                          width="64"
-                        />
-                      </TableCell>
-                      <TableCell className="font-medium">
-                        AeroGlow Desk Lamp
+                      <TableCell className="font-medium underline">
+                        Schuyler
                       </TableCell>
                       <TableCell>
-                        <Badge variant="outline">Active</Badge>
+                        <Badge variant="outline">Deployment</Badge>
                       </TableCell>
                       <TableCell className="hidden md:table-cell">
-                        $39.99
+                        $4,229,293
                       </TableCell>
-                      <TableCell className="hidden md:table-cell">50</TableCell>
                       <TableCell className="hidden md:table-cell">
-                        2023-11-29 08:15 AM
+                        2024-07-22 18:30:43
                       </TableCell>
-                      <TableCell>
-                        <DropdownMenu>
-                          <DropdownMenuTrigger asChild>
-                            <Button
-                              aria-haspopup="true"
-                              size="icon"
-                              variant="ghost"
-                            >
-                              <MoreHorizontal className="h-4 w-4" />
-                              <span className="sr-only">Toggle menu</span>
-                            </Button>
-                          </DropdownMenuTrigger>
-                          <DropdownMenuContent align="end">
-                            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                            <DropdownMenuItem>Edit</DropdownMenuItem>
-                            <DropdownMenuItem>Delete</DropdownMenuItem>
-                          </DropdownMenuContent>
-                        </DropdownMenu>
+                      <TableCell className="hidden md:table-cell">
+                        schuyler@gmail.com
                       </TableCell>
                     </TableRow>
                     <TableRow>
-                      <TableCell className="hidden sm:table-cell">
-                        <Image
-                          alt="Product image"
-                          className="aspect-square rounded-md object-cover"
-                          height="64"
-                          src="/placeholder.svg"
-                          width="64"
-                        />
-                      </TableCell>
-                      <TableCell className="font-medium">
-                        TechTonic Energy Drink
+                      <TableCell className="font-medium underline">
+                        Tyler Durden
                       </TableCell>
                       <TableCell>
-                        <Badge variant="secondary">Draft</Badge>
+                        <Badge variant="outline">In Review</Badge>
                       </TableCell>
                       <TableCell className="hidden md:table-cell">
-                        $2.99
+                        $4,000,000
                       </TableCell>
-                      <TableCell className="hidden md:table-cell">0</TableCell>
                       <TableCell className="hidden md:table-cell">
-                        2023-12-25 11:59 PM
+                        2024-05-22 15:30:43
                       </TableCell>
-                      <TableCell>
-                        <DropdownMenu>
-                          <DropdownMenuTrigger asChild>
-                            <Button
-                              aria-haspopup="true"
-                              size="icon"
-                              variant="ghost"
-                            >
-                              <MoreHorizontal className="h-4 w-4" />
-                              <span className="sr-only">Toggle menu</span>
-                            </Button>
-                          </DropdownMenuTrigger>
-                          <DropdownMenuContent align="end">
-                            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                            <DropdownMenuItem>Edit</DropdownMenuItem>
-                            <DropdownMenuItem>Delete</DropdownMenuItem>
-                          </DropdownMenuContent>
-                        </DropdownMenu>
+                      <TableCell className="hidden md:table-cell">
+                        tyler.durden@gmail.com
                       </TableCell>
                     </TableRow>
                     <TableRow>
-                      <TableCell className="hidden sm:table-cell">
-                        <Image
-                          alt="Product image"
-                          className="aspect-square rounded-md object-cover"
-                          height="64"
-                          src="/placeholder.svg"
-                          width="64"
-                        />
-                      </TableCell>
-                      <TableCell className="font-medium">
-                        Gamer Gear Pro Controller
+                      <TableCell className="font-medium underline">
+                        Marla Singer
                       </TableCell>
                       <TableCell>
-                        <Badge variant="outline">Active</Badge>
+                        <Badge variant="outline">Planning</Badge>
                       </TableCell>
                       <TableCell className="hidden md:table-cell">
-                        $59.99
-                      </TableCell>
-                      <TableCell className="hidden md:table-cell">75</TableCell>
-                      <TableCell className="hidden md:table-cell">
-                        2024-01-01 12:00 AM
-                      </TableCell>
-                      <TableCell>
-                        <DropdownMenu>
-                          <DropdownMenuTrigger asChild>
-                            <Button
-                              aria-haspopup="true"
-                              size="icon"
-                              variant="ghost"
-                            >
-                              <MoreHorizontal className="h-4 w-4" />
-                              <span className="sr-only">Toggle menu</span>
-                            </Button>
-                          </DropdownMenuTrigger>
-                          <DropdownMenuContent align="end">
-                            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                            <DropdownMenuItem>Edit</DropdownMenuItem>
-                            <DropdownMenuItem>Delete</DropdownMenuItem>
-                          </DropdownMenuContent>
-                        </DropdownMenu>
-                      </TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell className="hidden sm:table-cell">
-                        <Image
-                          alt="Product image"
-                          className="aspect-square rounded-md object-cover"
-                          height="64"
-                          src="/placeholder.svg"
-                          width="64"
-                        />
-                      </TableCell>
-                      <TableCell className="font-medium">
-                        Luminous VR Headset
-                      </TableCell>
-                      <TableCell>
-                        <Badge variant="outline">Active</Badge>
+                        $78,888,293
                       </TableCell>
                       <TableCell className="hidden md:table-cell">
-                        $199.99
+                        2024-07-27 15:30:43
                       </TableCell>
-                      <TableCell className="hidden md:table-cell">30</TableCell>
                       <TableCell className="hidden md:table-cell">
-                        2024-02-14 02:14 PM
-                      </TableCell>
-                      <TableCell>
-                        <DropdownMenu>
-                          <DropdownMenuTrigger asChild>
-                            <Button
-                              aria-haspopup="true"
-                              size="icon"
-                              variant="ghost"
-                            >
-                              <MoreHorizontal className="h-4 w-4" />
-                              <span className="sr-only">Toggle menu</span>
-                            </Button>
-                          </DropdownMenuTrigger>
-                          <DropdownMenuContent align="end">
-                            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                            <DropdownMenuItem>Edit</DropdownMenuItem>
-                            <DropdownMenuItem>Delete</DropdownMenuItem>
-                          </DropdownMenuContent>
-                        </DropdownMenu>
+                        marla.singer@gmail.com
                       </TableCell>
                     </TableRow>
                   </TableBody>
@@ -390,7 +207,8 @@ export function AdminDashboard() {
               </CardContent>
               <CardFooter>
                 <div className="text-xs text-muted-foreground">
-                  Showing <strong>1-10</strong> of <strong>32</strong> products
+                  Showing <strong>1-10</strong> of <strong>5</strong>{' '}
+                  submissions
                 </div>
               </CardFooter>
             </Card>
