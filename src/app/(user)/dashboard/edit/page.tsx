@@ -28,7 +28,6 @@ export default async function EditPage() {
   const acres = acreData.map((acre) => {
     return acre.latlngs
   })
-  console.log('Acres: ', acres)
 
   return (
     <div className="flex h-full w-full flex-col items-center justify-start">

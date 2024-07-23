@@ -43,7 +43,7 @@ export default function Map({
   lng,
   acres,
   setAcres,
-  alreadyDrawnAcres,
+  existingAcres,
 }) {
   const [location, setLocation] = useState([lat, lng])
   const [mapType, setMapType] = useState('hybrid')
@@ -89,7 +89,7 @@ export default function Map({
           snapGuidesOption={false}
           autoTracingOption={false}
         />
-        <PreDrawnAcres acres={alreadyDrawnAcres} />
+        <PreDrawnAcres acres={existingAcres} />
         <EnableVertexControl />
         <Search
           provider={
