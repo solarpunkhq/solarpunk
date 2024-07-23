@@ -70,7 +70,7 @@ export default function EditAcresForm({
           lng={lng}
           acres={acres}
           setAcres={setAcres}
-          existingAcres={existing_acres}
+          existingAcres={[]}
         />
         <div className="rounded-r-4xl h-full w-full max-w-96 border border-l-0 bg-white p-8">
           <div>
