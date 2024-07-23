@@ -12,6 +12,7 @@ import { EnableVertexControl } from './EnableVertexControl'
 import { PreDrawnAcres } from './PreDrawnAcres'
 import dynamic from 'next/dynamic'
 import CustomSearchProvider from '@/utils/customSearchProvider'
+import CustomGoogleLayer from './CustomGoogleLayer'
 
 const MapTypeControl = dynamic(() => import('./MapTypeControl'), {
   ssr: false,
@@ -62,7 +63,7 @@ export default function Map({
           borderBottomLeftRadius: '40px',
         }}
       >
-        <ReactLeafletGoogleLayer
+        <CustomGoogleLayer
           apiKey={process.env.NEXT_PUBLIC_MAPS_API_KEY}
           type={mapType}
         />
