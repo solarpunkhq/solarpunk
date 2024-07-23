@@ -75,6 +75,7 @@ const Events = ({
         )
         if (inputElement) {
           const isFocused = document.activeElement === inputElement
+          //@ts-ignore
           const hasValue = inputElement.value.trim() !== ''
           if (!hasValue && !isFocused) {
             updateAcres()
