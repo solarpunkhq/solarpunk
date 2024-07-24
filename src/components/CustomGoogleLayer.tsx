@@ -8,6 +8,7 @@ import {
 } from '@react-leaflet/core'
 import 'leaflet.gridlayer.googlemutant'
 import { Loader, LoaderOptions } from '@googlemaps/js-api-loader'
+import { useEffect, useState } from 'react'
 
 interface IGoogleMapsAddLayer {
   name: 'BicyclingLayer' | 'TrafficLayer' | 'TransitLayer'
@@ -54,6 +55,8 @@ const createLeafletElement = (
     ...googleMutantProps
   } = props
 
+  console.log(L.gridLayer.googleMutant)
+
   const instance = L.gridLayer.googleMutant(googleMutantProps)
 
   if (googleMapsAddLayers) {
@@ -74,9 +77,9 @@ const GoogleMutantLayer = createLayerComponent<
 >(createLeafletElement, updateGridLayer)
 
 const GoogleMutantLayerWrapper: React.FC<IProps> = (props) => {
-  const [isScriptLoaded, setScriptLoaded] = React.useState(false)
+  const [isScriptLoaded, setScriptLoaded] = useState(false)
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (props.useGoogMapsLoader) {
       loadGoogleMapsScript({
         apiKey: props.apiKey,
@@ -90,7 +93,8 @@ const GoogleMutantLayerWrapper: React.FC<IProps> = (props) => {
   }, [props.apiKey, props.useGoogMapsLoader, props.googleMapsLoaderConf])
 
   if (!isScriptLoaded) {
-    return null // or a loading spinner
+    console.log('Google Maps script is not loaded')
+    return null
   }
 
   return <GoogleMutantLayer {...props} />
