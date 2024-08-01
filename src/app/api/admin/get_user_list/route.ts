@@ -30,16 +30,14 @@ export async function GET(request: Request) {
     )
   }
   if ('users' in data && Array.isArray(data.users)) {
-    const processed_data = data.users
-      //@ts-ignore
-      .filter((user) => user.app_metadata.role === 'admin')
-      .map((user) => {
-        return {
-          id: user.id,
-          email: user.email,
-          created_at: user.created_at,
-        }
-      })
+    const processed_data = data.users.map((user) => {
+      return {
+        id: user.id,
+        email: user.email,
+        created_at: user.created_at,
+        is_admin: user.app_metadata.role === 'admin',
+      }
+    })
     return NextResponse.json(processed_data, { status: 200 })
   } else {
     return NextResponse.json(
