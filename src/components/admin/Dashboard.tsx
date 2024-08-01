@@ -1,6 +1,6 @@
 'use client'
 
-import Image from 'next/image'
+import { useQuery } from '@tanstack/react-query'
 import { File, ListFilter, MoreHorizontal, PlusCircle } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -31,8 +31,29 @@ import {
 } from '@/components/ui/table'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import AdminHeader from './Header'
+import DashboardTab from './DashboardTab'
 
 export function AdminDashboard() {
+  const { isPending, error, data, isFetching } = useQuery({
+    queryKey: ['userData'],
+    queryFn: async () => {
+      const response = await fetch('/api/admin/get_users')
+      return await response.json()
+    },
+  })
+
+  if (isPending) {
+    return (
+      <div className="flex h-screen items-center justify-center">
+        Loading...
+      </div>
+    )
+  }
+
+  if (error) return 'An error has occurred: ' + error.message
+
+  console.log(data)
+
   return (
     <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
       <AdminHeader breadcrumbs={[{ href: '/admin', label: 'Dashboard' }]} />
@@ -95,124 +116,11 @@ export function AdminDashboard() {
               </Button>
             </div>
           </div>
-          <TabsContent value="all">
-            <Card x-chunk="dashboard-06-chunk-0">
-              <CardHeader>
-                <CardTitle>Submissions</CardTitle>
-                <CardDescription>Manage user acre submissions.</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>Name</TableHead>
-                      <TableHead>Status</TableHead>
-                      <TableHead className="hidden md:table-cell">
-                        Total Revenue
-                      </TableHead>
-                      <TableHead className="hidden md:table-cell">
-                        Created at
-                      </TableHead>
-                      <TableHead>Email</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    <TableRow>
-                      <TableCell className="font-medium underline">
-                        Varun Balani
-                      </TableCell>
-                      <TableCell>
-                        <Badge variant="outline">Planning</Badge>
-                      </TableCell>
-                      <TableCell className="hidden md:table-cell">
-                        $49,999,293
-                      </TableCell>
-                      <TableCell className="hidden md:table-cell">
-                        2024-07-22 15:30:43
-                      </TableCell>
-                      <TableCell className="hidden md:table-cell">
-                        varunprahladb@gmail.com
-                      </TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell className="font-medium underline">
-                        Peer
-                      </TableCell>
-                      <TableCell>
-                        <Badge variant="outline">Details</Badge>
-                      </TableCell>
-                      <TableCell className="hidden md:table-cell">
-                        $20,109,293
-                      </TableCell>
-                      <TableCell className="hidden md:table-cell">
-                        2024-07-11 15:30:43
-                      </TableCell>
-                      <TableCell className="hidden md:table-cell">
-                        peer@gmail.com
-                      </TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell className="font-medium underline">
-                        Schuyler
-                      </TableCell>
-                      <TableCell>
-                        <Badge variant="outline">Deployment</Badge>
-                      </TableCell>
-                      <TableCell className="hidden md:table-cell">
-                        $4,229,293
-                      </TableCell>
-                      <TableCell className="hidden md:table-cell">
-                        2024-07-22 18:30:43
-                      </TableCell>
-                      <TableCell className="hidden md:table-cell">
-                        schuyler@gmail.com
-                      </TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell className="font-medium underline">
-                        Tyler Durden
-                      </TableCell>
-                      <TableCell>
-                        <Badge variant="outline">In Review</Badge>
-                      </TableCell>
-                      <TableCell className="hidden md:table-cell">
-                        $4,000,000
-                      </TableCell>
-                      <TableCell className="hidden md:table-cell">
-                        2024-05-22 15:30:43
-                      </TableCell>
-                      <TableCell className="hidden md:table-cell">
-                        tyler.durden@gmail.com
-                      </TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell className="font-medium underline">
-                        Marla Singer
-                      </TableCell>
-                      <TableCell>
-                        <Badge variant="outline">Planning</Badge>
-                      </TableCell>
-                      <TableCell className="hidden md:table-cell">
-                        $78,888,293
-                      </TableCell>
-                      <TableCell className="hidden md:table-cell">
-                        2024-07-27 15:30:43
-                      </TableCell>
-                      <TableCell className="hidden md:table-cell">
-                        marla.singer@gmail.com
-                      </TableCell>
-                    </TableRow>
-                  </TableBody>
-                </Table>
-              </CardContent>
-              <CardFooter>
-                <div className="text-xs text-muted-foreground">
-                  Showing <strong>1-10</strong> of <strong>5</strong>{' '}
-                  submissions
-                </div>
-              </CardFooter>
-            </Card>
-          </TabsContent>
+          <DashboardTab data={data} status={'All'} name="all" />
+          <DashboardTab data={data} status={'Details'} name="details" />
+          <DashboardTab data={data} status={'In Review'} name="review" />
+          <DashboardTab data={data} status={'Planning'} name="planning" />
+          <DashboardTab data={data} status={'Deployment'} name="deployment" />
         </Tabs>
       </main>
     </div>

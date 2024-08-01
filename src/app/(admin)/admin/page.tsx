@@ -1,16 +1,15 @@
-import CurrentStep from '@/components/CurrentStep'
 import { createClient } from '@/utils/supabase/server'
 import { redirect, useSearchParams } from 'next/navigation'
-import prisma from '@/lib/prisma'
-import Link from 'next/link'
+import TanstackProvider from '@/components/TanstackProvider'
 import { AdminDashboard } from '@/components/admin/Dashboard'
 
 export default async function AdminPage() {
   const supabase = createClient()
 
-  const { data, error } = await supabase.auth.getUser()
+  const { data: supabase_data, error: supabase_error } =
+    await supabase.auth.getUser()
 
-  const { user } = data
+  const { user } = supabase_data
 
   if (user === null || user === undefined) {
     redirect('/login')
@@ -20,5 +19,9 @@ export default async function AdminPage() {
     redirect('/dashboard')
   }
 
-  return <AdminDashboard />
+  return (
+    <TanstackProvider>
+      <AdminDashboard />
+    </TanstackProvider>
+  )
 }
