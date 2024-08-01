@@ -128,11 +128,11 @@ export default function DashboardTab({ data, status, name }) {
         </CardFooter>
         <Pagination className="mb-4">
           <PaginationContent>
-            <PaginationItem>
+            <PaginationItem className="cursor-pointer">
               <PaginationPrevious onClick={handlePrevious} />
             </PaginationItem>
             {getPaginationNumbers().map((num) => (
-              <PaginationItem key={num}>
+              <PaginationItem key={num} className="cursor-pointer">
                 <PaginationLink
                   isActive={num === page}
                   onClick={() => setPage(num)}
@@ -141,7 +141,7 @@ export default function DashboardTab({ data, status, name }) {
                 </PaginationLink>
               </PaginationItem>
             ))}
-            <PaginationItem>
+            <PaginationItem className="cursor-pointer">
               <PaginationNext onClick={handleNext} />
             </PaginationItem>
           </PaginationContent>

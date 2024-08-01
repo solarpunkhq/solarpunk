@@ -50,7 +50,13 @@ export function AdminDashboard() {
     )
   }
 
-  if (error) return 'An error has occurred: ' + error.message
+  if (error) {
+    return (
+      <div className="flex h-screen items-center justify-center">
+        'An error has occurred: ' + {error.message}
+      </div>
+    )
+  }
 
   function handleExport() {
     function convertToCSV(objArray) {
