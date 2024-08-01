@@ -59,8 +59,8 @@ export default function Layout({ children }) {
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <Link
-                      href=""
-                      className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                      href="/admin"
+                      className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                     >
                       <SheetIcon className="h-5 w-5" />
                       <span className="sr-only">Dashboard</span>
@@ -71,14 +71,14 @@ export default function Layout({ children }) {
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <Link
-                      href="/admin/users"
+                      href="/admin/admins"
                       className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                     >
                       <Users2 className="h-5 w-5" />
-                      <span className="sr-only">Users</span>
+                      <span className="sr-only">Admins</span>
                     </Link>
                   </TooltipTrigger>
-                  <TooltipContent side="right">Users</TooltipContent>
+                  <TooltipContent side="right">Admins</TooltipContent>
                 </Tooltip>
                 <Tooltip>
                   <TooltipTrigger asChild>

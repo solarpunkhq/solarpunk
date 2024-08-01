@@ -1,20 +1,11 @@
 'use client'
 
 import { useQuery } from '@tanstack/react-query'
-import { File, ListFilter, MoreHorizontal, PlusCircle } from 'lucide-react'
+import { File, PlusCircle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import AdminHeader from './Header'
 import DashboardTab from './DashboardTab'
-import { useState } from 'react'
 
 export function AdminDashboard() {
   const { isPending, error, data, isFetching } = useQuery({
