@@ -3,8 +3,9 @@ import { redirect, useSearchParams } from 'next/navigation'
 import TanstackProvider from '@/components/TanstackProvider'
 import { AdminDashboard } from '@/components/admin/Dashboard'
 import { AdminsList } from '@/components/admin/AdminsList'
+import { Analytics } from '@/components/admin/Analytics'
 
-export default async function AdminsPage() {
+export default async function AnalyticsPage() {
   const supabase = createClient()
 
   const { data: supabase_data, error: supabase_error } =
@@ -22,7 +23,7 @@ export default async function AdminsPage() {
 
   return (
     <TanstackProvider>
-      <AdminsList />
+      <Analytics />
     </TanstackProvider>
   )
 }

@@ -13,7 +13,6 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import { Button } from '../ui/button'
-import { useRouter } from 'next/navigation'
 
 export function AdminsList() {
   const { isPending, error, data, isFetching } = useQuery({
