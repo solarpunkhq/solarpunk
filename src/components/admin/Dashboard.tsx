@@ -52,7 +52,44 @@ export function AdminDashboard() {
 
   if (error) return 'An error has occurred: ' + error.message
 
-  console.log(data)
+  function handleExport() {
+    function convertToCSV(objArray) {
+      const array =
+        typeof objArray !== 'object' ? JSON.parse(objArray) : objArray
+      let str = ''
+      let headerRow = ''
+      for (let index in array[0]) {
+        if (headerRow !== '') headerRow += ','
+        headerRow += `"${index}"`
+      }
+      str += headerRow + '\r\n'
+
+      for (let i = 0; i < array.length; i++) {
+        let line = ''
+        for (let index in array[i]) {
+          if (line !== '') line += ','
+          let value = array[i][index]
+          // Enclose values in double quotes to handle commas within values
+          line += `"${value}"`
+        }
+        str += line + '\r\n'
+      }
+      return str
+    }
+
+    const csv = convertToCSV(data)
+
+    const blob = new Blob([csv], { type: 'text/csv' })
+
+    // Create and programmatically click a link to download the CSV
+    const link = document.createElement('a')
+    const url = URL.createObjectURL(blob)
+    link.setAttribute('href', url)
+    link.setAttribute('download', 'data.csv')
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
 
   return (
     <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
@@ -98,7 +135,12 @@ export function AdminDashboard() {
                   </DropdownMenuCheckboxItem>
                 </DropdownMenuContent>
               </DropdownMenu>
-              <Button size="sm" variant="outline" className="h-8 gap-1">
+              <Button
+                size="sm"
+                variant="outline"
+                className="h-8 gap-1"
+                onClick={handleExport}
+              >
                 <File className="h-3.5 w-3.5" />
                 <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
                   Export
