@@ -77,7 +77,7 @@ export function Submission({ user_id }) {
           <div>
             <h2 className="mt-4 text-base font-semibold">Finances</h2>
             <p className="text-sm">
-              <b>Total Revenue: </b>${data.total_revenue.toLocaleString()}
+              <b>Projected Revenue: </b>${data.total_revenue.toLocaleString()}
             </p>
             <p className="text-sm">
               <b>Total Area: </b>
