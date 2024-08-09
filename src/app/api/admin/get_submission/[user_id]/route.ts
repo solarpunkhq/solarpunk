@@ -32,6 +32,9 @@ export async function GET(request: Request) {
   const acres = acreData.map((acre) => {
     return acre.latlngs
   })
+  const total_area = acreData.reduce((acc, acre) => {
+    return acc + acre.area
+  }, 0)
 
-  return NextResponse.json({ ...response, acres }, { status: 200 })
+  return NextResponse.json({ ...response, acres, total_area }, { status: 200 })
 }
