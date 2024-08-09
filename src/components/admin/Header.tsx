@@ -75,21 +75,15 @@ export default function AdminHeader({ breadcrumbs }) {
         </BreadcrumbList>
       </Breadcrumb>
       <div className="relative ml-auto flex-1 md:grow-0">
-        <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-        <Input
-          type="search"
-          placeholder="Search..."
-          className="w-full rounded-lg bg-background pl-8 md:w-[200px] lg:w-[336px]"
-        />
+        <Button
+          variant="outline"
+          size="icon"
+          className="overflow-hidden"
+          onClick={() => (window.location.href = '/logout')}
+        >
+          <LogOut className="h-6 w-6" />
+        </Button>
       </div>
-      <Button
-        variant="outline"
-        size="icon"
-        className="overflow-hidden"
-        onClick={() => (window.location.href = '/logout')}
-      >
-        <LogOut className="h-6 w-6" />
-      </Button>
     </header>
   )
 }
