@@ -13,6 +13,7 @@ import { PreDrawnAcres } from './PreDrawnAcres'
 import dynamic from 'next/dynamic'
 import CustomSearchProvider from '@/utils/customSearchProvider'
 import CustomGoogleLayer from './CustomGoogleLayer'
+import { DisableDraw } from './DisableDraw'
 
 const MapTypeControl = dynamic(() => import('./MapTypeControl'), {
   ssr: false,
@@ -61,6 +62,8 @@ export default function Map({
           margin: '0 auto',
           borderTopLeftRadius: '40px',
           borderBottomLeftRadius: '40px',
+          borderTopRightRadius: '40px',
+          borderBottomRightRadius: '40px',
         }}
       >
         <CustomGoogleLayer
@@ -89,7 +92,8 @@ export default function Map({
           autoTracingOption={false}
         />
         <PreDrawnAcres acres={existingAcres} />
-        <EnableVertexControl />
+        {acres && setAcres && <EnableVertexControl />}
+        {!acres && !setAcres && <DisableDraw />}
         <Search
           provider={
             new CustomSearchProvider({
@@ -97,7 +101,7 @@ export default function Map({
             })
           }
         />
-        <Events acres={acres} setAcres={setAcres} />
+        {acres && setAcres && <Events acres={acres} setAcres={setAcres} />}
       </MapContainer>
     </>
   )

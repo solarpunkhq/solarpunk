@@ -2,8 +2,13 @@ import { createClient } from '@/utils/supabase/server'
 import { redirect, useSearchParams } from 'next/navigation'
 import TanstackProvider from '@/components/TanstackProvider'
 import { Analytics } from '@/components/admin/Analytics'
+import { Submission } from '@/components/admin/Submission'
 
-export default async function AnalyticsPage() {
+export default async function SubmissionPage({
+  params,
+}: {
+  params: { user_id: string }
+}) {
   const supabase = createClient()
 
   const { data: supabase_data, error: supabase_error } =
@@ -19,9 +24,11 @@ export default async function AnalyticsPage() {
     redirect('/dashboard')
   }
 
+  const { user_id } = params
+
   return (
     <TanstackProvider>
-      <Analytics />
+      <Submission user_id={user_id} />
     </TanstackProvider>
   )
 }

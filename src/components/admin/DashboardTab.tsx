@@ -28,6 +28,7 @@ import {
 } from '@/components/ui/pagination'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 export default function DashboardTab({ data, status, name }) {
   const [page, setPage] = useState(1)
@@ -68,6 +69,12 @@ export default function DashboardTab({ data, status, name }) {
     }
   }
 
+  const router = useRouter()
+
+  const handleClick = (user_id) => {
+    router.push('/admin/submission/' + user_id)
+  }
+
   return (
     <TabsContent value={name}>
       <Card x-chunk="dashboard-06-chunk-0">
@@ -93,7 +100,10 @@ export default function DashboardTab({ data, status, name }) {
             <TableBody>
               {paginatedData.map((user) => (
                 <TableRow key={user.id}>
-                  <TableCell className="font-medium underline">
+                  <TableCell
+                    className="cursor-pointer font-medium underline"
+                    onClick={() => handleClick(user.id)}
+                  >
                     {user.name}
                   </TableCell>
                   <TableCell>
