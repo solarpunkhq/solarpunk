@@ -206,7 +206,7 @@ export function Submission({ data }) {
                 changeStep.mutate(-1)
               }}
             >
-              {changeStep.isPending ? 'Rejecting...' : 'Reject'}
+              {changeStep.isPending ? 'Updating...' : 'Reject'}
             </Button>
             <Button
               className="self-center bg-green-600"
@@ -215,7 +215,7 @@ export function Submission({ data }) {
                 changeStep.mutate(2)
               }}
             >
-              {changeStep.isPending ? 'Approving...' : 'Approve'}
+              {changeStep.isPending ? 'Updating...' : 'Approve'}
             </Button>
           </div>
         )}
