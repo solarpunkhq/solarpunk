@@ -1,4 +1,5 @@
 import 'leaflet.gridlayer.googlemutant'
+import 'leaflet.gridlayer.googlemutant/dist/Leaflet.GoogleMutant'
 import * as React from 'react'
 import * as L from 'leaflet'
 import {

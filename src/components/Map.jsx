@@ -66,10 +66,9 @@ export default function Map({
           borderBottomRightRadius: '40px',
         }}
       >
-        <ReactLeafletGoogleLayer
+        <CustomGoogleLayer
           apiKey={process.env.NEXT_PUBLIC_MAPS_API_KEY}
           type={mapType}
-          useGoogMapsLoader={false}
         />
         <MapTypeControl setMapType={setMapType} />
 

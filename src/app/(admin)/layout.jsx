@@ -38,11 +38,6 @@ export default function Layout({ children }) {
           src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.js"
           defer
         ></script>
-        <script
-          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2rhK_2ooueuJTsUL39RuqJaxksYDErYE"
-          async
-          defer
-        ></script>
       </head>
       <body
         className={cn(
