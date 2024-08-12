@@ -5,9 +5,9 @@ import { ThankYouTemplate } from '@/email_templates/ThankYouTemplate'
 import { SubmittedTemplate } from '@/email_templates/SubmittedTemplate'
 import { iso1A2Code } from '@rapideditor/country-coder'
 import { promises as fs } from 'fs'
-import { onboardingTranslations } from '@/utils/onboardingTranslations'
+import { onboardingTranslations } from '@/utils/translations/onboardingTranslations'
 import { createClient } from '@supabase/supabase-js'
-import { authEmailTranslations } from '@/utils/authEmailTranslations'
+import { authEmailTranslations } from '@/utils/translations/authEmailTranslations'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 

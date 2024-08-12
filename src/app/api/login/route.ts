@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import { createClient } from '@/utils/supabase/server'
 import prisma from '@/lib/prisma'
-import { authEmailTranslations } from '@/utils/authEmailTranslations'
+import { authEmailTranslations } from '@/utils/translations/authEmailTranslations'
 
 export async function POST(request: Request) {
   const body = await request.json()

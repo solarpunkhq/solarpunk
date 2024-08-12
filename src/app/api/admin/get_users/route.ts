@@ -1,21 +1,7 @@
 import { NextResponse } from 'next/server'
 import { createClient } from '@/utils/supabase/server'
 import prisma from '@/lib/prisma'
-
-const currentStepToStatus = (current_step: number) => {
-  switch (current_step) {
-    case 0:
-      return 'Details'
-    case 1:
-      return 'In Review'
-    case 2:
-      return 'Planning'
-    case 3:
-      return 'Deployment'
-    default:
-      return 'Unknown'
-  }
-}
+import { currentStepToStatus } from '@/lib/utils'
 
 export async function GET(request: Request) {
   const supabase = createClient()

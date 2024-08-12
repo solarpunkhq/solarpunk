@@ -15,6 +15,8 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
+import { currentStepToStatus } from '@/lib/utils'
+import Link from 'next/link'
 
 const Map = dynamic(() => import('@/components/Map'), {
   ssr: false,
@@ -51,7 +53,10 @@ export function Submission({ user_id }) {
     <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
       <AdminHeader
         breadcrumbs={[
-          { href: '/admin/submission/' + user_id, label: data.name },
+          {
+            href: '/admin/submission/' + user_id,
+            label: new Date(data.created_timestamp).toLocaleDateString(),
+          },
         ]}
       />
       <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
@@ -68,7 +73,7 @@ export function Submission({ user_id }) {
         <div className="m-4 flex w-1/2 flex-col items-start justify-center p-4">
           <h1 className="text-2xl font-bold">{data.name}</h1>
           <Badge className="text-xs">
-            {new Date(data.created_timestamp).toLocaleDateString()}
+            {currentStepToStatus(data.current_step)}
           </Badge>
           <div>
             <h2 className="mt-4 text-base font-semibold">About Farm</h2>
@@ -136,12 +141,26 @@ export function Submission({ user_id }) {
         </div>
       </div>
       <div className="m-4 flex flex-row items-center justify-between p-4">
-        <Button variant="destructive" className="self-center">
-          Reject
-        </Button>
-        <Button variant="default" className="self-center">
-          Approve
-        </Button>
+        <div className="flex flex-row items-center justify-between gap-4">
+          {data.current_step === 0 && (
+            <Button variant="default" className="self-center">
+              Send Reminder
+            </Button>
+          )}
+          {data.current_step >= 2 && (
+            <Button variant="default" className="self-center">
+              <Link href={'mailto:' + data.email}>Request Documents</Link>
+            </Button>
+          )}
+        </div>
+        {data.current_step < 2 && (
+          <div className="flex flex-row items-center justify-between gap-4">
+            <Button variant="destructive" className="self-center">
+              Reject
+            </Button>
+            <Button className="self-center bg-green-600">Approve</Button>
+          </div>
+        )}
       </div>
     </div>
   )

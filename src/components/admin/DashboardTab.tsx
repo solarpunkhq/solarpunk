@@ -89,7 +89,7 @@ export default function DashboardTab({ data, status, name }) {
                 <TableHead>Name</TableHead>
                 <TableHead>Status</TableHead>
                 <TableHead className="hidden md:table-cell">
-                  Total Revenue
+                  Projected Revenue
                 </TableHead>
                 <TableHead className="hidden md:table-cell">
                   Created at
