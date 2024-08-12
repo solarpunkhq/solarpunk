@@ -30,6 +30,7 @@ const waitForGoogleMutant = (resolve: () => void) => {
   if (L.gridLayer && L.gridLayer.googleMutant) {
     resolve()
   } else {
+    console.log('GoogleMutant not loaded yet')
     setTimeout(() => waitForGoogleMutant(resolve), 50) // check every 50ms
   }
 }
@@ -52,6 +53,13 @@ const loadGoogleMapsScript = (loaderConf: LoaderOptions) => {
   })
 }
 
+const wait = async () => {
+  if (!L.gridLayer || !L.gridLayer.googleMutant) {
+    console.log('waiting for GoogleMutant to load...')
+    await new Promise((resolve) => setTimeout(resolve, 10000))
+  }
+}
+
 const createLeafletElement = (
   props: IProps,
   context: LeafletContextInterface
@@ -65,6 +73,8 @@ const createLeafletElement = (
   } = props
 
   console.log(L.gridLayer.googleMutant)
+
+  wait()
 
   const instance = L.gridLayer.googleMutant(googleMutantProps)
 
