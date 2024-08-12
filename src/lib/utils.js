@@ -5,7 +5,7 @@ export function cn(...inputs) {
   return twMerge(clsx(inputs))
 }
 
-export const currentStepToStatus = (current_step) => {
+export const getStepNameFromIndex = (current_step) => {
   switch (current_step) {
     case -1:
       return 'Rejected'

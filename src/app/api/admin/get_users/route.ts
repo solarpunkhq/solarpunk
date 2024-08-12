@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import { createClient } from '@/utils/supabase/server'
 import prisma from '@/lib/prisma'
-import { currentStepToStatus } from '@/lib/utils'
+import { getStepNameFromIndex } from '@/lib/utils'
 
 export async function GET(request: Request) {
   const supabase = createClient()
@@ -18,7 +18,7 @@ export async function GET(request: Request) {
       id: user.id,
       name: user.name,
       email: user.email,
-      status: currentStepToStatus(user.current_step),
+      status: getStepNameFromIndex(user.current_step),
       total_revenue: '$' + user.total_revenue.toLocaleString(),
       created_at: user.created_timestamp.toLocaleDateString(),
     }

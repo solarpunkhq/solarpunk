@@ -40,3 +40,59 @@ export const reminderTranslations = {
     signature: 'Beste,',
   },
 }
+
+export const stepChangeTranslations = {
+  default: {
+    Planning: {
+      subject: 'Your application status has changed',
+      preview: 'Your application status has changed',
+      greeting: 'Hello!',
+      content:
+        'Congratulations! Your application has been approved. We will now start planning the installation of solar panels on your land.',
+      signature: 'Best,',
+    },
+    Deployment: {
+      subject: 'Your application status has changed',
+      preview: 'Your application status has changed',
+      greeting: 'Hello!',
+      content:
+        'Congratulations! Your application is now in the Deployment phase. We will begin the installation of solar panels on your land shortly.',
+      signature: 'Best,',
+    },
+    Rejected: {
+      subject: 'Your application status has changed',
+      preview: 'Your application status has changed',
+      greeting: 'Hello!',
+      content:
+        'We regret to inform you that your application has been rejected.',
+      signature: 'Best,',
+    },
+  },
+
+  DE: {
+    Planning: {
+      subject: 'Ihr Antragsstatus hat sich geändert',
+      preview: 'Ihr Antragsstatus hat sich geändert',
+      greeting: 'Hallo!',
+      content:
+        'Herzlichen Glückwunsch! Ihr Antrag wurde genehmigt. Wir werden nun mit der Planung der Installation von Solarmodulen auf Ihrem Grundstück beginnen.',
+      signature: 'Mit besten Grüßen,',
+    },
+    Deployment: {
+      subject: 'Ihr Antragsstatus hat sich geändert',
+      preview: 'Ihr Antragsstatus hat sich geändert',
+      greeting: 'Hallo!',
+      content:
+        'Herzlichen Glückwunsch! Ihr Antrag befindet sich nun in der Phase der Ausführung. Wir werden in Kürze mit der Installation der Solarmodule auf Ihrem Grundstück beginnen.',
+      signature: 'Mit besten Grüßen,',
+    },
+    Rejected: {
+      subject: 'Ihr Antragsstatus hat sich geändert',
+      preview: 'Ihr Antragsstatus hat sich geändert',
+      greeting: 'Hallo!',
+      content:
+        'Wir bedauern, Ihnen mitteilen zu müssen, dass Ihr Antrag abgelehnt wurde.',
+      signature: 'Mit besten Grüßen,',
+    },
+  },
+}

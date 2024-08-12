@@ -15,7 +15,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import { currentStepToStatus } from '@/lib/utils'
+import { getStepNameFromIndex } from '@/lib/utils'
 import Link from 'next/link'
 
 const Map = dynamic(() => import('@/components/Map'), {
@@ -66,6 +66,24 @@ export function Submission({ data }) {
     },
   })
 
+  const changeStep = useMutation({
+    mutationFn: (step) => {
+      return fetch('/api/admin/set_step', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          user_id: data.id,
+          step: step,
+        }),
+      })
+    },
+    onSuccess: async () => {
+      window.location.reload()
+    },
+  })
+
   return (
     <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
       <AdminHeader
@@ -90,7 +108,7 @@ export function Submission({ data }) {
         <div className="m-4 flex w-1/2 flex-col items-start justify-center p-4">
           <h1 className="text-2xl font-bold">{data.name}</h1>
           <Badge className="text-xs">
-            {currentStepToStatus(data.current_step)}
+            {getStepNameFromIndex(data.current_step)}
           </Badge>
           <div>
             <h2 className="mt-4 text-base font-semibold">About Farm</h2>
@@ -171,18 +189,46 @@ export function Submission({ data }) {
             </Button>
           )}
           {data.current_step >= 2 && (
-            <Button variant="default" className="self-center">
-              <Link href={'mailto:' + data.email}>Request Documents</Link>
-            </Button>
+            <div className="flex flex-row items-center justify-between">
+              <Button variant="default" className="self-center">
+                <Link href={'mailto:' + data.email}>Request Documents</Link>
+              </Button>
+            </div>
           )}
         </div>
         {data.current_step < 2 && (
           <div className="flex flex-row items-center justify-between gap-4">
-            <Button variant="destructive" className="self-center">
-              Reject
+            <Button
+              variant="destructive"
+              className="self-center"
+              onClick={() => {
+                //@ts-ignore
+                changeStep.mutate(-1)
+              }}
+            >
+              {changeStep.isPending ? 'Rejecting...' : 'Reject'}
             </Button>
-            <Button className="self-center bg-green-600">Approve</Button>
+            <Button
+              className="self-center bg-green-600"
+              onClick={() => {
+                //@ts-ignore
+                changeStep.mutate(2)
+              }}
+            >
+              {changeStep.isPending ? 'Approving...' : 'Approve'}
+            </Button>
           </div>
+        )}
+        {data.current_step === 2 && (
+          <Button
+            className="self-center bg-green-600"
+            onClick={() => {
+              //@ts-ignore
+              changeStep.mutate(3)
+            }}
+          >
+            {changeStep.isPending ? 'Deploying...' : 'Deploy'}
+          </Button>
         )}
       </div>
     </div>
