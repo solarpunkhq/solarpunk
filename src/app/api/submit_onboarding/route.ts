@@ -5,7 +5,7 @@ import { ThankYouTemplate } from '@/email_templates/ThankYouTemplate'
 import { SubmittedTemplate } from '@/email_templates/SubmittedTemplate'
 import { iso1A2Code } from '@rapideditor/country-coder'
 import { promises as fs } from 'fs'
-import { onboardingTranslations } from '@/utils/translations/onboardingTranslations'
+import { onboardingTranslations } from '@/utils/translations/emailTranslations'
 import { createClient } from '@supabase/supabase-js'
 import { authEmailTranslations } from '@/utils/translations/authEmailTranslations'
 
