@@ -25,10 +25,18 @@ interface IProps extends L.gridLayer.GoogleMutantOptions {
 
 let googleMapsScriptLoaded = false
 
+const waitForGoogleMutant = (resolve: () => void) => {
+  if (L.gridLayer && L.gridLayer.googleMutant) {
+    resolve()
+  } else {
+    setTimeout(() => waitForGoogleMutant(resolve), 50) // check every 50ms
+  }
+}
+
 const loadGoogleMapsScript = (loaderConf: LoaderOptions) => {
   return new Promise<void>((resolve, reject) => {
     if (googleMapsScriptLoaded) {
-      resolve()
+      waitForGoogleMutant(resolve)
       return
     }
 
@@ -37,7 +45,7 @@ const loadGoogleMapsScript = (loaderConf: LoaderOptions) => {
       .load()
       .then(() => {
         googleMapsScriptLoaded = true
-        resolve()
+        waitForGoogleMutant(resolve)
       })
       .catch(reject)
   })
