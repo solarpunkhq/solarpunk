@@ -2,7 +2,7 @@ import { createClient } from '@/utils/supabase/server'
 import { redirect, useSearchParams } from 'next/navigation'
 import TanstackProvider from '@/components/TanstackProvider'
 import { Analytics } from '@/components/admin/Analytics'
-import { Submission } from '@/components/admin/Submission'
+import { Submission, SubmissionWrapper } from '@/components/admin/Submission'
 
 export default async function SubmissionPage({
   params,
@@ -28,7 +28,7 @@ export default async function SubmissionPage({
 
   return (
     <TanstackProvider>
-      <Submission user_id={user_id} />
+      <SubmissionWrapper user_id={user_id} />
     </TanstackProvider>
   )
 }

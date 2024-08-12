@@ -27,13 +27,13 @@ export const ReminderTemplate = ({
             src={`https://i.imgur.com/RFT1sYi.png`}
             width="335"
             height="87"
-            alt="Koala"
+            alt="Logo"
             style={logo}
           />
           <Text style={paragraph}>{translations['greeting']}</Text>
           <Text style={paragraph}>{translations['content']}</Text>
           <Section style={btnContainer}>
-            <Button style={button} href={magic_link}>
+            <Button style={button} href="https://solarpunkhq.com/login">
               {translations['button']}
             </Button>
           </Section>
@@ -50,7 +50,7 @@ export const ReminderTemplate = ({
   )
 }
 
-export default ThankYouTemplate
+export default ReminderTemplate
 
 const main = {
   backgroundColor: '#ffffff',

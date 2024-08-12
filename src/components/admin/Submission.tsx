@@ -1,6 +1,6 @@
 'use client'
 
-import { useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery } from '@tanstack/react-query'
 import AdminHeader from './Header'
 import dynamic from 'next/dynamic'
 import { Button } from '../ui/button'
@@ -22,7 +22,7 @@ const Map = dynamic(() => import('@/components/Map'), {
   ssr: false,
 })
 
-export function Submission({ user_id }) {
+export function SubmissionWrapper({ user_id }) {
   const { isPending, error, data, isFetching } = useQuery({
     queryKey: ['submissionData'],
     queryFn: async () => {
@@ -47,14 +47,31 @@ export function Submission({ user_id }) {
     )
   }
 
-  console.log(data)
+  return <Submission data={data} />
+}
+
+export function Submission({ data }) {
+  const sendReminder = useMutation({
+    mutationFn: () => {
+      return fetch('/api/admin/send_email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          user_id: data.id,
+          email_template: 'details_reminder',
+        }),
+      })
+    },
+  })
 
   return (
     <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
       <AdminHeader
         breadcrumbs={[
           {
-            href: '/admin/submission/' + user_id,
+            href: '/admin/submission/' + data.id,
             label: new Date(data.created_timestamp).toLocaleDateString(),
           },
         ]}
@@ -143,8 +160,14 @@ export function Submission({ user_id }) {
       <div className="m-4 flex flex-row items-center justify-between p-4">
         <div className="flex flex-row items-center justify-between gap-4">
           {data.current_step === 0 && (
-            <Button variant="default" className="self-center">
-              Send Reminder
+            <Button
+              variant="default"
+              className="self-center"
+              onClick={() => {
+                sendReminder.mutate()
+              }}
+            >
+              {sendReminder.isPending ? 'Sending...' : 'Send Reminder'}
             </Button>
           )}
           {data.current_step >= 2 && (

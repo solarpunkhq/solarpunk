@@ -29,7 +29,7 @@ export const ThankYouTemplate = ({
             src={`https://i.imgur.com/RFT1sYi.png`}
             width="335"
             height="87"
-            alt="Koala"
+            alt="Logo"
             style={logo}
           />
           <Text style={paragraph}>{translations['greeting']}</Text>

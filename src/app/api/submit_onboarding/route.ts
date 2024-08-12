@@ -76,7 +76,7 @@ export async function POST(request: Request) {
   const { data, error } = await resend.emails.send({
     from: process.env.ONBOARDING_SEND_FROM_EMAIL,
     to: body.email,
-    subject: 'Welcome to SolarpunkHQ',
+    subject: translations.subject,
     react: ThankYouTemplate({
       translations: translations,
       magic_link: magic_link,
