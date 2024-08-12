@@ -85,7 +85,7 @@ export function Submission({ user_id }) {
             </p>
             <p className="text-sm">
               <b>Finance Option: </b>
-              {data.finance_option.replaceAll('_', ' ')}
+              {data.finance_option?.replaceAll('_', ' ')}
             </p>
           </div>
           <div>
