@@ -42,7 +42,7 @@ const loadGoogleMapsScript = (loaderConf: LoaderOptions) => {
 
     const loader = new Loader(loaderConf)
     loader
-      .load()
+      .importLibrary('core')
       .then(() => {
         googleMapsScriptLoaded = true
         waitForGoogleMutant(resolve)
