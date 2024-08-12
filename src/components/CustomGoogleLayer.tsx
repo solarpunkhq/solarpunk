@@ -1,5 +1,4 @@
 import 'leaflet.gridlayer.googlemutant'
-import 'leaflet.gridlayer.googlemutant/dist/Leaflet.GoogleMutant'
 import * as React from 'react'
 import * as L from 'leaflet'
 import {
@@ -8,6 +7,7 @@ import {
   LeafletContextInterface,
   LayerProps,
 } from '@react-leaflet/core'
+import 'leaflet.gridlayer.googlemutant/dist/Leaflet.GoogleMutant'
 import { Loader, LoaderOptions } from '@googlemaps/js-api-loader'
 import { useEffect, useState } from 'react'
 
