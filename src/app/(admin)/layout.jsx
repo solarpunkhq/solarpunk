@@ -3,8 +3,7 @@ import '@/styles/tailwind.css'
 import { Inter } from 'next/font/google'
 import { Toaster } from '@/components/ui/toaster'
 import { TooltipProvider } from '@radix-ui/react-tooltip'
-import { GoogleAnalytics } from '@next/third-parties/google'
-
+import { Analytics } from '@vercel/analytics/react'
 import {
   Tooltip,
   TooltipContent,
@@ -100,7 +99,7 @@ export default function Layout({ children }) {
           <Toaster />
         </TooltipProvider>
       </body>
-      <GoogleAnalytics gaId="G-0LZEJ5S1H8" />
+      <Analytics />
     </html>
   )
 }
