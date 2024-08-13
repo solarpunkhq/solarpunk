@@ -4,15 +4,16 @@ import React, { useState } from 'react'
 import { MapContainer } from 'react-leaflet'
 import { GeomanControl } from './GeomanControl'
 import Events from './Events'
-import { LatLngTuple } from 'leaflet'
 import ReactLeafletGoogleLayer from 'react-leaflet-google-layer'
-import { Acre } from '@/utils/types'
 import { useMap } from 'react-leaflet'
 import { useEffect } from 'react'
-import { GeoSearchControl, GoogleProvider } from 'leaflet-geosearch'
+import { GeoSearchControl } from 'leaflet-geosearch'
 import { EnableVertexControl } from './EnableVertexControl'
 import { PreDrawnAcres } from './PreDrawnAcres'
 import dynamic from 'next/dynamic'
+import CustomSearchProvider from '@/utils/customSearchProvider'
+import CustomGoogleLayer from './CustomGoogleLayer'
+import { DisableDraw } from './DisableDraw'
 
 const MapTypeControl = dynamic(() => import('./MapTypeControl'), {
   ssr: false,
@@ -42,26 +43,10 @@ export default function Map({
   lng,
   acres,
   setAcres,
-  alreadyDrawnAcres,
+  existingAcres,
 }) {
   const [location, setLocation] = useState([lat, lng])
   const [mapType, setMapType] = useState('hybrid')
-  // alreadyDrawnAcres = [
-  //   [
-  //     {
-  //       lat: 34.0530560945386,
-  //       lng: -118.24876785278322,
-  //     },
-  //     {
-  //       lat: 34.07141197504988,
-  //       lng: -118.23331832885744,
-  //     },
-  //     {
-  //       lat: 34.054336866377106,
-  //       lng: -118.22010040283205,
-  //     },
-  //   ],
-  // ]
 
   return (
     <>
@@ -77,9 +62,11 @@ export default function Map({
           margin: '0 auto',
           borderTopLeftRadius: '40px',
           borderBottomLeftRadius: '40px',
+          borderTopRightRadius: '40px',
+          borderBottomRightRadius: '40px',
         }}
       >
-        <ReactLeafletGoogleLayer
+        <CustomGoogleLayer
           apiKey={process.env.NEXT_PUBLIC_MAPS_API_KEY}
           type={mapType}
         />
@@ -104,14 +91,17 @@ export default function Map({
           snapGuidesOption={false}
           autoTracingOption={false}
         />
-        <PreDrawnAcres acres={alreadyDrawnAcres} />
-        <EnableVertexControl />
+        <PreDrawnAcres acres={existingAcres} />
+        {acres && setAcres && <EnableVertexControl />}
+        {!acres && !setAcres && <DisableDraw />}
         <Search
           provider={
-            new GoogleProvider({ apiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY })
+            new CustomSearchProvider({
+              apiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY,
+            })
           }
         />
-        <Events acres={acres} setAcres={setAcres} />
+        {acres && setAcres && <Events acres={acres} setAcres={setAcres} />}
       </MapContainer>
     </>
   )

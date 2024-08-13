@@ -12,12 +12,10 @@ import {
 } from '@react-email/components'
 import * as React from 'react'
 
-export const ThankYouTemplate = ({
+export const ReminderTemplate = ({
   translations,
-  magic_link,
 }: {
   translations: string[]
-  magic_link: string
 }) => {
   return (
     <Html>
@@ -35,7 +33,7 @@ export const ThankYouTemplate = ({
           <Text style={paragraph}>{translations['greeting']}</Text>
           <Text style={paragraph}>{translations['content']}</Text>
           <Section style={btnContainer}>
-            <Button style={button} href={magic_link}>
+            <Button style={button} href="https://solarpunkhq.com/login">
               {translations['button']}
             </Button>
           </Section>
@@ -52,7 +50,7 @@ export const ThankYouTemplate = ({
   )
 }
 
-export default ThankYouTemplate
+export default ReminderTemplate
 
 const main = {
   backgroundColor: '#ffffff',

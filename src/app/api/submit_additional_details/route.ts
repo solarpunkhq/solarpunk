@@ -3,7 +3,6 @@ import prisma from '@/lib/prisma'
 
 export async function POST(request: Request) {
   const body = await request.json()
-  console.log(body)
   const email = body.email
   const about_farm = body.about_farm
   const phone_number = body.phone_number

@@ -11,7 +11,6 @@ export async function GET(request: NextRequest) {
 
   const redirectTo = request.nextUrl.clone()
   redirectTo.pathname = next
-  console.log(next, redirectTo)
   redirectTo.searchParams.delete('token_hash')
   redirectTo.searchParams.delete('type')
 
@@ -25,11 +24,10 @@ export async function GET(request: NextRequest) {
     if (!error) {
       redirectTo.searchParams.delete('next')
       redirectTo.pathname = '/dashboard'
-      console.log(redirectTo)
       return NextResponse.redirect(redirectTo)
     }
   }
 
-  redirectTo.pathname = '/error'
+  redirectTo.pathname = '/login'
   return NextResponse.redirect(redirectTo)
 }

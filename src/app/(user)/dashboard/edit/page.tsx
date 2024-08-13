@@ -1,10 +1,6 @@
-export const fetchCache = 'force-no-store'
-
-import CurrentStep from '@/components/CurrentStep'
 import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
 import prisma from '@/lib/prisma'
-import Link from 'next/link'
 import EditAcresForm from '@/components/EditAcresForm'
 
 export default async function EditPage() {
@@ -32,7 +28,6 @@ export default async function EditPage() {
   const acres = acreData.map((acre) => {
     return acre.latlngs
   })
-  console.log('Acres: ', acres)
 
   return (
     <div className="flex h-full w-full flex-col items-center justify-start">

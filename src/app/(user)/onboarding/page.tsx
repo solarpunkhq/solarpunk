@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
 import { Loader2 } from 'lucide-react'
 
-const Map = dynamic(() => import('../../components/Map'), {
+const Map = dynamic(() => import('../../../components/Map'), {
   ssr: false,
 })
 
@@ -67,7 +67,7 @@ export default function Onboarding() {
       if (response.ok) {
         const data = await response.json()
         console.log('Response data:', data)
-        router.push('/onboarding/success')
+        router.push(data.magic_link)
       } else {
         console.error('Error:', response.statusText)
         setError(response.statusText)
@@ -89,7 +89,7 @@ export default function Onboarding() {
           lng={lng}
           acres={acres}
           setAcres={setAcres}
-          alreadyDrawnAcres={[]}
+          existingAcres={[]}
         />
         <div className="rounded-r-4xl h-full w-full max-w-96 border border-l-0 bg-white p-8">
           <div>

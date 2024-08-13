@@ -4,6 +4,8 @@ import localFont from 'next/font/local'
 import '@/styles/tailwind.css'
 import { Inter } from 'next/font/google'
 import { Toaster } from '@/components/ui/toaster'
+import { TooltipProvider } from '@radix-ui/react-tooltip'
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 export const metadata = {
   title: {
@@ -15,7 +17,7 @@ export const metadata = {
 const calSans = localFont({
   src: [
     {
-      path: '../../public/fonts/CalSans-SemiBold.ttf',
+      path: '../../../public/fonts/CalSans-SemiBold.ttf',
       weight: '400',
     },
   ],
@@ -57,9 +59,12 @@ export default function Layout({ children }) {
           inter.variable
         )}
       >
-        <RootLayout>{children}</RootLayout>
-        <Toaster />
+        <TooltipProvider>
+          <RootLayout>{children}</RootLayout>
+          <Toaster />
+        </TooltipProvider>
       </body>
+      <GoogleAnalytics gaId="G-0LZEJ5S1H8" />
     </html>
   )
 }

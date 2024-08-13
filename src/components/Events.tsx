@@ -70,6 +70,18 @@ const Events = ({
   useEffect(() => {
     const intervalId = setInterval(() => {
       if (map) {
+        const inputElement = document.querySelector(
+          '.leaflet-control-geosearch .glass'
+        )
+        if (inputElement) {
+          const isFocused = document.activeElement === inputElement
+          //@ts-ignore
+          const hasValue = inputElement.value.trim() !== ''
+          if (!hasValue && !isFocused) {
+            updateAcres()
+          }
+          return
+        }
         updateAcres()
       }
     }, 1000)
