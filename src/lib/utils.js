@@ -21,3 +21,7 @@ export const getStepNameFromIndex = (current_step) => {
       return 'Unknown'
   }
 }
+
+export const formatNumberAsAmount = (amount) => {
+  return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+}

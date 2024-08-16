@@ -15,8 +15,10 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import { getStepNameFromIndex } from '@/lib/utils'
+import { formatNumberAsAmount, getStepNameFromIndex } from '@/lib/utils'
 import Link from 'next/link'
+import { useState } from 'react'
+import ProjectionCalculator from '../ProjectionCalculator'
 
 const Map = dynamic(() => import('@/components/Map'), {
   ssr: false,
@@ -170,8 +172,9 @@ export function Submission({ data }) {
               </TableBody>
             </Table>
           </div>
-          <div className="mt-4">
-            <p className="text-sm">TODO: Computation</p>
+          <div className="ml-4 mt-4 text-sm">
+            <h2 className="mb-2 text-lg font-semibold">Projections</h2>
+            <ProjectionCalculator acres={data.total_area} />
           </div>
         </div>
       </div>
