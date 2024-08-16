@@ -36,7 +36,7 @@ export default function EditAcresForm({
         },
         body: JSON.stringify({
           email: user_data.email,
-          user_id: user_data.user_id,
+          user_id: user_data.id,
           acres: acres,
         }),
       })
