@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import prisma from '@/lib/prisma'
+import { createClient } from '@/utils/supabase/server'
 
 export async function POST(request: Request) {
   const body = await request.json()
@@ -7,6 +8,18 @@ export async function POST(request: Request) {
   const about_farm = body.about_farm
   const phone_number = body.phone_number
   const finance_option = body.finance_option
+
+  const supabase = createClient()
+
+  const { data: supabase_data, error: supabase_error } =
+    await supabase.auth.getUser()
+  if (supabase_error || !supabase_data?.user) {
+    return NextResponse.json({ message: 'Unauthorized' }, { status: 401 })
+  }
+
+  if (supabase_data.user.email !== email) {
+    return NextResponse.json({ message: 'Unauthorized' }, { status: 401 })
+  }
 
   await prisma.user.update({
     data: {

@@ -10,6 +10,9 @@ export async function GET(request: Request) {
   if (supabase_error || !supabase_data?.user) {
     return NextResponse.json({ message: 'Unauthorized' }, { status: 401 })
   }
+  if (supabase_data.user.app_metadata.role !== 'admin') {
+    return NextResponse.json({ message: 'Not admin' }, { status: 401 })
+  }
 
   const supabaseAdmin = createAdminClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL,
