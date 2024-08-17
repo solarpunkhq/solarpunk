@@ -12,6 +12,30 @@ export const metadata = {
     template: '%s - Solarpunk',
     default: 'Solarpunk - Covering farms with solar panels',
   },
+  openGraph: {
+    title: 'Solarpunk | Covering farms with solar panels',
+    description:
+      'We help plan, finance and build solar parks on your existing farmland.',
+    url: 'https://solarpunkhq.com',
+    siteName: 'Solarpunk',
+    images: [
+      {
+        url: 'https://solarpunkhq.com/og-image.png',
+        width: 1910,
+        height: 1000,
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Solarpunk | Covering farms with solar panels',
+    description:
+      'We help plan, finance and build solar parks on your existing farmland.',
+    site: 'varunbln',
+    images: ['https://solarpunkhq.com/twitter-image.png'],
+  },
 }
 
 const calSans = localFont({
