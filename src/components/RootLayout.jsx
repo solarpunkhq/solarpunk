@@ -14,12 +14,14 @@ import clsx from 'clsx'
 import { motion, MotionConfig, useReducedMotion } from 'framer-motion'
 
 import { Button } from '@/components/Button'
+import { Button as ShadcnButton } from './ui/button'
 import { Container } from '@/components/Container'
 import { Footer } from '@/components/Footer'
 import { GridPattern } from '@/components/GridPattern'
 import { Logo, Logomark } from '@/components/Logo'
 import { Offices } from '@/components/Offices'
 import { SocialMedia } from '@/components/SocialMedia'
+import { LogOut } from 'lucide-react'
 
 const RootLayoutContext = createContext({})
 
@@ -95,6 +97,14 @@ function Header({
               )}
             />
           </button>
+          <ShadcnButton
+            variant="ghost"
+            size="icon"
+            className="overflow-hidden"
+            onClick={() => (window.location.href = '/logout')}
+          >
+            <LogOut className="h-6 w-6" />
+          </ShadcnButton>
         </div>
       </div>
     </Container>

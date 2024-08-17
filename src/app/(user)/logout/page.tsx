@@ -10,7 +10,7 @@ export default function LogoutPage() {
 
   useEffect(() => {
     supabase.auth.signOut().finally(() => {
-      router.push('/onboarding')
+      router.push('/login')
     })
   })
 
