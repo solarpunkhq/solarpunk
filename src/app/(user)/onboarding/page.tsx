@@ -41,6 +41,11 @@ export default function Onboarding() {
       setLoading(false)
       return
     }
+    if (!email.includes('@') || !email.includes('.')) {
+      setError('Invalid email')
+      setLoading(false)
+      return
+    }
     if (name === '') {
       setError('Name is required')
       setLoading(false)
@@ -51,6 +56,7 @@ export default function Onboarding() {
       setLoading(false)
       return
     }
+    let formatted_email = email.toLowerCase().trim()
     try {
       const response = await fetch('/api/submit_onboarding', {
         method: 'POST',
@@ -58,7 +64,7 @@ export default function Onboarding() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          email,
+          formatted_email,
           name,
           acres,
         }),
