@@ -7,7 +7,6 @@ import {
   LeafletContextInterface,
   LayerProps,
 } from '@react-leaflet/core'
-import 'leaflet.gridlayer.googlemutant/dist/Leaflet.GoogleMutant'
 import { Loader, LoaderOptions } from '@googlemaps/js-api-loader'
 
 interface IGoogleMapsAddLayer {
