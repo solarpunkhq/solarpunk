@@ -1,3 +1,5 @@
+'use client'
+
 import * as L from 'leaflet'
 import {
   createLayerComponent,
@@ -39,6 +41,7 @@ const createLeafletElement = (
     loader.load()
     googleMapsScriptLoaded = true
   }
+  console.log('xd', L.gridLayer.googleMutant)
   const instance = L.gridLayer.googleMutant(googleMutantProps)
   if (googleMapsAddLayers) {
     googleMapsAddLayers.forEach((layer) => {

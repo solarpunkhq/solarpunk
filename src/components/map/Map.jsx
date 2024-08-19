@@ -12,8 +12,11 @@ import { EnableVertexControl } from './EnableVertexControl'
 import { PreDrawnAcres } from './PreDrawnAcres'
 import dynamic from 'next/dynamic'
 import CustomSearchProvider from '@/utils/customSearchProvider'
-import CustomGoogleLayer from './CustomGoogleLayer'
 import { DisableDraw } from './DisableDraw'
+
+const CustomGoogleLayer = dynamic(() => import('./CustomGoogleLayer'), {
+  ssr: false,
+})
 
 const MapTypeControl = dynamic(() => import('./MapTypeControl'), {
   ssr: false,
