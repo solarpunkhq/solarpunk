@@ -53,6 +53,10 @@ export default function ProjectionCalculator({ acres }: { acres: number }) {
       </div>
       <br />
       <div>
+        <span className="font-bold">MW Produced Yearly: </span>
+        {mw_produced.toFixed(2)}
+      </div>
+      <div>
         <span className="font-bold">Total Revenue: </span>$
         {formatNumberAsAmount(total_revenue.toFixed(0))}
       </div>
