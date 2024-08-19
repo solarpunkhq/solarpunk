@@ -64,7 +64,7 @@ export default function Onboarding() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          formatted_email,
+          email: formatted_email,
           name,
           acres,
         }),
