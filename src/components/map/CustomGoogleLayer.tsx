@@ -1,4 +1,3 @@
-import * as React from 'react'
 import * as L from 'leaflet'
 import {
   createLayerComponent,
@@ -24,30 +23,7 @@ interface IProps extends L.gridLayer.GoogleMutantOptions {
 
 let googleMapsScriptLoaded = false
 
-const waitForGoogleMutant = (
-  maxRetries = 30,
-  interval = 200
-): Promise<void> => {
-  return new Promise((resolve, reject) => {
-    let retries = 0
-    const check = () => {
-      if (L.gridLayer.googleMutant) {
-        resolve()
-      } else if (retries >= maxRetries) {
-        reject(
-          new Error('L.gridLayer.googleMutant not available after max retries')
-        )
-      } else {
-        console.log('Waiting for L.gridLayer.googleMutant...')
-        retries++
-        setTimeout(check, interval)
-      }
-    }
-    check()
-  })
-}
-
-const createLeafletElement = async (
+const createLeafletElement = (
   props: IProps,
   context: LeafletContextInterface
 ) => {
@@ -58,39 +34,24 @@ const createLeafletElement = async (
     googleMapsAddLayers,
     ...googleMutantProps
   } = props
-
   if (useGoogMapsLoader && !googleMapsScriptLoaded) {
     const loader = new Loader({ apiKey, ...googleMapsLoaderConf })
-    await loader.load()
+    loader.load()
     googleMapsScriptLoaded = true
   }
-
-  try {
-    await waitForGoogleMutant()
-    const instance = L.gridLayer.googleMutant(googleMutantProps)
-    if (googleMapsAddLayers) {
-      googleMapsAddLayers.forEach((layer) => {
-        console.log('Adding Google layer:', instance)
-        ;(instance as L.gridLayer.GoogleMutant).addGoogleLayer(
-          layer.name,
-          layer.options
-        )
-      })
-    }
-    return { instance, context }
-  } catch (error) {
-    console.error('Failed to create Google Mutant layer:', error)
-    throw error
+  const instance = L.gridLayer.googleMutant(googleMutantProps)
+  if (googleMapsAddLayers) {
+    googleMapsAddLayers.forEach((layer) => {
+      ;(instance as L.gridLayer.GoogleMutant).addGoogleLayer(
+        layer.name,
+        layer.options
+      )
+    })
   }
+  return { instance, context }
 }
 
 export default createLayerComponent<L.GridLayer, LayerProps & IProps>(
-  (props, context) => {
-    return {
-      instance: null,
-      context,
-      async: createLeafletElement(props, context),
-    }
-  },
+  createLeafletElement,
   updateGridLayer
 )
