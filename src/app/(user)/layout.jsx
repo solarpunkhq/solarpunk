@@ -71,10 +71,6 @@ export default function Layout({ children }) {
           crossOrigin=""
           defer
         ></script>
-        <script
-          src="https://unpkg.com/leaflet.gridlayer.googlemutant@latest/dist/Leaflet.GoogleMutant.js"
-          defer
-        ></script>
 
         <script
           src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.js"
