@@ -13,10 +13,7 @@ import { PreDrawnAcres } from './PreDrawnAcres'
 import dynamic from 'next/dynamic'
 import CustomSearchProvider from '@/utils/customSearchProvider'
 import { DisableDraw } from './DisableDraw'
-
-const CustomGoogleLayer = dynamic(() => import('./CustomGoogleLayer'), {
-  ssr: false,
-})
+import CustomGoogleLayer from './CustomGoogleLayer'
 
 const MapTypeControl = dynamic(() => import('./MapTypeControl'), {
   ssr: false,
