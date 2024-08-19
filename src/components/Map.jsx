@@ -44,6 +44,7 @@ export default function Map({
   acres,
   setAcres,
   existingAcres,
+  country,
 }) {
   const [location, setLocation] = useState([lat, lng])
   const [mapType, setMapType] = useState('hybrid')
@@ -90,6 +91,7 @@ export default function Map({
           rotateMode={false}
           snapGuidesOption={false}
           autoTracingOption={false}
+          country={country}
         />
         <PreDrawnAcres acres={existingAcres} />
         {acres && setAcres && <EnableVertexControl />}
