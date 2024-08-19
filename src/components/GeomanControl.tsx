@@ -24,6 +24,28 @@ const Geoman = L.Control.extend({
     map.pm.setGlobalOptions({
       measurements: { measurement: true, displayFormat: 'metric' },
     })
+
+    map.on('pm:drawstart', (e) => {
+      map.pm.Draw[e.shape].setOptions({
+        units: {
+          metric: {
+            distance: [
+              {
+                unit: 'm',
+                calculation: (value) => Math.round(value * 100) / 100,
+              },
+            ],
+            area: [
+              {
+                unit: 'acres',
+                calculation: (value) =>
+                  Math.round((value / 4046.86) * 100) / 100,
+              },
+            ],
+          },
+        },
+      })
+    })
   },
 })
 
