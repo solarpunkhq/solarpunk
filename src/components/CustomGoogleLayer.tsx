@@ -1,4 +1,3 @@
-import 'leaflet.gridlayer.googlemutant'
 import * as React from 'react'
 import * as L from 'leaflet'
 import {
@@ -9,7 +8,6 @@ import {
 } from '@react-leaflet/core'
 import 'leaflet.gridlayer.googlemutant/dist/Leaflet.GoogleMutant'
 import { Loader, LoaderOptions } from '@googlemaps/js-api-loader'
-import { useEffect, useState } from 'react'
 
 interface IGoogleMapsAddLayer {
   name: 'BicyclingLayer' | 'TrafficLayer' | 'TransitLayer'
@@ -26,40 +24,6 @@ interface IProps extends L.gridLayer.GoogleMutantOptions {
 
 let googleMapsScriptLoaded = false
 
-const waitForGoogleMutant = (resolve: () => void) => {
-  if (L.gridLayer && L.gridLayer.googleMutant) {
-    resolve()
-  } else {
-    console.log('GoogleMutant not loaded yet')
-    setTimeout(() => waitForGoogleMutant(resolve), 50) // check every 50ms
-  }
-}
-
-const loadGoogleMapsScript = (loaderConf: LoaderOptions) => {
-  return new Promise<void>((resolve, reject) => {
-    if (googleMapsScriptLoaded) {
-      waitForGoogleMutant(resolve)
-      return
-    }
-
-    const loader = new Loader(loaderConf)
-    loader
-      .importLibrary('core')
-      .then(() => {
-        googleMapsScriptLoaded = true
-        waitForGoogleMutant(resolve)
-      })
-      .catch(reject)
-  })
-}
-
-const wait = async () => {
-  if (!L.gridLayer || !L.gridLayer.googleMutant) {
-    console.log('waiting for GoogleMutant to load...')
-    await new Promise((resolve) => setTimeout(resolve, 10000))
-  }
-}
-
 const createLeafletElement = (
   props: IProps,
   context: LeafletContextInterface
@@ -71,13 +35,12 @@ const createLeafletElement = (
     googleMapsAddLayers,
     ...googleMutantProps
   } = props
-
-  console.log(L.gridLayer.googleMutant)
-
-  wait()
-
+  if (useGoogMapsLoader && !googleMapsScriptLoaded) {
+    const loader = new Loader({ apiKey, ...googleMapsLoaderConf })
+    loader.load()
+    googleMapsScriptLoaded = true
+  }
   const instance = L.gridLayer.googleMutant(googleMutantProps)
-
   if (googleMapsAddLayers) {
     googleMapsAddLayers.forEach((layer) => {
       ;(instance as L.gridLayer.GoogleMutant).addGoogleLayer(
@@ -86,37 +49,10 @@ const createLeafletElement = (
       )
     })
   }
-
   return { instance, context }
 }
 
-const GoogleMutantLayer = createLayerComponent<
-  L.GridLayer,
-  LayerProps & IProps
->(createLeafletElement, updateGridLayer)
-
-const GoogleMutantLayerWrapper: React.FC<IProps> = (props) => {
-  const [isScriptLoaded, setScriptLoaded] = useState(false)
-
-  useEffect(() => {
-    if (props.useGoogMapsLoader) {
-      loadGoogleMapsScript({
-        apiKey: props.apiKey,
-        ...props.googleMapsLoaderConf,
-      })
-        .then(() => setScriptLoaded(true))
-        .catch(console.error)
-    } else {
-      setScriptLoaded(true)
-    }
-  }, [props.apiKey, props.useGoogMapsLoader, props.googleMapsLoaderConf])
-
-  if (!isScriptLoaded) {
-    console.log('Google Maps script is not loaded')
-    return null
-  }
-
-  return <GoogleMutantLayer {...props} />
-}
-
-export default GoogleMutantLayerWrapper
+export default createLayerComponent<L.GridLayer, LayerProps & IProps>(
+  createLeafletElement,
+  updateGridLayer
+)
