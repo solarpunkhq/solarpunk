@@ -61,9 +61,9 @@ const Geoman = L.Control.extend({
               ],
               area: [
                 {
-                  unit: 'km²',
+                  unit: 'ha',
                   calculation: (value) =>
-                    Math.round((value / 1000000) * 100) / 100,
+                    Math.round((value / 10000) * 100) / 100,
                 },
               ],
             },
