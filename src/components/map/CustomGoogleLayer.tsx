@@ -38,6 +38,7 @@ const waitForGoogleMutant = (
           new Error('L.gridLayer.googleMutant not available after max retries')
         )
       } else {
+        console.log('Waiting for L.gridLayer.googleMutant...')
         retries++
         setTimeout(check, interval)
       }
@@ -69,6 +70,7 @@ const createLeafletElement = async (
     const instance = L.gridLayer.googleMutant(googleMutantProps)
     if (googleMapsAddLayers) {
       googleMapsAddLayers.forEach((layer) => {
+        console.log('Adding Google layer:', instance)
         ;(instance as L.gridLayer.GoogleMutant).addGoogleLayer(
           layer.name,
           layer.options
