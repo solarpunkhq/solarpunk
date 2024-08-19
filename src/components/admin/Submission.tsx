@@ -104,6 +104,7 @@ export function Submission({ data }) {
           existingAcres={data.acres}
           acres={null}
           setAcres={null}
+          country={data.country}
         />
       </main>
       <div className="flex flex-row items-start justify-between">
