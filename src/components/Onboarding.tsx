@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
 import { Loader2 } from 'lucide-react'
 
-const Map = dynamic(() => import('@/components/Map'), {
+const Map = dynamic(() => import('@/components/map/Map'), {
   ssr: false,
 })
 

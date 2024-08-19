@@ -20,7 +20,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import ProjectionCalculator from '../ProjectionCalculator'
 
-const Map = dynamic(() => import('@/components/Map'), {
+const Map = dynamic(() => import('@/components/map/Map'), {
   ssr: false,
 })
 
