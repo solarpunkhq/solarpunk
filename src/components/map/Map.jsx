@@ -66,9 +66,13 @@ export default function Map({
           borderBottomRightRadius: '40px',
         }}
       >
-        <ReactLeafletGoogleLayer
+        {/* <ReactLeafletGoogleLayer
           apiKey={process.env.NEXT_PUBLIC_MAPS_API_KEY}
           type={mapType}
+        /> */}
+        <TileLayer
+          url={`https://{s}.google.com/vt/lyrs=y&x={x}&y={y}&z={z}&scale=2&hl=en&gl=US&${process.env.NEXT_PUBLIC_MAPS_API_KEY}`}
+          subdomains={['mt0', 'mt1', 'mt2', 'mt3']}
         />
         <MapTypeControl setMapType={setMapType} />
 
