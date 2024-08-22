@@ -1,37 +1,37 @@
 import React, { useState } from 'react'
 import { MapContainer, TileLayer } from 'react-leaflet'
 import { GeomanControl } from './GeomanControl'
-// import Events from './Events'
-// import { useMap } from 'react-leaflet'
-// import { useEffect } from 'react'
-// import { GeoSearchControl } from 'leaflet-geosearch'
-// import { EnableVertexControl } from './EnableVertexControl'
-// import { PreDrawnAcres } from './PreDrawnAcres'
-// import dynamic from 'next/dynamic'
-// import CustomSearchProvider from '@/utils/customSearchProvider'
-// import { DisableDraw } from './DisableDraw'
+import Events from './Events'
+import { useMap } from 'react-leaflet'
+import { useEffect } from 'react'
+import { GeoSearchControl } from 'leaflet-geosearch'
+import { EnableVertexControl } from './EnableVertexControl'
+import { PreDrawnAcres } from './PreDrawnAcres'
+import dynamic from 'next/dynamic'
+import CustomSearchProvider from '@/utils/customSearchProvider'
+import { DisableDraw } from './DisableDraw'
 
-// const MapTypeControl = dynamic(() => import('./MapTypeControl'), {
-//   ssr: false,
-// })
+const MapTypeControl = dynamic(() => import('./MapTypeControl'), {
+  ssr: false,
+})
 
-// const Search = (props) => {
-//   const map = useMap()
-//   const { provider } = props
+const Search = (props) => {
+  const map = useMap()
+  const { provider } = props
 
-//   useEffect(() => {
-//     const searchControl = new GeoSearchControl({
-//       provider,
-//       style: 'bar',
-//       showMarker: false,
-//     })
+  useEffect(() => {
+    const searchControl = new GeoSearchControl({
+      provider,
+      style: 'bar',
+      showMarker: false,
+    })
 
-//     map.addControl(searchControl)
-//     return () => map.removeControl(searchControl)
-//   }, [props])
+    map.addControl(searchControl)
+    return () => map.removeControl(searchControl)
+  }, [props])
 
-//   return null
-// }
+  return null
+}
 
 export default function Map({
   zoom,
@@ -42,9 +42,8 @@ export default function Map({
   existingAcres,
   country,
 }) {
-  // const [location, setLocation] = useState([lat, lng])
-  // const [mapType, setMapType] = useState('y')
-  const mapType = 'y'
+  const [location, setLocation] = useState([lat, lng])
+  const [mapType, setMapType] = useState('y')
 
   return (
     <>
@@ -89,9 +88,9 @@ export default function Map({
           autoTracingOption={false}
           country={country}
         />
-        {/* <MapTypeControl setMapType={setMapType} /> */}
+        {<MapTypeControl setMapType={setMapType} />}
 
-        {/* <PreDrawnAcres acres={existingAcres} />
+        <PreDrawnAcres acres={existingAcres} />
         {acres && setAcres && <EnableVertexControl />}
         {!acres && !setAcres && <DisableDraw />}
         <Search
@@ -101,7 +100,7 @@ export default function Map({
             })
           }
         />
-        {acres && setAcres && <Events acres={acres} setAcres={setAcres} />} */}
+        {acres && setAcres && <Events acres={acres} setAcres={setAcres} />}
       </MapContainer>
     </>
   )
