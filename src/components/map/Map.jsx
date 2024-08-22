@@ -68,7 +68,7 @@ export default function Map({
       >
         <ReactLeafletGoogleLayer
           apiKey={process.env.NEXT_PUBLIC_MAPS_API_KEY}
-          type={mapType}
+          type={'hybrid'}
         />
         {/* <MapTypeControl setMapType={setMapType} />
 
