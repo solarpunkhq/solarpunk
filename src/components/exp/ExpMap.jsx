@@ -1,6 +1,6 @@
 import React from 'react'
 import { MapContainer, TileLayer } from 'react-leaflet'
-import { GeomanControl } from '../map/GeomanControl'
+import { ExpGeomanControl } from './ExpGeomanControl'
 
 const ExpMap = () => {
   return (
@@ -15,7 +15,7 @@ const ExpMap = () => {
           url={`https://{s}.google.com/vt/lyrs=y&x={x}&y={y}&z={z}&scale=2&hl=en&gl=US&${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}`}
           subdomains={['mt0', 'mt1', 'mt2', 'mt3']}
         />
-        <GeomanControl
+        <ExpGeomanControl
           position="topleft"
           drawMarker={false}
           drawPolyline={false}
