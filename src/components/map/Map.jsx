@@ -4,7 +4,6 @@ import React, { useState } from 'react'
 import { MapContainer, TileLayer } from 'react-leaflet'
 import { GeomanControl } from './GeomanControl'
 import Events from './Events'
-import ReactLeafletGoogleLayer from 'react-leaflet-google-layer'
 import { useMap } from 'react-leaflet'
 import { useEffect } from 'react'
 import { GeoSearchControl } from 'leaflet-geosearch'
@@ -70,9 +69,15 @@ export default function Map({
           apiKey={process.env.NEXT_PUBLIC_MAPS_API_KEY}
           type={mapType}
         /> */}
-        <TileLayer
+        {/* <TileLayer
           url={`https://{s}.google.com/vt/lyrs=${mapType}&x={x}&y={y}&z={z}&scale=2&hl=en&gl=US&${process.env.NEXT_PUBLIC_MAPS_API_KEY}`}
           subdomains={['mt0', 'mt1', 'mt2', 'mt3']}
+        /> */}
+        <TileLayer
+          attribution='<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+          url="https://api.maptiler.com/maps/hybrid/{z}/{x}/{y}@2x.jpg?key=3G1bQ54uvb4GlQkhQi10"
+          tileSize={512}
+          zoomOffset={-1}
         />
         <MapTypeControl setMapType={setMapType} />
 
