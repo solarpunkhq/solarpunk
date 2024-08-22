@@ -89,7 +89,7 @@ export default function Map({
           autoTracingOption={false}
           country={country}
         />
-        <MapTypeControl setMapType={setMapType} />
+        {/* <MapTypeControl setMapType={setMapType} /> */}
 
         {/* <PreDrawnAcres acres={existingAcres} />
         {acres && setAcres && <EnableVertexControl />}
