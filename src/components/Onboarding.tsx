@@ -1,106 +1,104 @@
 'use client'
 import dynamic from 'next/dynamic'
-// import { Button } from '@/components/ui/button'
-// import { useState } from 'react'
-// import { Acre } from '@/utils/types'
-// import { useRouter } from 'next/navigation'
-// import { useSearchParams } from 'next/navigation'
-// import { Loader2 } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { useState } from 'react'
+import { Acre } from '@/utils/types'
+import { useRouter } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
+import { Loader2 } from 'lucide-react'
 
 const Map = dynamic(() => import('@/components/map/Map'), {
   ssr: false,
 })
 
 export function OnboardingComponent({ country }: { country: string }) {
-  // const [acres, setAcres] = useState<Acre[]>([])
-  // const [email, setEmail] = useState('')
-  // const [name, setName] = useState('')
+  const [acres, setAcres] = useState<Acre[]>([])
+  const [email, setEmail] = useState('')
+  const [name, setName] = useState('')
 
-  // const [loading, setLoading] = useState(false)
-  // const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
-  // const router = useRouter()
+  const router = useRouter()
 
-  // const searchParams = useSearchParams()
+  const searchParams = useSearchParams()
 
-  // let lat = parseFloat(searchParams.get('lat'))
-  // let zoom = 15
-  // if (lat === null || lat === undefined || Number.isNaN(lat)) {
-  //   lat = 34.0549
-  //   zoom = 13
-  // }
-  // let lng = parseFloat(searchParams.get('lng'))
-  // if (lng === null || lng === undefined || Number.isNaN(lng)) {
-  //   lng = -118.2426
-  // }
+  let lat = parseFloat(searchParams.get('lat'))
+  let zoom = 15
+  if (lat === null || lat === undefined || Number.isNaN(lat)) {
+    lat = 34.0549
+    zoom = 13
+  }
+  let lng = parseFloat(searchParams.get('lng'))
+  if (lng === null || lng === undefined || Number.isNaN(lng)) {
+    lng = -118.2426
+  }
 
-  // const submitForm = async () => {
-  //   setLoading(true)
-  //   if (email === '') {
-  //     setError('Email is required')
-  //     setLoading(false)
-  //     return
-  //   }
-  //   if (!email.includes('@') || !email.includes('.')) {
-  //     setError('Invalid email')
-  //     setLoading(false)
-  //     return
-  //   }
-  //   if (name === '') {
-  //     setError('Name is required')
-  //     setLoading(false)
-  //     return
-  //   }
-  //   if (acres.length === 0) {
-  //     setError('Please select an area')
-  //     setLoading(false)
-  //     return
-  //   }
-  //   let formatted_email = email.toLowerCase().trim()
-  //   try {
-  //     const response = await fetch('/api/submit_onboarding', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify({
-  //         email: formatted_email,
-  //         name,
-  //         acres,
-  //       }),
-  //     })
+  const submitForm = async () => {
+    setLoading(true)
+    if (email === '') {
+      setError('Email is required')
+      setLoading(false)
+      return
+    }
+    if (!email.includes('@') || !email.includes('.')) {
+      setError('Invalid email')
+      setLoading(false)
+      return
+    }
+    if (name === '') {
+      setError('Name is required')
+      setLoading(false)
+      return
+    }
+    if (acres.length === 0) {
+      setError('Please select an area')
+      setLoading(false)
+      return
+    }
+    let formatted_email = email.toLowerCase().trim()
+    try {
+      const response = await fetch('/api/submit_onboarding', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: formatted_email,
+          name,
+          acres,
+        }),
+      })
 
-  //     if (response.ok) {
-  //       const data = await response.json()
-  //       console.log('Response data:', data)
-  //       router.push(data.magic_link)
-  //     } else {
-  //       console.error('Error:', response.statusText)
-  //       setError(response.statusText)
-  //       setLoading(false)
-  //     }
-  //   } catch (error) {
-  //     console.error('Fetch error:', error)
-  //     setError('A fetch error occurred')
-  //     setLoading(false)
-  //   }
-  // }
+      if (response.ok) {
+        const data = await response.json()
+        console.log('Response data:', data)
+        router.push(data.magic_link)
+      } else {
+        console.error('Error:', response.statusText)
+        setError(response.statusText)
+        setLoading(false)
+      }
+    } catch (error) {
+      console.error('Fetch error:', error)
+      setError('A fetch error occurred')
+      setLoading(false)
+    }
+  }
 
   return (
     <div className="-mb-[200px] mt-12 h-full">
       <div className="flex h-full w-full flex-col items-center justify-center px-8 md:flex-row md:items-stretch md:justify-start">
         <Map
-          zoom={15}
-          lat={34.0549}
-          lng={-118.2426}
-          // acres={acres}
-          // setAcres={setAcres}
-          acres={[]}
-          setAcres={null}
+          zoom={zoom}
+          lat={lat}
+          lng={lng}
+          acres={acres}
+          setAcres={setAcres}
           existingAcres={[]}
           country={country}
         />
-        {/* <div className="rounded-r-4xl h-full w-full max-w-96 border border-l-0 bg-white p-8">
+        <div className="rounded-r-4xl h-full w-full max-w-96 border border-l-0 bg-white p-8">
           <div>
             <h1 className="font-display text-4xl">Mark your acres</h1>
             <h2 className="">Use the map to outline your territory</h2>
@@ -168,7 +166,7 @@ export function OnboardingComponent({ country }: { country: string }) {
               {loading ? 'Please wait' : 'Submit'}
             </Button>
           </div>
-        </div> */}
+        </div>
       </div>
     </div>
   )
