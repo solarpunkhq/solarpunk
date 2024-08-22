@@ -1,7 +1,9 @@
+'use client'
 import React, { useState } from 'react'
 import { MapContainer, TileLayer } from 'react-leaflet'
 import { GeomanControl } from './GeomanControl'
 import Events from './Events'
+import ReactLeafletGoogleLayer from 'react-leaflet-google-layer'
 import { useMap } from 'react-leaflet'
 import { useEffect } from 'react'
 import { GeoSearchControl } from 'leaflet-geosearch'
@@ -43,7 +45,7 @@ export default function Map({
   country,
 }) {
   const [location, setLocation] = useState([lat, lng])
-  const [mapType, setMapType] = useState('y')
+  const [mapType, setMapType] = useState('hybrid')
 
   return (
     <>
@@ -63,9 +65,13 @@ export default function Map({
           borderBottomRightRadius: '40px',
         }}
       >
-        <TileLayer
+        {/* <TileLayer
           url={`https://{s}.google.com/vt/lyrs=${mapType}&x={x}&y={y}&z={z}&scale=2&hl=en&gl=US&${process.env.NEXT_PUBLIC_MAPS_API_KEY}`}
           subdomains={['mt0', 'mt1', 'mt2', 'mt3']}
+        /> */}
+        <ReactLeafletGoogleLayer
+          apiKey={process.env.NEXT_PUBLIC_MAPS_API_KEY}
+          type={mapType}
         />
 
         <GeomanControl
