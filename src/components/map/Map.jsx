@@ -51,8 +51,8 @@ export default function Map({
   return (
     <>
       <MapContainer
-        key={mapType}
-        center={location}
+        key={'hybrid'}
+        center={[lat, lng]}
         zoom={zoom}
         // className="rounded-l-2xl"
         // scrollWheelZoom={true}
