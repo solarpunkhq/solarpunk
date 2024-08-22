@@ -74,8 +74,6 @@ export default function Map({
           subdomains={['mt0', 'mt1', 'mt2', 'mt3']}
         />
 
-        <MapTypeControl setMapType={setMapType} />
-
         <GeomanControl
           position="topleft"
           drawMarker={false}
@@ -96,6 +94,8 @@ export default function Map({
           autoTracingOption={false}
           country={country}
         />
+        <MapTypeControl setMapType={setMapType} />
+
         {/* <PreDrawnAcres acres={existingAcres} />
         {acres && setAcres && <EnableVertexControl />}
         {!acres && !setAcres && <DisableDraw />}
