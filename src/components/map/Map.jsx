@@ -73,12 +73,7 @@ export default function Map({
           url={`https://{s}.google.com/vt/lyrs=${mapType}&x={x}&y={y}&z={z}&scale=2&hl=en&gl=US&${process.env.NEXT_PUBLIC_MAPS_API_KEY}`}
           subdomains={['mt0', 'mt1', 'mt2', 'mt3']}
         />
-        {/* <TileLayer
-          attribution='<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
-          url="https://api.maptiler.com/maps/hybrid/{z}/{x}/{y}@2x.jpg?key=3G1bQ54uvb4GlQkhQi10"
-          tileSize={512}
-          zoomOffset={-1}
-        /> */}
+
         <MapTypeControl setMapType={setMapType} />
 
         <GeomanControl
@@ -101,7 +96,7 @@ export default function Map({
           autoTracingOption={false}
           country={country}
         />
-        <PreDrawnAcres acres={existingAcres} />
+        {/* <PreDrawnAcres acres={existingAcres} />
         {acres && setAcres && <EnableVertexControl />}
         {!acres && !setAcres && <DisableDraw />}
         <Search
@@ -111,7 +106,7 @@ export default function Map({
             })
           }
         />
-        {acres && setAcres && <Events acres={acres} setAcres={setAcres} />}
+        {acres && setAcres && <Events acres={acres} setAcres={setAcres} />} */}
       </MapContainer>
     </>
   )
