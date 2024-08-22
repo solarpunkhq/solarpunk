@@ -21,19 +21,19 @@ import {
 
 const mapTypes = [
   {
-    value: 'hybrid',
+    value: 'y',
     label: 'Default Map',
   },
   {
-    value: 'roadmap',
+    value: 'm',
     label: 'Road Map',
   },
   {
-    value: 'satellite',
+    value: 's',
     label: 'Satellite Map',
   },
   {
-    value: 'terrain',
+    value: 't',
     label: 'Terrain Map',
   },
 ]

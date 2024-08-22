@@ -46,7 +46,7 @@ export default function Map({
   country,
 }) {
   const [location, setLocation] = useState([lat, lng])
-  const [mapType, setMapType] = useState('hybrid')
+  const [mapType, setMapType] = useState('y')
 
   return (
     <>
@@ -71,7 +71,7 @@ export default function Map({
           type={mapType}
         /> */}
         <TileLayer
-          url={`https://{s}.google.com/vt/lyrs=y&x={x}&y={y}&z={z}&scale=2&hl=en&gl=US&${process.env.NEXT_PUBLIC_MAPS_API_KEY}`}
+          url={`https://{s}.google.com/vt/lyrs=${mapType}&x={x}&y={y}&z={z}&scale=2&hl=en&gl=US&${process.env.NEXT_PUBLIC_MAPS_API_KEY}`}
           subdomains={['mt0', 'mt1', 'mt2', 'mt3']}
         />
         <MapTypeControl setMapType={setMapType} />
