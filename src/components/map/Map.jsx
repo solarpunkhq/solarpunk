@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { MapContainer, TileLayer } from 'react-leaflet'
+import { MapContainer } from 'react-leaflet'
 import { GeomanControl } from './GeomanControl'
 import Events from './Events'
 import ReactLeafletGoogleLayer from 'react-leaflet-google-layer'
@@ -66,11 +66,11 @@ export default function Map({
           borderBottomRightRadius: '40px',
         }}
       >
-        <TileLayer
-          attribution='<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
-          url="https://api.maptiler.com/maps/hybrid/{z}/{x}/{y}.jpg?key=3G1bQ54uvb4GlQkhQi10"
+        <ReactLeafletGoogleLayer
+          apiKey={process.env.NEXT_PUBLIC_MAPS_API_KEY}
+          type={mapType}
         />
-        <MapTypeControl setMapType={setMapType} />
+        {/* <MapTypeControl setMapType={setMapType} />
 
         <GeomanControl
           position="topleft"
@@ -102,7 +102,7 @@ export default function Map({
             })
           }
         />
-        {acres && setAcres && <Events acres={acres} setAcres={setAcres} />}
+        {acres && setAcres && <Events acres={acres} setAcres={setAcres} />} */}
       </MapContainer>
     </>
   )
