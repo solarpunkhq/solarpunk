@@ -1,40 +1,40 @@
 // 'use client'
 
-import React, { useState } from 'react'
-import { MapContainer } from 'react-leaflet'
-import { GeomanControl } from './GeomanControl'
-import Events from './Events'
+import React from 'react'
+import { MapContainer, TileLayer } from 'react-leaflet'
+// import { GeomanControl } from './GeomanControl'
+// import Events from './Events'
 import ReactLeafletGoogleLayer from 'react-leaflet-google-layer'
-import { useMap } from 'react-leaflet'
-import { useEffect } from 'react'
-import { GeoSearchControl } from 'leaflet-geosearch'
-import { EnableVertexControl } from './EnableVertexControl'
-import { PreDrawnAcres } from './PreDrawnAcres'
-import dynamic from 'next/dynamic'
-import CustomSearchProvider from '@/utils/customSearchProvider'
-import { DisableDraw } from './DisableDraw'
+// import { useMap } from 'react-leaflet'
+// import { useEffect } from 'react'
+// import { GeoSearchControl } from 'leaflet-geosearch'
+// import { EnableVertexControl } from './EnableVertexControl'
+// import { PreDrawnAcres } from './PreDrawnAcres'
+// import dynamic from 'next/dynamic'
+// import CustomSearchProvider from '@/utils/customSearchProvider'
+// import { DisableDraw } from './DisableDraw'
 
-const MapTypeControl = dynamic(() => import('./MapTypeControl'), {
-  ssr: false,
-})
+// const MapTypeControl = dynamic(() => import('./MapTypeControl'), {
+//   ssr: false,
+// })
 
-const Search = (props) => {
-  const map = useMap()
-  const { provider } = props
+// const Search = (props) => {
+//   const map = useMap()
+//   const { provider } = props
 
-  useEffect(() => {
-    const searchControl = new GeoSearchControl({
-      provider,
-      style: 'bar',
-      showMarker: false,
-    })
+//   useEffect(() => {
+//     const searchControl = new GeoSearchControl({
+//       provider,
+//       style: 'bar',
+//       showMarker: false,
+//     })
 
-    map.addControl(searchControl)
-    return () => map.removeControl(searchControl)
-  }, [props])
+//     map.addControl(searchControl)
+//     return () => map.removeControl(searchControl)
+//   }, [props])
 
-  return null
-}
+//   return null
+// }
 
 export default function Map({
   zoom,
