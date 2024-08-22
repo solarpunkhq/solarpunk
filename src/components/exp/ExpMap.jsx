@@ -1,6 +1,5 @@
 import React from 'react'
 import { MapContainer, TileLayer } from 'react-leaflet'
-import ReactLeafletGoogleLayer from 'react-leaflet-google-layer'
 import { GeomanControl } from '../map/GeomanControl'
 
 const ExpMap = () => {
