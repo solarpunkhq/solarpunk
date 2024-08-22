@@ -45,8 +45,8 @@ export default function Map({
   existingAcres,
   country,
 }) {
-  const [location, setLocation] = useState([lat, lng])
-  const [mapType, setMapType] = useState('hybrid')
+  // const [location, setLocation] = useState([lat, lng])
+  // const [mapType, setMapType] = useState('hybrid')
 
   return (
     <>
@@ -54,17 +54,17 @@ export default function Map({
         key={mapType}
         center={location}
         zoom={zoom}
-        className="rounded-l-2xl"
-        scrollWheelZoom={true}
-        style={{
-          width: '100%',
-          height: '80vh',
-          margin: '0 auto',
-          borderTopLeftRadius: '40px',
-          borderBottomLeftRadius: '40px',
-          borderTopRightRadius: '40px',
-          borderBottomRightRadius: '40px',
-        }}
+        // className="rounded-l-2xl"
+        // scrollWheelZoom={true}
+        // style={{
+        //   width: '100%',
+        //   height: '80vh',
+        //   margin: '0 auto',
+        //   borderTopLeftRadius: '40px',
+        //   borderBottomLeftRadius: '40px',
+        //   borderTopRightRadius: '40px',
+        //   borderBottomRightRadius: '40px',
+        // }}
       >
         <ReactLeafletGoogleLayer
           apiKey={process.env.NEXT_PUBLIC_MAPS_API_KEY}
