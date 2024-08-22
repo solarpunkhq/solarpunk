@@ -1,0 +1,14 @@
+module.exports = {
+  plugins: [
+    {
+      name: 'preset-default',
+      params: {
+        overrides: {
+          removeViewBox: false,
+        },
+      },
+    },
+    'prefixIds',
+    'removeDimensions',
+  ],
+};

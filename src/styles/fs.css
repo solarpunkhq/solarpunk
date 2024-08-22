@@ -1,0 +1,45 @@
+@layer components {
+  .fs-80 {
+    @apply text-80 leading-none tracking-tighter lg:text-64 lg:leading-dense md:text-48 sm:text-36 sm:leading-tight;
+  }
+
+  .fs-64 {
+    @apply text-64 leading-dense tracking-tighter lg:text-56 md:text-48 sm:text-36 sm:leading-tight;
+  }
+
+  .fs-56 {
+    @apply text-56 leading-dense tracking-tighter lg:text-48 md:text-40 sm:text-32 sm:leading-tight;
+  }
+
+  .fs-48 {
+    @apply text-48 leading-dense tracking-tighter lg:text-40 md:text-32 md:leading-tight sm:text-28;
+  }
+
+  .fs-40 {
+    @apply text-40 leading-dense tracking-tighter lg:text-36 lg:leading-tight md:text-32 sm:text-28;
+  }
+
+  .fs-36 {
+    @apply text-36 leading-tight tracking-tighter lg:text-32 md:text-28 sm:text-24 sm:leading-snug;
+  }
+
+  .fs-32 {
+    @apply text-32 leading-tight tracking-tighter lg:text-28 md:text-24 md:leading-snug sm:text-20;
+  }
+
+  .fs-28 {
+    @apply text-28 leading-tight tracking-tighter lg:text-24 lg:leading-snug md:text-20 sm:text-18;
+  }
+
+  .fs-24 {
+    @apply text-24 leading-snug tracking-tighter lg:text-20 md:text-18 sm:text-16;
+  }
+
+  .fs-20 {
+    @apply text-20 leading-snug tracking-tighter md:text-18;
+  }
+
+  .fs-18 {
+    @apply text-18 tracking-tighter md:text-16;
+  }
+}
