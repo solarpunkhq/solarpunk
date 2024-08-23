@@ -8,7 +8,7 @@ import { Button } from '../ui/button'
 import { Logo } from '../Logo'
 import DashboardSidebar from './Sidebar'
 
-export default function Dashboard() {
+export default function Dashboard({ email }: { email: string }) {
   return (
     <div className="h-screen w-full overflow-hidden">
       <div className="flex h-full w-full flex-col items-center justify-center px-8 md:flex-row md:items-stretch md:justify-start">
@@ -53,7 +53,7 @@ export default function Dashboard() {
             <h1 className="mb-4 mt-8 text-center text-3xl font-bold">
               Your Acres
             </h1>
-            <DashboardSidebar />
+            <DashboardSidebar email={email} />
           </div>
         </div>
       </div>

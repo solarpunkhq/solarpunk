@@ -8,6 +8,7 @@ export async function POST(request: Request) {
   const about_farm = body.about_farm
   const phone_number = body.phone_number
   const finance_option = body.finance_option
+  const deployment_type = body.deployment_type
 
   const supabase = createClient()
 
@@ -27,6 +28,7 @@ export async function POST(request: Request) {
       current_step: 1,
       phone_number: phone_number,
       finance_option: finance_option,
+      deployment_type: deployment_type,
     },
     where: {
       email: email,

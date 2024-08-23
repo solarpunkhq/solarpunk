@@ -28,7 +28,7 @@ export default async function DashboardPage() {
   return (
     <div className="h-full w-full">
       <div className="invisible hidden h-full w-full flex-col items-center justify-start md:visible md:flex">
-        <Dashboard />
+        <Dashboard email={user.email} />
       </div>
       <div className="flex h-full w-full items-center justify-center md:invisible md:hidden">
         This site is best viewed on a larger screen. Please visit on a desktop

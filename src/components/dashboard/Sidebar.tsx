@@ -8,7 +8,7 @@ import { CheckCircle, CircleAlert, Loader2 } from 'lucide-react'
 import { Textarea } from '../ui/textarea'
 import { Input } from '../ui/input'
 
-export default function DashboardSidebar() {
+export default function DashboardSidebar({ email }: { email: string }) {
   const [phoneNumber, setPhoneNumber] = useState('')
   const [financeOption, setFinanceOption] = useState('self_financed')
   const [deploymentType, setDeploymentType] = useState(
@@ -19,12 +19,50 @@ export default function DashboardSidebar() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
-  const submitForm = () => {
+  const submitForm = async () => {
     setLoading(true)
-    console.log(phoneNumber, financeOption, deploymentType, aboutLand)
-    setTimeout(() => {
+    if (phoneNumber === '') {
+      setError('Phone number is required')
       setLoading(false)
-    }, 3000)
+      return
+    }
+    if (financeOption === '') {
+      setError('Finance option is required')
+      setLoading(false)
+      return
+    }
+    if (deploymentType === '') {
+      setError('Deployment type is required')
+      setLoading(false)
+      return
+    }
+    try {
+      const response = await fetch('/api/submit_additional_details', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          phone_number: phoneNumber,
+          about_farm: aboutLand,
+          finance_option: financeOption,
+          deployment_type: deploymentType,
+        }),
+      })
+
+      if (response.ok) {
+        const data = await response.json()
+        alert('updated')
+        setLoading(false)
+      } else {
+        console.error('Error:', response.statusText)
+        setLoading(false)
+      }
+    } catch (error) {
+      console.error('Fetch error:', error)
+      setLoading(false)
+    }
   }
 
   return (
@@ -243,12 +281,12 @@ export default function DashboardSidebar() {
           left before submitting the form.
         </span>
       </div>
-      <div className="flex items-center justify-center">
+      <div className="flex flex-col items-center justify-center">
+        {error && <div className=" text-red-500">{error}</div>}
         <Button className="mt-4" disabled={loading} onClick={submitForm}>
           {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
           {loading ? 'Please wait' : 'Submit'}
         </Button>
-        {error && <div className="mt-2 text-red-500">{error}</div>}
       </div>
     </div>
   )
