@@ -93,6 +93,9 @@ export function AdminDashboard() {
               <TabsTrigger value="deployment" className="hidden md:flex">
                 Deployment
               </TabsTrigger>
+              <TabsTrigger value="rejected" className="hidden md:flex">
+                Rejected
+              </TabsTrigger>
             </TabsList>
             <div className="ml-auto flex items-center gap-2">
               <Button
@@ -123,6 +126,7 @@ export function AdminDashboard() {
           <DashboardTab data={data} status={'In Review'} name="review" />
           <DashboardTab data={data} status={'Planning'} name="planning" />
           <DashboardTab data={data} status={'Deployment'} name="deployment" />
+          <DashboardTab data={data} status={'Rejected'} name="rejected" />
         </Tabs>
       </main>
     </div>
