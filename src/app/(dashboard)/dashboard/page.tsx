@@ -26,9 +26,14 @@ export default async function DashboardPage() {
   })
 
   return (
-    <div className="flex h-full w-full flex-col items-center justify-start">
-      {/* <CurrentStep step={current_step.current_step} email={user.email} /> */}
-      <Dashboard />
+    <div className="h-full w-full">
+      <div className="invisible hidden h-full w-full flex-col items-center justify-start md:visible md:flex">
+        <Dashboard />
+      </div>
+      <div className="flex h-full w-full items-center justify-center md:invisible md:hidden">
+        This site is best viewed on a larger screen. Please visit on a desktop
+        or laptop.
+      </div>
     </div>
   )
 }
