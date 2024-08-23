@@ -31,7 +31,9 @@ export default function Dashboard() {
             country={null}
           />
           <div className="mt-2 w-1/2 rounded-md bg-neutral-100 p-6 text-center text-sm">
-            <b>$500,000 Est. Yearly Revenue </b> | 100 Acres
+            <span className="font-semibold">$500,000 Est. Yearly Revenue</span>
+            {' | '}
+            <span className="text-gray-600"> 100 Acres</span>
           </div>
         </div>
 
@@ -48,7 +50,9 @@ export default function Dashboard() {
               </Button>
             </div>
 
-            <h1 className="mb-4 mt-8 text-3xl font-bold">Your Acres</h1>
+            <h1 className="mb-4 mt-8 text-center text-3xl font-bold">
+              Your Acres
+            </h1>
             <DashboardSidebar />
           </div>
         </div>
