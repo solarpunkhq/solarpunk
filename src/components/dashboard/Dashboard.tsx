@@ -13,7 +13,7 @@ export default function Dashboard() {
     <div className="h-screen w-full overflow-hidden">
       <div className="flex h-full w-full flex-col items-center justify-center px-8 md:flex-row md:items-stretch md:justify-start">
         <div className="flex h-full w-full flex-col items-center justify-start">
-          <div className="m-8 flex items-center justify-center self-start">
+          <div className="my-8 ml-6 flex items-center justify-center self-start">
             <div
               className="flex cursor-pointer items-center"
               onClick={() => (window.location.href = '/')}
@@ -37,7 +37,7 @@ export default function Dashboard() {
 
         <div className="rounded-r-4xl ml-4 h-full max-h-screen w-full max-w-96 overflow-y-scroll bg-white">
           <div className="flex h-full flex-col p-4">
-            <div className="mt-4 h-6 w-6 self-end">
+            <div className="mr-2 mt-4 h-6 w-6 self-end">
               <Button
                 variant="ghost"
                 size="icon"
