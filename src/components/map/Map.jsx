@@ -51,7 +51,7 @@ export default function Map({
     <>
       <MapContainer
         key={mapType}
-        center={[lat, lng]}
+        center={location}
         zoom={zoom}
         className="rounded-l-2xl"
         scrollWheelZoom={true}
@@ -94,7 +94,7 @@ export default function Map({
           autoTracingOption={false}
           country={country}
         />
-        {<MapTypeControl setMapType={setMapType} />}
+        <MapTypeControl setMapType={setMapType} />
 
         <PreDrawnAcres acres={existingAcres} />
         {acres && setAcres && <EnableVertexControl />}

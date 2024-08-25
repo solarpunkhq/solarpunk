@@ -8,7 +8,13 @@ import { CheckCircle, CircleAlert, Loader2 } from 'lucide-react'
 import { Textarea } from '../ui/textarea'
 import { Input } from '../ui/input'
 
-export default function DashboardSidebar({ email }: { email: string }) {
+export default function DashboardSidebar({
+  user_id,
+  acres,
+}: {
+  user_id: number
+  acres: any[]
+}) {
   const [phoneNumber, setPhoneNumber] = useState('')
   const [financeOption, setFinanceOption] = useState('self_financed')
   const [deploymentType, setDeploymentType] = useState(
@@ -36,6 +42,7 @@ export default function DashboardSidebar({ email }: { email: string }) {
       setLoading(false)
       return
     }
+    console.log(acres)
     try {
       const response = await fetch('/api/submit_additional_details', {
         method: 'POST',
@@ -43,11 +50,12 @@ export default function DashboardSidebar({ email }: { email: string }) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          email,
+          user_id,
           phone_number: phoneNumber,
           about_farm: aboutLand,
           finance_option: financeOption,
           deployment_type: deploymentType,
+          acres,
         }),
       })
 

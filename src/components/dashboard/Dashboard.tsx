@@ -1,5 +1,8 @@
 'use client'
 import { useState } from 'react'
+import * as L from 'leaflet'
+console.log(L)
+import 'leaflet.gridlayer.googlemutant/dist/Leaflet.GoogleMutant'
 import Map from '../map/Map'
 import { Acre } from '@/utils/types'
 import { useRouter, useSearchParams } from 'next/navigation'
@@ -8,7 +11,22 @@ import { Button } from '../ui/button'
 import { Logo } from '../Logo'
 import DashboardSidebar from './Sidebar'
 
-export default function Dashboard({ email }: { email: string }) {
+export default function Dashboard({
+  user_id,
+  existing_acres,
+  acre_data,
+  country,
+}: {
+  user_id: number
+  existing_acres: any[]
+  acre_data: any[]
+  country: string
+}) {
+  const lat = existing_acres[0][0][0].lat
+  const lng = existing_acres[0][0][0].lng
+
+  const [acres, setAcres] = useState(acre_data)
+
   return (
     <div className="h-screen w-full overflow-hidden">
       <div className="flex h-full w-full flex-col items-center justify-center px-8 md:flex-row md:items-stretch md:justify-start">
@@ -22,13 +40,13 @@ export default function Dashboard({ email }: { email: string }) {
             </div>
           </div>
           <Map
-            zoom={17}
-            lat={34}
-            lng={-118}
-            acres={null}
-            setAcres={null}
-            existingAcres={[]}
-            country={null}
+            zoom={18}
+            lat={lat}
+            lng={lng}
+            acres={acres}
+            setAcres={setAcres}
+            existingAcres={existing_acres}
+            country={country}
           />
           <div className="mt-2 w-1/2 rounded-md bg-neutral-100 p-6 text-center text-sm">
             <span className="font-semibold">$500,000 Est. Yearly Revenue</span>
@@ -53,7 +71,7 @@ export default function Dashboard({ email }: { email: string }) {
             <h1 className="mb-4 mt-8 text-center text-3xl font-bold">
               Your Acres
             </h1>
-            <DashboardSidebar email={email} />
+            <DashboardSidebar user_id={user_id} acres={acres} />
           </div>
         </div>
       </div>
