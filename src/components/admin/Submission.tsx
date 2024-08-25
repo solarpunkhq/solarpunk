@@ -19,6 +19,9 @@ import { formatNumberAsAmount, getStepNameFromIndex } from '@/lib/utils'
 import Link from 'next/link'
 import { useState } from 'react'
 import ProjectionCalculator from '../ProjectionCalculator'
+import * as L from 'leaflet'
+console.log(L)
+import 'leaflet.gridlayer.googlemutant/dist/Leaflet.GoogleMutant'
 
 const Map = dynamic(() => import('@/components/map/Map'), {
   ssr: false,
