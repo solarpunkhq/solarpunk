@@ -133,6 +133,10 @@ export function Submission({ data }) {
               <b>Finance Option: </b>
               {data.finance_option?.replaceAll('_', ' ')}
             </p>
+            <p className="text-sm">
+              <b>Deployment Type: </b>
+              {data.deployment_type?.replaceAll('_', ' ')}
+            </p>
           </div>
           <div>
             <h2 className="mt-4 text-base font-semibold">
