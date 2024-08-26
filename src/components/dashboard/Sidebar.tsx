@@ -11,6 +11,7 @@ import {
   getProjectionsFromAcres,
   getTotalAreaFromAcreData,
 } from '@/utils/projections'
+import { formatNumberAsAmount } from '@/lib/utils'
 
 export default function DashboardSidebar({
   user_id,
@@ -29,11 +30,8 @@ export default function DashboardSidebar({
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
-  const projections = getProjectionsFromAcres(
-    getTotalAreaFromAcreData(acres),
-    25,
-    5
-  )
+  const totalArea = getTotalAreaFromAcreData(acres)
+  const projections = getProjectionsFromAcres(totalArea, 25, 5)
 
   const submitForm = async () => {
     setLoading(true)
@@ -72,7 +70,7 @@ export default function DashboardSidebar({
 
       if (response.ok) {
         const data = await response.json()
-        alert('updated')
+        window.location.reload()
         setLoading(false)
       } else {
         console.error('Error:', response.statusText)
@@ -288,10 +286,12 @@ export default function DashboardSidebar({
       </RadioGroup>
       <div className="mt-4 text-2xl font-semibold">Summary</div>
       <div>
-        <b>Est. Revenue: </b>$500,000/yr
+        <b>Est. Revenue: </b>$
+        {formatNumberAsAmount(projections.revenue_per_year.toFixed(0))}/yr
       </div>
       <div>
-        <b>Area: </b>100 Acres
+        <b>Area: </b>
+        {formatNumberAsAmount(totalArea.toFixed(2))} Acres
       </div>
       <div className="my-2 flex text-gray-500">
         <span>

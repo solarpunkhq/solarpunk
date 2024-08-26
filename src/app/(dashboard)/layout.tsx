@@ -69,7 +69,7 @@ export default function Layout({ children }) {
       </head>
       <body
         className={cn(
-          'font-sans antialiased',
+          'h-full w-full font-sans antialiased',
           calSans.variable,
           inter.variable
         )}
