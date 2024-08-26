@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import * as L from 'leaflet'
 console.log(L)
 import 'leaflet.gridlayer.googlemutant/dist/Leaflet.GoogleMutant'
@@ -10,6 +10,11 @@ import { Loader2, LogOut } from 'lucide-react'
 import { Button } from '../ui/button'
 import { Logo } from '../Logo'
 import DashboardSidebar from './Sidebar'
+import {
+  getProjectionsFromAcres,
+  getTotalAreaFromAcreData,
+} from '@/utils/projections'
+import { formatNumberAsAmount } from '@/lib/utils'
 
 export default function Dashboard({
   user_id,
@@ -26,6 +31,18 @@ export default function Dashboard({
   const lng = existing_acres[0][0][0].lng
 
   const [acres, setAcres] = useState(acre_data)
+
+  const [totalArea, setTotalArea] = useState(getTotalAreaFromAcreData(acres))
+  const [projections, setProjections] = useState(
+    getProjectionsFromAcres(totalArea, 25, 5)
+  )
+
+  useEffect(() => {
+    const newTotalArea = getTotalAreaFromAcreData(acres)
+    const newProjections = getProjectionsFromAcres(newTotalArea, 25, 5)
+    setTotalArea(newTotalArea)
+    setProjections(newProjections)
+  }, [acres])
 
   return (
     <div className="h-screen w-full overflow-hidden">
@@ -49,9 +66,15 @@ export default function Dashboard({
             country={country}
           />
           <div className="mt-2 w-1/2 rounded-md bg-neutral-100 p-6 text-center text-sm">
-            <span className="font-semibold">$500,000 Est. Yearly Revenue</span>
+            <span className="font-semibold">
+              ${formatNumberAsAmount(projections.revenue_per_year.toFixed(0))}{' '}
+              Est. Yearly Revenue
+            </span>
             {' | '}
-            <span className="text-gray-600"> 100 Acres</span>
+            <span className="text-gray-600">
+              {' '}
+              {formatNumberAsAmount(totalArea.toFixed(2))} Acres
+            </span>
           </div>
         </div>
 

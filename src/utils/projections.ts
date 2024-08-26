@@ -1,4 +1,10 @@
-const getProjectionsFromAcres = (
+import { Acre } from './types'
+
+export const getTotalAreaFromAcreData = (acreData: Acre[]) => {
+  return acreData.reduce((total, acre) => total + acre.area, 0)
+}
+
+export const getProjectionsFromAcres = (
   acres: number,
   loanPeriod: number,
   loanAPR: number

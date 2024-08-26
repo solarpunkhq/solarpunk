@@ -41,6 +41,7 @@ export async function POST(request: Request) {
       phone_number: phone_number,
       finance_option: finance_option,
       deployment_type: deployment_type,
+      total_revenue: body.total_revenue,
     },
     where: {
       email: email,

@@ -3,6 +3,7 @@
 import { formatNumberAsAmount } from '@/lib/utils'
 import { useState } from 'react'
 import { Slider } from './ui/slider'
+import { getProjectionsFromAcres } from '@/utils/projections'
 
 export default function ProjectionCalculator({ acres }: { acres: number }) {
   const [loanPeriod, setLoanPeriod] = useState(25)

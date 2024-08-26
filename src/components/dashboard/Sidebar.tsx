@@ -7,6 +7,10 @@ import { Radio, RadioGroup } from '@headlessui/react'
 import { CheckCircle, CircleAlert, Loader2 } from 'lucide-react'
 import { Textarea } from '../ui/textarea'
 import { Input } from '../ui/input'
+import {
+  getProjectionsFromAcres,
+  getTotalAreaFromAcreData,
+} from '@/utils/projections'
 
 export default function DashboardSidebar({
   user_id,
@@ -24,6 +28,12 @@ export default function DashboardSidebar({
 
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+
+  const projections = getProjectionsFromAcres(
+    getTotalAreaFromAcreData(acres),
+    25,
+    5
+  )
 
   const submitForm = async () => {
     setLoading(true)
@@ -56,6 +66,7 @@ export default function DashboardSidebar({
           finance_option: financeOption,
           deployment_type: deploymentType,
           acres,
+          total_revenue: projections.total_revenue,
         }),
       })
 
