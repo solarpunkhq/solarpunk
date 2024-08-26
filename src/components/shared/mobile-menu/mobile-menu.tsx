@@ -40,7 +40,7 @@ function MobileMenu({ isOpen, onClick }: { isOpen: boolean; onClick: () => void 
               <ul className="flex w-full flex-col overflow-y-auto">
                 {MENUS.header.map(({ label, href }, index) => (
                   <li className="h-14 border-b border-black" key={index}>
-                    <Link className="text-gray-8 block py-5 leading-none" href={href} size="md">
+                    <Link className="block py-5 leading-none text-gray-8" href={href} size="xs">
                       {label}
                     </Link>
                   </li>
