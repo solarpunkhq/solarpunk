@@ -2,8 +2,6 @@ import { Route } from 'next';
 
 import Button from '@/components/shared/button';
 
-import Arrow from '@/svgs/icons/button-arrow.inline.svg';
-
 interface CardProps {
   title: string;
   subtitle: string;
@@ -47,9 +45,9 @@ function Card({
           size="sm"
           theme="green"
           href={buttonUrl}
+          withArrow
         >
           {buttonText}
-          <Arrow className="w-5 transition-all duration-200 group-hover:rotate-90" />
         </Button>
       </div>
       <span className="border-linear pointer-events-none absolute inset-0 rounded-[inherit] bg-sources-card-border" />
