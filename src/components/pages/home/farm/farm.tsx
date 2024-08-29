@@ -4,22 +4,22 @@ import clsx from 'clsx';
 
 import panelImage from '@/images/farm/panel.jpg';
 
-import cereals from '@/svgs/icons/cereals.svg';
-import leaf from '@/svgs/icons/leaf.svg';
-import tool from '@/svgs/icons/tool.svg';
+import CerealsIcon from './icons/cereals-icon';
+import LeafsIcon from './icons/leafs-icon';
+import SlotIcon from './icons/slot-icon';
 
 const items = [
   {
     text: 'Reduce reliance on fossil fuels and lower greenhouse gas emissions.',
-    icon: cereals,
+    icon: CerealsIcon,
   },
   {
     text: 'Install solar panels to earn revenue from solar energy and reduce energy costs.',
-    icon: leaf,
+    icon: LeafsIcon,
   },
   {
     text: 'Benefit from government incentives, grants, and tax credits for renewable energy projects. ',
-    icon: tool,
+    icon: SlotIcon,
   },
 ];
 
@@ -36,7 +36,7 @@ function Farm() {
             potentially extends growing seasons.
           </p>
           <ul className="relative mb-0.5 mt-auto md:mt-11 sm:mt-[38px]">
-            {items.map(({ text, icon }, index) => {
+            {items.map(({ text, icon: Icon }, index) => {
               return (
                 <li
                   className={clsx(
@@ -45,8 +45,11 @@ function Farm() {
                   )}
                   key={index}
                 >
-                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-[5px] bg-[#323232] md:h-12 md:w-12 sm:h-11 sm:w-11">
-                    <img className="w-[42px] md:w-9" src={icon} alt="" loading="lazy" />
+                  <div className="w-[56px] shrink-0 md:w-9">
+                    <Icon />
+                    {/* <LeafsIcon />
+                    <CerealsIcon />
+                    <SlotIcon /> */}
                   </div>
                   <p className="fs-20 pr-[74px] tracking-tight lg:pr-1 md:max-w-[368px] sm:text-16">
                     {text}
