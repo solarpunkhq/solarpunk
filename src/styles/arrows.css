@@ -10,24 +10,35 @@
 @keyframes glow {
   0% {
     fill: #5e616e;
+    transform: scale(1);
   }
-  17% {
+  14% {
     fill: #9194a1;
+    transform: scale(1.05);
   }
-  34% {
+  28% {
     fill: #c7c9d1;
+    transform: scale(1.1);
   }
-  50% {
+  42% {
     fill: #ffffff;
+    transform: scale(1.15);
   }
-  67% {
+  56% {
     fill: #c7c9d1;
+    transform: scale(1.1);
+  }
+  70% {
+    fill: #9194a1;
+    transform: scale(1.05);
   }
   84% {
-    fill: #9194a1;
+    fill: #777a88;
+    transform: scale(1);
   }
   100% {
     fill: #5e616e;
+    transform: scale(0.95);
   }
 }
 

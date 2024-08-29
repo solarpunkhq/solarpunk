@@ -90,7 +90,8 @@ module.exports = {
           'conic-gradient( from 0deg, rgba(255, 255, 255, 0.47) 15%, rgba(255, 255, 255, 0.10) 24%, rgba(255, 255, 255, 1.00) 47%, rgba(255, 255, 255, 0.30) 71%, rgba(255, 255, 255, 0.10) 81%, rgba(255, 255, 255, 0.60) 100%)',
       }),
       boxShadow: {
-        'sources-card': '0px 4px 20px 0px rgba(0, 0, 0, 0.08);',
+        'sources-card': '0px 4px 20px 0px rgba(0, 0, 0, 0.08)',
+        'mission-sticker': '0px 2px 4px 0px rgba(0, 0, 0, 0.20)',
       },
     },
   },

@@ -44,11 +44,17 @@ function Sources() {
   return (
     <section className="sources relative px-safe">
       <ul className="container grid max-w-[1376px] grid-cols-3 gap-[30px] py-60 text-white lg:gap-6 lg:pb-[176px] lg:pt-[168px] md:max-w-[706px] md:py-[88px] sm:gap-5 sm:py-16">
-        {cards.map((item, i) => {
-          return <Card {...item} key={i} />;
+        {cards.map((item, index) => {
+          return <Card {...item} key={index} />;
         })}
       </ul>
-      <Image className="-z-10" src={bg} alt="solarpunk" fill />
+      <Image
+        className="absolute inset-0 -z-10 h-full w-full object-cover object-center"
+        src={bg}
+        width={1920}
+        height={1104}
+        alt=""
+      />
     </section>
   );
 }
