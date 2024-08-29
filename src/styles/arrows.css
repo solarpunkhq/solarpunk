@@ -1,0 +1,66 @@
+.arrow {
+  fill: #5e616e;
+  animation: glow 3s infinite ease-in-out;
+}
+
+.single-arrow {
+  animation: blink 2s infinite;
+}
+
+@keyframes glow {
+  0% {
+    fill: #5e616e;
+    transform: scale(1);
+  }
+  14% {
+    fill: #9194a1;
+    transform: scale(1.05);
+  }
+  28% {
+    fill: #c7c9d1;
+    transform: scale(1.1);
+  }
+  42% {
+    fill: #ffffff;
+    transform: scale(1.15);
+  }
+  56% {
+    fill: #c7c9d1;
+    transform: scale(1.1);
+  }
+  70% {
+    fill: #9194a1;
+    transform: scale(1.05);
+  }
+  84% {
+    fill: #777a88;
+    transform: scale(1);
+  }
+  100% {
+    fill: #5e616e;
+    transform: scale(0.95);
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.arrow:nth-child(1) {
+  animation-delay: 0s;
+}
+.arrow:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.arrow:nth-child(3) {
+  animation-delay: 0.8s;
+}
+.arrow:nth-child(4) {
+  animation-delay: 1.2s;
+}
