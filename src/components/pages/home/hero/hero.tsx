@@ -27,7 +27,24 @@ function Hero() {
           quality={90}
           priority
         />
-        <div className="absolute bottom-0 left-0 right-0 top-14 -z-10 bg-[#228B22] sm:top-[42px]" />
+        {/*       
+          // Video optimization parameters:
+          //   mp4: -pix_fmt yuv420p -vf "scale=3840:-2" -movflags faststart -vcodec libx264 -crf 20
+          //   webm: -c:v libvpx-vp9 -crf 20 -vf scale=3840:-2 -deadline best -an 
+        */}
+        <video
+          className="absolute inset-0 -z-10 h-full w-full object-cover object-center"
+          controls={false}
+          width={1920}
+          height={920}
+          loop
+          playsInline
+          muted
+          autoPlay
+        >
+          <source src="/videos/pages/home/hero/hero.webm" type="video/webm" />
+          <source src="/videos/pages/home/hero/hero.mp4" type="video/mp4" />
+        </video>
       </div>
     </section>
   );

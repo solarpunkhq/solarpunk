@@ -19,7 +19,7 @@ function Header() {
 
   return (
     <>
-      <header className="absolute left-0 right-0 top-0 z-50 h-14 px-safe pt-safe sm:h-[42px]">
+      <header className="absolute left-0 right-0 top-0 z-50 h-14 bg-white px-safe pt-safe sm:h-[42px]">
         <nav className="container flex h-full items-center justify-between" aria-label="Global">
           <Link href={ROUTE.index}>
             <Image src={logo} width={115} height={26} alt="" priority />
