@@ -56,10 +56,10 @@ module.exports = {
       black: '#040406',
       white: '#FFFFFF',
       primary: {
-        green: '#D5FF00',
+        green: '#E0FF20',
       },
       secondary: {
-        1: '',
+        green: '#D5FF00',
       },
       gray: {
         5: '#0B0C0E',
@@ -95,7 +95,7 @@ module.exports = {
       }),
       boxShadow: {
         'sources-card': '0px 4px 20px 0px rgba(0, 0, 0, 0.08)',
-        'sun-icon': '0px 0px 1.982px rgba(216, 143, 0, 0.48)',
+        'sun-icon': '0px 0px 2px rgba(216, 143, 0, 0.48)',
         'mission-sticker': '0px 2px 4px 0px rgba(0, 0, 0, 0.20)',
       },
     },

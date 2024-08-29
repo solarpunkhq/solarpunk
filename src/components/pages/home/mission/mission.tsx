@@ -4,7 +4,7 @@ import solarPunk from '@/images/mission/solarpunk.png';
 
 function Mission() {
   return (
-    <section className="mission relative bg-primary-green pb-[21px] pt-[31px] px-safe lg:py-[25px] sm:py-5">
+    <section className="mission relative bg-secondary-green pb-[21px] pt-[31px] px-safe lg:py-[25px] sm:py-5">
       <div className="container">
         <span className="inline-block align-middle text-20 font-semibold uppercase tracking-wider lg:max-w-[685px] lg:text-18 lg:leading-[1.8] md:max-w-[597px] sm:text-16 sm:leading-[1.5]">
           Our mission is to 100x the deployment of solar panels by&nbsp;2033 and create a

@@ -9,15 +9,15 @@ import Card from './card';
 
 function CTA() {
   return (
-    <section className="cta mt-[240px] px-safe lg:mt-[168px] md:mt-[135px] sm:mt-[104px]">
-      <div className="container">
+    <section className="cta mt-[240px] px-safe xl:mt-[168px] md:mt-[135px] sm:mt-[104px]">
+      <div className="container xl:max-w-[1024px]">
         <div className="flex items-center justify-between gap-8 md:flex-col md:gap-6 sm:gap-6">
           <Card>
-            <h2 className="fs-48 font-title font-normal leading-[1.1] tracking-[-0.025em] text-white lg:text-40 md:max-w-[500px] md:text-32 sm:text-28">
+            <h2 className="fs-48 font-title font-normal leading-[1.1] tracking-[-0.025em] text-white xl:text-40 md:max-w-[500px] md:text-32 sm:text-28">
               Deploy solar installations with Solarpunk in weeks, not&nbsp;years
             </h2>
-            <div className=" flex items-end justify-between gap-3.5 lg:flex-col lg:items-start md:flex-row md:items-end sm:flex-col sm:items-start sm:gap-y-5">
-              <p className="fs-20 max-w-[480px] font-medium leading-snug tracking-tighter text-white lg:max-w-[404px] md:max-w-[452px] sm:text-16">
+            <div className=" flex items-end justify-between gap-3.5 xl:flex-col xl:items-start md:flex-row md:items-end sm:flex-col sm:items-start sm:gap-y-5">
+              <p className="fs-20 max-w-[480px] font-medium leading-snug tracking-tighter text-white xl:max-w-[404px] md:max-w-[452px] sm:text-16">
                 We will help you understand what type of Agrivoltaic project is right for you and
                 what type of regulatory hurdles you will face.
               </p>
@@ -29,16 +29,16 @@ function CTA() {
                 src={fieldImage}
                 width={752}
                 height={630}
-                alt="field with panel"
+                alt=""
               />
             </div>
           </Card>
           <Card className="sm:min-h-[383px] sm:justify-start sm:gap-y-2">
-            <h2 className="fs-64 max-w-[416px] font-title leading-[1.1] tracking-tight lg:max-w-[392px] lg:text-56 md:max-w-[352px] md:text-48 sm:text-32">
+            <h2 className="fs-64 max-w-[416px] font-title leading-[1.1] tracking-tight xl:max-w-[392px] xl:text-56 md:max-w-[352px] md:text-48 sm:text-32">
               Not interested in agrivoltaics?
             </h2>
-            <div className=" flex items-end justify-between gap-3.5 lg:flex-col lg:items-start md:flex-row md:items-end sm:flex-col sm:items-start sm:gap-y-5">
-              <p className="fs-20 max-w-[327px] font-medium leading-snug tracking-tighter text-gray-50 lg:max-w-[299px] md:max-w-[372px] md:text-20 sm:max-w-[245px] sm:text-16">
+            <div className=" flex items-end justify-between gap-3.5 xl:flex-col xl:items-start md:flex-row md:items-end sm:flex-col sm:items-start sm:gap-y-5">
+              <p className="fs-20 max-w-[327px] font-medium leading-snug tracking-tighter text-gray-50 xl:max-w-[299px] md:max-w-[372px] md:text-20 sm:max-w-[245px] sm:text-16">
                 We also help with open space solar deployment without agriculture.
               </p>
               <Button className="group shrink-0" size="md" theme="white" href="/" withArrow>
@@ -50,7 +50,7 @@ function CTA() {
               src={greyBgImage}
               width={752}
               height={630}
-              alt="gray bg"
+              alt=""
             />
           </Card>
         </div>

@@ -12,7 +12,7 @@ function Card({
   return (
     <div
       className={clsx(
-        'relative flex aspect-[752/631] w-full max-w-[752px] flex-col justify-between overflow-hidden rounded-2xl p-8 lg:aspect-[0.784] lg:p-7 md:aspect-[1.436] sm:aspect-auto  sm:p-6',
+        'relative flex aspect-[1.192] w-full max-w-[752px] flex-col justify-between overflow-hidden rounded-2xl p-8 xl:aspect-[0.784] lg:p-7 md:aspect-[1.436] sm:aspect-auto  sm:p-6',
         className,
       )}
     >

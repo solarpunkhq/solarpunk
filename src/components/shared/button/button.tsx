@@ -54,10 +54,10 @@ function Button({
     additionalClassName,
   );
 
-  const arrowClassName = clsx('w-5 ml-1.5 transition-all duration-200 group-hover:rotate-90', {
-    'fill-white group-hover:fill-gray-8': theme === 'black', // Белая стрелка для темы black
-    'fill-current': theme !== 'black', // Иначе текущий цвет текста
-  });
+  const arrowClassName = clsx(
+    'w-5 ml-1.5 transition-all duration-200 group-hover:rotate-90',
+    theme === 'black' ? 'fill-white group-hover:fill-gray-8' : 'fill-current',
+  );
 
   const content = (
     <>
