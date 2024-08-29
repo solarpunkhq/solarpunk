@@ -26,7 +26,7 @@ function Card({
   return (
     <li className="relative flex flex-col overflow-hidden rounded-xl bg-[url('/images/sources/noise.png')] bg-center bg-repeat p-8 shadow-sources-card backdrop-blur-3xl lg:p-6 md:col-span-full md:min-h-[300px] md:flex-row sm:flex-col">
       <div className="absolute inset-0 rounded-xl bg-sources-card-bg" />
-      <div className="md:basis-1/2 md:pr-6 md:text-center sm:pr-0 sm:text-start">
+      <div className="z-10 md:basis-1/2 md:pr-6 md:text-center sm:pr-0 sm:text-start">
         <p className="text-14 leading-snug tracking-tighter">
           <span className="mr-2">{type}</span>|<span className="ml-2">{year}</span>
         </p>
@@ -37,7 +37,7 @@ function Card({
           {subtitle}
         </h3>
       </div>
-      <div className="mt-[70px] flex flex-col border-t border-white/30 lg:mt-[60px] md:mt-0 md:basis-1/2 md:border-l md:border-t-0 md:pl-7 sm:mt-9 sm:border-l-0 sm:border-t sm:pl-0 sm:pt-5">
+      <div className="z-10 mt-[70px] flex flex-col border-t border-white/30 lg:mt-[60px] md:mt-0 md:basis-1/2 md:border-l md:border-t-0 md:pl-7 sm:mt-9 sm:border-l-0 sm:border-t sm:pl-0 sm:pt-5">
         <p className="fs-20 mt-8 font-medium lg:mt-[29px] md:mt-0">{description}</p>
         <p className="fs-16 mt-2.5 leading-snug tracking-tight text-white/85">{text}</p>
         <Button

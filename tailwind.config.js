@@ -94,8 +94,9 @@ module.exports = {
         'sun-icon-bg': 'linear-gradient(180deg, #FFDE6B 0%, #FF7511 117.52%)',
       }),
       boxShadow: {
-        'sources-card': '0px 4px 20px 0px rgba(0, 0, 0, 0.08);',
+        'sources-card': '0px 4px 20px 0px rgba(0, 0, 0, 0.08)',
         'sun-icon': '0px 0px 1.982px rgba(216, 143, 0, 0.48)',
+        'mission-sticker': '0px 2px 4px 0px rgba(0, 0, 0, 0.20)',
       },
     },
   },

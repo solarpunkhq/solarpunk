@@ -21,7 +21,7 @@ const links = [
 
 function Paperwork() {
   return (
-    <section className="paperwork mt-36 px-safe lg:mt-[204px] md:mt-[88px] sm:mt-20">
+    <section className="paperwork mt-36 px-safe lg:mt-[121px] md:mt-[88px] sm:mt-20">
       <div className="container">
         <p className="fs-64 max-w-[1120px] font-title font-normal leading-[1.05] tracking-[-0.045em] text-gray-20 md:inline sm:block">
           We&apos;re here to support your solar ambitions.
@@ -30,13 +30,17 @@ function Paperwork() {
           From initial sketches to the growing pains of success, we&apos;ve got you covered.
         </p>
 
-        <div className="mt-12 flex items-center justify-between gap-8 lg:mt-11 md:mt-10 md:flex-col md:gap-6 sm:mt-[38px] sm:gap-5">
+        <div className="mt-12 flex items-center justify-between gap-8 lg:mt-11 md:mt-[38px] md:flex-col md:gap-6 sm:gap-5">
           <Card>
             <div className="fs-20 flex gap-x-8 gap-y-1 font-semibold lg:flex-col md:flex-row sm:flex-col">
-              {links.map(({ text, to }, i) => {
+              {links.map(({ text, to }, index) => {
                 return (
-                  <Link className="group flex items-center gap-2 leading-snug" href={to} key={i}>
-                    <ArrowIcon className="w-4 rotate-90 transition-all duration-100 group-hover:rotate-[90]" />
+                  <Link
+                    className="group flex items-center gap-1.5 leading-snug"
+                    href={to}
+                    key={index}
+                  >
+                    <ArrowIcon className="w-5 rotate-90 transition-all duration-100 group-hover:rotate-[90]" />
                     <span>{text}</span>
                   </Link>
                 );
@@ -51,12 +55,13 @@ function Paperwork() {
             </p>
           </Card>
           <Card>
-            <div className="flex flex-col gap-1 lg:gap-1 sm:gap-0.5">
-              <p className="fs-20 font-semibold text-gray-50">Up to</p>
-              <p className="fs-40 font-medium leading-dense">160% Crop + Solar</p>
-              <p className="fs-20 font-semibold text-gray-50">comparing to 100% Crop yields</p>
-            </div>
-
+            <p className="flex flex-col gap-1.5 lg:gap-1 sm:gap-0.5">
+              <span className="fs-20 font-semibold text-gray-50">Up to</span>
+              <span className="fs-40 font-medium leading-dense">160% Crop + Solar</span>
+              <span className="fs-20 font-semibold text-gray-50">
+                comparing to 100% Crop yields
+              </span>
+            </p>
             <p className="fs-24 leading-normal tracking-tight text-gray-50 sm:text-18">
               <span className="font-medium text-gray-20">Dual Use.</span>{' '}
               <span>
@@ -72,8 +77,8 @@ function Paperwork() {
               Less paperwork
             </p>
             <div className="flex gap-[18px] sm:hidden">
-              {arrowsQty.map((_, i) => {
-                return <PixelArrowIcon className="arrow w-4" key={i} />;
+              {arrowsQty.map((_, index) => {
+                return <PixelArrowIcon className="arrow w-4" key={index} />;
               })}
             </div>
             <PixelArrowIcon className="single-arrow hidden w-3 rotate-90 fill-white sm:block" />
