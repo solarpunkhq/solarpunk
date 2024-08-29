@@ -5,7 +5,6 @@ import ArrowIcon from '@/svgs/icons/button-arrow.inline.svg';
 import PixelArrowIcon from '@/svgs/icons/pixel-arrow.inline.svg';
 
 import Card from './card';
-import CardContent from './card-content';
 
 const arrowsQty = new Array(4).fill(1);
 
@@ -47,11 +46,13 @@ function Paperwork() {
                 );
               })}
             </div>
-            <CardContent
-              title="Microclimate Creation."
-              subtitle="Solar panels provide partial shade to the crops below, creating a microclimate
-                  that potentially extends growing seasons."
-            />
+            <p className="fs-24 leading-normal tracking-tight text-gray-50 sm:text-18">
+              <span className="font-medium text-gray-20">Microclimate Creation.</span>{' '}
+              <span>
+                Solar panels provide partial shade to the crops below, creating a microclimate that
+                potentially extends growing seasons.
+              </span>
+            </p>
           </Card>
           <Card>
             <p className="flex flex-col gap-1.5 lg:gap-1 sm:gap-0.5">
@@ -61,11 +62,13 @@ function Paperwork() {
                 comparing to 100% Crop yields
               </span>
             </p>
-            <CardContent
-              title="Dual Use."
-              subtitle="By installing solar panels above the crops, the same land can produce both food
-                  and energy, utilizing resourcecs to their fullest potential."
-            />
+            <p className="fs-24 leading-normal tracking-tight text-gray-50 sm:text-18">
+              <span className="font-medium text-gray-20">Dual Use.</span>{' '}
+              <span>
+                By installing solar panels above the crops, the same land can produce both food and
+                energy, utilizing resourcecs to their fullest potential.
+              </span>
+            </p>
           </Card>
         </div>
         <div className="mt-8 rounded-xl bg-gray-20 py-[38px] lg:py-[35px] md:mt-6 md:py-[34px] sm:mt-5 sm:py-[18px]">
