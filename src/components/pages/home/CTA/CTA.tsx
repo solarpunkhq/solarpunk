@@ -27,6 +27,8 @@ function CTA() {
               <Image
                 className="absolute inset-0 -z-10 h-full w-full object-cover object-center"
                 src={fieldImage}
+                width={752}
+                height={630}
                 alt="field with panel"
               />
             </div>
@@ -35,7 +37,6 @@ function CTA() {
             <h2 className="fs-64 max-w-[416px] font-title leading-[1.1] tracking-tight lg:max-w-[392px] lg:text-56 md:max-w-[352px] md:text-48 sm:text-32">
               Not interested in agrivoltaics?
             </h2>
-
             <div className=" flex items-end justify-between gap-3.5 lg:flex-col lg:items-start md:flex-row md:items-end sm:flex-col sm:items-start sm:gap-y-5">
               <p className="fs-20 max-w-[327px] font-medium leading-snug tracking-tighter text-gray-50 lg:max-w-[299px] md:max-w-[372px] md:text-20 sm:max-w-[245px] sm:text-16">
                 We also help with open space solar deployment without agriculture.
@@ -47,6 +48,8 @@ function CTA() {
             <Image
               className="absolute inset-0 -z-10 h-full w-full object-cover object-center"
               src={greyBgImage}
+              width={752}
+              height={630}
               alt="gray bg"
             />
           </Card>
