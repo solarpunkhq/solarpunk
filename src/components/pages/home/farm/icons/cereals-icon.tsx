@@ -6,16 +6,7 @@ import { motion } from 'framer-motion';
 
 function CerealsIcon() {
   return (
-    <motion.svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="56"
-      height="56"
-      viewBox="0 0 56 56"
-      fill="none"
-      initial={{ scale: 0.8 }}
-      animate={{ scale: 1 }}
-      transition={{ duration: 1.5, ease: [0.45, 0.45, 0, 1] }}
-    >
+    <>
       <path
         d="M0 5.00006C0 2.23864 2.23858 6.10352e-05 5 6.10352e-05H51C53.7614 6.10352e-05 56 2.23864 56 5.00006V51.0001C56 53.7615 53.7614 56.0001 51 56.0001H5C2.23858 56.0001 0 53.7615 0 51.0001V5.00006Z"
         fill="#323232"
@@ -54,7 +45,7 @@ function CerealsIcon() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}
       />
-    </motion.svg>
+    </>
   );
 }
 

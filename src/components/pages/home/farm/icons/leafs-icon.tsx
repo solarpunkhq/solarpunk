@@ -6,16 +6,7 @@ import { motion } from 'framer-motion';
 
 function LeafsIcon() {
   return (
-    <motion.svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="56"
-      height="56"
-      viewBox="0 0 56 56"
-      fill="none"
-      initial={{ scale: 0.8 }}
-      animate={{ scale: 1 }}
-      transition={{ duration: 1.5, ease: [0.45, 0.45, 0, 1] }}
-    >
+    <>
       <rect y="0" width="56" height="56" rx="5" fill="#323232" />
       <motion.rect
         x="11"
@@ -57,7 +48,7 @@ function LeafsIcon() {
         animate={{ scale: 1, x: 0, y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.1 }}
       />
-    </motion.svg>
+    </>
   );
 }
 

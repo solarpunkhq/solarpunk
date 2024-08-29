@@ -4,6 +4,7 @@ import clsx from 'clsx';
 
 import panelImage from '@/images/farm/panel.jpg';
 
+import { IconWrapper } from './icon-wrapper';
 import CerealsIcon from './icons/cereals-icon';
 import LeafsIcon from './icons/leafs-icon';
 import SlotIcon from './icons/slot-icon';
@@ -46,10 +47,9 @@ function Farm() {
                   key={index}
                 >
                   <div className="w-[56px] shrink-0 md:w-9">
-                    <Icon />
-                    {/* <LeafsIcon />
-                    <CerealsIcon />
-                    <SlotIcon /> */}
+                    <IconWrapper>
+                      <Icon />
+                    </IconWrapper>
                   </div>
                   <p className="fs-20 pr-[74px] tracking-tight lg:pr-1 md:max-w-[368px] sm:text-16">
                     {text}
