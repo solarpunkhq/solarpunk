@@ -1,9 +1,15 @@
+'use client';
+
 import { Route } from 'next';
 import Image from 'next/image';
 
+import { useRef } from 'react';
+
+import { LazyMotion, domAnimation, m, useInView } from 'framer-motion';
+
 import bg from '@/images/sources/sources.jpg';
 
-import Card from './card';
+import CardContent from './card-content';
 
 const cards = [
   {
@@ -40,22 +46,57 @@ const cards = [
   },
 ];
 
+const variants = {
+  hidden: {
+    opacity: 0,
+    y: 20,
+    backdropFilter: 'blur(0px)',
+    '-webkit-backdrop-filter': 'blur(0px)',
+  },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    backdropFilter: 'blur(64px)',
+    '-webkit-backdrop-filter': 'blur(64px)',
+    transition: {
+      delay: i * 0.2,
+      duration: 0.6,
+    },
+  }),
+};
+
 function Sources() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-200px 0px' });
+
   return (
-    <section className="sources relative px-safe">
-      <ul className="container grid max-w-[1376px] grid-cols-3 gap-[30px] py-60 text-white lg:gap-6 lg:pb-[176px] lg:pt-[168px] md:max-w-[706px] md:py-[88px] sm:gap-5 sm:py-16">
-        {cards.map((item, index) => {
-          return <Card {...item} key={index} />;
-        })}
-      </ul>
-      <Image
-        className="absolute inset-0 -z-10 h-full w-full object-cover object-center"
-        src={bg}
-        width={1920}
-        height={1104}
-        alt=""
-      />
-    </section>
+    <LazyMotion features={domAnimation}>
+      <section className="sources relative px-safe" ref={ref}>
+        <ul className="container grid max-w-[1376px] grid-cols-3 gap-[30px] py-60 text-white lg:gap-6 lg:pb-[176px] lg:pt-[168px] md:max-w-[706px] md:py-[88px] sm:gap-5 sm:py-16">
+          {cards.map((item, index) => {
+            return (
+              <m.li
+                key={index}
+                custom={index}
+                initial="hidden"
+                animate={isInView ? 'visible' : 'hidden'}
+                variants={variants}
+                className="relative flex flex-col overflow-hidden rounded-xl bg-[url('/images/sources/noise.png')] bg-center bg-repeat p-8 shadow-sources-card lg:p-6 md:col-span-full md:min-h-[300px] md:flex-row sm:flex-col"
+              >
+                <CardContent {...item} />
+              </m.li>
+            );
+          })}
+        </ul>
+        <Image
+          className="absolute inset-0 -z-10 h-full w-full object-cover object-center"
+          src={bg}
+          width={1920}
+          height={1104}
+          alt=""
+        />
+      </section>
+    </LazyMotion>
   );
 }
 
