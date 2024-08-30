@@ -2,6 +2,7 @@
 @import './scrollbar-hidden';
 @import './icons';
 @import './arrows';
+@import './text-highight.css';
 
 @tailwind base;
 @tailwind components;

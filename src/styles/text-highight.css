@@ -1,0 +1,17 @@
+.quote mark {
+  @apply bg-transparent;
+}
+
+.highlight {
+  @apply relative z-0 inline-block;
+}
+
+.highlight::after {
+  @apply absolute left-0 top-0 -z-10 h-full w-0 bg-primary-green;
+  content: '';
+  transition: width 1s cubic-bezier(0.5, 0.5, 0, 1);
+}
+
+.highlight.active::after {
+  @apply w-full;
+}
