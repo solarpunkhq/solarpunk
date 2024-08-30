@@ -12,8 +12,8 @@ const styles = {
   //       Check out an example by a link above for better understanding
   withIcon: 'group inline-flex items-center gap-1',
   size: {
-    xs: 'text-16',
-    sm: 'text-20',
+    xs: 'text-12',
+    sm: 'text-16',
   },
   // FIXME: Add themes. Better to name the theme using this pattern: "${color-name}-${theme-type}", e.g. "black-underline"
   //       If there is no dividing between theme types, then feel free to use just color names, e.g. "black"

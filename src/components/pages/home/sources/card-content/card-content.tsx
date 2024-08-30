@@ -2,8 +2,6 @@ import { Route } from 'next';
 
 import Button from '@/components/shared/button';
 
-import Arrow from '@/svgs/icons/button-arrow.inline.svg';
-
 interface CardProps {
   title: string;
   subtitle: string;
@@ -28,7 +26,7 @@ function CardContent({
   return (
     <>
       <div className="z-10 md:basis-1/2 md:pr-6 md:text-center sm:pr-0 sm:text-start">
-        <p className="text-14 leading-snug tracking-tighter">
+        <p className="text-14 leading-snug tracking-tight">
           <span className="mr-2">{type}</span>|<span className="ml-2">{year}</span>
         </p>
         <h2 className="relative mt-[62px] pt-[34px] text-center font-title text-42 font-semibold uppercase leading-tight before:absolute before:left-1/2 before:top-0 before:h-1.5 before:w-[152px] before:-translate-x-1/2 before:bg-white lg:mt-[53px] lg:pt-8 lg:text-36 md:mt-[42px] md:text-32 sm:mt-7 sm:pt-7">
@@ -42,13 +40,13 @@ function CardContent({
         <p className="fs-20 mt-8 font-medium lg:mt-[29px] md:mt-0">{description}</p>
         <p className="fs-16 mt-2.5 leading-snug tracking-tight text-white/85">{text}</p>
         <Button
-          className="group mt-6 gap-1.5 self-start lg:mt-[19px] md:mt-auto sm:mt-[18px]"
+          className="group mt-6 self-start lg:mt-[19px] md:mt-auto sm:mt-[18px]"
           size="sm"
           theme="green"
           href={buttonUrl}
+          withArrow
         >
           {buttonText}
-          <Arrow className="w-5 transition-all duration-200 group-hover:rotate-90" />
         </Button>
       </div>
       <span className="border-linear pointer-events-none absolute inset-0 rounded-[inherit] bg-sources-card-border" />

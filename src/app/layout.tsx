@@ -1,6 +1,6 @@
-// import Footer from '@/components/shared/footer';
 import { esbuild, inter } from '@/fonts';
 
+import Footer from '@/components/shared/footer';
 import Header from '@/components/shared/header';
 
 import '@/styles/globals.css';
@@ -11,7 +11,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="flex min-h-full flex-col">
         <Header />
         <main className="grow">{children}</main>
-        {/* <Footer /> */}
+        <Footer />
       </body>
     </html>
   );
