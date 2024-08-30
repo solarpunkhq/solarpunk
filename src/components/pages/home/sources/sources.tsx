@@ -49,7 +49,7 @@ const cards = [
 const variants = {
   hidden: {
     opacity: 0,
-    y: 20,
+    y: -20,
     backdropFilter: 'blur(0px)',
     '-webkit-backdrop-filter': 'blur(0px)',
   },
@@ -59,8 +59,8 @@ const variants = {
     backdropFilter: 'blur(64px)',
     '-webkit-backdrop-filter': 'blur(64px)',
     transition: {
-      delay: i * 0.2,
-      duration: 0.6,
+      delay: i * 0.1,
+      duration: 0.8,
     },
   }),
 };
