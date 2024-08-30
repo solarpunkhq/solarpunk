@@ -12,7 +12,7 @@ function Hero() {
     <section className="hero relative pb-14 pt-[200px] px-safe lg:pb-[47px] md:pb-[39px] sm:pb-8">
       <div className="container">
         <div className="flex max-w-[726px] flex-col text-white">
-          <h1 className="font-title text-[104px] font-medium leading-[0.9] tracking-snug lg:text-[88px] md:text-[64px] sm:text-[44px]">
+          <h1 className="font-title text-[104px] font-medium leading-[0.9] tracking-snug lg:text-[88px] md:text-64 sm:text-44">
             Covering farms <br />
             with solar panels
           </h1>
@@ -22,7 +22,7 @@ function Hero() {
           <SubscribeForm className="mt-16 md:mt-[50px]" />
         </div>
         <Image
-          className="z-10 ml-auto mr-[128px] mt-[267px] rounded-lg shadow-mission-sticker lg:mr-0 lg:mt-[120px] md:mt-[280px] sm:mt-[169px] sm:h-[60px] sm:w-[78px]"
+          className="z-10 ml-auto mr-32 mt-[267px] rounded-lg shadow-mission-sticker lg:mr-0 lg:mt-[120px] md:mt-[280px] sm:mt-[169px] sm:h-[60px] sm:w-[78px]"
           src={stickerImage}
           width={104}
           height={80}

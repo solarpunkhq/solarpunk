@@ -1,6 +1,6 @@
 function Quote() {
   return (
-    <section className="quote relative my-[241px] px-safe lg:my-[168px] md:my-[138px] sm:mb-[96px] sm:mt-[104px]">
+    <section className="quote relative my-[241px] px-safe lg:my-[168px] md:my-[138px] sm:mb-24 sm:mt-[104px]">
       <div className="container">
         <figure className="relative flex max-w-[1344px] justify-between gap-2 sm:flex-col sm:gap-5">
           <figcaption className="fs-24 mt-2 leading-none tracking-tighter text-gray-40 lg:mt-3 md:mt-0">

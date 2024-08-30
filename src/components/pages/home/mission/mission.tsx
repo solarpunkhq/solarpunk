@@ -6,7 +6,7 @@ function Mission() {
   return (
     <section className="mission relative bg-secondary-green pb-[21px] pt-[31px] px-safe lg:py-[25px] sm:py-5">
       <div className="container">
-        <p className="inline-block align-middle text-20 font-semibold uppercase tracking-wider lg:max-w-[685px] lg:text-18 lg:leading-[1.8] md:max-w-[597px] sm:text-16 sm:leading-[1.5]">
+        <p className="inline-block align-middle text-20 font-semibold uppercase tracking-wider lg:max-w-[685px] lg:text-18 lg:leading-[1.8] md:max-w-[597px] sm:text-16 sm:leading-normal">
           Our mission is to 100x the deployment of solar panels by&nbsp;2033 and create a
           <Image
             className="relative bottom-1 mx-4 inline-block w-[170px] lg:bottom-0.5 lg:mx-2 lg:w-[151px] md:mr-[11px] sm:bottom-px sm:mx-1 sm:w-[104px]"

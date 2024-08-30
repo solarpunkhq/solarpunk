@@ -3,7 +3,7 @@ import Button from '@/components/shared/button';
 function Potential() {
   return (
     <section className="potential mt-[200px] px-safe xl:mt-[135px] md:mt-[125px] sm:mt-[116px]">
-      <div className="container flex justify-between gap-x-8 xl:max-w-[1024px] md:max-w-lg md:flex-col md:items-center md:gap-y-11 sm:gap-y-10">
+      <div className="container flex justify-between gap-x-8 xl:max-w-5xl md:max-w-lg md:flex-col md:items-center md:gap-y-11 sm:gap-y-10">
         <div className="flex max-w-[640px] flex-col pb-12 pt-6 xl:pb-5 xl:pt-0 md:pb-0">
           <h2 className="max-w-[540px] font-title text-56 leading-[1.1] tracking-tight text-gray-20 xl:max-w-[420px] xl:text-48 md:text-40 sm:max-w-[289px] sm:text-32">
             Discover your farm&apos;s full potential

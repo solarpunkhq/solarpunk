@@ -43,7 +43,7 @@ const cards = [
 function Sources() {
   return (
     <section className="sources relative px-safe">
-      <ul className="container grid max-w-[1376px] grid-cols-3 gap-[30px] py-60 text-white lg:gap-6 lg:pb-[176px] lg:pt-[168px] md:max-w-[706px] md:py-[88px] sm:gap-5 sm:py-16">
+      <ul className="container grid max-w-[1376px] grid-cols-3 gap-[30px] py-60 text-white lg:gap-6 lg:pb-44 lg:pt-[168px] md:max-w-[706px] md:py-[88px] sm:gap-5 sm:py-16">
         {cards.map((item, index) => {
           return <Card {...item} key={index} />;
         })}
