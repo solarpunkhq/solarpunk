@@ -40,7 +40,7 @@ function MobileMenu({ isOpen, onClick }: { isOpen: boolean; onClick: () => void 
             onClick={onClick}
           >
             <div className="relative flex h-full w-full flex-col justify-between pb-10 pt-14 text-left">
-              <ul className="flex w-full flex-col overflow-y-auto px-5 font-semibold uppercase">
+              <ul className="flex w-full flex-col overflow-y-auto px-5 font-semibold uppercase tracking-wide">
                 {MENUS.header.map(({ label, href }, index) => (
                   <li
                     className={clsx(
@@ -50,7 +50,7 @@ function MobileMenu({ isOpen, onClick }: { isOpen: boolean; onClick: () => void 
                     key={index}
                   >
                     <Link
-                      className="block py-[18px] leading-none text-gray-5"
+                      className="block pb-[17px] pt-[18px] leading-none text-gray-5"
                       href={href}
                       size="sm"
                     >
@@ -60,7 +60,7 @@ function MobileMenu({ isOpen, onClick }: { isOpen: boolean; onClick: () => void 
                 ))}
               </ul>
               <Button
-                className="absolute -bottom-5 left-1/2 h-11 w-[calc(100%-2.5rem)] -translate-x-1/2"
+                className="absolute -bottom-5 left-1/2 !h-11 w-[calc(100%-2.5rem)] -translate-x-1/2 py-3.5"
                 theme="black"
                 size="sm"
                 href={ROUTE.index}

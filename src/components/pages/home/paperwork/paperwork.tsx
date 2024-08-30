@@ -23,9 +23,9 @@ function Paperwork() {
   return (
     <section className="paperwork mt-36 px-safe lg:mt-[121px] md:mt-[88px] sm:mt-20">
       <div className="container">
-        <p className="fs-64 max-w-[1120px] font-title font-normal leading-[1.05] tracking-[-0.045em] text-gray-20 md:inline sm:block">
+        <h2 className="fs-64 max-w-[1120px] font-title font-normal leading-[1.05] tracking-[-0.045em] text-gray-20 md:inline sm:block">
           We&apos;re here to support your solar ambitions.
-        </p>
+        </h2>
         <p className="fs-64 max-w-[1120px] font-title font-normal leading-[1.05] tracking-[-0.045em] text-gray-60 md:ml-2 md:inline sm:ml-0 sm:block">
           From initial sketches to the growing pains of success, we&apos;ve got you covered.
         </p>
@@ -40,7 +40,7 @@ function Paperwork() {
                     href={to}
                     key={index}
                   >
-                    <ArrowIcon className="w-5 rotate-90 transition-all duration-100 group-hover:rotate-[90]" />
+                    <ArrowIcon className="w-5 rotate-90 fill-gray-20 transition-all duration-100 group-hover:rotate-[90]" />
                     <span>{text}</span>
                   </Link>
                 );

@@ -1,5 +1,8 @@
 import Image from 'next/image';
 
+import clsx from 'clsx';
+
+import PauseableVideo from '@/components/shared/pauseable-video/pauseable-video';
 import SubscribeForm from '@/components/shared/subscribe-form';
 
 import stickerImage from '@/images/hero/sticker.png';
@@ -32,19 +35,15 @@ function Hero() {
           //   mp4: -pix_fmt yuv420p -vf "scale=3840:-2" -movflags faststart -vcodec libx264 -crf 20
           //   webm: -c:v libvpx-vp9 -crf 20 -vf scale=3840:-2 -deadline best -an 
         */}
-        <video
-          className="absolute inset-0 -z-10 h-full w-full object-cover object-center"
-          controls={false}
+        <PauseableVideo
+          className={clsx('')}
+          videoClassName="-z-10 h-full w-full object-cover object-center"
           width={1920}
-          height={920}
-          loop
-          playsInline
-          muted
-          autoPlay
+          height={1438}
         >
-          <source src="/videos/pages/home/hero/hero.webm" type="video/webm" />
           <source src="/videos/pages/home/hero/hero.mp4" type="video/mp4" />
-        </video>
+          <source src="/videos/pages/home/hero/hero.webm" type="video/webm" />
+        </PauseableVideo>
       </div>
     </section>
   );
