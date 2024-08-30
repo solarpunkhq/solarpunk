@@ -1,24 +1,33 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 function Quote() {
   const firstHighlightRef = useRef<HTMLSpanElement | null>(null);
   const secondHighlightRef = useRef<HTMLSpanElement | null>(null);
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.6,
+  });
 
   useEffect(() => {
-    const refs = [firstHighlightRef, secondHighlightRef];
-    refs.forEach((ref, index) => {
-      if (ref.current) {
+    if (inView) {
+      const elements = [firstHighlightRef, secondHighlightRef];
+
+      elements.forEach((element, index) => {
         setTimeout(() => {
-          ref.current?.classList.add('active');
+          element.current!.classList.add('active');
         }, index * 1000);
-      }
-    });
-  }, []);
+      });
+    }
+  }, [inView]);
 
   return (
-    <section className="quote relative my-[241px] px-safe lg:my-[168px] md:my-[138px] sm:mb-24 sm:mt-[104px]">
+    <section
+      className="quote relative my-[241px] px-safe lg:my-[168px] md:my-[138px] sm:mb-24 sm:mt-[104px]"
+      ref={ref}
+    >
       <div className="container">
         <figure className="relative flex max-w-[1344px] justify-between gap-2 sm:flex-col sm:gap-5">
           <figcaption className="fs-24 mt-2 leading-none tracking-tighter text-gray-40 lg:mt-3 md:mt-0">
