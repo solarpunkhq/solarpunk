@@ -51,13 +51,13 @@ const variants = {
     opacity: 0,
     y: -20,
     backdropFilter: 'blur(0px)',
-    '-webkit-backdrop-filter': 'blur(0px)',
+    WebkitBackdropFilter: 'blur(0px)',
   },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
     backdropFilter: 'blur(64px)',
-    '-webkit-backdrop-filter': 'blur(64px)',
+    WebkitBackdropFilter: 'blur(64px)',
     transition: {
       delay: i * 0.1,
       duration: 0.8,
@@ -81,7 +81,7 @@ function Sources() {
                 initial="hidden"
                 animate={isInView ? 'visible' : 'hidden'}
                 variants={variants}
-                className="relative flex flex-col overflow-hidden rounded-xl bg-[url('/images/sources/noise.png')] bg-center bg-repeat p-8 shadow-sources-card lg:p-6 md:col-span-full md:min-h-[300px] md:flex-row sm:flex-col"
+                className="relative flex flex-col overflow-hidden rounded-xl bg-[url('/images/pages/home/sources/noise.png')] bg-center bg-repeat p-8 shadow-sources-card lg:p-6 md:col-span-full md:min-h-[300px] md:flex-row sm:flex-col"
               >
                 <CardContent {...item} />
               </m.li>

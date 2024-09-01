@@ -4,9 +4,19 @@ import Link from 'next/link';
 import ArrowIcon from '@/svgs/icons/button-arrow.inline.svg';
 import PixelArrowIcon from '@/svgs/icons/pixel-arrow.inline.svg';
 
+import { Animation } from './animation';
 import Card from './card';
 
-const arrowsQty = new Array(4).fill(1);
+const arrowsQty = new Array(4).fill(null);
+
+const animations = {
+  microclimate: {
+    src: '/animations/pages/home/paperwork/microclimate.riv',
+  },
+  sphere: {
+    src: '/animations/pages/home/paperwork/sphere.riv',
+  },
+};
 
 const links = [
   {
@@ -29,7 +39,6 @@ function Paperwork() {
         <p className="fs-64 max-w-[1120px] font-title font-normal leading-[1.05] tracking-[-0.045em] text-gray-60 md:ml-2 md:inline sm:ml-0 sm:block">
           From initial sketches to the growing pains of success, we&apos;ve got you covered.
         </p>
-
         <div className="mt-12 flex items-center justify-between gap-8 lg:mt-11 md:mt-[38px] md:flex-col md:gap-6 sm:gap-5">
           <Card>
             <div className="fs-20 flex gap-x-8 gap-y-1 font-semibold lg:flex-col md:flex-row sm:flex-col">
@@ -53,6 +62,7 @@ function Paperwork() {
                 potentially extends growing seasons.
               </span>
             </p>
+            <Animation {...animations.microclimate} />
           </Card>
           <Card>
             <p className="flex flex-col gap-1.5 lg:gap-1 sm:gap-0.5">
@@ -69,6 +79,8 @@ function Paperwork() {
                 energy, utilizing resourcecs to their fullest potential.
               </span>
             </p>
+
+            <Animation {...animations.sphere} />
           </Card>
         </div>
         <div className="mt-8 rounded-xl bg-gray-20 py-[38px] lg:py-[35px] md:mt-6 md:py-[34px] sm:mt-5 sm:py-[18px]">
