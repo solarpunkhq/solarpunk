@@ -13,8 +13,8 @@ const animations = {
   microclimate: {
     src: '/animations/pages/home/paperwork/microclimate.riv',
   },
-  sphere: {
-    src: '/animations/pages/home/paperwork/sphere.riv',
+  dual: {
+    src: '/animations/pages/home/paperwork/dual.riv',
   },
 };
 
@@ -41,7 +41,7 @@ function Paperwork() {
         </p>
         <div className="mt-12 flex items-center justify-between gap-8 lg:mt-11 md:mt-[38px] md:flex-col md:gap-6 sm:gap-5">
           <Card>
-            <div className="fs-20 flex gap-x-8 gap-y-1 font-semibold lg:flex-col md:flex-row sm:flex-col">
+            <div className="fs-20 z-10 flex gap-x-8 gap-y-1 font-semibold lg:flex-col md:flex-row sm:flex-col">
               {links.map(({ text, to }, index) => {
                 return (
                   <Link
@@ -55,7 +55,7 @@ function Paperwork() {
                 );
               })}
             </div>
-            <p className="fs-24 leading-normal tracking-tight text-gray-50 sm:text-18">
+            <p className="fs-24 z-10 leading-normal tracking-tight text-gray-50 sm:text-18">
               <span className="font-medium text-gray-20">Microclimate Creation.</span>{' '}
               <span>
                 Solar panels provide partial shade to the crops below, creating a microclimate that
@@ -65,14 +65,14 @@ function Paperwork() {
             <Animation {...animations.microclimate} />
           </Card>
           <Card>
-            <p className="flex flex-col gap-1.5 lg:gap-1 sm:gap-0.5">
+            <p className="z-10 flex flex-col gap-1.5 lg:gap-1 sm:gap-0.5">
               <span className="fs-20 font-semibold text-gray-50">Up to</span>
               <span className="fs-40 font-medium leading-dense">160% Crop + Solar</span>
               <span className="fs-20 font-semibold text-gray-50">
                 comparing to 100% Crop yields
               </span>
             </p>
-            <p className="fs-24 leading-normal tracking-tight text-gray-50 sm:text-18">
+            <p className="fs-24 z-10 leading-normal tracking-tight text-gray-50 sm:text-18">
               <span className="font-medium text-gray-20">Dual Use.</span>{' '}
               <span>
                 By installing solar panels above the crops, the same land can produce both food and
@@ -80,7 +80,7 @@ function Paperwork() {
               </span>
             </p>
 
-            <Animation {...animations.sphere} />
+            <Animation {...animations.dual} />
           </Card>
         </div>
         <div className="mt-8 rounded-xl bg-gray-20 py-[38px] lg:py-[35px] md:mt-6 md:py-[34px] sm:mt-5 sm:py-[18px]">
