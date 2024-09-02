@@ -1,7 +1,5 @@
 import Image from 'next/image';
 
-import clsx from 'clsx';
-
 import PauseableVideo from '@/components/shared/pauseable-video/pauseable-video';
 import SubscribeForm from '@/components/shared/subscribe-form';
 
@@ -32,11 +30,10 @@ function Hero() {
         />
         {/*       
           // Video optimization parameters:
-          //   mp4: -pix_fmt yuv420p -vf "scale=3840:-2" -movflags faststart -vcodec libx264 -crf 20
-          //   webm: -c:v libvpx-vp9 -crf 20 -vf scale=3840:-2 -deadline best -an 
+          //   mp4: -pix_fmt yuv420p -vf "scale=1920:-2" -movflags faststart -vcodec libx264 -crf 20
+          //   webm: -c:v libvpx-vp9 -crf 20 -vf scale=1920:-2 -deadline best -an 
         */}
         <PauseableVideo
-          className={clsx('')}
           videoClassName="-z-10 h-full w-full object-cover object-center"
           width={1920}
           height={1438}
