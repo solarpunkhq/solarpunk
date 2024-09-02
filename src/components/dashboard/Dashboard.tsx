@@ -1,12 +1,11 @@
 'use client'
+if (typeof window !== 'undefined') {
+  const L = require('leaflet')
+  require('leaflet.gridlayer.googlemutant/dist/Leaflet.GoogleMutant')
+}
 import { useEffect, useState } from 'react'
-import * as L from 'leaflet'
-console.log(L)
-import 'leaflet.gridlayer.googlemutant/dist/Leaflet.GoogleMutant'
 import Map from '../map/Map'
-import { Acre } from '@/utils/types'
-import { useRouter, useSearchParams } from 'next/navigation'
-import { Loader2, LogOut } from 'lucide-react'
+import { LogOut } from 'lucide-react'
 import { Button } from '../ui/button'
 import { Logo } from '../Logo'
 import DashboardSidebar from './Sidebar'
