@@ -49,18 +49,33 @@ const cards = [
 const variants = {
   hidden: {
     opacity: 0,
-    y: -20,
+    scale: 1.05,
+    y: -60,
     backdropFilter: 'blur(0px)',
     WebkitBackdropFilter: 'blur(0px)',
   },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
+    scale: 1,
     backdropFilter: 'blur(64px)',
     WebkitBackdropFilter: 'blur(64px)',
     transition: {
-      delay: i * 0.1,
-      duration: 0.8,
+      opacity: {
+        duration: 1,
+        ease: 'linear',
+        delay: i * 0.1,
+      },
+      y: {
+        duration: 1,
+        ease: [0.35, 0.01, 0, 1],
+        delay: i * 0.1,
+      },
+      scale: {
+        duration: 1,
+        ease: [0.35, 0.01, 0, 1],
+        delay: i * 0.1,
+      },
     },
   }),
 };
