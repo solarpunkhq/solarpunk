@@ -1,12 +1,13 @@
 'use client';
 
 import { Alignment, Fit, Layout } from '@rive-app/react-canvas';
+import clsx from 'clsx';
 
 import RiveAnimation from '@/components/shared/rive-animation';
 
 import useRiveAnimation from '@/hooks/use-rive-animation';
 
-function Animation({ src }: { src: string }) {
+function Animation({ src, className }: { src: string; className?: string }) {
   const { riveInstance, wrapperRef, animationRef, isIntersecting, setRiveInstance } =
     useRiveAnimation({});
 
@@ -27,7 +28,7 @@ function Animation({ src }: { src: string }) {
     <div className="absolute inset-0 h-full w-full">
       <span className="absolute left-0 top-0 -z-10 h-full w-px" ref={wrapperRef} aria-hidden />
       <div
-        className="relative h-full w-full [&_canvas]:!h-full [&_canvas]:!w-full"
+        className={clsx('relative h-full w-full [&_canvas]:!h-full [&_canvas]:!w-full', className)}
         ref={animationRef}
       >
         {isIntersecting ? (

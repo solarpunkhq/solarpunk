@@ -15,6 +15,8 @@ const animations = {
   },
   dual: {
     src: '/animations/pages/home/paperwork/dual.riv',
+    className:
+      '2xs:[&_canvas]:relative 2xs:[&_canvas]:!w-[80%] 2xs:[&_canvas]:!h-[80%] 2xs:[&_canvas]:!left-1/2 2xs:[&_canvas]:!top-[8%] 2xs:[&_canvas]:!-translate-x-1/2',
   },
 };
 
@@ -64,7 +66,7 @@ function Paperwork() {
             </p>
             <Animation {...animations.microclimate} />
           </Card>
-          <Card>
+          <Card className="bg-[url('/images/pages/home/paperwork/bg-dual.jpg')] bg-cover bg-center bg-repeat">
             <p className="z-10 flex flex-col gap-1.5 lg:gap-1 sm:gap-0.5">
               <span className="fs-20 font-semibold text-gray-50">Up to</span>
               <span className="fs-40 font-medium leading-dense">160% Crop + Solar</span>
@@ -79,7 +81,6 @@ function Paperwork() {
                 energy, utilizing resourcecs to their fullest potential.
               </span>
             </p>
-
             <Animation {...animations.dual} />
           </Card>
         </div>
