@@ -1,5 +1,6 @@
 import { Route } from 'next';
-import Link from 'next/link';
+
+import Link from '@/components/shared/link';
 
 import ArrowIcon from '@/svgs/icons/button-arrow.inline.svg';
 import PixelArrowIcon from '@/svgs/icons/pixel-arrow.inline.svg';
