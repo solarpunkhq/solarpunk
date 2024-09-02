@@ -6,9 +6,10 @@ import { Acre } from '@/utils/types'
 import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
 import { Loader2 } from 'lucide-react'
-import * as L from 'leaflet'
-console.log(L)
-import 'leaflet.gridlayer.googlemutant/dist/Leaflet.GoogleMutant'
+if (typeof window !== 'undefined') {
+  const L = require('leaflet')
+  require('leaflet.gridlayer.googlemutant/dist/Leaflet.GoogleMutant')
+}
 
 const Map = dynamic(() => import('@/components/map/Map'), {
   ssr: false,
