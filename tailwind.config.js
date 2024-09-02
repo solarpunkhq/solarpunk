@@ -22,6 +22,7 @@ module.exports = {
       24: '24px',
       25: '25px',
       28: '28px',
+      30: '30px',
       32: '32px',
       36: '36px',
       40: '40px',
@@ -29,7 +30,9 @@ module.exports = {
       44: '44px',
       46: '46px',
       48: '48px',
+      50: '50px',
       52: '52px',
+      55: '55px',
       56: '56px',
       64: '64px',
       80: '80px',
@@ -53,10 +56,10 @@ module.exports = {
       black: '#040406',
       white: '#FFFFFF',
       primary: {
-        green: '#D5FF00',
+        green: '#E0FF20',
       },
       secondary: {
-        1: '',
+        green: '#D5FF00',
       },
       gray: {
         5: '#0B0C0E',
@@ -88,9 +91,11 @@ module.exports = {
           'linear-gradient(160deg, rgba(153, 153, 153, 0.40) 9.03%, rgba(255, 255, 255, 0.10) 97.76%)',
         'sources-card-border':
           'conic-gradient( from 0deg, rgba(255, 255, 255, 0.47) 15%, rgba(255, 255, 255, 0.10) 24%, rgba(255, 255, 255, 1.00) 47%, rgba(255, 255, 255, 0.30) 71%, rgba(255, 255, 255, 0.10) 81%, rgba(255, 255, 255, 0.60) 100%)',
+        'sun-icon-bg': 'linear-gradient(180deg, #FFDE6B 0%, #FF7511 117.52%)',
       }),
       boxShadow: {
         'sources-card': '0px 4px 20px 0px rgba(0, 0, 0, 0.08)',
+        'sun-icon': '0px 0px 2px rgba(216, 143, 0, 0.48)',
         'mission-sticker': '0px 2px 4px 0px rgba(0, 0, 0, 0.20)',
       },
     },
