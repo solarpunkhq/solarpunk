@@ -56,7 +56,7 @@ export default function Dashboard({
             </div>
           </div>
           <Map
-            zoom={18}
+            zoom={16}
             lat={lat}
             lng={lng}
             acres={acres}
