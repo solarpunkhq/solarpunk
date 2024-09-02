@@ -4,12 +4,13 @@ import { ReactNode, useRef } from 'react';
 
 import { motion, useInView } from 'framer-motion';
 
-function IconWrapper({ children }: { children: ReactNode }) {
+function IconWrapper({ children, className }: { children: ReactNode; className?: string }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-50px 0px' });
 
   return (
     <motion.svg
+      className={className}
       ref={ref}
       xmlns="http://www.w3.org/2000/svg"
       width="56"

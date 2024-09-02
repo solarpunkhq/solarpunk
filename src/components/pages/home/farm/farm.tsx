@@ -46,12 +46,12 @@ function Farm() {
                   )}
                   key={index}
                 >
-                  <div className="w-[56px] shrink-0 md:w-9">
-                    <IconWrapper>
+                  <div className="shrink-0">
+                    <IconWrapper className="w-[56px] lg:h-12 lg:w-12 sm:h-11 sm:w-11">
                       <Icon />
                     </IconWrapper>
                   </div>
-                  <p className="fs-20 pr-[74px] tracking-tight lg:pr-1 md:max-w-[368px] sm:text-16">
+                  <p className="fs-20 pr-[74px] tracking-tight lg:pr-1 md:max-w-[368px] sm:pr-0 sm:text-16">
                     {text}
                   </p>
                 </li>
