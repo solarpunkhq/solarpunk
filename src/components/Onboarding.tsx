@@ -76,8 +76,7 @@ export function OnboardingComponent({ country }: { country: string }) {
       if (response.ok) {
         const data = await response.json()
         console.log('Response data:', data)
-
-        // router.push(data.magic_link)
+        router.push(data.magic_link)
       } else {
         console.error('Error:', response.statusText)
         setError(response.statusText)
