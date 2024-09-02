@@ -26,50 +26,74 @@ const Geoman = L.Control.extend({
       measurements: { measurement: true, displayFormat: 'metric' },
     })
 
-    if (!this.options.country || this.options.country === 'US') {
-      map.on('pm:drawstart', (e) => {
-        map.pm.Draw[e.shape].setOptions({
-          units: {
-            metric: {
-              distance: [
-                {
-                  unit: 'm',
-                  calculation: (value) => Math.round(value * 100) / 100,
-                },
-              ],
-              area: [
-                {
-                  unit: 'acres',
-                  calculation: (value) =>
-                    Math.round((value / 4046.86) * 100) / 100,
-                },
-              ],
-            },
+    let areaUnit = 'acres'
+    let areaCalculation = (value) => Math.round((value / 4046.86) * 100) / 100
+
+    if (this.options.country && this.options.country !== 'US') {
+      areaUnit = 'ha'
+      areaCalculation = (value) => Math.round((value / 10000) * 100) / 100
+    }
+
+    map.on('pm:drawstart', (e) => {
+      map.pm.Draw[e.shape].setOptions({
+        units: {
+          metric: {
+            distance: [
+              {
+                unit: 'm',
+                calculation: (value) => Math.round(value * 100) / 100,
+              },
+            ],
+            area: [
+              {
+                unit: areaUnit,
+                calculation: areaCalculation,
+              },
+            ],
           },
-        })
+        },
       })
-    } else {
-      map.on('pm:drawstart', (e) => {
-        map.pm.Draw[e.shape].setOptions({
-          units: {
-            metric: {
-              distance: [
-                {
-                  unit: 'm',
-                  calculation: (value) => Math.round(value * 100) / 100,
-                },
-              ],
-              area: [
-                {
-                  unit: 'ha',
-                  calculation: (value) =>
-                    Math.round((value / 10000) * 100) / 100,
-                },
-              ],
-            },
+    })
+    map.on('pm:create', (e) => {
+      e.layer.on('pm:enable', (x) => {
+        applyMeasurementOptions(x.layer)
+      })
+    })
+    map.on('pm:union pm:difference', (e) => {
+      //@ts-ignore
+      applyMeasurementOptions(e.resultLayer)
+    })
+    map.on('pm:split', (e) => {
+      //@ts-ignore
+      e.layers.getLayers().forEach((layer) => {
+        applyMeasurementOptions(layer)
+      })
+    })
+    map.on('pm:cut', (e) => {
+      applyMeasurementOptions(e.layer)
+    })
+
+    function applyMeasurementOptions(layer) {
+      layer.pm.setOptions({
+        units: {
+          metric: {
+            distance: [
+              {
+                unit: 'm',
+                calculation: (value) => Math.round(value * 100) / 100,
+              },
+            ],
+            area: [
+              {
+                unit: areaUnit,
+                calculation: areaCalculation,
+              },
+            ],
           },
-        })
+        },
       })
+      layer.pm.addMeasurementTooltipToLayer(layer)
+      layer.closeTooltip()
     }
   },
 })
