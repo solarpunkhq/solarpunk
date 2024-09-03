@@ -8,21 +8,19 @@ import { ClassName } from '@/types/classname';
 
 import { STATE } from '@/constants/forms';
 
-import Arrow from '@/svgs/icons/button-arrow.inline.svg';
-
 // Example of the code — https://user-images.githubusercontent.com/20713191/144221096-1939c382-4ab8-4d28-b0e6-7bbe3a8f8556.png
 const styles = {
   transition: 'transition-colors duration-300',
   base: 'group font-medium rounded-full inline-flex items-center outline-none relative justify-center tracking-tight',
   size: {
-    xs: 'text-14 px-3.5 h-7',
-    sm: 'text-16 pl-3.5 pr-3 h-[35px]',
-    md: 'text-20 pl-[18px] md:text-18 sm:text-16 pr-4 h-[47px] sm:h-10',
+    xs: 'text-14 px-[18px] h-7',
+    sm: 'text-16 pl-[18px] pr-4 h-[35px]',
+    md: 'text-20 pl-[22px] md:text-18 sm:text-16 pr-5 h-[47px] sm:h-10',
   },
   theme: {
-    white: 'bg-white text-gray-20 hover:bg-primary-green hover:text-gray-20',
-    black: 'bg-gray-12 text-white hover:bg-primary-green hover:text-gray-8',
-    green: 'bg-primary-green text-gray-8 hover:bg-white hover:text-gray-20',
+    white: 'bg-white text-gray-20',
+    black: 'bg-gray-12 text-white',
+    green: 'bg-primary-green text-gray-8',
   },
 };
 
@@ -54,15 +52,37 @@ function Button({
     additionalClassName,
   );
 
-  const arrowClassName = clsx(
-    'w-5 ml-1.5 transition-all duration-200 group-hover:rotate-90',
-    theme === 'black' ? 'fill-white group-hover:fill-gray-8' : 'fill-current',
-  );
-
   const content = (
     <>
       <span className="relative z-10">{children}</span>
-      {withArrow && <Arrow className={arrowClassName} />}
+      {withArrow && (
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 14 14"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className={clsx(
+            'ml-2.5 w-3.5 transition-all duration-300 ease-linear group-hover:-translate-y-0.5 group-hover:translate-x-0.5',
+            theme === 'black' ? 'text-white' : 'text-current',
+          )}
+        >
+          <path
+            className="arrow-head transition-all duration-300 ease-linear group-hover:translate-x-0 group-hover:translate-y-0"
+            d="M6 1H13V8"
+            stroke="currentColor"
+            stroke-width="1.64"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            className="arrow-body -translate-y-[1px] translate-x-[1px] transition-all duration-300 ease-linear group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+            d="M1 13L11 3"
+            stroke="currentColor"
+            stroke-width="1.64"
+          />
+        </svg>
+      )}
     </>
   );
 

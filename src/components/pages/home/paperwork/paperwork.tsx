@@ -2,7 +2,7 @@ import { Route } from 'next';
 
 import Link from '@/components/shared/link';
 
-import ArrowIcon from '@/svgs/icons/button-arrow.inline.svg';
+import ArrowIcon from '@/svgs/icons/arrow.inline.svg';
 import PixelArrowIcon from '@/svgs/icons/pixel-arrow.inline.svg';
 
 import { Animation } from './animation';
