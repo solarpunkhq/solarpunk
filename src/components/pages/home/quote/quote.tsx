@@ -18,7 +18,7 @@ function Quote() {
       elements.forEach((element, index) => {
         setTimeout(() => {
           element.current!.classList.add('active');
-        }, index * 1000);
+        }, index * 1250);
       });
     }
   }, [inView]);
