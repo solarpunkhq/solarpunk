@@ -22,6 +22,11 @@ const styles = {
     black: 'bg-gray-12 text-white',
     green: 'bg-primary-green text-gray-8',
   },
+  hover: {
+    white: 'hover:bg-primary-green hover:text-gray-20',
+    black: 'hover:bg-primary-green hover:text-gray-8',
+    green: 'hover:bg-white hover:text-gray-20',
+  },
 };
 
 type ButtonProps<T extends string> = ClassName & {
@@ -49,6 +54,7 @@ function Button({
     size && theme && styles.base,
     size && styles.size[size],
     theme && styles.theme[theme],
+    !withArrow && theme && styles.hover[theme],
     additionalClassName,
   );
 
@@ -71,15 +77,15 @@ function Button({
             className="arrow-head transition-all duration-300 ease-linear group-hover:translate-x-0 group-hover:translate-y-0"
             d="M6 1H13V8"
             stroke="currentColor"
-            stroke-width="1.64"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="1.64"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
           <path
             className="arrow-body -translate-y-[1px] translate-x-[1px] transition-all duration-300 ease-linear group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
             d="M1 13L11 3"
             stroke="currentColor"
-            stroke-width="1.64"
+            strokeWidth="1.64"
           />
         </svg>
       )}
