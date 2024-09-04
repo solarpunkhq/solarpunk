@@ -22,10 +22,15 @@ const styles = {
     black: 'bg-gray-12 text-white',
     green: 'bg-primary-green text-gray-8',
   },
-  hover: {
+  hoverDefault: {
     white: 'hover:bg-primary-green hover:text-gray-20',
     black: 'hover:bg-primary-green hover:text-gray-8',
     green: 'hover:bg-white hover:text-gray-20',
+  },
+  hoverForArrowBtn: {
+    white: 'hover:bg-gray-98',
+    black: 'hover:bg-gray-20',
+    green: 'hover:bg-[#e3ff58]',
   },
 };
 
@@ -54,7 +59,7 @@ function Button({
     size && theme && styles.base,
     size && styles.size[size],
     theme && styles.theme[theme],
-    !withArrow && theme && styles.hover[theme],
+    withArrow ? theme && styles.hoverForArrowBtn[theme] : theme && styles.hoverDefault[theme],
     additionalClassName,
   );
 
@@ -69,7 +74,7 @@ function Button({
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           className={clsx(
-            'ml-2.5 w-3.5 transition-all duration-300 ease-linear group-hover:-translate-y-0.5 group-hover:translate-x-0.5',
+            'ml-2.5 w-3.5 transition-all duration-200 ease-linear group-hover:-translate-y-0.5 group-hover:translate-x-0.5',
             theme === 'black' ? 'text-white' : 'text-current',
           )}
         >
