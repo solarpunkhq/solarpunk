@@ -74,12 +74,12 @@ function Button({
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           className={clsx(
-            'ml-2.5 w-3.5 transition-all duration-200 ease-linear group-hover:-translate-y-0.5 group-hover:translate-x-0.5',
+            'ml-2.5 w-3.5 transition-[transform,color] duration-200 ease-linear group-hover:-translate-y-0.5 group-hover:translate-x-0.5',
             theme === 'black' ? 'text-white' : 'text-current',
           )}
         >
           <path
-            className="arrow-head transition-all duration-300 ease-linear group-hover:translate-x-0 group-hover:translate-y-0"
+            className="arrow-head transition-[transform,color] duration-200 ease-linear group-hover:translate-x-0 group-hover:translate-y-0"
             d="M6 1H13V8"
             stroke="currentColor"
             strokeWidth="1.64"
@@ -87,7 +87,7 @@ function Button({
             strokeLinejoin="round"
           />
           <path
-            className="arrow-body -translate-y-[1px] translate-x-[1px] transition-all duration-300 ease-linear group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+            className="arrow-body -translate-y-[1px] translate-x-[1px] transition-[transform,color] duration-200 ease-linear group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
             d="M1 13L11 3"
             stroke="currentColor"
             strokeWidth="1.64"
