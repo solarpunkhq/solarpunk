@@ -6,7 +6,7 @@ import { motion, useInView } from 'framer-motion';
 
 function IconWrapper({ children, className }: { children: ReactNode; className?: string }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px 0px' });
+  const isInView = useInView(ref, { once: true, margin: '-25px 0px' });
 
   return (
     <motion.svg
