@@ -64,18 +64,32 @@ const variants = {
       opacity: {
         duration: 1,
         ease: 'linear',
-        delay: i * 0.1,
+        delay: i * 0.2,
       },
       y: {
         duration: 1,
         ease: [0.35, 0.01, 0, 1],
-        delay: i * 0.1,
+        delay: i * 0.2,
       },
       scale: {
         duration: 1,
         ease: [0.35, 0.01, 0, 1],
-        delay: i * 0.1,
+        delay: i * 0.2,
       },
+    },
+  }),
+};
+
+const contentVariants = {
+  hidden: {
+    opacity: 0,
+    delay: 0.5,
+  },
+  visible: (i: number) => ({
+    opacity: 1,
+    transition: {
+      duration: 1,
+      delay: i * 0.25,
     },
   }),
 };
@@ -98,7 +112,14 @@ function Sources() {
                 variants={variants}
                 className="relative flex flex-col overflow-hidden rounded-xl bg-[url('/images/pages/home/sources/noise.png')] bg-center bg-repeat p-8 shadow-sources-card lg:p-6 md:col-span-full md:min-h-[300px] md:flex-row sm:flex-col"
               >
-                <CardContent {...item} />
+                <m.div
+                  custom={index}
+                  initial="hidden"
+                  animate={isInView ? 'visible' : 'hidden'}
+                  variants={contentVariants}
+                >
+                  <CardContent {...item} />
+                </m.div>
               </m.li>
             );
           })}
