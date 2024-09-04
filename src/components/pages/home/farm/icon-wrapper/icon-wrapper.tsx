@@ -17,7 +17,7 @@ function IconWrapper({ children, className }: { children: ReactNode; className?:
       height="56"
       viewBox="0 0 56 56"
       fill="none"
-      initial={{ opacity: 0, scale: 0.8 }}
+      initial={{ opacity: 1, scale: 0.8 }}
       animate={isInView ? { opacity: 1, scale: 1 } : {}}
       transition={{ duration: 1.5, ease: [0.45, 0.45, 0, 1] }}
     >
