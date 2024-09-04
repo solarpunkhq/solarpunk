@@ -32,7 +32,7 @@ module.exports = {
         callbacksLast: true,
       },
     ],
-    'react/no-array-index-key': 'warn',
+    'react/no-array-index-key': 'off',
     'react/no-danger': 'warn',
     'react/self-closing-comp': 'error',
     'react/function-component-definition': [
