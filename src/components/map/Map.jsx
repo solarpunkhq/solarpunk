@@ -96,7 +96,7 @@ export default function Map({
         />
         <MapTypeControl setMapType={setMapType} />
 
-        <PreDrawnAcres acres={existingAcres} />
+        <PreDrawnAcres acres={existingAcres} country={country} />
         {acres && setAcres && <EnableVertexControl />}
         {!acres && !setAcres && <DisableDraw />}
         <Search
