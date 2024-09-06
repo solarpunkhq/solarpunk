@@ -30,7 +30,7 @@ function Hero() {
         />
         {/*       
           // Video optimization parameters:
-          //   mp4: -pix_fmt yuv420p -vf "scale=3840:-2" -movflags faststart -vcodec libx264 -crf 20
+          //   mp4: -pix_fmt yuv420p -vf "scale=1920:-2" -movflags faststart -vcodec libx264 -crf 20
           //   webm: -c:v libvpx-vp9 -crf 20 -vf scale=1920:-2 -deadline best -an 
         */}
         <PauseableVideo
@@ -42,6 +42,7 @@ function Hero() {
           <source src="/videos/pages/home/hero/hero.webm" type="video/webm" />
         </PauseableVideo>
       </div>
+      <div className="absolute bottom-0 left-0 right-0 top-0 -z-10 bg-[url('/images/pages/home/sources/noise.png')] bg-repeat opacity-10" />
     </section>
   );
 }
