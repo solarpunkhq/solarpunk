@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import { useMap } from 'react-leaflet'
 import * as L from 'leaflet'
-import { Acre } from '@/utils/types'
 
 export const PreDrawnAcres = ({ acres }) => {
   const map = useMap()

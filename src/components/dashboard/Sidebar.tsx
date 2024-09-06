@@ -286,12 +286,16 @@ export default function DashboardSidebar({
       </RadioGroup>
       <div className="mt-4 text-2xl font-semibold">Summary</div>
       <div>
+        <b>Area: </b>
+        {formatNumberAsAmount(totalArea.toFixed(2))} Acres
+      </div>
+      <div>
         <b>Est. Revenue: </b>$
         {formatNumberAsAmount(projections.revenue_per_year.toFixed(0))}/yr
       </div>
       <div>
-        <b>Area: </b>
-        {formatNumberAsAmount(totalArea.toFixed(2))} Acres
+        <b>Est. Energy Production: </b>
+        {formatNumberAsAmount(projections.mw_produced.toFixed(1))} MW/yr
       </div>
       <div className="my-2 flex text-gray-500">
         <span>
