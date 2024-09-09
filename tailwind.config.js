@@ -95,7 +95,7 @@ module.exports = {
       }),
       boxShadow: {
         'sources-card': '0px 4px 20px 0px rgba(0, 0, 0, 0.08)',
-        'sun-icon': '0px 0px 8px 8px rgba(4, 4, 6, 1)',
+        'sun-icon': '0px 0px 8px 4px rgba(4, 4, 6, 1)',
         'mission-sticker': '0px 2px 4px 0px rgba(0, 0, 0, 0.20)',
       },
     },
