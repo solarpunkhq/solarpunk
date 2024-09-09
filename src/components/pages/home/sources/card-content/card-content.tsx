@@ -49,7 +49,7 @@ function CardContent({
           {buttonText}
         </Button>
       </div>
-      <span className="border-linear pointer-events-none absolute inset-0 rounded-[inherit] bg-sources-card-border" />
+      <span className="border-linear pointer-events-none absolute inset-0 rounded-xl bg-sources-card-border" />
     </>
   );
 }
