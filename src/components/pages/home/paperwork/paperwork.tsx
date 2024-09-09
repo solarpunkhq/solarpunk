@@ -87,18 +87,129 @@ function Paperwork() {
         </div>
         <div className="mt-8 rounded-xl bg-gray-20 py-[38px] lg:py-[35px] md:mt-6 md:py-[34px] sm:mt-5 sm:py-[18px]">
           <div className="ml-[-86px] flex items-center justify-center gap-[30px] lg:ml-0 sm:flex-col sm:gap-[9px]">
-            <p className="fs-28 uppercase leading-none tracking-tight text-gray-40 sm:text-16">
-              Less paperwork
-            </p>
+            <div className="title-wrapper">
+              <p className="first-title fs-28 uppercase leading-none tracking-tight sm:text-16">
+                Less paperwork
+              </p>
+            </div>
             <div className="flex gap-[18px] sm:hidden">
               {arrowsQty.map((_, index) => {
-                return <PixelArrowIcon className="arrow w-4" key={index} />;
+                return (
+                  <svg
+                    width="16"
+                    height="20"
+                    viewBox="0 0 16 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="arrow"
+                    key={index}
+                  >
+                    <g clipPath="url(#clip0_3164_48264)">
+                      <rect
+                        x="0.333333"
+                        y="0.333333"
+                        width="3.33333"
+                        height="3.33333"
+                        stroke="#2E3038"
+                        className="column1"
+                      />
+                      <rect
+                        x="4.33333"
+                        y="4.33333"
+                        width="3.33333"
+                        height="3.33333"
+                        stroke="#2E3038"
+                        strokeWidth="0.666667"
+                        className="column1"
+                      />
+                      <rect
+                        x="8.33138"
+                        y="8.33333"
+                        width="3.33333"
+                        height="3.33333"
+                        stroke="#2E3038"
+                        strokeWidth="0.666667"
+                        className="column1"
+                      />
+                      <rect
+                        x="4.33333"
+                        y="12.3333"
+                        width="3.33333"
+                        height="3.33333"
+                        stroke="#2E3038"
+                        strokeWidth="0.666667"
+                        className="column1"
+                      />
+                      <rect
+                        x="0.333333"
+                        y="16.3333"
+                        width="3.33333"
+                        height="3.33333"
+                        stroke="#2E3038"
+                        strokeWidth="0.666667"
+                        className="column1"
+                      />
+                      <rect
+                        x="12.3353"
+                        y="8.33333"
+                        width="3.33333"
+                        height="3.33333"
+                        stroke="#2E3038"
+                        strokeWidth="0.666667"
+                        className="column2"
+                      />
+                      <rect
+                        x="8.33138"
+                        y="4.33333"
+                        width="3.33333"
+                        height="3.33333"
+                        stroke="#2E3038"
+                        strokeWidth="0.666667"
+                        className="column2"
+                      />
+                      <rect
+                        x="4.33333"
+                        y="16.3333"
+                        width="3.33333"
+                        height="3.33333"
+                        stroke="#2E3038"
+                        strokeWidth="0.666667"
+                        className="column2"
+                      />
+                      <rect
+                        x="4.33333"
+                        y="0.333333"
+                        width="3.33333"
+                        height="3.33333"
+                        stroke="#2E3038"
+                        strokeWidth="0.666667"
+                        className="column2"
+                      />
+                      <rect
+                        x="8.33138"
+                        y="12.3333"
+                        width="3.33333"
+                        height="3.33333"
+                        stroke="#2E3038"
+                        strokeWidth="0.666667"
+                        className="column2"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_3164_48264">
+                        <rect width="16" height="20" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                );
               })}
             </div>
             <PixelArrowIcon className="single-arrow hidden w-3 rotate-90 fill-white sm:block" />
-            <p className="fs-28 uppercase leading-none tracking-tighter text-white sm:text-16">
-              More action
-            </p>
+            <div className="title-wrapper">
+              <p className="second-title fs-28 uppercase leading-none tracking-tighter sm:text-16">
+                More action
+              </p>
+            </div>
           </div>
         </div>
       </div>
