@@ -26,7 +26,7 @@ export function getMetadata({
     alternates: {
       canonical: canonicalUrl,
     },
-    manifest: `${SITE_URL}/manifest.json`,
+    manifest: `${SITE_URL}/manifest.webmanifest`,
     icons: {
       icon: '/favicon/favicon.png',
       apple: [
