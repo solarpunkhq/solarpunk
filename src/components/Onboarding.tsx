@@ -228,8 +228,8 @@ export function OnboardingComponent({ country }: { country: string }) {
             <h1 className="mb-4 text-3xl font-bold">Mark your land</h1>
             <div className="relative mb-4 flex-col overflow-x-auto text-sm">
               <div className="mb-4">
-                Use the map to select your territory. Use the tools on the left
-                of the map to mark your land:{' '}
+                Use the map to select your territory. Use the following tools on
+                the left of the map to create or edit selections:{' '}
               </div>
               <div className="flex flex-row items-center justify-start gap-2">
                 <img src="/map_icons/map_type_tool.svg"></img>
@@ -259,9 +259,7 @@ export function OnboardingComponent({ country }: { country: string }) {
                 <img src="/map_icons/merge_selections_tool.svg"></img>
                 <span>Merge two selections</span>
               </div>
-
-              <div className="mt-4 text-2xl font-semibold">Your Details</div>
-              <div className="ml-1 text-base font-semibold">Name</div>
+              <div className="ml-1 mt-4 text-base font-semibold">Name</div>
               <Input
                 placeholder="Your name"
                 className="!ml-1 !w-[97%] !border-gray-300"
