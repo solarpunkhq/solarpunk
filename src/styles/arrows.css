@@ -3,8 +3,10 @@
   fill: #5e616e;
 }
 
-.single-arrow {
-  animation: blink 2s infinite;
+.single-arrow-animation {
+  animation: blink 2s;
+  animation-delay: 2000ms;
+  animation-fill-mode: forwards;
 }
 
 @keyframes animateDot {
@@ -12,15 +14,15 @@
     fill: #5e616e;
   }
   3.08% {
-    /* 200/6500 мс */
+    /* 200/6500 ms */
     fill: white;
   }
   6.15% {
-    /* 400/6500 мс */
+    /* 400/6500 ms */
     fill: white;
   }
   15.38% {
-    /* 1000/6500 мс */
+    /* 1000/6500 ms */
     fill: #5e616e;
   }
   100% {
@@ -29,48 +31,51 @@
 }
 
 .arrow:nth-child(1) .column1 {
-  animation: animateDot 6500ms infinite linear;
+  animation: animateDot 6500ms linear;
   animation-delay: 1166.5ms; /* 166.5 */
 }
 .arrow:nth-child(1) .column2 {
-  animation: animateDot 6500ms infinite linear;
+  animation: animateDot 6500ms linear;
   animation-delay: 1233ms; /* 166.5 + 66.5 */
 }
 
 .arrow:nth-child(2) .column1 {
-  animation: animateDot 6500ms infinite linear;
+  animation: animateDot 6500ms linear;
   animation-delay: 1333ms; /* 233ms + 100ms */
 }
 .arrow:nth-child(2) .column2 {
-  animation: animateDot 6500ms infinite linear;
+  animation: animateDot 6500ms linear;
   animation-delay: 1433ms; /* 333ms + 100ms */
 }
 
 .arrow:nth-child(3) .column1 {
-  animation: animateDot 6500ms infinite linear;
+  animation: animateDot 6500ms linear;
   animation-delay: 1533ms; /* 433ms + 100ms */
 }
 .arrow:nth-child(3) .column2 {
-  animation: animateDot 6500ms infinite linear;
+  animation: animateDot 6500ms linear;
   animation-delay: 1633ms; /* 533ms + 100ms */
 }
 
 .arrow:nth-child(4) .column1 {
-  animation: animateDot 6500ms infinite linear;
+  animation: animateDot 6500ms linear;
   animation-delay: 1733ms; /* 633ms + 100ms */
 }
 .arrow:nth-child(4) .column2 {
-  animation: animateDot 6500ms infinite linear;
+  animation: animateDot 6500ms linear;
   animation-delay: 1799.5ms; /* 733ms + 66.5ms */
 }
 
 @keyframes blink {
   0%,
   100% {
-    opacity: 1;
+    fill: #5e616e;
   }
-  50% {
-    opacity: 0.3;
+  60% {
+    fill: white;
+  }
+  80% {
+    fill: white;
   }
 }
 
@@ -89,60 +94,34 @@
   background-size: 600px 600px;
 }
 
-.first-title {
-  animation: first-sequence 6.5s linear infinite;
+.animate-first-title {
+  animation: first-sequence 6.5s linear;
+  animation-fill-mode: forwards;
 }
 
-.second-title {
-  animation: second-sequence 6.5s linear infinite;
+.animate-second-title {
+  animation: second-sequence 6.5s linear;
+  animation-fill-mode: forwards;
 }
 
 @keyframes first-sequence {
-  0% {
-    background-position: 50% 50%;
-    color: rgba(255, 255, 255, 0.15);
-  }
+  0%,
   20% {
     background-position: 50% 50%;
-    color: rgba(255, 255, 255, 0.15);
   }
-  50% {
-    background-position: calc(-200%) 50%;
-    color: rgba(255, 255, 255, 0.15);
-  }
-  85% {
-    background-position: calc(-200%) 50%;
-    color: rgba(255, 255, 255, 0.15);
-  }
+  50%,
   100% {
-    background-position: calc(-200%) 50%;
-    color: rgba(255, 255, 255, 1);
+    background-position: -200% 50%;
   }
 }
 
 @keyframes second-sequence {
-  0% {
-    background-position: -600px 50%;
-    color: rgba(255, 255, 255, 0.15);
-  }
+  0%,
   20% {
     background-position: -600px 50%;
-    color: rgba(255, 255, 255, 0.15);
   }
-  50% {
-    background-position: 50% 50%;
-    color: rgba(255, 255, 255, 0.15);
-  }
-  51% {
-    background-position: 50% 50%;
-    color: rgba(255, 255, 255, 0.15);
-  }
-  85% {
-    background-position: 50% 50%;
-    color: rgba(255, 255, 255, 0.8);
-  }
+  50%,
   100% {
-    background-position: 2000px 50%;
-    color: rgba(255, 255, 255, 0.15);
+    background-position: 50% 50%;
   }
 }
