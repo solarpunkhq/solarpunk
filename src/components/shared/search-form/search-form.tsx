@@ -46,7 +46,7 @@ function SearchForm({ className }: { className: string }) {
   return (
     <form className={clsx('relative max-w-[544px] xs:max-w-full', className)}>
       <input
-        className="remove-autocomplete-styles placeholder:text-grey-50 h-12 w-full truncate rounded-full border border-[#EBEBEB] pl-[18px] pr-11 text-15 font-medium text-black outline-none placeholder:font-normal placeholder:leading-none placeholder:tracking-tight xs:h-11 xs:text-14"
+        className="remove-autocomplete-styles placeholder:text-grey-50 h-12 w-full truncate rounded-full border border-[#EBEBEB] pl-[18px] pr-11 text-15 font-medium text-gray-12 outline-none placeholder:font-normal placeholder:leading-none placeholder:tracking-tight xs:h-11 xs:text-14"
         type="text"
         placeholder="Enter your address, neighborhood, city or ZIP code"
         value={query}
@@ -71,7 +71,7 @@ function SearchForm({ className }: { className: string }) {
         />
       )}
       {searchResults && searchResults.length > 0 && (
-        <ul className="absolute inset-x-0 top-[58px] overflow-hidden rounded-[10px] bg-white p-1 text-15 leading-none tracking-tight text-black xs:top-[54px]">
+        <ul className="absolute inset-x-0 top-[58px] overflow-hidden rounded-[10px] border border-[#EBEBEB] bg-white p-1 text-15 leading-none tracking-tight text-gray-12 xs:top-[54px]">
           {searchResults.map(({ x, y, label }, index) => (
             <li key={index} className="cursor-pointer rounded-lg px-2.5 py-3 hover:bg-gray-90">
               <Link
