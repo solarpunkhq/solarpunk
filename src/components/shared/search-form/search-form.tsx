@@ -9,7 +9,7 @@ import Link from '@/components/shared/link';
 
 import { SEARCH_RESULTS_LIMIT } from '@/constants/forms';
 
-import closeIcon from '@/svgs/icons/close.svg';
+import clearIcon from '@/svgs/icons/clear.svg';
 import searchIcon from '@/svgs/icons/search.svg';
 
 type SearchResult = {
@@ -18,7 +18,7 @@ type SearchResult = {
   label: string;
 };
 
-function SubscribeForm({ className }: { className: string }) {
+function SearchForm({ className }: { className: string }) {
   const provider = CustomSearchProvider({
     apiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY || '',
   });
@@ -34,7 +34,7 @@ function SubscribeForm({ className }: { className: string }) {
     }
   }, [query]);
 
-  function clearQueryAndSearchResult() {
+  function handleClear() {
     setQuery('');
     setSearchResults([]);
   }
@@ -56,9 +56,10 @@ function SubscribeForm({ className }: { className: string }) {
         <button
           className="absolute right-[18px] top-1/2 flex h-4 w-4 -translate-y-1/2 items-center justify-center"
           type="button"
-          onClick={clearQueryAndSearchResult}
+          aria-label="clear input"
+          onClick={handleClear}
         >
-          <img width={16} height={16} src={closeIcon} alt="reset" />
+          <img width={16} height={16} src={clearIcon} alt="" />
         </button>
       ) : (
         <img
@@ -66,7 +67,7 @@ function SubscribeForm({ className }: { className: string }) {
           width={16}
           height={16}
           src={searchIcon}
-          alt="search"
+          alt=""
         />
       )}
       {searchResults && searchResults.length > 0 && (
@@ -77,7 +78,6 @@ function SubscribeForm({ className }: { className: string }) {
                 href={`https://www.solarpunkhq.com/onboarding?lat=${y}&lng=${x}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={clearQueryAndSearchResult}
               >
                 {label}
               </Link>
@@ -89,4 +89,4 @@ function SubscribeForm({ className }: { className: string }) {
   );
 }
 
-export default SubscribeForm;
+export default SearchForm;
