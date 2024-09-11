@@ -39,17 +39,13 @@ export default async function DashboardPage() {
   if (current_step === 0) {
     return (
       <div className="h-full w-full">
-        <div className="invisible hidden h-full w-full flex-col items-center justify-start md:visible md:flex">
+        <div className="flex h-full w-full flex-col items-center justify-start">
           <Dashboard
             user_id={id}
             existing_acres={existingAcres}
             acre_data={acreData}
             country={country}
           />
-        </div>
-        <div className="flex h-full w-full items-center justify-center md:invisible md:hidden">
-          This site is best viewed on a larger screen. Please visit on a desktop
-          or laptop.
         </div>
       </div>
     )

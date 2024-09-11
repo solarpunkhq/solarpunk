@@ -109,89 +109,7 @@ export function OnboardingComponent({ country }: { country: string }) {
   }
 
   return (
-    // <div className="-mb-[200px] mt-12 h-full">
-    //   <div className="flex h-full w-full flex-col items-center justify-center px-8 md:flex-row md:items-stretch md:justify-start">
-    //     <Map
-    //       zoom={zoom}
-    //       lat={lat}
-    //       lng={lng}
-    //       acres={acres}
-    //       setAcres={setAcres}
-    //       existingAcres={[]}
-    //       country={country}
-    //     />
-    //     <div className="rounded-r-4xl h-full w-full max-w-96 border border-l-0 bg-white p-8">
-    //       <div>
-    //         <h1 className="font-display text-4xl">Mark your acres</h1>
-    //         <h2 className="">Use the map to outline your territory</h2>
-    //         <div className="relative flex overflow-x-auto">
-    //           <table className="mt-4 w-full border text-left text-sm text-gray-500 dark:text-gray-400 rtl:text-right">
-    //             <thead className="bg-gray-50 text-xs uppercase text-gray-700 ">
-    //               <tr>
-    //                 <th scope="col" className="px-6 py-3">
-    //                   Area
-    //                 </th>
-    //                 <th scope="col" className="px-6 py-3">
-    //                   Revenue/yr
-    //                 </th>
-    //               </tr>
-    //             </thead>
-    //             <tbody>
-    //               {acres.map((acre, index) => (
-    //                 <tr key={index} className="border-b bg-white ">
-    //                   <th
-    //                     scope="row"
-    //                     className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 "
-    //                   >
-    //                     Area {index + 1}
-    //                   </th>
-    //                   <td className="px-6 py-4">
-    //                     ${acre.revenue.toLocaleString()}/yr
-    //                   </td>
-    //                 </tr>
-    //               ))}
-    //               {acres.length === 0 && (
-    //                 <tr className="border-b bg-white ">
-    //                   <th
-    //                     scope="row"
-    //                     className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 "
-    //                   >
-    //                     Select an area
-    //                   </th>
-    //                   <td className="px-6 py-4">$xxx,yyy/yr</td>
-    //                 </tr>
-    //               )}
-    //             </tbody>
-    //           </table>
-    //         </div>
-    //         <input
-    //           className="mt-4 w-full rounded border p-2"
-    //           placeholder="Email"
-    //           onChange={(e) => setEmail(e.target.value)}
-    //           value={email}
-    //         />
-    //         <input
-    //           className="mt-4 w-full rounded border p-2"
-    //           placeholder="Name"
-    //           onChange={(e) => setName(e.target.value)}
-    //           value={name}
-    //         />
-    //         {error && <div className="mt-2 text-red-500">{error}</div>}
-    //         <Button
-    //           className="mx-auto mt-4 !px-5 !py-3"
-    //           onClick={() => {
-    //             submitForm()
-    //           }}
-    //           disabled={loading}
-    //         >
-    //           {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-    //           {loading ? 'Please wait' : 'Submit'}
-    //         </Button>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
-    <div className="mt-4 h-screen w-full overflow-hidden">
+    <div className="mt-4 w-full sm:h-screen sm:overflow-hidden">
       <div className="flex h-full w-full flex-col items-center justify-center px-8 md:flex-row md:items-stretch md:justify-start">
         <div className="flex h-full w-full flex-col items-center justify-start">
           <div className="mb-8 ml-6 mt-4 flex items-center justify-center self-start">
@@ -211,7 +129,7 @@ export function OnboardingComponent({ country }: { country: string }) {
             existingAcres={[]}
             country={country}
           />
-          <div className="mt-2 w-1/2 rounded-md bg-neutral-100 p-6 text-center text-sm">
+          <div className="mt-2 rounded-md bg-neutral-100 p-6 text-center text-sm sm:w-1/2">
             <span className="font-semibold">
               ${formatNumberAsAmount(projections.revenue_per_year.toFixed(0))}{' '}
               Est. Yearly Revenue

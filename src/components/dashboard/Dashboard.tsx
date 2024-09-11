@@ -44,7 +44,7 @@ export default function Dashboard({
   }, [acres])
 
   return (
-    <div className="h-screen w-full overflow-hidden">
+    <div className="w-full sm:h-screen sm:overflow-hidden">
       <div className="flex h-full w-full flex-col items-center justify-center px-8 md:flex-row md:items-stretch md:justify-start">
         <div className="flex h-full w-full flex-col items-center justify-start">
           <div className="my-8 ml-6 flex items-center justify-center self-start">
@@ -64,7 +64,7 @@ export default function Dashboard({
             existingAcres={existing_acres}
             country={country}
           />
-          <div className="mt-2 w-1/2 rounded-md bg-neutral-100 p-6 text-center text-sm">
+          <div className="mt-2 rounded-md bg-neutral-100 p-6 text-center text-sm sm:w-1/2">
             <span className="font-semibold">
               ${formatNumberAsAmount(projections.revenue_per_year.toFixed(0))}{' '}
               Est. Yearly Revenue
@@ -79,7 +79,7 @@ export default function Dashboard({
 
         <div className="rounded-r-4xl ml-4 h-full max-h-screen w-full max-w-96 overflow-y-scroll bg-white">
           <div className="flex h-full flex-col p-4">
-            <div className="mr-2 mt-4 h-6 w-6 self-end">
+            <div className="invisible mr-2 mt-4 hidden h-6 w-6 self-end sm:visible sm:block">
               <Button
                 variant="ghost"
                 size="icon"
