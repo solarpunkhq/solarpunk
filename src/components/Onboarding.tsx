@@ -245,19 +245,15 @@ export function OnboardingComponent({ country }: { country: string }) {
               </div>
               <div className="flex flex-row items-center justify-start gap-2">
                 <img src="/map_icons/vertex_tool.svg"></img>
-                <span>Add a new vertex or selection</span>
+                <span>Add a new selection</span>
               </div>
               <div className="flex flex-row items-center justify-start gap-2">
                 <img src="/map_icons/edit_vertex_tool.svg"></img>
-                <span>Edit an existing vertex or selection</span>
+                <span>Edit an existing selection</span>
               </div>
               <div className="flex flex-row items-center justify-start gap-2">
                 <img src="/map_icons/erase_selection_tool.svg"></img>
                 <span>Erase a selection</span>
-              </div>
-              <div className="flex flex-row items-center justify-start gap-2">
-                <img src="/map_icons/merge_selections_tool.svg"></img>
-                <span>Merge two selections</span>
               </div>
               <div className="ml-1 mt-4 text-base font-semibold">Name</div>
               <Input

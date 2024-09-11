@@ -84,6 +84,8 @@ export default function Map({
           drawText={false}
           dragMode={false}
           cutPolygon={false}
+          unionMode={false}
+          differenceMode={false}
           splitMode={false}
           scaleMode={false}
           pinningOption={false}
