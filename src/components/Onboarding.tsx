@@ -231,27 +231,27 @@ export function OnboardingComponent({ country }: { country: string }) {
                 Use the map to select your territory. Use the following tools on
                 the left of the map to create or edit selections:{' '}
               </div>
-              <div className="flex flex-row items-center justify-start gap-2">
+              <div className="mb-2 flex flex-row items-center justify-start gap-2">
                 <img src="/map_icons/map_type_tool.svg"></img>
                 <span>Toggle between satellite and roadmap views</span>
               </div>
-              <div className="flex flex-row items-center justify-start gap-2">
+              <div className="mb-2 flex flex-row items-center justify-start gap-2">
                 <img src="/map_icons/zoom_in_tool.svg"></img>
                 <span>Zoom in to the map</span>
               </div>
-              <div className="flex flex-row items-center justify-start gap-2">
+              <div className="mb-2 flex flex-row items-center justify-start gap-2">
                 <img src="/map_icons/zoom_out_tool.svg"></img>
                 <span>Zoom out of the map</span>
               </div>
-              <div className="flex flex-row items-center justify-start gap-2">
+              <div className="mb-2 flex flex-row items-center justify-start gap-2">
                 <img src="/map_icons/vertex_tool.svg"></img>
                 <span>Add a new selection</span>
               </div>
-              <div className="flex flex-row items-center justify-start gap-2">
+              <div className="mb-2 flex flex-row items-center justify-start gap-2">
                 <img src="/map_icons/edit_vertex_tool.svg"></img>
                 <span>Edit an existing selection</span>
               </div>
-              <div className="flex flex-row items-center justify-start gap-2">
+              <div className="mb-2 flex flex-row items-center justify-start gap-2">
                 <img src="/map_icons/erase_selection_tool.svg"></img>
                 <span>Erase a selection</span>
               </div>
