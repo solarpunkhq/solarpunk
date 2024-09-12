@@ -49,7 +49,7 @@ function AnimatedText({ children }: AnimatedTextProps) {
               <AnimatedIconItem
                 index={index}
                 content={content}
-                totalItems={totalItems}
+                totalItems={totalItems + 1}
                 sectionRef={sectionRef}
               />
             ) : (
@@ -64,6 +64,10 @@ function AnimatedText({ children }: AnimatedTextProps) {
           </React.Fragment>
         );
       })}
+      <span className="font-title text-64 leading-snug -tracking-[0.045em]  opacity-25 lg:max-w-[960px] lg:text-56 md:max-w-[704px] md:text-48 sm:text-32">
+        {' '}
+        without sacrificing arable land.
+      </span>
     </div>
   );
 }
