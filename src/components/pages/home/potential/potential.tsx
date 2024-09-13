@@ -11,7 +11,7 @@ import Animation from './animation';
 import Section from './section';
 
 const TOTAL_SLIDES_QTY = 4;
-const ANIMATION_DURATION = 6500;
+const ANIMATION_DURATION = 6000;
 
 const sections = [
   {
@@ -129,7 +129,7 @@ function Potential() {
                   {[...Array(TOTAL_SLIDES_QTY)].map((_, index) => {
                     return (
                       <li
-                        className="h-2 w-[72px] cursor-pointer overflow-hidden rounded-[10px] bg-gray-80"
+                        className="h-1 w-[72px] cursor-pointer overflow-hidden rounded-[10px] bg-gray-80"
                         key={index}
                         onClick={() => setCurrentSlide(index + 1)}
                       >
