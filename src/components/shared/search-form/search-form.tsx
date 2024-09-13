@@ -44,7 +44,10 @@ function SearchForm({ className }: { className: string }) {
   }
 
   return (
-    <form className={clsx('relative max-w-[544px] xs:max-w-full', className)}>
+    <form
+      className={clsx('relative max-w-[544px] xs:max-w-full', className)}
+      onSubmit={(e) => e.preventDefault()}
+    >
       <input
         className="remove-autocomplete-styles placeholder:text-grey-50 h-12 w-full truncate rounded-full border border-[#EBEBEB] pl-[18px] pr-11 text-15 font-medium text-gray-12 outline-none placeholder:font-normal placeholder:leading-none placeholder:tracking-tight xs:h-11 xs:text-14"
         type="text"
