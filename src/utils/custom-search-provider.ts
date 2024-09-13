@@ -1,31 +1,54 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Loader } from '@googlemaps/js-api-loader';
 
 type CustomSearchProviderOptions = {
   apiKey: string;
 };
-// TODO: add TS types for google.maps https://developers-dot-devsite-v2-prod.appspot.com/maps/documentation/javascript/reference/geocoder#Geocoder
-function CustomSearchProvider(options: CustomSearchProviderOptions) {
+
+type Suggestion = {
+  placePrediction: {
+    placeId: string;
+  };
+};
+
+type Response = {
+  data: {
+    suggestions: Suggestion[];
+  };
+};
+
+type SearchOptions = {
+  query: string;
+};
+
+function customSearchProvider(options: CustomSearchProviderOptions) {
   const apiKey = options.apiKey;
   const searchUrl = 'https://places.googleapis.com/v1/places:autocomplete';
   let geocoder: google.maps.Geocoder;
 
-  if (typeof window !== 'undefined') {
-    new Loader(options).load().then((google) => {
-      geocoder = new google.maps.Geocoder();
-    });
-  }
+  const geocoderPromise = new Promise<void>((resolve) => {
+    if (typeof window !== 'undefined') {
+      new Loader(options).load().then((google) => {
+        geocoder = new google.maps.Geocoder();
+        resolve();
+      });
+    }
+  });
 
-  async function parse(response: any) {
-    const suggestions = response.data.suggestions;
+  async function parse(response: Response) {
+    const suggestions: Suggestion[] = response.data.suggestions;
 
-    async function fetchGeocodeResults(suggestion: any) {
+    async function fetchGeocodeResults(suggestion: Suggestion) {
+      if (!geocoder) {
+        await geocoderPromise;
+      }
+
       try {
-        const dataResponse = await geocoder.geocode({
+        const dataResponse = await geocoder!.geocode({
           placeId: suggestion.placePrediction.placeId,
         });
 
         return dataResponse.results;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (e: any) {
         if (e.code !== 'ZERO_RESULTS') {
           // eslint-disable-next-line no-console
@@ -42,7 +65,7 @@ function CustomSearchProvider(options: CustomSearchProviderOptions) {
       }
 
       const allResults = await Promise.all(
-        suggestions.map((suggestion: any) => fetchGeocodeResults(suggestion)),
+        suggestions.map((suggestion: Suggestion) => fetchGeocodeResults(suggestion)),
       );
 
       const records = allResults.flat();
@@ -67,7 +90,7 @@ function CustomSearchProvider(options: CustomSearchProviderOptions) {
     return await fetchAllResults();
   }
 
-  async function search(searchOptions: any) {
+  async function search(searchOptions: SearchOptions) {
     const url = `${searchUrl}`;
 
     const request = await fetch(url, {
@@ -89,4 +112,4 @@ function CustomSearchProvider(options: CustomSearchProviderOptions) {
   };
 }
 
-export default CustomSearchProvider;
+export default customSearchProvider;

@@ -1,3 +1,3 @@
-import SubscribeForm from './search-form';
+import SearchForm from './search-form';
 
-export default SubscribeForm;
+export default SearchForm;

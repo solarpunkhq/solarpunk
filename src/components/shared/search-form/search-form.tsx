@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 
-import CustomSearchProvider from '@/utils/custom-search-provider';
+import customSearchProvider from '@/utils/custom-search-provider';
 import clsx from 'clsx';
 
 import Link from '@/components/shared/link';
@@ -19,7 +19,7 @@ type SearchResult = {
 };
 
 function SearchForm({ className }: { className: string }) {
-  const provider = CustomSearchProvider({
+  const provider = customSearchProvider({
     apiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY || '',
   });
 
