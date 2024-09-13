@@ -11,7 +11,7 @@ import Animation from './animation';
 import Section from './section';
 
 const TOTAL_SLIDES_QTY = 4;
-const ANIMATION_DURATION = 6000;
+const ANIMATION_DURATION = 7000;
 
 const sections = [
   {
