@@ -58,8 +58,8 @@ const variants = {
     opacity: 1,
     y: 0,
     scale: 1,
-    backdropFilter: 'blur(64px)',
-    WebkitBackdropFilter: 'blur(64px)',
+    backdropFilter: 'blur(32px)',
+    WebkitBackdropFilter: 'blur(32px)',
     transition: {
       opacity: {
         duration: 1,
@@ -97,7 +97,7 @@ const contentVariants = {
 function Sources() {
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.8,
+    threshold: 0.6,
   });
 
   return (
@@ -112,7 +112,7 @@ function Sources() {
                 initial="hidden"
                 animate={inView ? 'visible' : 'hidden'}
                 variants={variants}
-                className="relative flex flex-col overflow-hidden rounded-xl bg-[url('/images/pages/home/sources/noise.png')] bg-center bg-repeat p-8 shadow-sources-card lg:p-6 md:col-span-full md:min-h-[300px] md:flex-row sm:flex-col"
+                className="relative flex flex-col overflow-hidden rounded-xl bg-black/10 bg-[url('/images/pages/home/sources/noise.png')] bg-center bg-repeat p-8 shadow-sources-card lg:p-6 md:col-span-full md:min-h-[300px] md:flex-row sm:flex-col"
               >
                 <m.div
                   custom={index}
@@ -133,6 +133,7 @@ function Sources() {
           height={1104}
           alt=""
         />
+        <div className="absolute inset-0 -z-10 bg-[url('/images/pages/home/sources/noise.png')] bg-repeat opacity-10" />
       </section>
     </LazyMotion>
   );
