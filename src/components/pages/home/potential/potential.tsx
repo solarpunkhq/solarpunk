@@ -5,7 +5,6 @@ import { Route } from 'next';
 import { useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
-import clsx from 'clsx';
 import { AnimatePresence, LazyMotion, domAnimation, m } from 'framer-motion';
 
 import Animation from './animation';
@@ -47,7 +46,8 @@ const sections = [
 
 function Potential() {
   const [currentSlide, setCurrentSlide] = useState<number>(1);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const progressBarRefs = useRef<(HTMLSpanElement | null)[]>([]);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -55,36 +55,39 @@ function Potential() {
 
   useEffect(() => {
     if (inView) {
-      intervalRef.current = setInterval(() => {
-        setCurrentSlide((prevSlide) => prevSlide + 1);
-      }, ANIMATION_DURATION);
+      startProgressBarAnimation();
+      resetInterval();
+    }
 
-      return () => {
-        if (intervalRef.current) {
-          clearInterval(intervalRef.current);
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [currentSlide, inView]);
+
+  const startProgressBarAnimation = () => {
+    progressBarRefs.current.forEach((progressBarRef, index) => {
+      if (progressBarRef) {
+        if (index + 1 === currentSlide) {
+          progressBarRef.style.transition = `transform ${ANIMATION_DURATION + 'ms'} linear`;
+          progressBarRef.style.transform = 'scaleX(1)';
+        } else {
+          progressBarRef.style.transition = 'none';
+          progressBarRef.style.transform = 'scaleX(0)';
         }
-      };
-    }
-  }, [inView]);
-
-  const handleSlideChange = (index: number) => {
-    setCurrentSlide(index);
-
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-      intervalRef.current = setInterval(() => {
-        setCurrentSlide((prevSlide) => (prevSlide === TOTAL_SLIDES_QTY ? 1 : prevSlide + 1));
-      }, ANIMATION_DURATION);
-    }
+      }
+    });
   };
 
-  const variants = {
-    hidden: {
-      opacity: 0,
-    },
-    visible: {
-      opacity: 1,
-    },
+  const resetInterval = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+
+    intervalRef.current = setInterval(() => {
+      setCurrentSlide((prevSlide) => (prevSlide % TOTAL_SLIDES_QTY) + 1);
+    }, ANIMATION_DURATION);
   };
 
   return (
@@ -106,11 +109,10 @@ function Potential() {
               <m.div
                 className="relative mt-auto md:mt-11 sm:mt-9"
                 key={currentSlide}
-                initial="hidden"
-                animate={inView ? 'visible' : 'hidden'}
-                exit="hidden"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
-                variants={variants}
               >
                 <Section {...sections[currentSlide - 1]} />
               </m.div>
@@ -129,17 +131,12 @@ function Potential() {
                       <li
                         className="h-2 w-[72px] cursor-pointer overflow-hidden rounded-[10px] bg-gray-80"
                         key={index}
-                        onClick={() => handleSlideChange(index + 1)}
+                        onClick={() => setCurrentSlide(index + 1)}
                       >
                         <span
-                          className={clsx(
-                            'block h-full w-full origin-left bg-black',
-                            currentSlide === index + 1 ? 'scale-x-100' : 'scale-x-0',
-                          )}
-                          style={{
-                            transition: currentSlide === index + 1 ? `transform` : 'none',
-                            transitionDuration:
-                              currentSlide === index + 1 ? `${ANIMATION_DURATION}ms` : 'none',
+                          className="block h-full w-full origin-left scale-x-0 bg-black"
+                          ref={(el) => {
+                            progressBarRefs.current[index] = el;
                           }}
                         />
                       </li>
