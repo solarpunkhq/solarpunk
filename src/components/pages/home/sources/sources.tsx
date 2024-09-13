@@ -3,9 +3,9 @@
 import { Route } from 'next';
 import Image from 'next/image';
 
-import { useRef } from 'react';
+import { useInView } from 'react-intersection-observer';
 
-import { LazyMotion, domAnimation, m, useInView } from 'framer-motion';
+import { LazyMotion, domAnimation, m } from 'framer-motion';
 
 import bg from '@/images/sources/sources.jpg';
 
@@ -95,8 +95,10 @@ const contentVariants = {
 };
 
 function Sources() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-200px 0px' });
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.8,
+  });
 
   return (
     <LazyMotion features={domAnimation}>
@@ -108,14 +110,14 @@ function Sources() {
                 key={index}
                 custom={index}
                 initial="hidden"
-                animate={isInView ? 'visible' : 'hidden'}
+                animate={inView ? 'visible' : 'hidden'}
                 variants={variants}
                 className="relative flex flex-col overflow-hidden rounded-xl bg-[url('/images/pages/home/sources/noise.png')] bg-center bg-repeat p-8 shadow-sources-card lg:p-6 md:col-span-full md:min-h-[300px] md:flex-row sm:flex-col"
               >
                 <m.div
                   custom={index}
                   initial="hidden"
-                  animate={isInView ? 'visible' : 'hidden'}
+                  animate={inView ? 'visible' : 'hidden'}
                   variants={contentVariants}
                 >
                   <CardContent {...item} />

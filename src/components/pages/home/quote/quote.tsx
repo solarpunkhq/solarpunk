@@ -8,7 +8,7 @@ function Quote() {
   const secondHighlightRef = useRef<HTMLSpanElement | null>(null);
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.6,
+    threshold: 1,
   });
 
   useEffect(() => {
