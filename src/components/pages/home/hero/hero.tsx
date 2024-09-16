@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 import PauseableVideo from '@/components/shared/pauseable-video/pauseable-video';
-import SubscribeForm from '@/components/shared/subscribe-form';
+import SearchForm from '@/components/shared/search-form';
 
 import stickerImage from '@/images/hero/sticker.png';
 
@@ -17,7 +17,7 @@ function Hero() {
           <p className="mt-3.5 max-w-[480px] text-24 font-normal leading-tight lg:max-w-[430px] lg:text-20 md:max-w-[380px] md:text-18 sm:text-16">
             Accelerate global transition to renewable energy while capitalizing on your acres.
           </p>
-          <SubscribeForm className="mt-16 md:mt-[50px]" />
+          <SearchForm className="mt-16 md:mt-[49px]" />
         </div>
         <Image
           className="z-10 ml-auto mr-32 mt-[267px] rounded-lg shadow-mission-sticker lg:mr-0 lg:mt-[120px] md:mt-[280px] sm:mt-[169px] sm:h-[60px] sm:w-[78px]"
