@@ -125,20 +125,3 @@
     background-position: 50% 50%;
   }
 }
-
-/* Necessary for correct rendering in Chrome */
-[data-animation] {
-  animation: var(--animn, slide) var(--animdur, 7s) var(--animtf, linear) var(--animdel, 0s)
-    var(--animfm, none) var(--animps, paused);
-  transform-origin: left;
-  animation-iteration-count: 1;
-}
-
-@keyframes slide {
-  from {
-    transform: scaleX(0);
-  }
-  to {
-    transform: scaleX(1);
-  }
-}

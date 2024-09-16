@@ -57,25 +57,6 @@ function Potential() {
     threshold: 0.4,
   });
 
-  const startProgressBarAnimation = useCallback(
-    (slideNumber: number) => {
-      progressBarRefs.current.forEach((progressBarRef, index) => {
-        if (!progressBarRef) {
-          return;
-        }
-
-        if (index === slideNumber - 1) {
-          progressBarRef.style.transition = `transform ${ANIMATION_DURATION + 'ms'} linear`;
-          progressBarRef.style.transform = 'scaleX(1)';
-        } else {
-          progressBarRef.style.transition = 'none';
-          progressBarRef.style.transform = 'scaleX(0)';
-        }
-      });
-    },
-    [progressBarRefs],
-  );
-
   useEffect(() => {
     if (!inView || isAnimationMounted) {
       return;
@@ -97,7 +78,6 @@ function Potential() {
   useEffect(() => {
     if (inView) {
       startSlideChange();
-      startProgressBarAnimation(currentSlide);
     }
 
     return () => {
@@ -105,7 +85,7 @@ function Potential() {
         clearInterval(intervalRef.current);
       }
     };
-  }, [currentSlide, inView, startSlideChange, startProgressBarAnimation]);
+  }, [currentSlide, inView, startSlideChange]);
 
   return (
     <LazyMotion features={domAnimation}>
@@ -155,7 +135,8 @@ function Potential() {
                         <span
                           className={clsx(
                             'block h-full w-full origin-left scale-x-0 bg-black',
-                            inView && index === currentSlide - 1
+                            index !== currentSlide - 1 && '[animation:none]',
+                            inView
                               ? '[animation-play-state:running]'
                               : '[animation-play-state:paused]',
                           )}

@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import PauseableVideo from '@/components/shared/pauseable-video/pauseable-video';
+import PauseableVideo from '@/components/shared/pauseable-video';
 import SearchForm from '@/components/shared/search-form';
 
 import stickerImage from '@/images/hero/sticker.png';
