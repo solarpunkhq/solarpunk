@@ -17,7 +17,7 @@ function Animation({ src, className }: { src: string; className?: string }) {
     stateMachines: 'SM',
     layout: new Layout({
       fit: Fit['Cover'],
-      alignment: Alignment['Center'],
+      alignment: Alignment['TopCenter'],
     }),
     onLoad: () => {
       riveInstance?.resizeDrawingSurfaceToCanvas();

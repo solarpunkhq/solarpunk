@@ -19,7 +19,7 @@ function Section({ title, description, buttonText, buttonLink }: SectionType) {
         {description}
       </p>
       <Button
-        className="group mt-[26px] self-start md:mt-6 sm:mt-5"
+        className="group mt-[26px] self-start md:mt-6 sm:mt-5 sm:gap-0.5"
         size="sm"
         theme="black"
         href={buttonLink}

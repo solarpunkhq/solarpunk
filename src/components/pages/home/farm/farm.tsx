@@ -26,8 +26,8 @@ const items = [
 
 function Farm() {
   return (
-    <section className="farm mb-[220px] mt-[219px] px-safe lg:mb-[157px] lg:mt-40 md:mb-[138px] md:mt-[133px] sm:mb-[104px] sm:mt-[103px]">
-      <div className="container flex max-w-[1408px] justify-between lg:gap-x-8 md:max-w-lg md:flex-col md:items-center md:gap-y-10 sm:gap-y-9">
+    <section className="farm mb-[220px] mt-[219px] px-safe lg:mb-[157px] lg:mt-40 md:mb-[135px] md:mt-[136px] sm:mb-[106px] sm:mt-[103px]">
+      <div className="container flex max-w-[1408px] justify-between lg:gap-x-8 md:max-w-lg md:flex-col md:items-center md:gap-y-11 sm:gap-y-9">
         <div className="flex max-w-xl flex-col">
           <h2 className="fs-64 font-title leading-none text-gray-20 lg:text-52 md:text-48 sm:text-36">
             Your farm is capable of so much more
@@ -36,18 +36,18 @@ function Farm() {
             Solar panels provide partial shade to the crops below, creating a microclimate that
             potentially extends growing seasons.
           </p>
-          <ul className="relative mb-0.5 mt-auto md:mt-11 sm:mt-[38px]">
+          <ul className="relative mt-auto md:mt-[41px] sm:mt-[38px]">
             {items.map(({ text, icon: Icon }, index) => {
               return (
                 <li
                   className={clsx(
-                    'flex items-center gap-x-7 border-t py-8 lg:gap-x-[23px] lg:py-7 md:py-5',
+                    'flex items-center gap-x-7 border-t pb-[31px] pt-8 lg:gap-x-[23px] lg:py-7 md:py-5',
                     index === items.length - 1 && 'border-b',
                   )}
                   key={index}
                 >
                   <div className="shrink-0">
-                    <IconWrapper className="w-[56px] lg:h-12 lg:w-12 sm:h-11 sm:w-11">
+                    <IconWrapper className="w-14 md:h-12 md:w-12 sm:h-11 sm:w-11">
                       <Icon />
                     </IconWrapper>
                   </div>

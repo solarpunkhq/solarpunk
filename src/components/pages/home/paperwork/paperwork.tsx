@@ -8,7 +8,7 @@ import clsx from 'clsx';
 
 import Link from '@/components/shared/link';
 
-import ArrowIcon from '@/svgs/icons/arrow.inline.svg';
+import ArrowIcon from '@/svgs/icons/down-arrow.inline.svg';
 import PixelArrowIcon from '@/svgs/icons/pixel-arrow.inline.svg';
 
 import { Animation } from './animation';
@@ -23,7 +23,7 @@ const animations = {
   dual: {
     src: '/animations/pages/home/paperwork/dual.riv',
     className:
-      '2xs:[&_canvas]:relative 2xs:[&_canvas]:!w-[80%] 2xs:[&_canvas]:!h-[80%] 2xs:[&_canvas]:!left-1/2 2xs:[&_canvas]:!top-[8%] 2xs:[&_canvas]:!-translate-x-1/2',
+      'lg:[&_canvas]:!h-[89%] lg:[&_canvas]:!w-[89%] lg:[&_canvas]:!left-1/2 lg:[&_canvas]:!-translate-x-1/2 lg:[&_canvas]:relative lg:[&_canvas]:!top-[7%] md:[&_canvas]:!h-[98%] md:[&_canvas]:!w-[98%] md:[&_canvas]:!-top-[5%] md:[&_canvas]:!-translate-x-[47%] 2xs:[&_canvas]:relative 2xs:[&_canvas]:!w-[70%] 2xs:[&_canvas]:!h-[70%] 2xs:[&_canvas]:!left-[49%] 2xs:[&_canvas]:!top-[8%] 2xs:[&_canvas]:!-translate-x-1/2',
   },
 };
 
@@ -45,7 +45,7 @@ function Paperwork() {
   });
 
   return (
-    <section className="paperwork mt-36 px-safe lg:mt-[121px] md:mt-[88px] sm:mt-20" ref={ref}>
+    <section className="paperwork mt-36 px-safe lg:mt-[119px] md:mt-[88px] sm:mt-20" ref={ref}>
       <div className="container">
         <h2 className="fs-64 max-w-[1120px] font-title font-normal leading-[1.05] tracking-[-0.045em] text-gray-20 md:inline sm:block">
           We&apos;re here to support your solar ambitions.
@@ -55,15 +55,15 @@ function Paperwork() {
         </p>
         <div className="mt-12 flex items-center justify-between gap-8 lg:mt-11 md:mt-[38px] md:flex-col md:gap-6 sm:gap-5">
           <Card>
-            <div className="fs-20 z-10 flex gap-x-8 gap-y-1 font-semibold lg:flex-col md:flex-row sm:flex-col">
+            <div className="fs-20 z-10 -ml-1.5 flex gap-x-8 gap-y-1 font-semibold lg:ml-0 lg:flex-col md:flex-row md:gap-x-[34px] sm:flex-col">
               {links.map(({ text, to }, index) => {
                 return (
                   <Link
-                    className="group flex items-center gap-1.5 leading-snug"
+                    className="group flex items-center gap-2.5 leading-snug lg:gap-3 md:gap-2.5"
                     href={to}
                     key={index}
                   >
-                    <ArrowIcon className="w-5 rotate-90 fill-gray-20 transition-all duration-100 group-hover:rotate-[90]" />
+                    <ArrowIcon className="w-3.5 fill-gray-20 transition-all duration-100 group-hover:rotate-[90]" />
                     <span>{text}</span>
                   </Link>
                 );

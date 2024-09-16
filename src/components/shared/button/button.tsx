@@ -14,8 +14,8 @@ const styles = {
   base: 'group font-medium rounded-full inline-flex items-center outline-none relative justify-center tracking-tight',
   size: {
     xs: 'text-14 px-[15px] h-7',
-    sm: 'text-16 pl-[18px] pr-4 h-[35px]',
-    md: 'text-20 pl-[22px] md:text-18 sm:text-16 pr-5 h-[47px] sm:h-10',
+    sm: 'text-16 pl-3.5 pr-4 h-[35px]',
+    md: 'text-20 pl-5 md:text-18 sm:text-16 pr-[19px] h-[47px] sm:h-10 md:h-11',
   },
   theme: {
     white: 'bg-white text-gray-20',
@@ -74,7 +74,7 @@ function Button({
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           className={clsx(
-            'ml-2.5 w-3.5 transition-[transform,color] duration-200 ease-linear group-hover:-translate-y-0.5 group-hover:translate-x-0.5',
+            'ml-2.5 w-[13px] transition-[transform,color] duration-200 ease-linear group-hover:-translate-y-0.5 group-hover:translate-x-0.5 sm:ml-[7px]',
             theme === 'black' ? 'text-white' : 'text-current',
           )}
         >
