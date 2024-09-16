@@ -103,7 +103,7 @@ function Sources() {
   return (
     <LazyMotion features={domAnimation}>
       <section className="sources relative px-safe" ref={ref}>
-        <ul className="container grid max-w-[1376px] grid-cols-3 gap-[30px] py-60 text-white lg:gap-6 lg:pb-[176px] lg:pt-[168px] md:max-w-[706px] md:py-[88px] sm:gap-5 sm:py-16">
+        <ul className="container grid max-w-[1376px] grid-cols-3 gap-[30px] py-60 text-white lg:gap-6 lg:pb-44 lg:pt-[168px] md:max-w-[706px] md:py-[88px] sm:gap-5 sm:py-16">
           {cards.map((item, index) => {
             return (
               <m.li
@@ -112,13 +112,14 @@ function Sources() {
                 initial="hidden"
                 animate={inView ? 'visible' : 'hidden'}
                 variants={variants}
-                className="relative flex flex-col overflow-hidden rounded-xl bg-black/10 bg-[url('/images/pages/home/sources/noise.png')] bg-center bg-repeat p-8 shadow-sources-card lg:p-6 md:col-span-full md:min-h-[300px] md:flex-row sm:flex-col"
+                className="relative overflow-hidden rounded-xl bg-black/10 bg-[url('/images/pages/home/sources/noise.png')] bg-center bg-repeat p-8 shadow-sources-card lg:p-6 md:col-span-full"
               >
                 <m.div
                   custom={index}
                   initial="hidden"
                   animate={inView ? 'visible' : 'hidden'}
                   variants={contentVariants}
+                  className="flex flex-col md:min-h-[252px] md:flex-row sm:flex-col"
                 >
                   <CardContent {...item} />
                 </m.div>

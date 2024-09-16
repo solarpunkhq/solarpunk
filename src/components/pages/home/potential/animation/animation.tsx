@@ -2,16 +2,18 @@
 
 import { useEffect } from 'react';
 
-import {
-  Alignment,
-  Fit,
-  Layout, // Rive,
-  useRive,
-  useStateMachineInput,
-} from '@rive-app/react-canvas';
+import { Alignment, Fit, Layout, useRive, useStateMachineInput } from '@rive-app/react-canvas';
 import clsx from 'clsx';
 
-function Animation({ className, slideNumber }: { className: string; slideNumber: number }) {
+function Animation({
+  className,
+  slideNumber,
+  isPlaying,
+}: {
+  className: string;
+  slideNumber: number;
+  isPlaying: boolean;
+}) {
   const riveAnimationProps = {
     src: '/animations/pages/home/potential/slider.riv',
     autoplay: true,
@@ -25,6 +27,14 @@ function Animation({ className, slideNumber }: { className: string; slideNumber:
   const { rive, RiveComponent } = useRive(riveAnimationProps);
 
   const slideInput = useStateMachineInput(rive, 'SM', 'slide');
+
+  useEffect(() => {
+    if (isPlaying) {
+      rive?.play();
+    } else {
+      rive?.pause();
+    }
+  }, [isPlaying]);
 
   useEffect(() => {
     if (slideInput) {

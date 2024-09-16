@@ -2,9 +2,10 @@
 
 import { Route } from 'next';
 
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
+import clsx from 'clsx';
 import { AnimatePresence, LazyMotion, domAnimation, m } from 'framer-motion';
 
 import Animation from './animation';
@@ -44,43 +45,46 @@ const sections = [
   },
 ];
 
+const slidesQty = new Array(TOTAL_SLIDES_QTY).fill(1);
+
 function Potential() {
+  const [isAnimationMounted, setIsAnimationMounted] = useState(false);
   const [currentSlide, setCurrentSlide] = useState<number>(1);
   const progressBarRefs = useRef<(HTMLSpanElement | null)[]>([]);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.7,
+    triggerOnce: false,
+    threshold: 0.4,
   });
 
-  useEffect(() => {
-    if (inView) {
-      startProgressBarAnimation();
-      resetInterval();
-    }
+  const startProgressBarAnimation = useCallback(
+    (slideNumber: number) => {
+      progressBarRefs.current.forEach((progressBarRef, index) => {
+        if (!progressBarRef) {
+          return;
+        }
 
-    return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
-    };
-  }, [currentSlide, inView]);
-
-  const startProgressBarAnimation = () => {
-    progressBarRefs.current.forEach((progressBarRef, index) => {
-      if (progressBarRef) {
-        if (index + 1 === currentSlide) {
+        if (index === slideNumber - 1) {
           progressBarRef.style.transition = `transform ${ANIMATION_DURATION + 'ms'} linear`;
           progressBarRef.style.transform = 'scaleX(1)';
         } else {
           progressBarRef.style.transition = 'none';
           progressBarRef.style.transform = 'scaleX(0)';
         }
-      }
-    });
-  };
+      });
+    },
+    [progressBarRefs],
+  );
 
-  const resetInterval = () => {
+  useEffect(() => {
+    if (!inView || isAnimationMounted) {
+      return;
+    }
+
+    setIsAnimationMounted(true);
+  }, [inView, isAnimationMounted]);
+
+  const startSlideChange = useCallback(() => {
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
     }
@@ -88,7 +92,20 @@ function Potential() {
     intervalRef.current = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide % TOTAL_SLIDES_QTY) + 1);
     }, ANIMATION_DURATION);
-  };
+  }, [intervalRef]);
+
+  useEffect(() => {
+    if (inView) {
+      startSlideChange();
+      startProgressBarAnimation(currentSlide);
+    }
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [currentSlide, inView, startSlideChange, startProgressBarAnimation]);
 
   return (
     <LazyMotion features={domAnimation}>
@@ -96,15 +113,16 @@ function Potential() {
         className="potential mt-[200px] px-safe xl:mt-[135px] md:mt-[125px] sm:mt-[116px]"
         ref={ref}
       >
-        <div className="container flex min-h-[760px] justify-between gap-x-8 xl:max-w-5xl md:max-w-lg md:flex-col md:items-center md:gap-y-11 sm:gap-y-10">
-          <div className="flex max-w-[640px] flex-col pb-12 pt-6 xl:pb-5 xl:pt-0 md:pb-0">
-            <h2 className="max-w-[540px] font-title text-56 leading-[1.1] tracking-tight text-gray-20 xl:max-w-[420px] xl:text-48 md:text-40 sm:max-w-[289px] sm:text-32">
+        <div className="container flex justify-between gap-x-8 lg:items-end md:max-w-lg md:flex-col md:items-center md:gap-y-11 sm:gap-y-10">
+          <div className="flex max-w-[640px] flex-col pb-12 pt-6 xl:pb-5 xl:pt-0 lg:min-h-[519px] lg:pb-0 md:min-h-[auto]">
+            <h2 className="max-w-[540px] font-title text-56 leading-[1.1] tracking-tight text-gray-20 xl:text-48 md:text-40 sm:max-w-[289px] sm:text-32">
               Discover your farm&apos;s full potential
             </h2>
             <p className="mt-[19px] max-w-[540px] text-25 leading-snug tracking-tighter text-gray-40 xl:text-20 md:mt-[18px] md:text-18 sm:mt-4 sm:text-16">
               Transform your fields with solar technology, fostering a thriving environment that
               supports longer and healthier crop cycles.
             </p>
+
             <AnimatePresence mode="wait">
               <m.div
                 className="relative mt-auto md:mt-11 sm:mt-9"
@@ -119,25 +137,32 @@ function Potential() {
             </AnimatePresence>
           </div>
           <div className="mr-16 xl:mr-0 sm:w-full">
-            {inView && (
+            {isAnimationMounted && (
               <>
                 <Animation
-                  className="aspect-square w-[736px] overflow-hidden rounded-[10px] border border-[#6B8547] border-opacity-20 xl:w-[480px] md:w-[448px] sm:w-full"
+                  className="aspect-square w-full max-w-[736px] overflow-hidden rounded-[10px] border border-[#6B8547] border-opacity-20 lg:w-[480px] md:w-[448px] sm:w-full"
                   slideNumber={currentSlide}
+                  isPlaying={inView}
                 />
                 <ul className="mt-5 flex items-center justify-center gap-4 xl:mt-4">
-                  {[...Array(TOTAL_SLIDES_QTY)].map((_, index) => {
+                  {slidesQty.map((_, index) => {
                     return (
                       <li
-                        className="h-1 w-[72px] cursor-pointer overflow-hidden rounded-[10px] bg-gray-80"
+                        className="h-1 w-[72px] cursor-pointer overflow-hidden rounded-[10px] bg-gray-80 transition-[transform] duration-200 hover:scale-y-[200%]"
                         key={index}
                         onClick={() => setCurrentSlide(index + 1)}
                       >
                         <span
-                          className="block h-full w-full origin-left scale-x-0 bg-black"
+                          className={clsx(
+                            'block h-full w-full origin-left scale-x-0 bg-black',
+                            inView && index === currentSlide - 1
+                              ? '[animation-play-state:running]'
+                              : '[animation-play-state:paused]',
+                          )}
                           ref={(el) => {
                             progressBarRefs.current[index] = el;
                           }}
+                          data-animation
                         />
                       </li>
                     );
