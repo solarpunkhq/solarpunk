@@ -10,13 +10,13 @@ import logo from '@/svgs/logo.svg';
 
 function Footer() {
   return (
-    <footer className="relative py-[26px] px-safe pb-safe-or-10">
+    <footer className="relative py-[26px] px-safe">
       <nav className="container flex h-full items-center justify-between gap-2 sm:flex-col sm:items-start sm:gap-7">
         <Link className="" href={ROUTE.index}>
           <Image src={logo} width={115} height={26} alt="" />
           <span className="sr-only">Solurpunk</span>
         </Link>
-        <ul className="flex items-center justify-between gap-x-8 uppercase leading-none sm:grid sm:grid-cols-2 sm:gap-x-[70px] sm:gap-y-2">
+        <ul className="ml-9 flex items-center justify-between gap-x-8 uppercase leading-none lg:ml-7 md:-ml-[15px] sm:ml-0 sm:grid sm:grid-cols-2 sm:gap-x-[70px] sm:gap-y-2">
           {MENUS.footer.main.map(({ label, href }, index) => {
             return (
               <li key={index}>
@@ -32,7 +32,12 @@ function Footer() {
             );
           })}
         </ul>
-        <Button className="shrink-0 sm:hidden" theme="black" size="xs" href={ROUTE.index}>
+        <Button
+          className="mr-[7px] shrink-0 lg:mr-0 sm:hidden"
+          theme="black"
+          size="xs"
+          href={ROUTE.index}
+        >
           Contact us
         </Button>
       </nav>

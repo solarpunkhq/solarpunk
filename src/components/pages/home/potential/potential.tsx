@@ -90,7 +90,7 @@ function Potential() {
   return (
     <LazyMotion features={domAnimation}>
       <section
-        className="potential mt-[200px] px-safe xl:mt-[135px] md:mt-[125px] sm:mt-[116px]"
+        className="potential mt-[200px] px-safe xl:mt-[137px] md:mt-[125px] sm:mt-[116px]"
         ref={ref}
       >
         <div className="container flex justify-between gap-x-8 lg:items-end md:max-w-lg md:flex-col md:items-center md:gap-y-11 sm:gap-y-10">

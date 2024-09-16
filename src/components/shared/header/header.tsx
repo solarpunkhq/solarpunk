@@ -28,10 +28,15 @@ function Header() {
             <Image src={logo} width={115} height={26} alt="" priority />
             <span className="sr-only">Solarpunk</span>
           </Link>
-          <ul className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 gap-x-4 !font-semibold uppercase md:hidden">
+          <ul className="absolute left-1/2 top-1/2 ml-[22px] flex -translate-x-1/2 -translate-y-1/2 gap-x-4 uppercase lg:ml-0 md:hidden">
             {MENUS.header.map(({ label, href }, index) => (
               <li key={index}>
-                <Link className="p-2" size="xs" theme="black" href={href}>
+                <Link
+                  className="p-2 font-semibold tracking-wide"
+                  size="xs"
+                  theme="black"
+                  href={href}
+                >
                   {label}
                 </Link>
               </li>
