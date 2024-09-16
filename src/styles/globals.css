@@ -19,6 +19,10 @@
     @apply mx-auto w-full max-w-[1600px] px-8 lg:max-w-[1024px] md:max-w-[768px] sm:max-w-full sm:px-5;
   }
 
+  .container-wide {
+    @apply mx-auto w-full max-w-[1600px] px-8 sm:max-w-full sm:px-5;
+  }
+
   .gap-x-grid {
     @apply gap-x-10;
   }
