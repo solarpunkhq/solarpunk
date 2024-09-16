@@ -94,11 +94,11 @@ function Potential() {
         ref={ref}
       >
         <div className="container flex justify-between gap-x-8 lg:items-end md:max-w-lg md:flex-col md:items-center md:gap-y-11 sm:gap-y-10">
-          <div className="flex max-w-[640px] flex-col pb-12 pt-6 xl:pb-5 xl:pt-0 lg:min-h-[519px] lg:pb-0 md:min-h-[auto]">
-            <h2 className="max-w-[540px] font-title text-56 leading-[1.1] tracking-tight text-gray-20 xl:text-48 md:text-40 sm:max-w-[289px] sm:text-32">
+          <div className="flex max-w-[640px] flex-col pb-12 pt-6 xl:pb-5 xl:pt-0 lg:min-h-[519px] lg:max-w-[450px] lg:pb-0 md:min-h-[auto]">
+            <h2 className="max-w-[540px] font-title text-56 leading-[1.1] tracking-tight text-gray-20 lg:text-48 md:text-40 sm:max-w-[289px] sm:text-32">
               Discover your farm&apos;s full potential
             </h2>
-            <p className="mt-[19px] max-w-[540px] text-25 leading-snug tracking-tighter text-gray-40 xl:text-20 md:mt-[18px] md:text-18 sm:mt-4 sm:text-16">
+            <p className="mt-[19px] max-w-[540px] text-25 leading-snug tracking-tighter text-gray-40 lg:text-20 md:mt-[18px] md:text-18 sm:mt-4 sm:text-16">
               Transform your fields with solar technology, fostering a thriving environment that
               supports longer and healthier crop cycles.
             </p>
@@ -120,7 +120,7 @@ function Potential() {
             {isAnimationMounted && (
               <>
                 <Animation
-                  className="aspect-square w-full max-w-[736px] overflow-hidden rounded-[10px] border border-[#6B8547] border-opacity-20 lg:w-[480px] md:w-[448px] sm:w-full"
+                  className="aspect-square w-[736px] overflow-hidden rounded-[10px] border border-[#6B8547] border-opacity-20 xl:w-[700px] lg:w-[480px] md:w-[448px] sm:w-full"
                   slideNumber={currentSlide}
                   isPlaying={inView}
                 />

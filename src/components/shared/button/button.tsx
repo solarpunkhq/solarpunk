@@ -13,7 +13,7 @@ const styles = {
   transition: 'transition-colors duration-300',
   base: 'group font-medium rounded-full inline-flex items-center outline-none relative justify-center tracking-tight',
   size: {
-    xs: 'text-14 px-[18px] h-7',
+    xs: 'text-14 px-[15px] h-7',
     sm: 'text-16 pl-[18px] pr-4 h-[35px]',
     md: 'text-20 pl-[22px] md:text-18 sm:text-16 pr-5 h-[47px] sm:h-10',
   },

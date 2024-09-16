@@ -26,7 +26,7 @@ const items = [
 
 function Farm() {
   return (
-    <section className="farm mb-[220px] mt-[219px] px-safe lg:mb-[157px] lg:mt-40 md:mb-[136px] md:mt-[133px] sm:mb-[104px] sm:mt-[103px]">
+    <section className="farm mb-[220px] mt-[219px] px-safe lg:mb-[157px] lg:mt-40 md:mb-[138px] md:mt-[133px] sm:mb-[104px] sm:mt-[103px]">
       <div className="container flex max-w-[1408px] justify-between lg:gap-x-8 md:max-w-lg md:flex-col md:items-center md:gap-y-10 sm:gap-y-9">
         <div className="flex max-w-xl flex-col">
           <h2 className="fs-64 font-title leading-none text-gray-20 lg:text-52 md:text-48 sm:text-36">
