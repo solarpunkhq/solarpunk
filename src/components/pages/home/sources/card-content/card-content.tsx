@@ -1,4 +1,5 @@
 import { Route } from 'next';
+import Image, { StaticImageData } from 'next/image';
 
 import Button from '@/components/shared/button';
 
@@ -11,6 +12,7 @@ interface CardProps {
   text: string;
   buttonText: string;
   buttonUrl: Route<string>;
+  blurImg: StaticImageData;
 }
 
 function CardContent({
@@ -22,6 +24,7 @@ function CardContent({
   text,
   buttonText,
   buttonUrl,
+  blurImg,
 }: CardProps) {
   return (
     <>
@@ -50,6 +53,13 @@ function CardContent({
         </Button>
       </div>
       <span className="border-linear pointer-events-none absolute inset-0 rounded-xl bg-sources-card-border opacity-[0.47]" />
+      <Image
+        className="absolute inset-0 -z-10 h-full w-full object-cover object-center"
+        src={blurImg}
+        width={612}
+        height={750}
+        alt=""
+      />
     </>
   );
 }

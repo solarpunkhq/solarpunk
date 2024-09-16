@@ -7,6 +7,9 @@ import { useInView } from 'react-intersection-observer';
 
 import { LazyMotion, domAnimation, m } from 'framer-motion';
 
+import bgBlurCard1 from '@/images/sources/bg-blur-1-card.png';
+import bgBlurCard2 from '@/images/sources/bg-blur-2-card.png';
+import bgBlurCard3 from '@/images/sources/bg-blur-3-card.png';
 import bg from '@/images/sources/sources.jpg';
 
 import CardContent from './card-content';
@@ -22,6 +25,7 @@ const cards = [
     text: 'Agrivoltaics, putting agriculture under solar installations, is a good way to maximize land use. It also makes the solar panels last longer.',
     buttonText: 'Go to source',
     buttonUrl: '/' as Route<string>,
+    blurImg: bgBlurCard1,
   },
   {
     title: 'AGRIVOLTAIC',
@@ -32,6 +36,7 @@ const cards = [
     buttonText: 'Go to source',
     text: 'Agrivoltaic farming is the practice of growing crops underneath solar panels. Scientific studies show some crops thrive when grown in this way.',
     buttonUrl: '/' as Route<string>,
+    blurImg: bgBlurCard2,
   },
   {
     title: 'SHADED',
@@ -43,6 +48,7 @@ const cards = [
     description:
       'How food crops thrive and flourish in the beneficial shade provided by solar energy panels.',
     buttonUrl: '/' as Route<string>,
+    blurImg: bgBlurCard3,
   },
 ];
 
@@ -112,7 +118,7 @@ function Sources() {
                 initial="hidden"
                 animate={inView ? 'visible' : 'hidden'}
                 variants={variants}
-                className="relative overflow-hidden rounded-xl bg-black/10 bg-[url('/images/pages/home/sources/noise.png')] bg-center bg-repeat p-8 shadow-sources-card lg:p-6 md:col-span-full"
+                className="relative overflow-hidden rounded-xl bg-[url('/images/pages/home/sources/noise.png')] bg-sources-card-bg bg-center bg-repeat p-8 shadow-sources-card lg:p-6 md:col-span-full"
               >
                 <m.div
                   custom={index}
