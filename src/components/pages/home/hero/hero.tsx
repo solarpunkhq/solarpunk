@@ -7,14 +7,14 @@ import stickerImage from '@/images/hero/sticker.png';
 
 function Hero() {
   return (
-    <section className="hero relative mt-[56px] pb-14 pt-[144px] px-safe lg:pb-[47px] md:pb-[39px] sm:mt-[42px] sm:pb-8 sm:pt-[158px]">
+    <section className="hero relative mt-14 pb-14 pt-36 px-safe lg:pb-[47px] md:pb-[39px] sm:mt-[42px] sm:pb-8 sm:pt-[158px]">
       <div className="container">
         <div className="flex max-w-[726px] flex-col text-white">
           <h1 className="font-title text-[104px] font-medium leading-[0.9] tracking-snug lg:text-[88px] md:text-64 sm:text-44">
             Covering farms <br />
             with solar panels
           </h1>
-          <p className="mt-3.5 max-w-[480px] text-24 font-normal leading-tight lg:max-w-[430px] lg:text-20 md:max-w-[380px] md:text-18 sm:text-16">
+          <p className="mt-3.5 max-w-[480px] text-24 font-normal leading-tight lg:max-w-[430px] lg:text-20 md:max-w-[380px] md:text-18 sm:max-w-[360px] sm:text-16">
             Accelerate global transition to renewable energy while capitalizing on your acres.
           </p>
           <SearchForm className="mt-16 md:mt-[49px]" />
