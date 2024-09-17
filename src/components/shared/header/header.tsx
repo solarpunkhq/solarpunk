@@ -25,7 +25,7 @@ function Header() {
           aria-label="Global"
         >
           <Link href={ROUTE.index}>
-            <Image src={logo} width={115} height={26} alt="" priority />
+            <Image className="sm:w-[106px]" src={logo} width={115} height={26} alt="" priority />
             <span className="sr-only">Solarpunk</span>
           </Link>
           <nav className="absolute left-1/2 top-1/2 ml-[22px] -translate-x-1/2 -translate-y-1/2 lg:ml-0 md:hidden">

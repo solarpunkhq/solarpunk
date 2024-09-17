@@ -45,7 +45,7 @@ function Farm() {
                 >
                   <div className="shrink-0">
                     <IconAnimation
-                      className="h-[56px] w-[56px] lg:h-12 lg:w-12 sm:h-11 sm:w-11"
+                      className="h-[56px] w-[56px] md:h-12 md:w-12 sm:h-11 sm:w-11"
                       artboard={artboard}
                     />
                   </div>
