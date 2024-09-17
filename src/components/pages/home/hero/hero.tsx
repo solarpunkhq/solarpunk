@@ -43,7 +43,7 @@ function Hero() {
         </PauseableVideo>
       </div>
       <div className="hero-noise absolute bottom-0 left-0 right-0 top-0 -z-10 bg-[url('/images/pages/home/sources/noise.png')] bg-repeat opacity-10" />
-      <span className="hero-shadow absolute bottom-0 left-0 right-0 top-0 -z-10 bg-hero-sm" />
+      <span className="hero-shadow absolute bottom-0 left-0 right-0 top-0 -z-10 hidden bg-hero-sm sm:block" />
     </section>
   );
 }
