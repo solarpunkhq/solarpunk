@@ -42,7 +42,8 @@ function Hero() {
           <source src="/videos/pages/home/hero/hero.webm" type="video/webm" />
         </PauseableVideo>
       </div>
-      <div className="absolute bottom-0 left-0 right-0 top-0 -z-10 bg-[url('/images/pages/home/sources/noise.png')] bg-repeat opacity-10" />
+      <div className="hero-noise absolute bottom-0 left-0 right-0 top-0 -z-10 bg-[url('/images/pages/home/sources/noise.png')] bg-repeat opacity-10" />
+      <span className="hero-shadow absolute bottom-0 left-0 right-0 top-0 -z-10 bg-hero-sm" />
     </section>
   );
 }

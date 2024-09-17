@@ -12,7 +12,7 @@ function CTA() {
     <section className="cta mt-60 px-safe xl:mt-[168px] md:mt-[136px] sm:mt-[104px]">
       <div className="container xl:max-w-5xl">
         <div className="flex items-center justify-between gap-8 md:flex-col md:gap-6 sm:gap-6">
-          <Card secondaryBg="bg-cta-card-bg">
+          <Card secondaryBg="bg-cta-card-bg sm:bg-cta-card-bg-sm">
             <h2 className="fs-48 font-title font-normal leading-[1.1] tracking-[-0.025em] text-white xl:text-40 md:max-w-[500px] md:text-32 sm:text-28">
               Deploy solar installations with Solarpunk in weeks, not&nbsp;years
             </h2>

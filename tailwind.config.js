@@ -94,6 +94,10 @@ module.exports = {
         'sun-icon-bg': 'linear-gradient(180deg, #FFDE6B 0%, #FF7511 117.52%)',
         'cta-card-bg':
           'linear-gradient(-20deg, rgba(15, 17, 14, 0.00) 58.27%, rgba(15, 17, 14, 0.54) 71.43%, rgba(15, 17, 14, 0.54) 81.9%, rgba(15, 17, 14, 0.60) 89.94%), linear-gradient(146deg, rgba(15, 17, 14, 0.00) 80.43%, rgba(15, 17, 14, 0.25) 86.19%, rgba(15, 17, 14, 0.51) 90.94%), linear-gradient(187deg, rgba(15, 17, 14, 0.00) 62.07%, rgba(15, 17, 14, 0.46) 75.4%, rgba(15, 17, 14, 0.51) 86.37%)',
+        'cta-card-bg-sm':
+          'linear-gradient(-20deg, rgba(15, 17, 14, 0.00) 58.27%, rgba(15, 17, 14, 0.54) 71.43%, rgba(15, 17, 14, 0.54) 81.9%, rgba(15, 17, 14, 0.60) 89.94%), linear-gradient(146deg, rgba(15, 17, 14, 0.00) 80.43%, rgba(15, 17, 14, 0.25) 86.19%, rgba(15, 17, 14, 0.51) 90.94%), linear-gradient(190deg, rgba(15, 17, 14, 0.1) 56.07%, rgb(15 17 14 / 51%) 75.4%, rgb(15 17 14 / 56%) 86.37%)',
+        'hero-sm':
+          'linear-gradient(146deg, rgba(15, 17, 14, 0.00) 62.4%, rgba(15, 17, 14, 0.10) 82.15%), linear-gradient(341deg, rgba(15, 17, 14, 0.00) 37.35%, rgba(15, 17, 14, 0.50) 51.02%, rgba(15, 17, 14, 0.50) 59.53%, rgba(15, 17, 14, 0.89) 91.15%)',
       }),
       boxShadow: {
         'sources-card': '0px 4px 20px 0px rgba(0, 0, 0, 0.08)',
