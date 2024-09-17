@@ -10,7 +10,7 @@ import { LazyMotion, domAnimation, m } from 'framer-motion';
 import bgBlurCard1 from '@/images/sources/bg-blur-1-card.png';
 import bgBlurCard2 from '@/images/sources/bg-blur-2-card.png';
 import bgBlurCard3 from '@/images/sources/bg-blur-3-card.png';
-import bg from '@/images/sources/sources.jpg';
+import sectionBg from '@/images/sources/sources.jpg';
 
 import CardContent from './card-content';
 
@@ -135,7 +135,7 @@ function Sources() {
         </ul>
         <Image
           className="absolute inset-0 -z-10 h-full w-full object-cover object-center"
-          src={bg}
+          src={sectionBg}
           width={1920}
           height={1104}
           alt=""

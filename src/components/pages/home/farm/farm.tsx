@@ -4,23 +4,20 @@ import clsx from 'clsx';
 
 import panelImage from '@/images/farm/panel.jpg';
 
-import { IconWrapper } from './icon-wrapper';
-import CerealsIcon from './icons/cereals-icon';
-import LeafsIcon from './icons/leafs-icon';
-import SlotIcon from './icons/slot-icon';
+import IconAnimation from './icon-animation';
 
 const items = [
   {
     text: 'Reduce reliance on fossil fuels and lower greenhouse gas emissions.',
-    icon: CerealsIcon,
+    artboard: 'icon-1',
   },
   {
     text: 'Install solar panels to earn revenue from solar energy and reduce energy costs.',
-    icon: LeafsIcon,
+    artboard: 'icon-2',
   },
   {
     text: 'Benefit from government incentives, grants, and tax credits for renewable energy projects. ',
-    icon: SlotIcon,
+    artboard: 'icon-3',
   },
 ];
 
@@ -37,7 +34,7 @@ function Farm() {
             potentially extends growing seasons.
           </p>
           <ul className="relative mt-auto md:mt-[41px] sm:mt-[38px]">
-            {items.map(({ text, icon: Icon }, index) => {
+            {items.map(({ text, artboard }, index) => {
               return (
                 <li
                   className={clsx(
@@ -47,9 +44,10 @@ function Farm() {
                   key={index}
                 >
                   <div className="shrink-0">
-                    <IconWrapper className="w-14 md:h-12 md:w-12 sm:h-11 sm:w-11">
-                      <Icon />
-                    </IconWrapper>
+                    <IconAnimation
+                      className="h-[56px] w-[56px] lg:h-12 lg:w-12 sm:h-11 sm:w-11"
+                      artboard={artboard}
+                    />
                   </div>
                   <p className="fs-20 pr-[74px] tracking-tight lg:pr-1 md:max-w-[368px] sm:pr-0 sm:text-16">
                     {text}
