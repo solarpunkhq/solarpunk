@@ -1,6 +1,5 @@
 import { ROUTE } from '@/constants/route';
 
-// FIXME: Add real data here
 export const SEO_DATA = {
   notFound: {
     title: 'Page Not Found - Solarpunk',
@@ -8,8 +7,9 @@ export const SEO_DATA = {
     pathname: '',
   },
   index: {
-    title: 'Home - Solarpunk',
-    description: 'Solarpunk',
+    title: 'Covering farms with solar panels',
+    description:
+      'Discover how Solarpunk integrates solar panels with farms, boosting energy production and crop yields with innovative agrivoltaics solutions.',
     pathname: ROUTE.index as string,
   },
 };
