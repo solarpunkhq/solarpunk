@@ -92,10 +92,12 @@ module.exports = {
         'sources-card-border':
           'conic-gradient( from 0deg, rgba(255, 255, 255, 0.47) 15%, rgba(255, 255, 255, 0.10) 24%, rgba(255, 255, 255, 1.00) 47%, rgba(255, 255, 255, 0.30) 71%, rgba(255, 255, 255, 0.10) 81%, rgba(255, 255, 255, 0.60) 100%)',
         'sun-icon-bg': 'linear-gradient(180deg, #FFDE6B 0%, #FF7511 117.52%)',
+        'cta-card-bg':
+          'linear-gradient(-20deg, rgba(15, 17, 14, 0.00) 58.27%, rgba(15, 17, 14, 0.54) 71.43%, rgba(15, 17, 14, 0.54) 81.9%, rgba(15, 17, 14, 0.60) 89.94%), linear-gradient(146deg, rgba(15, 17, 14, 0.00) 80.43%, rgba(15, 17, 14, 0.25) 86.19%, rgba(15, 17, 14, 0.51) 90.94%), linear-gradient(187deg, rgba(15, 17, 14, 0.00) 62.07%, rgba(15, 17, 14, 0.46) 75.4%, rgba(15, 17, 14, 0.51) 86.37%)',
       }),
       boxShadow: {
         'sources-card': '0px 4px 20px 0px rgba(0, 0, 0, 0.08)',
-        'sun-icon': '0px 0px 2px rgba(216, 143, 0, 0.48)',
+        'sun-icon': '0px 0px 8px 4px rgba(4, 4, 6, 1)',
         'mission-sticker': '0px 2px 4px 0px rgba(0, 0, 0, 0.20)',
       },
     },

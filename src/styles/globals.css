@@ -2,6 +2,7 @@
 @import './scrollbar-hidden';
 @import './icons';
 @import './arrows';
+@import './text-highight.css';
 
 @tailwind base;
 @tailwind components;
@@ -16,6 +17,10 @@
 @layer components {
   .container {
     @apply mx-auto w-full max-w-[1600px] px-8 lg:max-w-[1024px] md:max-w-[768px] sm:max-w-full sm:px-5;
+  }
+
+  .container-wide {
+    @apply mx-auto w-full max-w-[1600px] px-8 sm:max-w-full sm:px-5;
   }
 
   .gap-x-grid {
@@ -40,5 +45,21 @@
     @apply border border-transparent;
     mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
     mask-composite: exclude;
+  }
+
+  /* Necessary for correct rendering in Chrome */
+  [data-animation] {
+    animation: slide 7s linear none paused;
+    transform-origin: left;
+    animation-iteration-count: 1;
+  }
+
+  @keyframes slide {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
   }
 }

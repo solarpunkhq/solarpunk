@@ -1,4 +1,5 @@
 import { Route } from 'next';
+import Image, { StaticImageData } from 'next/image';
 
 import Button from '@/components/shared/button';
 
@@ -11,9 +12,10 @@ interface CardProps {
   text: string;
   buttonText: string;
   buttonUrl: Route<string>;
+  blurImg: StaticImageData;
 }
 
-function Card({
+function CardContent({
   title,
   subtitle,
   type,
@@ -22,10 +24,10 @@ function Card({
   text,
   buttonText,
   buttonUrl,
+  blurImg,
 }: CardProps) {
   return (
-    <li className="relative flex flex-col overflow-hidden rounded-xl bg-[url('/images/sources/noise.png')] bg-center bg-repeat p-8 shadow-sources-card backdrop-blur-3xl lg:p-6 md:col-span-full md:min-h-[300px] md:flex-row sm:flex-col">
-      <div className="absolute inset-0 rounded-xl bg-sources-card-bg" />
+    <>
       <div className="z-10 md:basis-1/2 md:pr-6 md:text-center sm:pr-0 sm:text-start">
         <p className="text-14 leading-snug tracking-tight">
           <span className="mr-2">{type}</span>|<span className="ml-2">{year}</span>
@@ -50,9 +52,16 @@ function Card({
           {buttonText}
         </Button>
       </div>
-      <span className="border-linear pointer-events-none absolute inset-0 rounded-[inherit] bg-sources-card-border" />
-    </li>
+      <span className="border-linear pointer-events-none absolute inset-0 rounded-xl bg-sources-card-border opacity-[0.47]" />
+      <Image
+        className="absolute inset-0 -z-10 h-full w-full object-cover object-center"
+        src={blurImg}
+        width={612}
+        height={750}
+        alt=""
+      />
+    </>
   );
 }
 
-export default Card;
+export default CardContent;
