@@ -118,7 +118,7 @@ function Sources() {
                 initial="hidden"
                 animate={inView ? 'visible' : 'hidden'}
                 variants={variants}
-                className="relative overflow-hidden rounded-xl bg-[url('/images/pages/home/sources/noise.png')] bg-sources-card-bg bg-center bg-repeat p-8 shadow-sources-card lg:p-6 md:col-span-full"
+                className="relative overflow-hidden rounded-xl bg-[url('/images/pages/home/sources/noise.png')] bg-center bg-repeat p-8 shadow-sources-card lg:p-6 md:col-span-full"
               >
                 <m.div
                   custom={index}
