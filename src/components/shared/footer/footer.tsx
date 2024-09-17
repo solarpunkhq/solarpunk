@@ -10,8 +10,8 @@ import logo from '@/svgs/logo.svg';
 
 function Footer() {
   return (
-    <footer className="relative py-[26px] px-safe sm:py-5">
-      <nav className="container flex h-full items-center justify-between gap-2 sm:flex-col sm:items-start sm:gap-7">
+    <footer className="relative py-[26px] px-safe sm:py-4">
+      <nav className="container flex h-full items-center justify-between gap-2 sm:flex-col sm:items-start sm:gap-6">
         <Link className="" href={ROUTE.index}>
           <Image src={logo} width={115} height={26} alt="" />
           <span className="sr-only">Solurpunk</span>

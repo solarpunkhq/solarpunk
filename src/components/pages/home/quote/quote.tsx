@@ -25,7 +25,7 @@ function Quote() {
 
   return (
     <section
-      className="quote relative my-[241px] px-safe lg:my-[168px] md:my-[138px] sm:mb-24 sm:mt-[104px]"
+      className="quote relative my-[241px] px-safe lg:my-[168px] md:my-[138px] sm:mb-[108px] sm:mt-[104px]"
       ref={ref}
     >
       <div className="container">
