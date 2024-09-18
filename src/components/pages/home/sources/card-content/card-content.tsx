@@ -32,10 +32,10 @@ function CardContent({
         <p className="text-14 leading-snug tracking-tight">
           <span className="mr-2">{type}</span>|<span className="ml-2">{year}</span>
         </p>
-        <h2 className="relative mt-[62px] pt-[34px] text-center font-title text-40 font-bold uppercase leading-tight tracking-wide before:absolute before:left-1/2 before:top-0 before:h-1.5 before:w-[152px] before:-translate-x-1/2 before:bg-white lg:mt-[53px] lg:pt-8 lg:text-34 md:mt-[42px] md:text-31 sm:mt-7 sm:pt-7 sm:tracking-normal">
+        <h2 className="relative mt-[62px] pt-[34px] text-center font-title text-40 font-bold uppercase leading-tight tracking-wide [text-shadow:_0_4px_34px_rgb(0_0_0_/_25%)] before:absolute before:left-1/2 before:top-0 before:h-1.5 before:w-[152px] before:-translate-x-1/2 before:bg-white lg:mt-[53px] lg:pt-8 lg:text-34 md:mt-[42px] md:text-31 sm:mt-7 sm:pt-7 sm:tracking-normal">
           {title}
         </h2>
-        <h3 className="relative mt-1.5 pb-[34px] text-center font-title text-23 font-semibold  uppercase after:absolute after:bottom-0 after:left-1/2 after:h-1.5 after:w-[152px] after:-translate-x-1/2 after:bg-white lg:mt-1 lg:pb-[29px] lg:text-19 md:pb-7 md:text-18 sm:pb-[25px]">
+        <h3 className="relative mt-1.5 pb-[34px] text-center font-title text-23 font-semibold uppercase  [text-shadow:_0_4px_34px_rgb(0_0_0_/_25%)] after:absolute after:bottom-0 after:left-1/2 after:h-1.5 after:w-[152px] after:-translate-x-1/2 after:bg-white lg:mt-1 lg:pb-[29px] lg:text-19 md:pb-7 md:text-18 sm:pb-[25px]">
           {subtitle}
         </h3>
       </div>

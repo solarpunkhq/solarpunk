@@ -98,7 +98,7 @@ function Slider({ sliderTextContent }: { sliderTextContent: SliderTextContent[] 
               {slidesQty.map((_, index) => {
                 return (
                   <li
-                    className="h-1 w-[72px] cursor-pointer overflow-hidden rounded-[10px] bg-gray-80 transition-[transform] duration-200 hover:scale-y-[200%]"
+                    className="h-1 w-[72px] cursor-pointer overflow-hidden rounded-[10px] bg-gray-80 transition-[transform] duration-200 [transform:translateZ(0)] hover:scale-y-[200%]"
                     key={index}
                     onClick={() => setCurrentSlide(index + 1)}
                   >
