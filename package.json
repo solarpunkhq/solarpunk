@@ -20,6 +20,7 @@
     "@rive-app/canvas": "^2.20.0",
     "@rive-app/react-canvas": "^4.13.8",
     "framer-motion": "^11.1.7",
+    "hls.js": "^1.5.15",
     "next": "^14.2.2",
     "next-sitemap": "^4.2.3",
     "react": "^18.2.0",

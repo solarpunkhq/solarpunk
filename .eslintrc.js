@@ -6,6 +6,7 @@ module.exports = {
     'next/core-web-vitals',
     'prettier',
   ],
+  ignorePatterns: ['public/videos/*'],
   rules: {
     curly: 'error',
     'no-console': 'error',

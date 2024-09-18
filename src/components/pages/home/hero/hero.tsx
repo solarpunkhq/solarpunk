@@ -1,13 +1,14 @@
 import Image from 'next/image';
 
-import PauseableVideo from '@/components/shared/pauseable-video';
 import SearchForm from '@/components/shared/search-form';
 
 import stickerImage from '@/images/hero/sticker.png';
 
+import HlsVideo from './hls-video';
+
 function Hero() {
   return (
-    <section className="hero relative mt-14 pb-14 pt-36 px-safe lg:pb-[47px] md:pb-[39px] sm:mt-[42px] sm:pb-8 sm:pt-[158px]">
+    <section className="hero relative -z-10 mt-14 bg-hero-bg pb-14 pt-36 px-safe lg:pb-[47px] md:pb-[39px] sm:mt-[42px] sm:pb-8 sm:pt-[158px]">
       <div className="container">
         <div className="flex max-w-[726px] flex-col text-white">
           <h1 className="font-title text-96 font-semibold leading-[0.96] tracking-snug lg:text-81 md:text-60 sm:text-41">
@@ -28,19 +29,7 @@ function Hero() {
           quality={90}
           priority
         />
-        {/*       
-          // Video optimization parameters:
-          //   mp4: -pix_fmt yuv420p -vf "scale=1920:-2" -movflags faststart -vcodec libx264 -crf 20
-          //   webm: -c:v libvpx-vp9 -crf 20 -vf scale=1920:-2 -deadline best -an 
-        */}
-        <PauseableVideo
-          videoClassName="-z-10 h-full w-full object-cover object-center lg:object-[25%_50%] md:object-[39%_50%] sm:object-center"
-          width={1920}
-          height={920}
-        >
-          <source src="/videos/pages/home/hero/hero.mp4" type="video/mp4" />
-          <source src="/videos/pages/home/hero/hero.webm" type="video/webm" />
-        </PauseableVideo>
+        <HlsVideo />
       </div>
       <div className="hero-noise absolute bottom-0 left-0 right-0 top-0 -z-10 bg-[url('/images/pages/home/sources/noise.png')] bg-repeat opacity-10" />
       <span className="hero-shadow absolute bottom-0 left-0 right-0 top-0 -z-10 hidden bg-hero-sm sm:block" />
