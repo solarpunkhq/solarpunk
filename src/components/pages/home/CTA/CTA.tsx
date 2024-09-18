@@ -40,7 +40,7 @@ function CTA() {
             </div>
           </Card>
           <Card className="sm:min-h-[383px] sm:justify-start sm:gap-y-2">
-            <h2 className="max-w-[430px] font-title text-60 font-semibold leading-[1.16] tracking-tight xl:max-w-[392px] xl:text-52 md:max-w-[352px] md:text-45 sm:text-30">
+            <h2 className="max-w-[430px] font-title text-60 font-semibold leading-[1.16] tracking-tight text-gray-20 xl:max-w-[392px] xl:text-52 md:max-w-[352px] md:text-45 sm:text-30">
               Not interested in agrivoltaics?
             </h2>
             <div className=" flex items-end justify-between gap-3.5 xl:flex-col xl:items-start md:flex-row md:items-end sm:flex-col sm:items-start sm:gap-y-5">
