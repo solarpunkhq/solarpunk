@@ -41,11 +41,11 @@ const links = [
 function Paperwork() {
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.9,
+    rootMargin: '-300px 0px',
   });
 
   return (
-    <section className="paperwork mt-36 px-safe lg:mt-[119px] md:mt-[88px] sm:mt-20" ref={ref}>
+    <section className="paperwork mt-36 px-safe lg:mt-[119px] md:mt-[88px] sm:mt-20">
       <div className="container">
         <h2 className="max-w-[1128px] font-title text-60 font-semibold leading-dense tracking-tighter text-gray-20 lg:text-51 md:inline md:text-45 sm:block sm:text-33">
           We&apos;re here to support your solar ambitions.
@@ -96,7 +96,10 @@ function Paperwork() {
             <Animation {...animations.dual} />
           </Card>
         </div>
-        <div className="mt-8 rounded-xl bg-gray-20 py-[38px] lg:py-[35px] md:mt-6 md:py-[34px] sm:mt-5 sm:py-[18px]">
+        <div
+          className="mt-8 rounded-xl bg-gray-20 py-[38px] lg:py-[35px] md:mt-6 md:py-[34px] sm:mt-5 sm:py-[18px]"
+          ref={ref}
+        >
           <div className="ml-[-86px] flex items-center justify-center gap-[30px] lg:ml-0 sm:flex-col sm:gap-[9px]">
             <p
               className={clsx(

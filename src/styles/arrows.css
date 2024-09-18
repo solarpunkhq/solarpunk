@@ -83,15 +83,23 @@
 .second-title {
   color: rgba(255, 255, 255, 0.15);
   -webkit-background-clip: text;
+  background-clip: text;
   background-image: radial-gradient(
     closest-side,
     rgba(255, 255, 255, 0.9) 40%,
     rgba(255, 255, 255, 0.1) 60%,
     transparent 100%
   );
-  background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: 600px 600px;
+}
+
+.first-title {
+  background-position: 50% 50%;
+}
+
+.second-title {
+  background-position: -600px 50%;
 }
 
 .animate-first-title {
