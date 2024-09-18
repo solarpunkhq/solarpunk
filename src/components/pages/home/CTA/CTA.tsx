@@ -13,7 +13,7 @@ function CTA() {
       <div className="container xl:max-w-5xl">
         <div className="flex items-center justify-between gap-8 md:flex-col md:gap-6 sm:gap-6">
           <Card secondaryBg="bg-cta-card-bg sm:bg-cta-card-bg-sm">
-            <h2 className="fs-48 font-title font-normal leading-[1.1] tracking-[-0.025em] text-white xl:text-40 md:max-w-[500px] md:text-32 sm:text-28">
+            <h2 className="font-title text-44 font-semibold leading-[1.2] tracking-tight text-white xl:text-40 lg:text-37 md:max-w-[500px] md:text-29 sm:text-26">
               Deploy solar installations with Solarpunk in weeks, not&nbsp;years
             </h2>
             <div className=" flex items-end justify-between gap-3.5 xl:flex-col xl:items-start md:flex-row md:items-end sm:flex-col sm:items-start sm:gap-y-5">
@@ -40,7 +40,7 @@ function CTA() {
             </div>
           </Card>
           <Card className="sm:min-h-[383px] sm:justify-start sm:gap-y-2">
-            <h2 className="fs-64 max-w-[416px] font-title leading-[1.1] tracking-tight xl:max-w-[392px] xl:text-56 md:max-w-[352px] md:text-48 sm:text-32">
+            <h2 className="max-w-[430px] font-title text-60 font-bold leading-[1.16] tracking-tight xl:max-w-[392px] xl:text-52 md:max-w-[352px] md:text-45 sm:text-30">
               Not interested in agrivoltaics?
             </h2>
             <div className=" flex items-end justify-between gap-3.5 xl:flex-col xl:items-start md:flex-row md:items-end sm:flex-col sm:items-start sm:gap-y-5">

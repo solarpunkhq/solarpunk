@@ -68,9 +68,11 @@ function UseTextX(
     }
 
     if (width < 768) {
-      return -40;
-    } else {
+      return -34;
+    } else if (width < 1280) {
       return -50;
+    } else {
+      return -54;
     }
   }, [width]);
 
@@ -125,7 +127,7 @@ function AnimatedIconItem({ index, totalItems, sectionRef }: ItemProps) {
 
   return (
     <LazyMotion features={domAnimation}>
-      <m.span className="[word-spacing:38px] lg:[word-spacing:32px] md:[word-spacing:26px] sm:[word-spacing:18px]">
+      <m.span className="[word-spacing:30px] lg:[word-spacing:32px] md:[word-spacing:26px] sm:[word-spacing:18px]">
         <m.span
           className="relative transition-opacity duration-500"
           style={{
@@ -136,7 +138,7 @@ function AnimatedIconItem({ index, totalItems, sectionRef }: ItemProps) {
         </m.span>
         <m.span className="solar-wrapper relative inline-block">
           <m.span
-            className="solar-text relative z-20 inline-block pl-14 font-sans text-55 leading-[0.8] text-white transition-all duration-500 lg:pl-[50px] lg:text-50 md:text-44 sm:pl-10 sm:text-30"
+            className="solar-text relative z-20 inline-block pl-14 font-title text-60 font-semibold leading-[1.48] tracking-tighter text-white transition-all duration-500 lg:pl-[50px] lg:text-51 md:text-44 sm:pl-[34px] sm:text-30"
             style={{
               x: textXPosition,
             }}
@@ -148,7 +150,7 @@ function AnimatedIconItem({ index, totalItems, sectionRef }: ItemProps) {
             style={{ backgroundColor: underlayBgColor }}
           />
           <m.span
-            className="orange-circle absolute -left-2.5 top-[54%] z-30 h-[54px] w-[54px] -translate-y-1/2 rounded-full transition-all duration-500 lg:-left-[26px] lg:size-[46px] md:size-[42px] sm:size-[30px] sm:translate-x-[23px]"
+            className="orange-circle absolute -left-1 top-[54%] z-30 h-[54px] w-[54px] -translate-y-1/2 rounded-full transition-all duration-500 lg:-left-[26px] lg:size-[46px] md:size-[42px] sm:size-[30px] sm:translate-x-[23px]"
             style={{
               x: circleXPosition,
               y: '-50%',

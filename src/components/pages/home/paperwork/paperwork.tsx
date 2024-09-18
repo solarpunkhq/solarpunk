@@ -47,13 +47,13 @@ function Paperwork() {
   return (
     <section className="paperwork mt-36 px-safe lg:mt-[119px] md:mt-[88px] sm:mt-20" ref={ref}>
       <div className="container">
-        <h2 className="fs-64 max-w-[1120px] font-title font-normal leading-[1.05] tracking-[-0.045em] text-gray-20 md:inline sm:block">
+        <h2 className="max-w-[1128px] font-title text-60 font-semibold leading-dense tracking-tighter text-gray-20 lg:text-51 md:inline md:text-45 sm:block sm:text-33">
           We&apos;re here to support your solar ambitions.
         </h2>
-        <p className="fs-64 max-w-[1120px] font-title font-normal leading-[1.05] tracking-[-0.045em] text-gray-60 md:ml-2 md:inline sm:ml-0 sm:block">
+        <p className="max-w-[1148px] font-title text-60 font-semibold leading-dense tracking-tighter text-gray-60 lg:text-51 md:ml-2 md:inline md:text-45 sm:ml-0 sm:block sm:text-33">
           From initial sketches to the growing pains of success, we&apos;ve got you covered.
         </p>
-        <div className="mt-12 flex items-center justify-between gap-8 lg:mt-11 md:mt-[38px] md:flex-col md:gap-6 sm:gap-5">
+        <div className="mt-12 flex items-center justify-between gap-8 lg:mt-[50px] md:mt-[37px] md:flex-col md:gap-6 sm:mt-[41px] sm:gap-5">
           <Card>
             <div className="fs-20 z-10 -ml-1.5 flex gap-x-8 gap-y-1 font-semibold lg:ml-0 lg:flex-col md:flex-row md:gap-x-[34px] sm:flex-col">
               {links.map(({ text, to }, index) => {

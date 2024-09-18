@@ -1,5 +1,5 @@
 import { Inter } from 'next/font/google';
-import localFont from 'next/font/local';
+import { Manrope } from 'next/font/google';
 
 export const inter = Inter({
   subsets: ['latin'],
@@ -7,14 +7,8 @@ export const inter = Inter({
   variable: '--font-inter',
 });
 
-export const esbuild = localFont({
-  src: [
-    {
-      path: './ESBuild/ESBuildNeutral-Medium.woff2',
-      weight: '500',
-      style: 'normal',
-    },
-  ],
+export const manrope = Manrope({
+  subsets: ['latin'],
   display: 'swap',
-  variable: '--font-esbuild',
+  variable: '--font-manrope',
 });

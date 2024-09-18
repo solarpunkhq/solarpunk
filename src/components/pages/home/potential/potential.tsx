@@ -90,15 +90,15 @@ function Potential() {
   return (
     <LazyMotion features={domAnimation}>
       <section
-        className="potential mt-[200px] px-safe xl:mt-[137px] md:mt-[125px] sm:mt-[116px]"
+        className="potential mt-[196px] px-safe xl:mt-[139px] md:mt-[127px] sm:mt-[116px]"
         ref={ref}
       >
         <div className="container flex justify-between gap-x-8 lg:items-end md:max-w-lg md:flex-col md:items-center md:gap-y-11 sm:gap-y-10">
           <div className="flex max-w-[640px] flex-col pb-12 pt-6 xl:pb-5 xl:pt-0 lg:min-h-[519px] lg:max-w-[450px] lg:pb-0 md:min-h-[auto]">
-            <h2 className="max-w-[540px] font-title text-56 leading-[1.1] tracking-tight text-gray-20 lg:text-48 md:text-40 sm:max-w-[289px] sm:text-32">
+            <h2 className="max-w-[540px] font-title text-52 font-bold leading-[1.2] tracking-tight text-gray-20 lg:text-44 md:text-36 sm:max-w-[289px] sm:text-29">
               Discover your farm&apos;s full potential
             </h2>
-            <p className="mt-[19px] max-w-[540px] text-25 leading-snug tracking-tighter text-gray-40 lg:text-20 md:mt-[18px] md:text-18 sm:mt-4 sm:text-16">
+            <p className="mt-[19px] max-w-[540px] text-25 leading-snug tracking-tighter text-gray-40 lg:text-20 md:mt-[22px] md:text-18 sm:mt-4 sm:text-16">
               Transform your fields with solar technology, fostering a thriving environment that
               supports longer and healthier crop cycles.
             </p>
