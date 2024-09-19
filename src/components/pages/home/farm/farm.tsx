@@ -1,9 +1,6 @@
-import Image from 'next/image';
-
 import clsx from 'clsx';
 
-import panelImage from '@/images/farm/panel.jpg';
-
+import HlsVideo from './hls-video';
 import IconAnimation from './icon-animation';
 
 const items = [
@@ -57,13 +54,7 @@ function Farm() {
             })}
           </ul>
         </div>
-        <Image
-          className="w-[608px] rounded-[10px] lg:w-[482px] md:aspect-[0.709] md:w-[448px] sm:aspect-square"
-          src={panelImage}
-          width={608}
-          height={800}
-          alt="solar panel image"
-        />
+        <HlsVideo />
       </div>
     </section>
   );
