@@ -8,9 +8,9 @@ import HlsVideo from './hls-video';
 
 function Hero() {
   return (
-    <section className="hero relative -z-10 mt-14 bg-hero-bg pb-14 pt-36 px-safe lg:pb-[47px] md:pb-[39px] sm:mt-[42px] sm:pb-8 sm:pt-[158px]">
-      <div className="container">
-        <div className="flex max-w-[726px] flex-col text-white">
+    <section className="hero relative mt-14 bg-hero-bg pb-14 pt-36 px-safe lg:pb-[47px] md:pb-[39px] sm:mt-[42px] sm:pb-8 sm:pt-[158px]">
+      <div className="container ">
+        <div className="relative z-20 flex max-w-[726px] flex-col text-white">
           <h1 className="font-title text-96 font-semibold leading-[0.96] tracking-snug lg:text-81 md:text-60 sm:text-41">
             Covering farms <br />
             with solar panels
@@ -21,7 +21,7 @@ function Hero() {
           <SearchForm className="mt-[66px] md:mt-[50px]" />
         </div>
         <Image
-          className="z-10 ml-auto mr-32 mt-[267px] rounded-lg shadow-mission-sticker lg:mr-0 lg:mt-[120px] md:mt-[280px] sm:mt-[180px] sm:h-[60px] sm:w-[78px]"
+          className="relative z-20 ml-auto mr-32 mt-[267px] rounded-lg shadow-mission-sticker lg:mr-0 lg:mt-[120px] md:mt-[280px] sm:mt-[180px] sm:h-[60px] sm:w-[78px]"
           src={stickerImage}
           width={104}
           height={80}

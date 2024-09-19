@@ -80,7 +80,7 @@ function HlsVideo() {
               */}
           {isInView && (
             <m.video
-              className="absolute inset-0 -z-10 h-full w-full object-cover object-center lg:object-[25%_50%] md:object-[39%_50%] sm:object-center"
+              className="absolute inset-0 h-full w-full object-cover object-center lg:object-[25%_50%] md:object-[39%_50%] sm:object-center"
               width={1472}
               height={1056}
               controls={false}
