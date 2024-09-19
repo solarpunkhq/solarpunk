@@ -38,8 +38,8 @@ function Farm() {
               return (
                 <li
                   className={clsx(
-                    'flex items-center gap-x-7 border-t pb-[31px] pt-8 lg:gap-x-[23px] lg:py-7 md:py-5 sm:pb-[19px]',
-                    index === items.length - 1 && 'border-b',
+                    'flex items-center gap-x-7 border-t pb-[31px] pt-8 text-gray-12 lg:gap-x-[23px] lg:py-7 md:py-5 sm:pb-[19px]',
+                    index === items.length - 1 && 'border-b border-gray-12',
                   )}
                   key={index}
                 >

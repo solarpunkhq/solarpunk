@@ -1,12 +1,8 @@
 'use client';
 
-import { Route } from 'next';
-
 import { useInView } from 'react-intersection-observer';
 
 import clsx from 'clsx';
-
-import Link from '@/components/shared/link';
 
 import ArrowIcon from '@/svgs/icons/down-arrow.inline.svg';
 import PixelArrowIcon from '@/svgs/icons/pixel-arrow.inline.svg';
@@ -27,14 +23,12 @@ const animations = {
   },
 };
 
-const links = [
+const items = [
   {
     text: 'Reduces heat stress',
-    to: '/' as Route<string>,
   },
   {
     text: 'Reduces evaporation',
-    to: '/' as Route<string>,
   },
 ];
 
@@ -55,20 +49,19 @@ function Paperwork() {
         </p>
         <div className="mt-12 flex items-center justify-between gap-8 lg:mt-[50px] md:mt-[37px] md:flex-col md:gap-6 sm:mt-[41px] sm:gap-5">
           <Card>
-            <div className="fs-20 z-10 -ml-1.5 flex gap-x-8 gap-y-1 font-semibold lg:ml-0 lg:flex-col md:flex-row md:gap-x-[34px] sm:flex-col">
-              {links.map(({ text, to }, index) => {
+            <ul className="fs-20 z-10 -ml-1.5 flex gap-x-8 gap-y-1 font-semibold lg:ml-0 lg:flex-col md:flex-row md:gap-x-[34px] sm:flex-col">
+              {items.map(({ text }, index) => {
                 return (
-                  <Link
-                    className="group flex items-center gap-2.5 leading-snug lg:gap-3 md:gap-2.5"
-                    href={to}
+                  <li
+                    className="flex items-center gap-2.5 leading-snug text-gray-20 lg:gap-3 md:gap-2.5"
                     key={index}
                   >
-                    <ArrowIcon className="w-3.5 fill-gray-20 transition-all duration-100 group-hover:rotate-[90]" />
+                    <ArrowIcon className="w-3.5 fill-gray-20" />
                     <span>{text}</span>
-                  </Link>
+                  </li>
                 );
               })}
-            </div>
+            </ul>
             <p className="fs-24 z-10 leading-normal tracking-tight text-gray-50 sm:text-18">
               <span className="font-medium text-gray-20">Microclimate Creation.</span>{' '}
               <span>
@@ -81,7 +74,9 @@ function Paperwork() {
           <Card className="bg-[url('/images/pages/home/paperwork/bg-dual.jpg')] bg-cover bg-center bg-repeat">
             <p className="z-10 flex flex-col gap-1.5 lg:gap-1 sm:gap-0.5">
               <span className="fs-20 font-semibold text-gray-50">Up to</span>
-              <span className="fs-40 font-medium leading-dense">160% Crop + Solar</span>
+              <span className="fs-40 font-medium leading-dense text-gray-20">
+                160% Crop + Solar
+              </span>
               <span className="fs-20 font-semibold text-gray-50">
                 comparing to 100% Crop yields
               </span>

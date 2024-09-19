@@ -14,7 +14,7 @@ export function UseGetOpacity(
   const opacity = useTransform(
     scrollYProgress,
     [index / totalItems, (index + 1) / totalItems],
-    [0.25, 1],
+    [0.45, 1],
   );
 
   return opacity;
@@ -26,7 +26,7 @@ export function UseGetTextOpacity(
   sectionRef: React.RefObject<HTMLDivElement>,
 ) {
   const opacity = UseGetOpacity(index, totalItems, sectionRef);
-  const contentOpacity = useTransform(opacity, (value) => (value <= 0.25 ? 0.25 : 1));
+  const contentOpacity = useTransform(opacity, (value) => (value <= 0.45 ? 0.45 : 1));
 
   return contentOpacity;
 }
