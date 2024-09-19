@@ -100,11 +100,11 @@ function UseStyleTransforms(
     ],
   );
 
-  const underlayBgColor = useTransform(opacity, [0.45, 0.451], ['#9194A1', '#040406']);
+  const underlayBgColor = useTransform(opacity, [0.45, 0.451], ['#a1a2a5', '#040406']);
   const circleBoxShadow = useTransform(
     opacity,
     [0.45, 0.451],
-    ['0px 0px 8px 4px #9194A1', '0px 0px 8px 4px #000000'],
+    ['0px 0px 8px 4px #a1a2a5', '0px 0px 8px 4px #000000'],
   );
   const textXPosition = UseTextX(index, totalItems, sectionRef, width);
 
