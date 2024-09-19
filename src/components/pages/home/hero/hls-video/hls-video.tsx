@@ -10,8 +10,8 @@ import useIsSafari from '@/hooks/use-is-safari';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const Hls = require('hls.js/dist/hls.light.min.js');
 
-const VIDEO_MP4 = '/videos/pages/home/hero/hero.mp4';
-const VIDEO_M3U8 = '/videos/pages/home/hero/hero.m3u8';
+const VIDEO_MP4 = '/videos/pages/home/hero/hero.mp4?updated=20240919114729';
+const VIDEO_M3U8 = '/videos/pages/home/hero/hero.m3u8?updated=20240919114729';
 
 function HlsVideo() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -74,10 +74,10 @@ function HlsVideo() {
       <div className="pointer-events-none" ref={videoPreloadRef}>
         <AnimatePresence>
           {/*       
-                // Video optimization parameters:
-                //   mp4: -pix_fmt yuv420p -vf "scale=1920:-2" -movflags faststart -vcodec libx264 -crf 20
-                //   -m3u8: -codec: copy -start_number 0 -hls_time 3 -hls_list_size 0 -f hls output.m3u8
-              */}
+            Video optimization parameters:
+              mp4: -pix_fmt yuv420p -vf "scale=1920:-2" -movflags faststart -vcodec libx264 -crf 20
+              m3u8: -codec: copy -start_number 0 -hls_time 3 -hls_list_size 0 -f hls output.m3u8
+          */}
           {isInView && (
             <m.video
               className="absolute inset-0 -z-10 h-full w-full object-cover object-center lg:object-[25%_50%] md:object-[39%_50%] sm:object-center"
@@ -85,6 +85,11 @@ function HlsVideo() {
               height={1056}
               controls={false}
               ref={setVideoRefs}
+              initial={{
+                opacity: 0,
+              }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
               autoPlay
               loop
               muted
