@@ -45,7 +45,7 @@ function UseCircleXPosition(
     return 142;
   }, [width]);
 
-  const circleXPosition = useTransform(opacity, [0.25, 0.251], [startXPosition, endXPosition]);
+  const circleXPosition = useTransform(opacity, [0.45, 0.451], [startXPosition, endXPosition]);
 
   if (width === undefined) {
     return '';
@@ -76,7 +76,7 @@ function UseTextX(
     }
   }, [width]);
 
-  const textXPosition = useTransform(opacity, [0.25, 0.251], [0, endXPosition]);
+  const textXPosition = useTransform(opacity, [0.45, 0.451], [0, endXPosition]);
 
   return textXPosition;
 }
@@ -93,17 +93,17 @@ function UseStyleTransforms(
 
   const circleBgColor = useTransform(
     opacity,
-    [0.25, 0.251],
+    [0.45, 0.451],
     [
       'linear-gradient(180deg, #FFF 0%, #FFF 117.52%)',
       'linear-gradient(180deg, #FFDE6B 0%, #FF7511 117.52%)',
     ],
   );
 
-  const underlayBgColor = useTransform(opacity, [0.25, 0.251], ['#9194A1', '#040406']);
+  const underlayBgColor = useTransform(opacity, [0.45, 0.451], ['#9194A1', '#040406']);
   const circleBoxShadow = useTransform(
     opacity,
-    [0.25, 0.251],
+    [0.45, 0.451],
     ['0px 0px 8px 4px #9194A1', '0px 0px 8px 4px #000000'],
   );
   const textXPosition = UseTextX(index, totalItems, sectionRef, width);

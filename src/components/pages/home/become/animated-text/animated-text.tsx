@@ -39,7 +39,7 @@ function AnimatedText({ children }: AnimatedTextProps) {
 
   return (
     <div
-      className="container relative max-w-[1216px] font-title text-60 font-semibold leading-[1.48] tracking-tighter lg:max-w-[960px] lg:text-51 md:max-w-[704px] md:text-44 sm:text-30"
+      className="container relative max-w-[1216px] font-title text-60 font-semibold leading-[1.48] tracking-tighter text-gray-20 lg:max-w-[960px] lg:text-51 md:max-w-[704px] md:text-44 sm:text-30"
       ref={sectionRef}
     >
       {items.map(({ content, type }, index) => {
@@ -64,7 +64,7 @@ function AnimatedText({ children }: AnimatedTextProps) {
           </React.Fragment>
         );
       })}
-      <span className="font-title text-60 font-semibold leading-[1.48] tracking-tighter opacity-25 lg:max-w-[960px] lg:text-51 md:max-w-[704px] md:text-44 sm:text-30">
+      <span className="font-title text-60 font-semibold leading-[1.48] tracking-tighter opacity-45 lg:max-w-[960px] lg:text-51 md:max-w-[704px] md:text-44 sm:text-30">
         {' '}
         without sacrificing arable land.
       </span>
