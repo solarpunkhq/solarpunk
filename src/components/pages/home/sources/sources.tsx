@@ -103,7 +103,7 @@ const contentVariants = {
 function Sources() {
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.4,
+    threshold: 0.35,
   });
 
   return (
