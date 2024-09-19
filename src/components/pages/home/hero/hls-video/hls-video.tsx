@@ -10,7 +10,7 @@ import useIsSafari from '@/hooks/use-is-safari';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const Hls = require('hls.js/dist/hls.light.min.js');
 
-const VIDEO_MP4 = '/videos/pages/home/hero/hero.mp4?updated=20240919120548';
+const VIDEO_MP4 = '/videos/pages/home/hero/hero.mp4?updated=20240919122356';
 const VIDEO_M3U8 = '/videos/pages/home/hero/hero.m3u8?updated=20240919120548';
 
 function HlsVideo() {
@@ -18,6 +18,7 @@ function HlsVideo() {
   const isSafari = useIsSafari();
   const { ref: videoPreloadRef, inView: isInView } = useInView({
     triggerOnce: true,
+    rootMargin: '0px 0px 500px 0px',
   });
   const { ref: videoVisibleyRef, inView: isVideoVisible } = useInView({
     threshold: 0.05,
@@ -74,7 +75,7 @@ function HlsVideo() {
         <AnimatePresence>
           {/*       
             Video optimization parameters:
-              mp4: -pix_fmt yuv420p -vf "scale=3840:-2" -movflags faststart -vcodec libx264 -g 60 -crf 20
+              mp4: -pix_fmt yuv420p -vf "scale=1920:-2" -movflags faststart -vcodec libx264 -g 60 -crf 20
               m3u8: -codec: copy -start_number 0 -hls_time 2 -hls_list_size 0 -f hls output.m3u8
           */}
           {isInView && (
