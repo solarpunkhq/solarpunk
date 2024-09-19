@@ -75,8 +75,8 @@ function HlsVideo() {
         <AnimatePresence>
           {/*       
             Video optimization parameters:
-              mp4: -pix_fmt yuv420p -vf "scale=1920:-2" -movflags faststart -vcodec libx264 -crf 20
-              m3u8: -codec: copy -start_number 0 -hls_time 3 -hls_list_size 0 -f hls output.m3u8
+              mp4: -pix_fmt yuv420p -vf "scale=3840:-2" -movflags faststart -vcodec libx264 -g 60 -crf 20
+              m3u8: -codec: copy -start_number 0 -hls_time 2 -hls_list_size 0 -f hls output.m3u8
           */}
           {isInView && (
             <m.video
