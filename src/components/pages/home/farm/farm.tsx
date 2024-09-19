@@ -21,7 +21,7 @@ const items = [
 function Farm() {
   return (
     <section className="farm mb-[220px] mt-[221px] px-safe lg:mb-[157px] lg:mt-40 md:mb-[135px] md:mt-[134px] sm:mb-[104px] sm:mt-[103px]">
-      <div className="container flex max-w-[1408px] justify-between lg:gap-x-8 md:max-w-lg md:flex-col md:items-center md:gap-y-11 sm:gap-y-10">
+      <div className="container flex min-h-[798px] max-w-[1408px] justify-between lg:min-h-[632px] lg:gap-x-8 md:max-w-lg md:flex-col md:items-center md:gap-y-11 sm:gap-y-10">
         <div className="flex max-w-xl flex-col">
           <h2 className="font-title text-60 font-bold leading-[1.1] tracking-snug text-gray-20 lg:text-48 md:text-45 sm:text-33">
             Your farm is capable of so much more
