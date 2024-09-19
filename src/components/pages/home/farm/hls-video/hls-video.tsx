@@ -72,7 +72,7 @@ function HlsVideo() {
   return (
     <LazyMotion features={domAnimation}>
       <div
-        className="pointer-events-none flex w-[608px] shrink-0 items-center justify-center overflow-hidden rounded-[10px] lg:w-[482px] md:aspect-[0.709] md:w-[448px] sm:aspect-square sm:w-full sm:max-w-[448px]"
+        className="pointer-events-none flex aspect-[0.7625] w-[608px] shrink-0 items-center justify-center overflow-hidden rounded-[10px] lg:w-[482px] md:aspect-[0.709] md:w-[448px] sm:aspect-square sm:w-full sm:max-w-[448px]"
         ref={videoPreloadRef}
       >
         <AnimatePresence>
