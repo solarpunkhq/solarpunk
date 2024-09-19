@@ -10,15 +10,14 @@ import useIsSafari from '@/hooks/use-is-safari';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const Hls = require('hls.js/dist/hls.light.min.js');
 
-const VIDEO_MP4 = '/videos/pages/home/hero/hero.mp4?updated=20240919120139';
-const VIDEO_M3U8 = '/videos/pages/home/hero/hero.m3u8?updated=20240919120139';
+const VIDEO_MP4 = '/videos/pages/home/hero/hero.mp4?updated=20240919120548';
+const VIDEO_M3U8 = '/videos/pages/home/hero/hero.m3u8?updated=20240919120548';
 
 function HlsVideo() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const isSafari = useIsSafari();
   const { ref: videoPreloadRef, inView: isInView } = useInView({
     triggerOnce: true,
-    rootMargin: '0px 0px 500px 0px',
   });
   const { ref: videoVisibleyRef, inView: isVideoVisible } = useInView({
     threshold: 0.05,
