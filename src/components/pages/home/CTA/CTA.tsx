@@ -9,7 +9,7 @@ import Card from './card';
 
 function CTA() {
   return (
-    <section className="cta mt-60 px-safe xl:mt-[168px] md:mt-[136px] sm:mt-[104px]">
+    <section className="cta mt-[230px] px-safe xl:mt-[168px] lg:mt-[155px] md:mt-[136px] sm:mt-[104px]">
       <div className="container xl:max-w-5xl">
         <div className="flex items-center justify-between gap-8 md:flex-col md:gap-6 sm:gap-6">
           <Card secondaryBg="bg-cta-card-bg sm:bg-cta-card-bg-sm">

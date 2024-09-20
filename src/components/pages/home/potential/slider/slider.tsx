@@ -72,7 +72,7 @@ function Slider({ sliderTextContent }: { sliderTextContent: SliderTextContent[] 
     <LazyMotion features={domAnimation}>
       <AnimatePresence mode="wait">
         <m.div
-          className="relative col-start-1 row-start-2 mt-auto pb-12 lg:pb-0 md:col-span-full"
+          className="relative col-start-1 row-start-2 mt-auto pb-14 lg:pb-3 md:col-span-full md:pb-0"
           key={currentSlide}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -94,27 +94,29 @@ function Slider({ sliderTextContent }: { sliderTextContent: SliderTextContent[] 
               isPlaying={inView}
               onLoadCompleted={handleLoadCompleted}
             />
-            <ul className="mt-5 flex items-center justify-center gap-4 xl:mt-4">
+            <ul className="mt-2 flex items-center justify-center gap-2 xl:mt-1 sm:gap-4">
               {slidesQty.map((_, index) => {
                 return (
                   <li
-                    className="h-1 w-[72px] cursor-pointer overflow-hidden rounded-[10px] bg-gray-80 transition-[transform] duration-200 [transform:translateZ(0)] hover:scale-y-[200%]"
+                    className="group flex cursor-pointer items-center justify-center px-1 py-3 sm:px-0"
                     key={index}
                     onClick={() => setCurrentSlide(index + 1)}
                   >
-                    <span
-                      className={clsx(
-                        'block h-full w-full origin-left scale-x-0 bg-black',
-                        index !== currentSlide - 1 && '[animation:none]',
-                        inView && isAnimationLoaded
-                          ? '[animation-play-state:running]'
-                          : '[animation-play-state:paused]',
-                      )}
-                      ref={(el) => {
-                        progressBarRefs.current[index] = el;
-                      }}
-                      data-animation
-                    />
+                    <span className="h-1 w-[72px] overflow-hidden rounded-[10px] bg-gray-80 transition-[transform] duration-200 [transform:translateZ(0)] group-hover:scale-y-[200%] sm:w-[68px]">
+                      <span
+                        className={clsx(
+                          'block h-full w-full origin-left scale-x-0 bg-black',
+                          index !== currentSlide - 1 && '[animation:none]',
+                          inView && isAnimationLoaded
+                            ? '[animation-play-state:running]'
+                            : '[animation-play-state:paused]',
+                        )}
+                        ref={(el) => {
+                          progressBarRefs.current[index] = el;
+                        }}
+                        data-animation
+                      />
+                    </span>
                   </li>
                 );
               })}

@@ -5,6 +5,13 @@ import SearchForm from '@/components/shared/search-form';
 
 import stickerImage from '@/images/hero/sticker.png';
 
+{
+  /*       
+Video optimization parameters:
+  mp4: -pix_fmt yuv420p -vf "scale=1920:-2" -movflags faststart -vcodec libx264 -g 60 -crf 20
+  m3u8: -codec: copy -start_number 0 -hls_time 2 -hls_list_size 0 -f hls output.m3u8
+*/
+}
 const videoProps = {
   src: {
     mp4: '/videos/pages/home/hero/hero.mp4?updated=20240919122356',
@@ -37,12 +44,6 @@ function Hero() {
           quality={90}
           priority
         />
-        {/*       
-            Video optimization parameters:
-              mp4: -pix_fmt yuv420p -vf "scale=1920:-2" -movflags faststart -vcodec libx264 -g 60 -crf 20
-              m3u8: -codec: copy -start_number 0 -hls_time 2 -hls_list_size 0 -f hls output.m3u8
-          */}
-
         <HlsVideo {...videoProps} />
       </div>
       <div className="hero-noise absolute bottom-0 left-0 right-0 top-0 -z-10 bg-[url('/images/pages/home/sources/noise.png')] bg-repeat opacity-10" />
