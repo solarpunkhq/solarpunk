@@ -3,9 +3,9 @@
 import { Route } from 'next';
 import Image from 'next/image';
 
-import { useInView } from 'react-intersection-observer';
-
 import { LazyMotion, domAnimation, m } from 'framer-motion';
+
+import { UseIsCardInView } from '@/hooks/use-is-card-in-view';
 
 import bgBlurCard1 from '@/images/sources/bg-blur-1-card.png';
 import bgBlurCard2 from '@/images/sources/bg-blur-2-card.png';
@@ -101,20 +101,18 @@ const contentVariants = {
 };
 
 function Sources() {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.35,
-  });
-
   return (
     <LazyMotion features={domAnimation}>
-      <section className="sources relative px-safe" ref={ref}>
+      <section className="sources relative px-safe">
         <ul className="container grid max-w-[1376px] grid-cols-3 gap-[30px] py-60 text-white lg:gap-6 lg:pb-44 lg:pt-[168px] md:max-w-[706px] md:py-[88px] sm:gap-5 sm:py-16">
           {cards.map((item, index) => {
+            const { ref, inView } = UseIsCardInView({ threshold: 0.4 });
+
             return (
               <m.li
                 key={index}
                 custom={index}
+                ref={ref}
                 initial="hidden"
                 animate={inView ? 'visible' : 'hidden'}
                 variants={variants}
