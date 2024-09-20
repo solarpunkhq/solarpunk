@@ -9,6 +9,10 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    @apply text-16;
+  }
+
   body {
     @apply antialiased;
   }

@@ -9,10 +9,12 @@ function Animation({
   className,
   slideNumber,
   isPlaying,
+  onLoadCompleted,
 }: {
   className: string;
   slideNumber: number;
   isPlaying: boolean;
+  onLoadCompleted: (isLoaded: boolean) => void;
 }) {
   const riveAnimationProps = {
     src: '/animations/pages/home/potential/slider.riv',
@@ -22,6 +24,9 @@ function Animation({
       fit: Fit['Cover'],
       alignment: Alignment['Center'],
     }),
+    onLoad: () => {
+      onLoadCompleted(true);
+    },
   };
 
   const { rive, RiveComponent } = useRive(riveAnimationProps);

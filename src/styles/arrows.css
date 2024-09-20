@@ -4,8 +4,8 @@
 }
 
 .single-arrow-animation {
-  animation: blink 2s;
-  animation-delay: 2000ms;
+  animation: blink 4s;
+  animation-delay: 1200ms;
   animation-fill-mode: forwards;
 }
 
@@ -67,14 +67,13 @@
 }
 
 @keyframes blink {
-  0%,
-  100% {
+  0% {
     fill: #5e616e;
   }
   60% {
     fill: white;
   }
-  80% {
+  100% {
     fill: white;
   }
 }
@@ -83,15 +82,23 @@
 .second-title {
   color: rgba(255, 255, 255, 0.15);
   -webkit-background-clip: text;
+  background-clip: text;
   background-image: radial-gradient(
     closest-side,
     rgba(255, 255, 255, 0.9) 40%,
     rgba(255, 255, 255, 0.1) 60%,
     transparent 100%
   );
-  background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: 600px 600px;
+}
+
+.first-title {
+  background-position: 50% 50%;
+}
+
+.second-title {
+  background-position: -600px 50%;
 }
 
 .animate-first-title {

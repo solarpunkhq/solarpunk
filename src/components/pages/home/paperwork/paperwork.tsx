@@ -1,12 +1,8 @@
 'use client';
 
-import { Route } from 'next';
-
 import { useInView } from 'react-intersection-observer';
 
 import clsx from 'clsx';
-
-import Link from '@/components/shared/link';
 
 import ArrowIcon from '@/svgs/icons/down-arrow.inline.svg';
 import PixelArrowIcon from '@/svgs/icons/pixel-arrow.inline.svg';
@@ -19,57 +15,56 @@ const arrowsQty = new Array(4).fill(null);
 const animations = {
   microclimate: {
     src: '/animations/pages/home/paperwork/microclimate.riv',
+    className:
+      'absolute inset-0 left-1/2 h-full w-full -translate-x-1/2 lg:aspect-[1.27] lg:w-auto md:h-auto md:w-full sm:h-full sm:w-auto',
   },
   dual: {
     src: '/animations/pages/home/paperwork/dual.riv',
     className:
-      'lg:[&_canvas]:!h-[89%] lg:[&_canvas]:!w-[89%] lg:[&_canvas]:!left-1/2 lg:[&_canvas]:!-translate-x-1/2 lg:[&_canvas]:relative lg:[&_canvas]:!top-[7%] md:[&_canvas]:!h-[98%] md:[&_canvas]:!w-[98%] md:[&_canvas]:!-top-[5%] md:[&_canvas]:!-translate-x-[47%] 2xs:[&_canvas]:relative 2xs:[&_canvas]:!w-[70%] 2xs:[&_canvas]:!h-[70%] 2xs:[&_canvas]:!left-[49%] 2xs:[&_canvas]:!top-[8%] 2xs:[&_canvas]:!-translate-x-1/2',
+      'absolute inset-0 left-1/2 h-full w-full -translate-x-1/2 top-1/2 -translate-y-1/2 xl:scale-[0.9] xl:-translate-y-[48%] lg:-translate-y-1/2 lg:scale-[0.9] lg:aspect-[1.27] lg:w-auto md:h-auto md:-translate-x-[47%] md:scale-[0.95] md:w-full sm:h-full sm:w-auto sm:scale-100 2xs:-translate-y-[57%] 2xs:-translate-x-1/2 2xs:scale-[0.7]',
   },
 };
 
-const links = [
+const items = [
   {
     text: 'Reduces heat stress',
-    to: '/' as Route<string>,
   },
   {
     text: 'Reduces evaporation',
-    to: '/' as Route<string>,
   },
 ];
 
 function Paperwork() {
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.9,
+    rootMargin: '-300px 0px',
   });
 
   return (
-    <section className="paperwork mt-36 px-safe lg:mt-[119px] md:mt-[88px] sm:mt-20" ref={ref}>
+    <section className="paperwork mt-36 px-safe lg:mt-[119px] md:mt-[88px] sm:mt-20">
       <div className="container">
-        <h2 className="fs-64 max-w-[1120px] font-title font-normal leading-[1.05] tracking-[-0.045em] text-gray-20 md:inline sm:block">
+        <h2 className="max-w-[1128px] font-title text-60 font-semibold leading-dense tracking-tighter text-gray-20 lg:text-51 md:inline md:text-45 sm:block sm:text-33">
           We&apos;re here to support your solar ambitions.
         </h2>
-        <p className="fs-64 max-w-[1120px] font-title font-normal leading-[1.05] tracking-[-0.045em] text-gray-60 md:ml-2 md:inline sm:ml-0 sm:block">
+        <p className="max-w-[1148px] font-title text-60 font-semibold leading-dense tracking-tighter text-gray-60 lg:text-51 md:ml-2 md:inline md:text-45 sm:ml-0 sm:block sm:text-33">
           From initial sketches to the growing pains of success, we&apos;ve got you covered.
         </p>
-        <div className="mt-12 flex items-center justify-between gap-8 lg:mt-11 md:mt-[38px] md:flex-col md:gap-6 sm:gap-5">
-          <Card>
-            <div className="fs-20 z-10 -ml-1.5 flex gap-x-8 gap-y-1 font-semibold lg:ml-0 lg:flex-col md:flex-row md:gap-x-[34px] sm:flex-col">
-              {links.map(({ text, to }, index) => {
+        <div className="mt-12 flex items-center justify-between gap-8 lg:mt-[50px] md:mt-[37px] md:flex-col md:gap-6 sm:mt-[41px] sm:gap-5">
+          <Card className="bg-[url('/images/pages/home/paperwork/bg-microclimate.jpg')] bg-cover bg-center bg-repeat">
+            <ul className="fs-20 z-10 -ml-1.5 flex gap-x-8 gap-y-1 font-semibold lg:ml-0 lg:flex-col md:flex-row md:gap-x-[34px] sm:flex-col">
+              {items.map(({ text }, index) => {
                 return (
-                  <Link
-                    className="group flex items-center gap-2.5 leading-snug lg:gap-3 md:gap-2.5"
-                    href={to}
+                  <li
+                    className="flex items-center gap-2.5 leading-snug text-gray-20 lg:gap-3 md:gap-2.5"
                     key={index}
                   >
-                    <ArrowIcon className="w-3.5 fill-gray-20 transition-all duration-100 group-hover:rotate-[90]" />
+                    <ArrowIcon className="w-3.5 fill-gray-20" />
                     <span>{text}</span>
-                  </Link>
+                  </li>
                 );
               })}
-            </div>
-            <p className="fs-24 z-10 leading-normal tracking-tight text-gray-50 sm:text-18">
+            </ul>
+            <p className="fs-24 z-10 leading-normal tracking-tight text-gray-50 xl:text-22 sm:text-18">
               <span className="font-medium text-gray-20">Microclimate Creation.</span>{' '}
               <span>
                 Solar panels provide partial shade to the crops below, creating a microclimate that
@@ -81,12 +76,14 @@ function Paperwork() {
           <Card className="bg-[url('/images/pages/home/paperwork/bg-dual.jpg')] bg-cover bg-center bg-repeat">
             <p className="z-10 flex flex-col gap-1.5 lg:gap-1 sm:gap-0.5">
               <span className="fs-20 font-semibold text-gray-50">Up to</span>
-              <span className="fs-40 font-medium leading-dense">160% Crop + Solar</span>
+              <span className="fs-40 font-medium leading-dense text-gray-20">
+                160% Crop + Solar
+              </span>
               <span className="fs-20 font-semibold text-gray-50">
                 comparing to 100% Crop yields
               </span>
             </p>
-            <p className="fs-24 z-10 leading-normal tracking-tight text-gray-50 sm:text-18">
+            <p className="fs-24 z-10 leading-normal tracking-tight text-gray-50 xl:text-22 sm:text-18">
               <span className="font-medium text-gray-20">Dual Use.</span>{' '}
               <span>
                 By installing solar panels above the crops, the same land can produce both food and
@@ -96,7 +93,10 @@ function Paperwork() {
             <Animation {...animations.dual} />
           </Card>
         </div>
-        <div className="mt-8 rounded-xl bg-gray-20 py-[38px] lg:py-[35px] md:mt-6 md:py-[34px] sm:mt-5 sm:py-[18px]">
+        <div
+          className="mt-8 rounded-xl bg-gray-20 py-[38px] lg:py-[35px] md:mt-6 md:py-[34px] sm:mt-5 sm:py-[18px]"
+          ref={ref}
+        >
           <div className="ml-[-86px] flex items-center justify-center gap-[30px] lg:ml-0 sm:flex-col sm:gap-[9px]">
             <p
               className={clsx(
