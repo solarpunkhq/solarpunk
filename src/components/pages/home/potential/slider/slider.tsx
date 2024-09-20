@@ -78,7 +78,7 @@ function Slider({ sliderTextContent }: { sliderTextContent: SliderTextContent[] 
     <LazyMotion features={domAnimation}>
       <AnimatePresence mode="wait">
         <m.div
-          className="relative col-start-1 row-start-2 mt-auto pb-14 lg:pb-3 md:col-span-full md:pb-0"
+          className="relative col-start-1 row-start-2 mt-auto flex flex-col justify-between pb-14 lg:pb-3 md:col-span-full md:h-[220px] md:pb-0"
           key={currentSlide}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
