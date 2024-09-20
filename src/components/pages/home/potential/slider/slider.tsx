@@ -53,7 +53,7 @@ function Slider({ sliderTextContent }: { sliderTextContent: SliderTextContent[] 
   }, [intervalRef]);
 
   useEffect(() => {
-    if (inView) {
+    if (inView && isAnimationLoaded) {
       startSlideChange();
     }
 
@@ -62,7 +62,7 @@ function Slider({ sliderTextContent }: { sliderTextContent: SliderTextContent[] 
         clearInterval(intervalRef.current);
       }
     };
-  }, [currentSlide, inView, startSlideChange]);
+  }, [currentSlide, inView, startSlideChange, isAnimationLoaded]);
 
   const handleLoadCompleted = (isLoaded: boolean) => {
     setIsAnimationLoaded(isLoaded);
