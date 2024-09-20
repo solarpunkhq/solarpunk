@@ -23,24 +23,30 @@ const ANIMATION_DURATION = 7000;
 
 const slidesQty = new Array(TOTAL_SLIDES_QTY).fill(1);
 
+// TODO: refactoring of slider behavior logic is required
 function Slider({ sliderTextContent }: { sliderTextContent: SliderTextContent[] }) {
   const [isAnimationMounted, setIsAnimationMounted] = useState(false);
   const [isAnimationLoaded, setIsAnimationLoaded] = useState(false);
   const [currentSlide, setCurrentSlide] = useState<number>(1);
+
   const progressBarRefs = useRef<(HTMLSpanElement | null)[]>([]);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const { ref, inView } = useInView({
+  const { ref: preloadRef, inView: isPreloading } = useInView({
+    triggerOnce: true,
+    rootMargin: '500px 0px',
+  });
+  const { ref: playRef, inView: isPlaying } = useInView({
     triggerOnce: false,
     threshold: 0.4,
   });
 
   useEffect(() => {
-    if (!inView || isAnimationMounted) {
+    if (!isPreloading || isAnimationMounted) {
       return;
     }
 
     setIsAnimationMounted(true);
-  }, [inView, isAnimationMounted]);
+  }, [isPreloading, isAnimationMounted]);
 
   const startSlideChange = useCallback(() => {
     if (intervalRef.current) {
@@ -53,7 +59,7 @@ function Slider({ sliderTextContent }: { sliderTextContent: SliderTextContent[] 
   }, [intervalRef]);
 
   useEffect(() => {
-    if (inView && isAnimationLoaded) {
+    if (isPlaying && isAnimationLoaded) {
       startSlideChange();
     }
 
@@ -62,7 +68,7 @@ function Slider({ sliderTextContent }: { sliderTextContent: SliderTextContent[] 
         clearInterval(intervalRef.current);
       }
     };
-  }, [currentSlide, inView, startSlideChange, isAnimationLoaded]);
+  }, [currentSlide, isPlaying, startSlideChange, isAnimationLoaded]);
 
   const handleLoadCompleted = (isLoaded: boolean) => {
     setIsAnimationLoaded(isLoaded);
@@ -84,16 +90,18 @@ function Slider({ sliderTextContent }: { sliderTextContent: SliderTextContent[] 
       </AnimatePresence>
       <div
         className="col-start-2 row-span-2 mr-16 xl:mr-0 md:col-span-full md:row-start-3 md:row-end-4 sm:mt-1 sm:w-full"
-        ref={ref}
+        ref={preloadRef}
       >
         {isAnimationMounted && (
           <>
-            <Animation
-              className="aspect-square w-[736px] overflow-hidden rounded-[10px] border border-[#6B8547] border-opacity-20 xl:w-[700px] lg:w-[480px] md:w-[448px] sm:w-full"
-              slideNumber={currentSlide}
-              isPlaying={inView}
-              onLoadCompleted={handleLoadCompleted}
-            />
+            <div ref={playRef}>
+              <Animation
+                className="aspect-square w-[736px] overflow-hidden rounded-[10px] border border-[#6B8547] border-opacity-20 xl:w-[700px] lg:w-[480px] md:w-[448px] sm:w-full"
+                slideNumber={currentSlide}
+                isPlaying={isPlaying}
+                onLoadCompleted={handleLoadCompleted}
+              />
+            </div>
             <ul className="mt-2 flex items-center justify-center gap-2 xl:mt-1 sm:gap-4">
               {slidesQty.map((_, index) => {
                 return (
@@ -107,7 +115,7 @@ function Slider({ sliderTextContent }: { sliderTextContent: SliderTextContent[] 
                         className={clsx(
                           'block h-full w-full origin-left scale-x-0 bg-black',
                           index !== currentSlide - 1 && '[animation:none]',
-                          inView && isAnimationLoaded
+                          isPlaying && isAnimationLoaded
                             ? '[animation-play-state:running]'
                             : '[animation-play-state:paused]',
                         )}
