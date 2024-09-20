@@ -7,7 +7,7 @@ export function UseGetOpacity(
 ) {
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ['1 1', '0.3 0.3'],
+    offset: ['start 90%', 'end 60%'],
     layoutEffect: false,
   });
 
