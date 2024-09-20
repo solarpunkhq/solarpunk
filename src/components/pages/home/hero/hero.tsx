@@ -1,10 +1,18 @@
 import Image from 'next/image';
 
+import HlsVideo from '@/components/shared/hls-video';
 import SearchForm from '@/components/shared/search-form';
 
 import stickerImage from '@/images/hero/sticker.png';
 
-import HlsVideo from './hls-video';
+const videoProps = {
+  src: {
+    mp4: '/videos/pages/home/hero/hero.mp4?updated=20240919122356',
+    m3u8: '/videos/pages/home/hero/hero.m3u8?updated=20240919120548',
+  },
+  videoClassName:
+    'absolute inset-0 h-full w-full object-cover object-center lg:object-[25%_50%] md:object-[39%_50%] sm:object-center',
+};
 
 function Hero() {
   return (
@@ -29,7 +37,13 @@ function Hero() {
           quality={90}
           priority
         />
-        <HlsVideo />
+        {/*       
+            Video optimization parameters:
+              mp4: -pix_fmt yuv420p -vf "scale=1920:-2" -movflags faststart -vcodec libx264 -g 60 -crf 20
+              m3u8: -codec: copy -start_number 0 -hls_time 2 -hls_list_size 0 -f hls output.m3u8
+          */}
+
+        <HlsVideo {...videoProps} />
       </div>
       <div className="hero-noise absolute bottom-0 left-0 right-0 top-0 -z-10 bg-[url('/images/pages/home/sources/noise.png')] bg-repeat opacity-10" />
       <span className="hero-shadow absolute bottom-0 left-0 right-0 top-0 -z-10 hidden bg-hero-sm sm:block" />

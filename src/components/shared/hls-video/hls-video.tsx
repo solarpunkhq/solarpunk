@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 
+import clsx from 'clsx';
 import { AnimatePresence, LazyMotion, domAnimation, m } from 'framer-motion';
 
 import useIsSafari from '@/hooks/use-is-safari';
@@ -10,10 +11,13 @@ import useIsSafari from '@/hooks/use-is-safari';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const Hls = require('hls.js/dist/hls.light.min.js');
 
-const VIDEO_MP4 = '/videos/pages/home/farm/card.mp4?updated=20240919135945';
-const VIDEO_M3U8 = '/videos/pages/home/farm/card.m3u8?updated=20240919135945';
+type HlsVideo = {
+  src: { mp4: string; m3u8: string };
+  videoClassName: string;
+  videoWrapperClassName?: string;
+};
 
-function HlsVideo() {
+function HlsVideo({ src, videoClassName, videoWrapperClassName }: HlsVideo) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const isSafari = useIsSafari();
   const { ref: videoPreloadRef, inView: isInView } = useInView({
@@ -39,7 +43,7 @@ function HlsVideo() {
     }
 
     // Each video is optimized to work well in different browsers
-    const videoSrc = isSafari ? VIDEO_MP4 : VIDEO_M3U8;
+    const videoSrc = isSafari ? src.mp4 : src.m3u8;
 
     // Using HLS.js for browsers that support it, except for Safari which has native HLS support.
     if (Hls.isSupported() && !isSafari) {
@@ -71,19 +75,11 @@ function HlsVideo() {
 
   return (
     <LazyMotion features={domAnimation}>
-      <div
-        className="pointer-events-none flex aspect-[0.7625] w-[608px] shrink-0 items-center justify-center overflow-hidden rounded-[10px] lg:w-[482px] md:aspect-[0.709] md:w-[448px] sm:aspect-square sm:w-full sm:max-w-[448px]"
-        ref={videoPreloadRef}
-      >
+      <div className={clsx('pointer-events-none', videoWrapperClassName)} ref={videoPreloadRef}>
         <AnimatePresence>
-          {/*       
-            Video optimization parameters:
-              mp4: -pix_fmt yuv420p -vf "scale=1220:-2" -movflags faststart -vcodec libx264 -g 60 -crf 20
-              m3u8: -codec: copy -start_number 0 -hls_time 2 -hls_list_size 0 -f hls output.m3u8
-          */}
           {isInView && (
             <m.video
-              className="w-full object-cover object-center md:scale-110 sm:translate-y-[48px] sm:scale-100"
+              className={videoClassName}
               width={1472}
               height={1056}
               controls={false}

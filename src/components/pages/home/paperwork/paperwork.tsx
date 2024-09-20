@@ -21,7 +21,7 @@ const animations = {
   dual: {
     src: '/animations/pages/home/paperwork/dual.riv',
     className:
-      'absolute inset-0 left-1/2 h-full w-full -translate-x-1/2 top-1/2 -translate-y-1/2 lg:scale-[0.9] lg:aspect-[1.27] lg:w-auto md:h-auto md:-translate-x-[47%] md:scale-[0.95] md:w-full sm:h-full sm:w-auto sm:scale-100 2xs:-translate-y-[57%] 2xs:-translate-x-1/2 2xs:scale-[0.7]',
+      'absolute inset-0 left-1/2 h-full w-full -translate-x-1/2 top-1/2 -translate-y-1/2 xl:scale-[0.9] xl:-translate-y-[48%] lg:-translate-y-1/2 lg:scale-[0.9] lg:aspect-[1.27] lg:w-auto md:h-auto md:-translate-x-[47%] md:scale-[0.95] md:w-full sm:h-full sm:w-auto sm:scale-100 2xs:-translate-y-[57%] 2xs:-translate-x-1/2 2xs:scale-[0.7]',
   },
 };
 
@@ -64,7 +64,7 @@ function Paperwork() {
                 );
               })}
             </ul>
-            <p className="fs-24 z-10 leading-normal tracking-tight text-gray-50 sm:text-18">
+            <p className="fs-24 z-10 leading-normal tracking-tight text-gray-50 xl:text-22 sm:text-18">
               <span className="font-medium text-gray-20">Microclimate Creation.</span>{' '}
               <span>
                 Solar panels provide partial shade to the crops below, creating a microclimate that
@@ -83,7 +83,7 @@ function Paperwork() {
                 comparing to 100% Crop yields
               </span>
             </p>
-            <p className="fs-24 z-10 leading-normal tracking-tight text-gray-50 sm:text-18">
+            <p className="fs-24 z-10 leading-normal tracking-tight text-gray-50 xl:text-22 sm:text-18">
               <span className="font-medium text-gray-20">Dual Use.</span>{' '}
               <span>
                 By installing solar panels above the crops, the same land can produce both food and

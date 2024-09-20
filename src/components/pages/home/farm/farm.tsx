@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 
-import HlsVideo from './hls-video';
+import HlsVideo from '@/components/shared/hls-video';
+
 import IconAnimation from './icon-animation';
 
 const items = [
@@ -17,6 +18,17 @@ const items = [
     artboard: 'icon-3',
   },
 ];
+
+const videoProps = {
+  src: {
+    mp4: '/videos/pages/home/farm/card.mp4?updated=20240919135945',
+    m3u8: '/videos/pages/home/farm/card.m3u8?updated=20240919135945',
+  },
+  videoWrapperClassName:
+    'flex aspect-[0.7625] w-[608px] shrink-0 items-center justify-center overflow-hidden rounded-[10px] lg:w-[482px] md:aspect-[0.709] md:w-[448px] sm:aspect-square sm:w-full sm:max-w-[448px]',
+  videoClassName:
+    'w-full object-cover object-center md:scale-110 sm:translate-y-[48px] sm:scale-100',
+};
 
 function Farm() {
   return (
@@ -54,7 +66,12 @@ function Farm() {
             })}
           </ul>
         </div>
-        <HlsVideo />
+        {/*       
+            Video optimization parameters:
+              mp4: -pix_fmt yuv420p -vf "scale=1220:-2" -movflags faststart -vcodec libx264 -g 60 -crf 20
+              m3u8: -codec: copy -start_number 0 -hls_time 2 -hls_list_size 0 -f hls output.m3u8
+          */}
+        <HlsVideo {...videoProps} />
       </div>
     </section>
   );
