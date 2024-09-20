@@ -15,11 +15,13 @@ const arrowsQty = new Array(4).fill(null);
 const animations = {
   microclimate: {
     src: '/animations/pages/home/paperwork/microclimate.riv',
+    className:
+      'absolute inset-0 left-1/2 h-full w-full -translate-x-1/2 lg:aspect-[1.27] lg:w-auto md:h-auto md:w-full sm:h-full sm:w-auto',
   },
   dual: {
     src: '/animations/pages/home/paperwork/dual.riv',
     className:
-      'lg:[&_canvas]:!h-[89%] lg:[&_canvas]:!w-[89%] lg:[&_canvas]:!left-1/2 lg:[&_canvas]:!-translate-x-1/2 lg:[&_canvas]:relative lg:[&_canvas]:!top-[7%] md:[&_canvas]:!h-[98%] md:[&_canvas]:!w-[98%] md:[&_canvas]:!-top-[5%] md:[&_canvas]:!-translate-x-[47%] 2xs:[&_canvas]:relative 2xs:[&_canvas]:!w-[70%] 2xs:[&_canvas]:!h-[70%] 2xs:[&_canvas]:!left-[49%] 2xs:[&_canvas]:!top-[8%] 2xs:[&_canvas]:!-translate-x-1/2',
+      'absolute inset-0 left-1/2 h-full w-full -translate-x-1/2 top-1/2 -translate-y-1/2 lg:scale-[0.9] lg:aspect-[1.27] lg:w-auto md:h-auto md:-translate-x-[47%] md:scale-[0.95] md:w-full sm:h-full sm:w-auto sm:scale-100 2xs:-translate-y-[57%] 2xs:-translate-x-1/2 2xs:scale-[0.7]',
   },
 };
 

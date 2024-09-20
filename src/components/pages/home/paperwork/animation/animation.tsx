@@ -16,7 +16,7 @@ function Animation({ src, className }: { src: string; className?: string }) {
     autoplay: false,
     stateMachines: 'SM',
     layout: new Layout({
-      fit: Fit['Cover'],
+      fit: Fit['Fill'],
       alignment: Alignment['TopCenter'],
     }),
     onLoad: () => {
@@ -26,7 +26,7 @@ function Animation({ src, className }: { src: string; className?: string }) {
 
   return (
     <div className="absolute inset-0 h-full w-full">
-      <span className="absolute left-0 top-0 -z-10 h-full w-px" ref={wrapperRef} aria-hidden />
+      <span className="absolute left-1/2 top-0 -z-10 h-full w-px" ref={wrapperRef} aria-hidden />
       <div
         className={clsx(
           'relative h-full w-full sm:pointer-events-none [&_canvas]:!h-full [&_canvas]:!w-full',
