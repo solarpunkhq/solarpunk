@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import { Acre } from '@/utils/types'
 import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
-import { CircleAlert, Loader2 } from 'lucide-react'
+import { CircleAlert, DollarSign, Leaf, Loader2, MapPin } from 'lucide-react'
 import * as L from 'leaflet'
 console.log(L)
 import 'leaflet.gridlayer.googlemutant/dist/Leaflet.GoogleMutant'
@@ -16,10 +16,41 @@ import {
 } from '@/utils/projections'
 import { Logo } from './Logo'
 import { Input } from './ui/input'
+import { Separator } from '@/components/ui/separator'
+import { Card, CardContent } from './ui/card'
 
 const Map = dynamic(() => import('@/components/map/Map'), {
   ssr: false,
 })
+
+function MainStat({ label, value, unit }) {
+  return (
+    <div className="space-y-2 text-center">
+      <h3 className="text-lg font-medium text-gray-400">{label}</h3>
+      <p className="text-4xl font-bold">
+        {value}
+        <span className="ml-1 text-3xl text-gray-400">{unit}</span>
+      </p>
+    </div>
+  )
+}
+
+function StatItem({ icon: Icon, label, value, unit }) {
+  return (
+    <div className="flex items-center space-x-4">
+      <div>
+        <div className="flex items-center">
+          <Icon className="h-4 w-4 text-gray-400" />
+          <h3 className="text-sm font-medium text-gray-400">{label}</h3>
+        </div>
+        <p className="text-xl font-bold">
+          {value}
+          <span className="ml-1 text-lg text-gray-400">{unit}</span>
+        </p>
+      </div>
+    </div>
+  )
+}
 
 export function OnboardingComponent({ country }: { country: string }) {
   const [acres, setAcres] = useState<Acre[]>([])
@@ -146,32 +177,8 @@ export function OnboardingComponent({ country }: { country: string }) {
             <h1 className="mb-4 text-3xl font-bold">Mark your land</h1>
             <div className="relative mb-4 flex-col overflow-x-auto text-sm">
               <div className="mb-4">
-                Use the map to select your territory. Use the following tools on
-                the left of the map to create or edit selections:{' '}
-              </div>
-              <div className="mb-2 flex flex-row items-center justify-start gap-2">
-                <img src="/map_icons/map_type_tool.svg"></img>
-                <span>Toggle between satellite and roadmap views</span>
-              </div>
-              <div className="mb-2 flex flex-row items-center justify-start gap-2">
-                <img src="/map_icons/zoom_in_tool.svg"></img>
-                <span>Zoom in to the map</span>
-              </div>
-              <div className="mb-2 flex flex-row items-center justify-start gap-2">
-                <img src="/map_icons/zoom_out_tool.svg"></img>
-                <span>Zoom out of the map</span>
-              </div>
-              <div className="mb-2 flex flex-row items-center justify-start gap-2">
-                <img src="/map_icons/vertex_tool.svg"></img>
-                <span>Add a new selection</span>
-              </div>
-              <div className="mb-2 flex flex-row items-center justify-start gap-2">
-                <img src="/map_icons/edit_vertex_tool.svg"></img>
-                <span>Edit an existing selection</span>
-              </div>
-              <div className="mb-2 flex flex-row items-center justify-start gap-2">
-                <img src="/map_icons/erase_selection_tool.svg"></img>
-                <span>Erase a selection</span>
+                Use the map to select your territory. Use the tools on the left
+                of the map to create or edit selections.
               </div>
               <div className="ml-1 mt-4 text-base font-semibold">Name</div>
               <Input
@@ -187,21 +194,43 @@ export function OnboardingComponent({ country }: { country: string }) {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-              <div className="mt-4 text-2xl font-semibold">Summary</div>
-              <div>
-                <b>Area: </b>
-                {formatNumberAsAmount(totalArea.toFixed(2))} Acres
-              </div>
-              <div>
-                <b>Est. Revenue: </b>$
-                {formatNumberAsAmount(projections.revenue_per_year.toFixed(0))}
-                /yr
-              </div>
-              <div>
-                <b>Est. Energy Production: </b>
-                {formatNumberAsAmount(projections.mw_produced.toFixed(1))} MW/yr
-              </div>
-              <div className="flex flex-col items-center justify-center">
+              <Card className="ml-1 mt-8 w-[97%] border-gray-300 text-black">
+                <CardContent className="p-6">
+                  <div className="mb-4 flex items-center justify-between">
+                    <h2 className="text-xl font-bold">Summary</h2>
+                  </div>
+                  <div className="space-y-6">
+                    <MainStat
+                      label="Revenue"
+                      value={
+                        '$' +
+                        formatNumberAsAmount(
+                          projections.revenue_per_year.toFixed(0)
+                        )
+                      }
+                      unit="/yr"
+                    />
+                    <Separator className="bg-gray-800" />
+                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                      <StatItem
+                        icon={MapPin}
+                        label="Area"
+                        value={formatNumberAsAmount(totalArea.toFixed(2))}
+                        unit="acres"
+                      />
+                      <StatItem
+                        icon={Leaf}
+                        label="Energy"
+                        value={formatNumberAsAmount(
+                          projections.mw_produced.toFixed(1)
+                        )}
+                        unit="MW/yr"
+                      />
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+              <div className="mt-2 flex flex-col items-center justify-center">
                 {error && <div className=" text-red-500">{error}</div>}
                 <Button
                   className="mt-4"

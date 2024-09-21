@@ -26,6 +26,16 @@ const Geoman = L.Control.extend({
       measurements: { measurement: true, displayFormat: 'metric' },
     })
 
+    map.pm.enableDraw('Polygon', {
+      pathOptions: {
+        color: 'black',
+        opacity: 1,
+        fillColor: '#E2F677',
+        fillOpacity: 0.7,
+        weight: 2.5,
+      },
+    })
+
     let areaUnit = 'acres'
     let areaCalculation = (value) => Math.round((value / 4046.86) * 100) / 100
 
