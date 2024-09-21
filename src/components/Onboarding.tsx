@@ -194,7 +194,7 @@ export function OnboardingComponent({ country }: { country: string }) {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-              <Card className="ml-1 mt-8 w-[97%] border-gray-300 text-black">
+              <Card className="ml-1 mt-6 w-[97%] border-gray-300 text-black">
                 <CardContent className="p-6">
                   <div className="mb-4 flex items-center justify-between">
                     <h2 className="text-xl font-bold">Summary</h2>
@@ -230,6 +230,12 @@ export function OnboardingComponent({ country }: { country: string }) {
                   </div>
                 </CardContent>
               </Card>
+              <div className="my-2 flex text-gray-500">
+                <span>
+                  <CircleAlert className="inline h-4 w-4" /> These figures are
+                  estimates and not guaranteed.
+                </span>
+              </div>
               <div className="mt-2 flex flex-col items-center justify-center">
                 {error && <div className=" text-red-500">{error}</div>}
                 <Button
