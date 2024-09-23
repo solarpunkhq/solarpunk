@@ -1,16 +1,8 @@
-'use client';
-
-import { useInView } from 'react-intersection-observer';
-
-import clsx from 'clsx';
-
 import ArrowIcon from '@/svgs/icons/down-arrow.inline.svg';
-import PixelArrowIcon from '@/svgs/icons/pixel-arrow.inline.svg';
 
 import { Animation } from './animation';
 import Card from './card';
-
-const arrowsQty = new Array(4).fill(null);
+import Marquee from './marquee';
 
 const animations = {
   microclimate: {
@@ -35,11 +27,6 @@ const items = [
 ];
 
 function Paperwork() {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    rootMargin: '-300px 0px',
-  });
-
   return (
     <section className="paperwork mt-36 px-safe lg:mt-[119px] md:mt-[88px] sm:mt-20">
       <div className="container">
@@ -93,147 +80,7 @@ function Paperwork() {
             <Animation {...animations.dual} />
           </Card>
         </div>
-        <div
-          className="mt-8 rounded-xl bg-gray-20 py-[38px] lg:py-[35px] md:mt-6 md:py-[34px] sm:mt-5 sm:py-[18px]"
-          ref={ref}
-        >
-          <div className="ml-[-86px] flex items-center justify-center gap-[30px] lg:ml-0 sm:flex-col sm:gap-[9px]">
-            <p
-              className={clsx(
-                'first-title fs-28 uppercase leading-none tracking-tight sm:text-16',
-                inView && 'animate-first-title',
-              )}
-            >
-              Less paperwork
-            </p>
-            <div className="flex gap-[18px] sm:hidden">
-              {arrowsQty.map((_, index) => {
-                return (
-                  <svg
-                    width="16"
-                    height="20"
-                    viewBox="0 0 16 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className={clsx(inView && 'arrow')}
-                    key={index}
-                  >
-                    <g clipPath="url(#clip0_3164_48264)">
-                      <rect
-                        x="0.333333"
-                        y="0.333333"
-                        width="3.33333"
-                        height="3.33333"
-                        stroke="#2E3038"
-                        className="column1"
-                      />
-                      <rect
-                        x="4.33333"
-                        y="4.33333"
-                        width="3.33333"
-                        height="3.33333"
-                        stroke="#2E3038"
-                        strokeWidth="0.666667"
-                        className="column1"
-                      />
-                      <rect
-                        x="8.33138"
-                        y="8.33333"
-                        width="3.33333"
-                        height="3.33333"
-                        stroke="#2E3038"
-                        strokeWidth="0.666667"
-                        className="column1"
-                      />
-                      <rect
-                        x="4.33333"
-                        y="12.3333"
-                        width="3.33333"
-                        height="3.33333"
-                        stroke="#2E3038"
-                        strokeWidth="0.666667"
-                        className="column1"
-                      />
-                      <rect
-                        x="0.333333"
-                        y="16.3333"
-                        width="3.33333"
-                        height="3.33333"
-                        stroke="#2E3038"
-                        strokeWidth="0.666667"
-                        className="column1"
-                      />
-                      <rect
-                        x="12.3353"
-                        y="8.33333"
-                        width="3.33333"
-                        height="3.33333"
-                        stroke="#2E3038"
-                        strokeWidth="0.666667"
-                        className="column2"
-                      />
-                      <rect
-                        x="8.33138"
-                        y="4.33333"
-                        width="3.33333"
-                        height="3.33333"
-                        stroke="#2E3038"
-                        strokeWidth="0.666667"
-                        className="column2"
-                      />
-                      <rect
-                        x="4.33333"
-                        y="16.3333"
-                        width="3.33333"
-                        height="3.33333"
-                        stroke="#2E3038"
-                        strokeWidth="0.666667"
-                        className="column2"
-                      />
-                      <rect
-                        x="4.33333"
-                        y="0.333333"
-                        width="3.33333"
-                        height="3.33333"
-                        stroke="#2E3038"
-                        strokeWidth="0.666667"
-                        className="column2"
-                      />
-                      <rect
-                        x="8.33138"
-                        y="12.3333"
-                        width="3.33333"
-                        height="3.33333"
-                        stroke="#2E3038"
-                        strokeWidth="0.666667"
-                        className="column2"
-                      />
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_3164_48264">
-                        <rect width="16" height="20" />
-                      </clipPath>
-                    </defs>
-                  </svg>
-                );
-              })}
-            </div>
-            <PixelArrowIcon
-              className={clsx(
-                'hidden w-3 rotate-90 fill-gray-40 sm:block',
-                inView && 'single-arrow-animation',
-              )}
-            />
-            <p
-              className={clsx(
-                'second-title fs-28 uppercase leading-none tracking-tight sm:text-16',
-                inView && 'animate-second-title',
-              )}
-            >
-              More action
-            </p>
-          </div>
-        </div>
+        <Marquee />
       </div>
     </section>
   );
