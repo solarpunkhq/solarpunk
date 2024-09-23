@@ -60,8 +60,8 @@ function CTA() {
             <Image
               className="absolute inset-0 -z-10 h-full w-full translate-x-[19px] scale-[1.15] object-cover object-center lg:translate-x-[34px] md:translate-x-[13px] md:scale-[1.23] sm:translate-y-[-22px] sm:scale-x-[1.33] sm:scale-y-[1.33]"
               src={greyBgImage}
-              width={854}
-              height={854}
+              width={865}
+              height={750}
               alt=""
             />
           </Card>
