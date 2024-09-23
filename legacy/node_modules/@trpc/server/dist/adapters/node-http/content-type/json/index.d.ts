@@ -1,2 +1,0 @@
-export declare const nodeHTTPJSONContentTypeHandler: <TRequest extends import("../..").NodeHTTPRequest, TResponse extends import("../..").NodeHTTPResponse>() => import("../../internals/contentType").NodeHTTPContentTypeHandler<TRequest, TResponse>;
-//# sourceMappingURL=index.d.ts.map
