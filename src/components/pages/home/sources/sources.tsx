@@ -7,6 +7,7 @@ import { LazyMotion, domAnimation, m } from 'framer-motion';
 
 import { UseIsCardInView } from '@/hooks/use-is-card-in-view';
 
+import bgBlurCard1Mobile from '@/images/sources/bg-blur-1-card-sm.png';
 import bgBlurCard1 from '@/images/sources/bg-blur-1-card.png';
 import bgBlurCard2 from '@/images/sources/bg-blur-2-card.png';
 import bgBlurCard3 from '@/images/sources/bg-blur-3-card.png';
@@ -26,6 +27,7 @@ const cards = [
     buttonText: 'Go to source',
     buttonUrl: '/' as Route<string>,
     blurImg: bgBlurCard1,
+    blurImgMobile: bgBlurCard1Mobile,
   },
   {
     title: 'AGRIVOLTAIC',

@@ -1,6 +1,8 @@
 import { Route } from 'next';
 import Image, { StaticImageData } from 'next/image';
 
+import clsx from 'clsx';
+
 import Button from '@/components/shared/button';
 
 interface CardProps {
@@ -13,6 +15,7 @@ interface CardProps {
   buttonText: string;
   buttonUrl: Route<string>;
   blurImg: StaticImageData;
+  blurImgMobile?: StaticImageData;
 }
 
 function CardContent({
@@ -25,6 +28,7 @@ function CardContent({
   buttonText,
   buttonUrl,
   blurImg,
+  blurImgMobile,
 }: CardProps) {
   return (
     <>
@@ -54,12 +58,24 @@ function CardContent({
       </div>
       <span className="border-linear pointer-events-none absolute inset-0 rounded-xl bg-sources-card-border opacity-[0.47]" />
       <Image
-        className="absolute inset-0 -z-10 h-full w-full object-cover object-center"
+        className={clsx(
+          'absolute inset-0 -z-10 h-full w-full object-cover object-center',
+          blurImgMobile && 'sm:hidden',
+        )}
         src={blurImg}
         width={612}
         height={750}
         alt=""
       />
+      {blurImgMobile && (
+        <Image
+          className="absolute inset-0 -z-10 hidden h-full w-full object-cover object-center sm:block"
+          src={blurImgMobile}
+          width={320}
+          height={500}
+          alt=""
+        />
+      )}
     </>
   );
 }
