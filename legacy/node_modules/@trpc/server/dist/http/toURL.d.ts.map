@@ -1,0 +1,1 @@
+{"version":3,"file":"toURL.d.ts","sourceRoot":"","sources":["../../src/http/toURL.ts"],"names":[],"mappings":"AAAA,wBAAgB,KAAK,CAAC,aAAa,EAAE,MAAM,GAAG,GAAG,CAMhD"}

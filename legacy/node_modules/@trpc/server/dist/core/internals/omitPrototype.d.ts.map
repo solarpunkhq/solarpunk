@@ -1,0 +1,1 @@
+{"version":3,"file":"omitPrototype.d.ts","sourceRoot":"","sources":["../../../src/core/internals/omitPrototype.ts"],"names":[],"mappings":"AAAA;;;GAGG;AACH,wBAAgB,aAAa,CAAC,IAAI,SAAS,MAAM,CAAC,MAAM,EAAE,OAAO,CAAC,EAChE,GAAG,EAAE,IAAI,GACR,IAAI,CAEN"}

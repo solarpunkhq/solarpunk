@@ -1,0 +1,1 @@
+{"version":3,"file":"getAbortController.d.ts","sourceRoot":"","sources":["../../src/internals/getAbortController.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,KAAK,EAAE,MAAM,cAAc,CAAC;AAC1C,OAAO,KAAK,EAAE,oBAAoB,EAAE,MAAM,SAAS,CAAC;AAEpD,wBAAgB,kBAAkB,CAChC,yBAAyB,EAAE,KAAK,CAAC,oBAAoB,CAAC,GACrD,oBAAoB,GAAG,IAAI,CAe7B"}

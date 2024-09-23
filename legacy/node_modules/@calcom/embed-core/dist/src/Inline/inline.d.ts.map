@@ -1,0 +1,1 @@
+{"version":3,"file":"inline.d.ts","sourceRoot":"","sources":["../../../src/Inline/inline.ts"],"names":[],"mappings":"AAIA,qBAAa,MAAO,SAAQ,WAAW;IACrC,MAAM,KAAK,kBAAkB,aAE5B;IAED,mBAAmB,IAAI,OAAO,CAAC,IAAI,IAAI,WAAW,GAAG;QAAE,UAAU,EAAE,UAAU,CAAA;KAAE;IAM/E,wBAAwB,CAAC,IAAI,EAAE,MAAM,EAAE,QAAQ,EAAE,MAAM,EAAE,QAAQ,EAAE,MAAM;;CA0B1E"}

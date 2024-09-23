@@ -1,0 +1,16 @@
+{
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/_not-found": "app/_not-found.js",
+  "/page": "app/page.js",
+  "/onboarding/page": "app/onboarding/page.js",
+  "/blog/page": "app/blog/page.js",
+  "/agrivoltaics/page": "app/agrivoltaics/page.js",
+  "/jobs/page": "app/jobs/page.js",
+  "/team/page": "app/team/page.js",
+  "/work/page": "app/work/page.js",
+  "/blog/future-of-web-development/page": "app/blog/future-of-web-development/page.js",
+  "/blog/3-lessons-we-learned-going-back-to-the-office/page": "app/blog/3-lessons-we-learned-going-back-to-the-office/page.js",
+  "/work/fast-company/page": "app/work/fast-company/page.js",
+  "/work/wef/page": "app/work/wef/page.js",
+  "/work/pv-magazine/page": "app/work/pv-magazine/page.js"
+}

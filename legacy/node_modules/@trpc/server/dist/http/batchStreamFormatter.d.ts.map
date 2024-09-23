@@ -1,0 +1,1 @@
+{"version":3,"file":"batchStreamFormatter.d.ts","sourceRoot":"","sources":["../../src/http/batchStreamFormatter.ts"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;;;;;;GAkBG;AACH,wBAAgB,uBAAuB;YAEd,MAAM,UAAU,MAAM;;EAO9C"}

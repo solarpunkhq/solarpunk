@@ -1,0 +1,1 @@
+{"version":3,"file":"identity.d.ts","sourceRoot":"","sources":["../../../src/observable/internals/identity.ts"],"names":[],"mappings":"AAAA,wBAAgB,QAAQ,CAAC,KAAK,EAAE,CAAC,EAAE,KAAK,GAAG,KAAK,CAE/C"}

@@ -1,0 +1,1 @@
+{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../../../src/adapters/node-http/content-type/json/index.ts"],"names":[],"mappings":"AAIA,eAAO,MAAM,8BAA8B,mMAMzC,CAAC"}

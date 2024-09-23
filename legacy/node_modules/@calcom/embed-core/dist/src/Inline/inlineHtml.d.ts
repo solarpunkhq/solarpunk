@@ -1,0 +1,3 @@
+declare const html = "<div id=\"wrapper\" style=\"top:50%; left:50%;transform:translate(-50%,-50%)\" class=\"absolute z-highest\">\n<div class=\"loader border-brand-default dark:border-darkmodebrand\">\n\t<span class=\"loader-inner bg-brand dark:bg-darkmodebrand\"></span>\n</div>\n<div id=\"error\" style=\"transform:translate(-50%,-50%)\" class=\"hidden\">\nSomething went wrong.\n</div>\n</div>\n<slot></slot>";
+export default html;
+//# sourceMappingURL=inlineHtml.d.ts.map

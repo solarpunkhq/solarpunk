@@ -1,0 +1,2 @@
+export declare const experimental_formDataLink: <TRouter extends import("@trpc/server").AnyRouter>(opts: import("./httpLink").HTTPLinkOptions) => import("./types").TRPCLink<TRouter>;
+//# sourceMappingURL=httpFormDataLink.d.ts.map

@@ -1,0 +1,53 @@
+/**
+ * Turn a query into a uniform object.
+ *
+ * @param {Selectors | RuleSet | null} query
+ * @returns {Selectors}
+ */
+export function queryToSelectors(query: Selectors | RuleSet | null): Selectors
+/**
+ * Walk a tree.
+ *
+ * @param {SelectState} state
+ * @param {Node | undefined} tree
+ */
+export function walk(state: SelectState, tree: Node | undefined): void
+export type Node = import('./types.js').Node
+export type Parent = import('./types.js').Parent
+export type RuleSet = import('./types.js').RuleSet
+export type SelectState = import('./types.js').SelectState
+export type Selectors = import('./types.js').Selectors
+/**
+ * Rule sets by nesting.
+ */
+export type Nest = {
+  /**
+   * `a b`
+   */
+  descendant: Array<RuleSet> | undefined
+  /**
+   * `a > b`
+   */
+  directChild: Array<RuleSet> | undefined
+  /**
+   * `a + b`
+   */
+  adjacentSibling: Array<RuleSet> | undefined
+  /**
+   * `a ~ b`
+   */
+  generalSibling: Array<RuleSet> | undefined
+}
+/**
+ * Info on nodes in a parent.
+ */
+export type Counts = {
+  /**
+   * Number of nodes.
+   */
+  count: number
+  /**
+   * Number of nodes by type.
+   */
+  types: Map<string, number>
+}

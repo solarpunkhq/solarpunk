@@ -1,0 +1,1 @@
+{"version":3,"file":"map.d.ts","sourceRoot":"","sources":["../../../src/observable/operators/map.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,gBAAgB,EAAE,MAAM,UAAU,CAAC;AAEjD,wBAAgB,GAAG,CAAC,YAAY,EAAE,MAAM,EAAE,WAAW,EACnD,OAAO,EAAE,CAAC,KAAK,EAAE,YAAY,EAAE,KAAK,EAAE,MAAM,KAAK,WAAW,GAC3D,gBAAgB,CAAC,YAAY,EAAE,MAAM,EAAE,WAAW,EAAE,MAAM,CAAC,CAoB7D"}

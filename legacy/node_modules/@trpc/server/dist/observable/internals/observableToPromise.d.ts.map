@@ -1,0 +1,1 @@
+{"version":3,"file":"observableToPromise.d.ts","sourceRoot":"","sources":["../../../src/observable/internals/observableToPromise.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,UAAU,EAAE,MAAM,UAAU,CAAC;AAE3C,qBAAa,oBAAqB,SAAQ,KAAK;gBACjC,OAAO,EAAE,MAAM;CAK5B;AAED,gBAAgB;AAChB,wBAAgB,mBAAmB,CAAC,MAAM,EACxC,UAAU,EAAE,UAAU,CAAC,MAAM,EAAE,OAAO,CAAC;;iBAEtB,IAAI;EAkCtB"}
