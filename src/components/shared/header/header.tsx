@@ -1,14 +1,14 @@
 'use client';
 
 import Button from '@/components/shared/button';
-import Burger from '@/components/shared/header/burger';
-import Link from '@/components/shared/link';
+// import Burger from '@/components/shared/header/burger';
+// import Link from '@/components/shared/link';
 import Logo from '@/components/shared/logo';
 import MobileMenu from '@/components/shared/mobile-menu';
 
 import { useMobileMenu } from '@/hooks/use-mobile-menu';
 
-import { MENUS } from '@/constants/menus';
+// import { MENUS } from '@/constants/menus';
 import { ROUTE } from '@/constants/route';
 
 function Header() {
@@ -22,7 +22,8 @@ function Header() {
           aria-label="Global"
         >
           <Logo className="sm:w-[106px]" isPriorityLoading />
-          <nav className="absolute left-1/2 top-1/2 ml-[22px] -translate-x-1/2 -translate-y-1/2 lg:ml-0 md:hidden">
+          {/* TODO: uncomment when the menu is ready */}
+          {/* <nav className="absolute left-1/2 top-1/2 ml-[22px] -translate-x-1/2 -translate-y-1/2 lg:ml-0 md:hidden">
             <ul className="flex gap-x-4 uppercase">
               {MENUS.header.map(({ label, href }, index) => (
                 <li key={index}>
@@ -37,15 +38,23 @@ function Header() {
                 </li>
               ))}
             </ul>
-          </nav>
-          <Button className="md:hidden" theme="black" size="xs" href={ROUTE.index}>
+          </nav> */}
+          {/* TODO: hide on md when the menu is ready */}
+          <Button
+            // className="md:hidden"
+            theme="black"
+            size="xs"
+            href={ROUTE.contactUs}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Contact us
           </Button>
-          <Burger
+          {/* <Burger
             className="hidden md:block"
             isToggled={isMobileMenuOpen}
             onClick={toggleMobileMenu}
-          />
+          /> */}
         </div>
       </header>
       <MobileMenu isOpen={isMobileMenuOpen} onClick={toggleMobileMenu} />

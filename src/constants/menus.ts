@@ -5,14 +5,14 @@ export const MENUS = {
     { label: 'Agrivoltaics', href: ROUTE.index },
     { label: 'The Team', href: ROUTE.index },
     { label: 'Jobs', href: ROUTE.index },
-    { label: 'Contact us', href: ROUTE.index },
+    { label: 'Contact us', href: ROUTE.contactUs },
   ],
   footer: {
     main: [
       { label: 'Agrivoltaics', href: ROUTE.index },
       { label: 'The Team', href: ROUTE.index },
       { label: 'Jobs', href: ROUTE.index },
-      { label: 'Contact us', href: ROUTE.index },
+      { label: 'Contact us', href: ROUTE.contactUs },
     ],
   },
 };

@@ -41,6 +41,8 @@ type ButtonProps<T extends string> = ClassName & {
   children: React.ReactNode;
   withArrow?: boolean;
   state?: (typeof STATE)[keyof typeof STATE];
+  target?: string;
+  rel?: string;
   onClick?: (event: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>) => void;
 };
 
@@ -52,6 +54,8 @@ function Button({
   children,
   withArrow = false,
   state = STATE.DEFAULT,
+  target = undefined,
+  rel = undefined,
   ...props
 }: ButtonProps<string>) {
   const linkClassName = clsx(
@@ -99,7 +103,7 @@ function Button({
 
   if (href) {
     return (
-      <Link className={linkClassName} href={href} {...props}>
+      <Link className={linkClassName} href={href} target={target} rel={rel} {...props}>
         {content}
       </Link>
     );
