@@ -1,5 +1,7 @@
 'use client';
 
+import { Route } from 'next';
+
 import React, { useEffect, useRef, useState } from 'react';
 
 import customSearchProvider from '@/utils/custom-search-provider';
@@ -90,7 +92,7 @@ function SearchForm({ className }: { className: string }) {
             <li key={index}>
               <Link
                 className="flex rounded-lg px-2.5 py-3 hover:bg-gray-90"
-                href={`https://www.solarpunkhq.com/onboarding?lat=${y}&lng=${x}`}
+                href={`/onboarding?lat=${y}&lng=${x}` as Route<string>}
                 target="_blank"
                 rel="noopener noreferrer"
               >

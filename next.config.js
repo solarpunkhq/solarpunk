@@ -8,6 +8,16 @@ module.exports = {
   images: {
     formats: ['image/avif', 'image/webp'],
   },
+  async rewrites() {
+    return {
+      afterFiles: [
+        {
+          source: '/onboarding/:path*',
+          destination: 'https://website-q4a00pxai-solarpunk.vercel.app/onboarding/:path*',
+        },
+      ],
+    };
+  },
   async headers() {
     return [
       {

@@ -22,14 +22,13 @@ function Logo({ className, isPriorityLoading = false }: LogoProps) {
         viewBox="-2 -2 34 36"
         width="24"
         height="26"
-        aria-hidden="true"
         preserveAspectRatio="xMinYMid meet"
       >
         <rect
           className="h-8 w-0 origin-[bottom_left] fill-[#000] transition-all duration-300 group-hover:w-8"
-          clip-path="url(#:R35djta:-clip)"
+          clipPath="url(#:R35djta:-clip)"
         />
-        <use href="#:R35djta:-path" className="stroke-[#000]" fill="none" stroke-width="2" />
+        <use href="#:R35djta:-path" className="stroke-[#000]" fill="none" strokeWidth="2" />
         <defs>
           <path
             id=":R35djta:-path"
