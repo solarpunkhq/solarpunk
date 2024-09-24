@@ -1,11 +1,13 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import customSearchProvider from '@/utils/custom-search-provider';
 import clsx from 'clsx';
 
 import Link from '@/components/shared/link';
+
+import useClickOutside from '@/hooks/use-click-outside';
 
 import { SEARCH_RESULTS_LIMIT } from '@/constants/forms';
 
@@ -23,8 +25,10 @@ function SearchForm({ className }: { className: string }) {
     apiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY || '',
   });
 
+  const wrapperRef = useRef(null);
   const [query, setQuery] = useState('');
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     if (query) {
@@ -43,9 +47,15 @@ function SearchForm({ className }: { className: string }) {
     setQuery(e.target.value);
   }
 
+  const onOutsideClick = () => {
+    setIsOpen(false);
+  };
+  useClickOutside([wrapperRef], onOutsideClick);
+
   return (
     <form
       className={clsx('relative max-w-[544px] xs:max-w-full', className)}
+      ref={wrapperRef}
       onSubmit={(e) => e.preventDefault()}
     >
       <input
@@ -54,6 +64,7 @@ function SearchForm({ className }: { className: string }) {
         placeholder="Enter your address, neighborhood, city or ZIP code"
         value={query}
         onChange={handleInputChange}
+        onFocus={() => setIsOpen(true)}
       />
       {query ? (
         <button
@@ -73,11 +84,12 @@ function SearchForm({ className }: { className: string }) {
           alt=""
         />
       )}
-      {searchResults && searchResults.length > 0 && (
+      {searchResults && isOpen && searchResults.length > 0 && (
         <ul className="absolute inset-x-0 top-[58px] overflow-hidden rounded-[10px] border border-[#EBEBEB] bg-white p-1 text-15 leading-none tracking-tight text-gray-12 xs:top-[54px]">
           {searchResults.map(({ x, y, label }, index) => (
-            <li key={index} className="cursor-pointer rounded-lg px-2.5 py-3 hover:bg-gray-90">
+            <li key={index}>
               <Link
+                className="flex rounded-lg px-2.5 py-3 hover:bg-gray-90"
                 href={`https://www.solarpunkhq.com/onboarding?lat=${y}&lng=${x}`}
                 target="_blank"
                 rel="noopener noreferrer"
