@@ -1,18 +1,15 @@
 'use client';
 
-import Image from 'next/image';
-
 import Button from '@/components/shared/button';
 import Burger from '@/components/shared/header/burger';
 import Link from '@/components/shared/link';
+import Logo from '@/components/shared/logo';
 import MobileMenu from '@/components/shared/mobile-menu';
 
 import { useMobileMenu } from '@/hooks/use-mobile-menu';
 
 import { MENUS } from '@/constants/menus';
 import { ROUTE } from '@/constants/route';
-
-import logo from '@/svgs/logo.svg';
 
 function Header() {
   const { isMobileMenuOpen, toggleMobileMenu } = useMobileMenu();
@@ -24,10 +21,7 @@ function Header() {
           className="container-wide flex h-full items-center justify-between"
           aria-label="Global"
         >
-          <Link href={ROUTE.index}>
-            <Image className="sm:w-[106px]" src={logo} width={115} height={26} alt="" priority />
-            <span className="sr-only">Solarpunk</span>
-          </Link>
+          <Logo className="sm:w-[106px]" isPriorityLoading />
           <nav className="absolute left-1/2 top-1/2 ml-[22px] -translate-x-1/2 -translate-y-1/2 lg:ml-0 md:hidden">
             <ul className="flex gap-x-4 uppercase">
               {MENUS.header.map(({ label, href }, index) => (
