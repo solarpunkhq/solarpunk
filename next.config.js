@@ -11,8 +11,12 @@ module.exports = {
   async rewrites() {
     return [
       {
-        source: '/onboarding',
-        destination: 'https://website-q4a00pxai-solarpunk.vercel.app/onboarding',
+        source: '/onboarding/_next/static/:path*',
+        destination: 'https://website-q4a00pxai-solarpunk.vercel.app/_next/static/:path*',
+      },
+      {
+        source: '/onboarding/:path*',
+        destination: 'https://website-q4a00pxai-solarpunk.vercel.app/onboarding/:path*',
       },
     ];
   },
