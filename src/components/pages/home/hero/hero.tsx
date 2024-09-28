@@ -23,7 +23,7 @@ const videoProps = {
 
 function Hero() {
   return (
-    <section className="hero relative mt-14 bg-hero-bg pb-14 pt-36 px-safe home-lg:pb-[47px] home-md:pb-[39px] home-sm:mt-[42px] home-sm:pb-8 home-sm:pt-[158px]">
+    <section className="hero relative mt-14 bg-hero-bg pb-9 pt-36 px-safe home-lg:pb-[47px] home-md:pb-[39px] home-sm:mt-[42px] home-sm:pb-8 home-sm:pt-[158px]">
       <div className="container ">
         <div className="relative z-20 flex max-w-[726px] flex-col text-white">
           <h1 className="font-title text-96 font-semibold leading-[0.96] tracking-snug home-lg:text-81 home-md:text-60 home-sm:text-41">
@@ -36,7 +36,7 @@ function Hero() {
           <SearchForm className="mt-[66px] home-md:mt-[50px]" />
         </div>
         <Image
-          className="relative z-20 ml-auto mr-32 mt-[267px] rounded-lg shadow-mission-sticker home-lg:mr-0 home-lg:mt-[120px] home-md:mt-[280px] home-sm:mt-[180px] home-sm:h-[60px] home-sm:w-[78px]"
+          className="relative z-20 ml-auto mr-32 mt-[267px] rounded-lg shadow-mission-sticker sm:mt-[180px] sm:h-[60px] sm:w-[78px] md:mt-[280px] lg:mr-0 lg:mt-[120px]"
           src={stickerImage}
           width={104}
           height={80}
