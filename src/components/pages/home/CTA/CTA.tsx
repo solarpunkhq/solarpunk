@@ -2,6 +2,8 @@ import Image from 'next/image';
 
 import Button from '@/components/shared/button';
 
+import { ROUTE } from '@/constants/route';
+
 import fieldImage from '@/images/cta/field-with-flower.jpg';
 import greyBgImage from '@/images/cta/gray-bg-blured.jpg';
 
@@ -51,7 +53,7 @@ function CTA() {
                 className="group shrink-0 gap-0.5 lg:gap-0 sm:gap-0"
                 size="md"
                 theme="white"
-                href="/"
+                href={ROUTE.contactUs}
                 withArrow
               >
                 Contact us
