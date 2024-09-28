@@ -16,20 +16,20 @@ function Header() {
 
   return (
     <>
-      <header className="absolute left-0 right-0 top-0 z-50 h-14 bg-white px-safe pt-safe sm:h-[42px]">
+      <header className="absolute left-0 right-0 top-0 z-50 h-14 bg-white px-safe pt-safe home-sm:h-[42px]">
         <div
           className="container-wide flex h-full items-center justify-between"
           aria-label="Global"
         >
-          <Logo className="sm:w-[106px]" isPriorityLoading />
+          <Logo className="home-sm:w-[106px]" isPriorityLoading />
           {/* TODO: uncomment when the menu is ready */}
-          {/* <nav className="absolute left-1/2 top-1/2 ml-[22px] -translate-x-1/2 -translate-y-1/2 lg:ml-0 md:hidden">
+          {/* <nav className="absolute left-1/2 top-1/2 ml-[22px] -translate-x-1/2 -translate-y-1/2 home-lg:ml-0 home-md:hidden">
             <ul className="flex gap-x-4 uppercase">
               {MENUS.header.map(({ label, href }, index) => (
                 <li key={index}>
                   <Link
                     className="p-2 font-semibold tracking-wide"
-                    size="xs"
+                    size="home-xs"
                     theme="black"
                     href={href}
                   >
@@ -41,9 +41,9 @@ function Header() {
           </nav> */}
           {/* TODO: hide on md when the menu is ready */}
           <Button
-            // className="md:hidden"
+            // className="home-md:hidden"
             theme="black"
-            size="xs"
+            size="home-xs"
             href={ROUTE.contactUs}
             target="_blank"
             rel="noopener noreferrer"
@@ -51,7 +51,7 @@ function Header() {
             Contact us
           </Button>
           {/* <Burger
-            className="hidden md:block"
+            className="hidden home-md:block"
             isToggled={isMobileMenuOpen}
             onClick={toggleMobileMenu}
           /> */}

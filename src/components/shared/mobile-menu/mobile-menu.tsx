@@ -32,7 +32,7 @@ function MobileMenu({ isOpen, onClick }: { isOpen: boolean; onClick: () => void 
       <AnimatePresence>
         {isOpen && (
           <m.nav
-            className="absolute inset-x-0 bottom-0 top-0 z-40 hidden bg-white px-safe md:block"
+            className="absolute inset-x-0 bottom-0 top-0 z-40 hidden bg-white px-safe home-md:block"
             initial="closed"
             animate="opened"
             exit="closed"
@@ -52,7 +52,7 @@ function MobileMenu({ isOpen, onClick }: { isOpen: boolean; onClick: () => void 
                     <Link
                       className="block pb-[17px] pt-[18px] leading-none text-gray-5"
                       href={href}
-                      size="sm"
+                      size="home-sm"
                     >
                       {label}
                     </Link>
@@ -62,7 +62,7 @@ function MobileMenu({ isOpen, onClick }: { isOpen: boolean; onClick: () => void 
               <Button
                 className="absolute -bottom-5 left-1/2 !h-11 w-[calc(100%-2.5rem)] -translate-x-1/2 py-3.5"
                 theme="black"
-                size="sm"
+                size="home-sm"
                 href={ROUTE.index}
               >
                 Contact us

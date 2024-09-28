@@ -56,12 +56,12 @@ function SearchForm({ className }: { className: string }) {
 
   return (
     <form
-      className={clsx('relative max-w-[544px] xs:max-w-full', className)}
+      className={clsx('relative max-w-[544px] home-xs:max-w-full', className)}
       ref={wrapperRef}
       onSubmit={(e) => e.preventDefault()}
     >
       <input
-        className="remove-autocomplete-styles placeholder:text-grey-50 h-12 w-full truncate rounded-full border border-[#EBEBEB] pl-[18px] pr-11 text-15 font-medium text-gray-12 outline-none placeholder:font-normal placeholder:leading-none placeholder:tracking-tight xs:h-11 xs:text-14"
+        className="remove-autocomplete-styles placeholder:text-grey-50 h-12 w-full truncate rounded-full border border-[#EBEBEB] pl-[18px] pr-11 text-15 font-medium text-gray-12 outline-none placeholder:font-normal placeholder:leading-none placeholder:tracking-tight home-xs:h-11 home-xs:text-14"
         type="text"
         placeholder="Enter your address, neighborhood, city or ZIP code"
         value={query}
@@ -87,7 +87,7 @@ function SearchForm({ className }: { className: string }) {
         />
       )}
       {searchResults && isOpen && searchResults.length > 0 && (
-        <ul className="absolute inset-x-0 top-[58px] overflow-hidden rounded-[10px] border border-[#EBEBEB] bg-white p-1 text-15 leading-none tracking-tight text-gray-12 xs:top-[54px]">
+        <ul className="absolute inset-x-0 top-[58px] overflow-hidden rounded-[10px] border border-[#EBEBEB] bg-white p-1 text-15 leading-none tracking-tight text-gray-12 home-xs:top-[54px]">
           {searchResults.map(({ x, y, label }, index) => (
             <li key={index}>
               <Link

@@ -32,40 +32,40 @@ const videoProps = {
     m3u8: '/videos/pages/home/farm/card.m3u8?updated=20240919135945',
   },
   videoWrapperClassName:
-    'flex aspect-[0.7625] w-[608px] shrink-0 items-center justify-center overflow-hidden rounded-[10px] lg:w-[482px] md:aspect-[0.709] md:w-[448px] sm:aspect-square sm:w-full sm:max-w-[448px]',
+    'flex aspect-[0.7625] w-[608px] shrink-0 items-center justify-center overflow-hidden rounded-[10px] home-lg:w-[482px] home-md:aspect-[0.709] home-md:w-[448px] home-sm:aspect-square home-sm:w-full home-sm:max-w-[448px]',
   videoClassName:
-    'w-full object-cover object-center md:scale-110 sm:translate-y-[48px] sm:scale-100',
+    'w-full object-cover object-center home-md:scale-110 home-sm:translate-y-[48px] home-sm:scale-100',
 };
 
 function Farm() {
   return (
-    <section className="farm mb-[220px] mt-[221px] px-safe lg:mb-[157px] lg:mt-40 md:mb-[135px] md:mt-[134px] sm:mb-[104px] sm:mt-[103px]">
-      <div className="container flex max-w-[1408px] justify-between lg:gap-x-8 md:max-w-lg md:flex-col md:items-center md:gap-y-11 sm:gap-y-10">
+    <section className="farm mb-[220px] mt-[221px] px-safe home-lg:mb-[157px] home-lg:mt-40 home-md:mb-[135px] home-md:mt-[134px] home-sm:mb-[104px] home-sm:mt-[103px]">
+      <div className="container flex max-w-[1408px] justify-between home-lg:gap-x-8 home-md:max-w-lg home-md:flex-col home-md:items-center home-md:gap-y-11 home-sm:gap-y-10">
         <div className="flex max-w-xl flex-col">
-          <h2 className="font-title text-60 font-bold leading-[1.1] tracking-snug text-gray-20 lg:text-48 md:text-45 sm:text-33">
+          <h2 className="font-title text-60 font-bold leading-[1.1] tracking-snug text-gray-20 home-lg:text-48 home-md:text-45 home-sm:text-33">
             Your farm is capable of so much more
           </h2>
-          <p className="mt-5 text-25 leading-snug tracking-tighter text-gray-40 lg:mt-[26px] lg:text-20 md:text-18 sm:mt-4 sm:text-16">
+          <p className="mt-5 text-25 leading-snug tracking-tighter text-gray-40 home-lg:mt-[26px] home-lg:text-20 home-md:text-18 home-sm:mt-4 home-sm:text-16">
             Solar panels provide partial shade to the crops below, creating a microclimate that
             potentially extends growing seasons.
           </p>
-          <ul className="relative mt-auto md:mt-[41px] sm:mt-10">
+          <ul className="relative mt-auto home-md:mt-[41px] home-sm:mt-10">
             {items.map(({ text, artboard }, index) => {
               return (
                 <li
                   className={clsx(
-                    'flex items-center gap-x-7 border-t pb-[31px] pt-8 text-gray-12 lg:gap-x-[23px] lg:py-7 md:py-5 sm:pb-[19px]',
+                    'flex items-center gap-x-7 border-t pb-[31px] pt-8 text-gray-12 home-lg:gap-x-[23px] home-lg:py-7 home-md:py-5 home-sm:pb-[19px]',
                     index === items.length - 1 && 'border-b border-gray-12',
                   )}
                   key={index}
                 >
                   <div className="shrink-0">
                     <IconAnimation
-                      className="h-14 w-14 md:h-12 md:w-12 sm:h-11 sm:w-11"
+                      className="h-14 w-14 home-md:h-12 home-md:w-12 home-sm:h-11 home-sm:w-11"
                       artboard={artboard}
                     />
                   </div>
-                  <p className="fs-20 pr-[74px] tracking-tight lg:pr-1 md:max-w-[368px] sm:pr-0 sm:text-16">
+                  <p className="fs-20 pr-[74px] tracking-tight home-lg:pr-1 home-md:max-w-[368px] home-sm:pr-0 home-sm:text-16">
                     {text}
                   </p>
                 </li>

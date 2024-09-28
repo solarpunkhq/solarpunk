@@ -35,13 +35,13 @@ const sliderTextContent = [
 
 function Potential() {
   return (
-    <section className="potential mt-[196px] px-safe xl:mt-[139px] md:mt-[129px] sm:mt-[116px]">
-      <div className="container grid grid-cols-[auto_800px] grid-rows-2 justify-between gap-x-24 xl:grid-cols-[auto_700px] lg:grid-cols-[auto_480px] lg:grid-rows-[208px_auto] lg:items-end lg:gap-x-8 md:max-w-lg md:grid-cols-[448px] md:grid-rows-[auto_auto_auto] md:items-center md:gap-x-0 md:gap-y-11 sm:grid-cols-[minmax(320px,_1fr)] sm:gap-y-9">
-        <div className="col-start-1 row-start-1 flex max-w-[640px] flex-col pb-12 pt-6 xl:pb-5 xl:pt-0 lg:max-w-[450px] lg:pb-0 md:col-span-full md:min-h-[auto]">
-          <h2 className="max-w-[540px] font-title text-52 font-semibold leading-[1.2] tracking-tight text-gray-20 lg:text-44 md:text-36 sm:max-w-[289px] sm:text-29">
+    <section className="potential mt-[196px] px-safe home-xl:mt-[139px] home-md:mt-[129px] home-sm:mt-[116px]">
+      <div className="container grid grid-cols-[auto_800px] grid-rows-2 justify-between gap-x-24 home-xl:grid-cols-[auto_700px] home-lg:grid-cols-[auto_480px] home-lg:grid-rows-[208px_auto] home-lg:items-end home-lg:gap-x-8 home-md:max-w-lg home-md:grid-cols-[448px] home-md:grid-rows-[auto_auto_auto] home-md:items-center home-md:gap-x-0 home-md:gap-y-11 home-sm:grid-cols-[minmax(320px,_1fr)] home-sm:gap-y-9">
+        <div className="col-start-1 row-start-1 flex max-w-[640px] flex-col pb-12 pt-6 home-xl:pb-5 home-xl:pt-0 home-lg:max-w-[450px] home-lg:pb-0 home-md:col-span-full home-md:min-h-[auto]">
+          <h2 className="max-w-[540px] font-title text-52 font-semibold leading-[1.2] tracking-tight text-gray-20 home-lg:text-44 home-md:text-36 home-sm:max-w-[289px] home-sm:text-29">
             Discover your farm&apos;s full potential
           </h2>
-          <p className="mt-[19px] max-w-[540px] text-25 leading-snug tracking-tighter text-gray-40 lg:text-20 md:mt-5 md:text-18 sm:mt-4 sm:text-16">
+          <p className="mt-[19px] max-w-[540px] text-25 leading-snug tracking-tighter text-gray-40 home-lg:text-20 home-md:mt-5 home-md:text-18 home-sm:mt-4 home-sm:text-16">
             Transform your fields with solar technology, fostering a thriving environment that
             supports longer and healthier crop cycles.
           </p>

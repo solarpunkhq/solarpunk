@@ -78,7 +78,7 @@ function Slider({ sliderTextContent }: { sliderTextContent: SliderTextContent[] 
     <LazyMotion features={domAnimation}>
       <AnimatePresence mode="wait">
         <m.div
-          className="relative col-start-1 row-start-2 mt-auto flex flex-col justify-between pb-14 lg:pb-3 md:col-span-full md:h-[220px] md:pb-0"
+          className="relative col-start-1 row-start-2 mt-auto flex flex-col justify-between pb-14 home-lg:pb-3 home-md:col-span-full home-md:h-[220px] home-md:pb-0"
           key={currentSlide}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -89,28 +89,28 @@ function Slider({ sliderTextContent }: { sliderTextContent: SliderTextContent[] 
         </m.div>
       </AnimatePresence>
       <div
-        className="col-start-2 row-span-2 mr-16 xl:mr-0 md:col-span-full md:row-start-3 md:row-end-4 sm:mt-1 sm:w-full"
+        className="col-start-2 row-span-2 mr-16 home-xl:mr-0 home-md:col-span-full home-md:row-start-3 home-md:row-end-4 home-sm:mt-1 home-sm:w-full"
         ref={preloadRef}
       >
         {isAnimationMounted && (
           <>
             <div ref={playRef}>
               <Animation
-                className="aspect-square w-[736px] overflow-hidden rounded-[10px] border border-[#6B8547] border-opacity-20 xl:w-[700px] lg:w-[480px] md:w-[448px] sm:w-full"
+                className="aspect-square w-[736px] overflow-hidden rounded-[10px] border border-[#6B8547] border-opacity-20 home-xl:w-[700px] home-lg:w-[480px] home-md:w-[448px] home-sm:w-full"
                 slideNumber={currentSlide}
                 isPlaying={isPlaying}
                 onLoadCompleted={handleLoadCompleted}
               />
             </div>
-            <ul className="mt-2 flex items-center justify-center gap-2 xl:mt-1 sm:gap-4">
+            <ul className="mt-2 flex items-center justify-center gap-2 home-xl:mt-1 home-sm:gap-4">
               {slidesQty.map((_, index) => {
                 return (
                   <li
-                    className="group flex cursor-pointer items-center justify-center px-1 py-3 sm:px-0"
+                    className="group flex cursor-pointer items-center justify-center px-1 py-3 home-sm:px-0"
                     key={index}
                     onClick={() => setCurrentSlide(index + 1)}
                   >
-                    <span className="h-1 w-[72px] overflow-hidden rounded-[10px] bg-gray-80 transition-[transform] duration-200 [transform:translateZ(0)] group-hover:scale-y-[200%] sm:w-[68px]">
+                    <span className="h-1 w-[72px] overflow-hidden rounded-[10px] bg-gray-80 transition-[transform] duration-200 [transform:translateZ(0)] group-hover:scale-y-[200%] home-sm:w-[68px]">
                       <span
                         className={clsx(
                           'block h-full w-full origin-left scale-x-0 bg-black',

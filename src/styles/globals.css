@@ -20,11 +20,11 @@
 
 @layer components {
   .container {
-    @apply mx-auto w-full max-w-[1600px] px-8 lg:max-w-[1024px] md:max-w-[768px] sm:max-w-full sm:px-5;
+    @apply mx-auto w-full max-w-[1600px] px-8 home-lg:max-w-[1024px] home-md:max-w-[768px] home-sm:max-w-full home-sm:px-5;
   }
 
   .container-wide {
-    @apply mx-auto w-full max-w-[1600px] px-8 sm:max-w-full sm:px-5;
+    @apply mx-auto w-full max-w-[1600px] px-8 home-sm:max-w-full home-sm:px-5;
   }
 
   .gap-x-grid {

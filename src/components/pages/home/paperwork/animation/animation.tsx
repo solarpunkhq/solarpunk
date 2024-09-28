@@ -29,7 +29,7 @@ function Animation({ src, className }: { src: string; className?: string }) {
       <span className="absolute left-1/2 top-0 -z-10 h-full w-px" ref={wrapperRef} aria-hidden />
       <div
         className={clsx(
-          'relative h-full w-full sm:pointer-events-none [&_canvas]:!h-full [&_canvas]:!w-full',
+          'relative h-full w-full home-sm:pointer-events-none [&_canvas]:!h-full [&_canvas]:!w-full',
           className,
         )}
         ref={animationRef}

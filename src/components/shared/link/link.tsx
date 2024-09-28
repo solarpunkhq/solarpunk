@@ -9,8 +9,8 @@ const styles = {
   base: 'inline-flex items-center font-medium leading-none tracking-tight',
   withIcon: 'group inline-flex items-center gap-1',
   size: {
-    xs: 'text-12',
-    sm: 'text-16',
+    'home-xs': 'text-12',
+    'home-sm': 'text-16',
   },
   theme: {
     black: 'text-black hover:text-gray-30',

@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
@@ -87,12 +86,17 @@ module.exports = {
       },
     }),
     screens: {
-      xl: { max: '1439px' },
-      lg: { max: '1279px' },
-      md: { max: '1023px' },
-      sm: { max: '767px' },
-      xs: { max: '639px' },
-      '2xs': { max: '413px' },
+      'home-xl': { max: '1439px' },
+      'home-lg': { max: '1279px' },
+      'home-md': { max: '1023px' },
+      'home-sm': { max: '767px' },
+      'home-xs': { max: '639px' },
+      'home-2xs': { max: '413px' },
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+      '2xl': '1536px',
     },
     extend: {
       backgroundImage: () => ({

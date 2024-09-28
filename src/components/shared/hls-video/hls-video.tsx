@@ -8,7 +8,6 @@ import { AnimatePresence, LazyMotion, domAnimation, m } from 'framer-motion';
 
 import useIsSafari from '@/hooks/use-is-safari';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const Hls = require('hls.js/dist/hls.light.min.js');
 
 type HlsVideo = {

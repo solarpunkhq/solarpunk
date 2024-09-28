@@ -16,19 +16,19 @@ function Marquee() {
 
   return (
     <div
-      className="mt-8 rounded-xl bg-gray-20 py-[38px] lg:py-[35px] md:mt-6 md:py-[34px] sm:mt-5 sm:py-6"
+      className="mt-8 rounded-xl bg-gray-20 py-[38px] home-lg:py-[35px] home-md:mt-6 home-md:py-[34px] home-sm:mt-5 home-sm:py-6"
       ref={ref}
     >
-      <div className="ml-[-86px] flex items-center justify-center gap-[30px] lg:ml-0 sm:gap-4">
+      <div className="ml-[-86px] flex items-center justify-center gap-[30px] home-lg:ml-0 home-sm:gap-4">
         <p
           className={clsx(
-            'first-title fs-28 font-medium uppercase leading-none tracking-tight sm:text-15 sm:tracking-tighter',
+            'first-title fs-28 font-medium uppercase leading-none tracking-tight home-sm:text-15 home-sm:tracking-tighter',
             inView && 'animate-first-title',
           )}
         >
           Less paperwork
         </p>
-        <div className="flex gap-[18px] sm:hidden">
+        <div className="flex gap-[18px] home-sm:hidden">
           {arrowsQty.map((_, index) => {
             return (
               <svg
@@ -141,11 +141,14 @@ function Marquee() {
           })}
         </div>
         <PixelArrowIcon
-          className={clsx('hidden w-3 fill-gray-40 sm:block', inView && 'single-arrow-animation')}
+          className={clsx(
+            'hidden w-3 fill-gray-40 home-sm:block',
+            inView && 'single-arrow-animation',
+          )}
         />
         <p
           className={clsx(
-            'second-title fs-28 font-medium uppercase leading-none tracking-tight sm:text-15 sm:tracking-tighter',
+            'second-title fs-28 font-medium uppercase leading-none tracking-tight home-sm:text-15 home-sm:tracking-tighter',
             inView && 'animate-second-title',
           )}
         >
