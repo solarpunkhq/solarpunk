@@ -6,7 +6,7 @@ function MainStat({ label, value, unit }: { label: string; value: number; unit: 
   console.log(value);
   return (
     <div className="space-y-2 text-center">
-      <h3 className="text-22 font-semibold text-gray-30">{label}</h3>
+      <h3 className="font-title text-22 text-gray-30">{label}</h3>
       <p className="flex items-center justify-center text-30 font-bold text-gray-20">
         <span className="flex items-center justify-center">
           $

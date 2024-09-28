@@ -29,7 +29,7 @@ function StatItem({
             animateToNumber={value}
             includeComma
           />
-          <span className="ml-1 text-16 font-medium text-gray-40">{unit}</span>
+          <span className="ml-1 mt-[2px] text-16 font-medium text-gray-40">{unit}</span>
         </p>
       </div>
     </div>

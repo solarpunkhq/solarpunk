@@ -75,10 +75,10 @@ function Onboarding({ country }: OnboardingProps) {
   };
 
   return (
-    <div className="mt-4 w-full text-gray-12 sm:h-screen sm:overflow-hidden">
+    <div className="w-full text-gray-12 sm:h-screen sm:overflow-hidden">
       <div className="flex h-full w-full flex-col items-center justify-center px-8 md:flex-row md:items-stretch md:justify-start">
         <div className="flex h-full w-full flex-col items-center justify-start">
-          <div className="mb-8 ml-6 mt-4 flex items-center justify-center self-start">
+          <div className="mb-8 mt-4 flex items-center justify-center self-start">
             <div
               className="flex cursor-pointer items-center"
               onClick={() => (window.location.href = '/')}
@@ -95,7 +95,7 @@ function Onboarding({ country }: OnboardingProps) {
             existingAcres={[]}
             country={country}
           />
-          <div className="text-sm mt-2 rounded-md bg-gray-94 p-6 text-center sm:w-1/2">
+          {/* <div className="text-sm mt-2 rounded-md bg-gray-94 p-6 text-center sm:w-1/2">
             <span className="font-semibold">
               ${formatNumberAsAmount(projections.revenue_per_year.toFixed(0))} Est. Yearly Revenue
             </span>
@@ -104,10 +104,10 @@ function Onboarding({ country }: OnboardingProps) {
               {' '}
               {formatNumberAsAmount(totalArea.toFixed(2))} Acres
             </span>
-          </div>
+          </div> */}
         </div>
-        <div className="rounded-r-4xl ml-4 h-full max-h-screen w-full max-w-96">
-          <div className="mt-20 flex flex-col border-2 border-gray-80 bg-gray-98 p-4">
+        <div className="ml-4 h-full max-h-screen w-full max-w-96">
+          <div className="mt-20 flex flex-col rounded-2xl border-2 border-gray-80 bg-gray-98 p-4">
             <h1 className="mb-4 font-title text-28 font-bold">Mark your land</h1>
             <div className="text-sm relative mb-4 flex-col overflow-x-auto">
               <div className="mb-4">
@@ -129,9 +129,6 @@ function Onboarding({ country }: OnboardingProps) {
               />
               <Card className="ml-1 mt-6 w-[97%] !border-2 !border-gray-70 bg-gray-94 text-gray-20">
                 <CardContent className="p-6">
-                  <div className="mb-4 flex items-center justify-between">
-                    <h2 className="text-18 font-bold">Financials</h2>
-                  </div>
                   <div className="space-y-6">
                     <MainStat label="Revenue" value={projections.revenue_per_year} unit="/yr" />
                     <Separator className="bg-gray-20" />
@@ -152,10 +149,10 @@ function Onboarding({ country }: OnboardingProps) {
                   </div>
                 </CardContent>
               </Card>
-              <div className="my-2 ml-1 flex text-gray-30">
+              <div className="my-2 ml-1 flex text-13 text-gray-40">
                 <span>
-                  <CircleAlert className="inline h-4 w-4" /> These figures are estimates and are not
-                  guaranteed.
+                  <CircleAlert className="relative -top-px inline h-4 w-4" /> These figures are
+                  estimates and are not guaranteed.
                 </span>
               </div>
               <div className="mt-2 flex flex-col items-center justify-center">
