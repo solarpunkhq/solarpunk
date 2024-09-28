@@ -73,10 +73,10 @@ function Map({
           width: '100%',
           height: '80vh',
           margin: '0 auto',
-          borderTopLeftRadius: '40px',
-          borderBottomLeftRadius: '40px',
-          borderTopRightRadius: '40px',
-          borderBottomRightRadius: '40px',
+          borderTopLeftRadius: '1rem',
+          borderBottomLeftRadius: '1rem',
+          borderTopRightRadius: '1rem',
+          borderBottomRightRadius: '1rem',
         }}
       >
         <ReactLeafletGoogleLayer
