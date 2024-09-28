@@ -36,7 +36,7 @@ function Hero() {
           <SearchForm className="mt-[66px] home-md:mt-[50px]" />
         </div>
         <Image
-          className="relative z-20 ml-auto mr-32 mt-[267px] rounded-lg shadow-mission-sticker sm:mt-[180px] sm:h-[60px] sm:w-[78px] md:mt-[280px] lg:mr-0 lg:mt-[120px]"
+          className="relative z-20 ml-auto mr-32 mt-[267px] rounded-lg shadow-mission-sticker home-lg:mr-0 home-lg:mt-[120px] home-md:mt-[280px] home-sm:mt-[180px] home-sm:h-[60px] home-sm:w-[78px]"
           src={stickerImage}
           width={104}
           height={80}
