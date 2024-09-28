@@ -3,7 +3,6 @@ module.exports = {
   poweredByHeader: false,
   experimental: {
     typedRoutes: true,
-    optimizeFonts: true,
   },
   images: {
     formats: ['image/avif', 'image/webp'],
