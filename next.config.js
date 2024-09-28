@@ -7,6 +7,7 @@ module.exports = {
   images: {
     formats: ['image/avif', 'image/webp'],
   },
+  reactStrictMode: false,
   async headers() {
     return [
       {
