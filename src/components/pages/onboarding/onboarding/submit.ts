@@ -44,6 +44,12 @@ export const submit = async (
       const data = await response.json();
       return data.magic_link;
     } else {
+      const data = await response.json();
+      if (data.message === 'User already exists') {
+        setError('User already exists');
+        setLoading(false);
+        return;
+      }
       console.error('Error:', response.statusText);
       setError(response.statusText);
       setLoading(false);

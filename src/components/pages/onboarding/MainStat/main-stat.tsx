@@ -3,7 +3,6 @@
 import AnimatedNumbers from 'react-animated-numbers';
 
 function MainStat({ label, value, unit }: { label: string; value: number; unit: string }) {
-  console.log(value);
   return (
     <div className="space-y-2 text-center">
       <h3 className="font-title text-22 text-gray-30">{label}</h3>

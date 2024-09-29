@@ -165,8 +165,12 @@ function Onboarding({ country }: OnboardingProps) {
                     submitForm();
                   }}
                 >
-                  {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                  {loading ? 'Please wait' : 'Submit'}
+                  {loading && (
+                    <div className="px-4">
+                      <Loader2 className="h-4 w-4 animate-spin" />
+                    </div>
+                  )}
+                  {loading ? '' : 'Submit'}
                 </Button>
               </div>
             </div>
