@@ -31,6 +31,7 @@ function SearchForm({ className }: { className: string }) {
   const [query, setQuery] = useState('');
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const [isOpen, setIsOpen] = useState(false);
+  const [highlightedIndex, setHighlightedIndex] = useState(-1);
 
   useEffect(() => {
     if (query) {
@@ -43,16 +44,35 @@ function SearchForm({ className }: { className: string }) {
   function handleClear() {
     setQuery('');
     setSearchResults([]);
+    setHighlightedIndex(-1);
   }
 
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
     setQuery(e.target.value);
+    setHighlightedIndex(-1);
   }
 
   const onOutsideClick = () => {
     setIsOpen(false);
   };
   useClickOutside([wrapperRef], onOutsideClick);
+
+  // Function to handle key press events for arrow key navigation
+  function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
+    if (!searchResults.length) {
+      return;
+    }
+    if (e.key === 'ArrowDown') {
+      setHighlightedIndex((prev) => (prev < searchResults.length - 1 ? prev + 1 : 0));
+    } else if (e.key === 'ArrowUp') {
+      setHighlightedIndex((prev) => (prev > 0 ? prev - 1 : searchResults.length - 1));
+    } else if (e.key === 'Enter' && highlightedIndex >= 0) {
+      const selectedResult = searchResults[highlightedIndex];
+      if (selectedResult) {
+        window.open(`/onboarding?lat=${selectedResult.y}&lng=${selectedResult.x}`, '_blank');
+      }
+    }
+  }
 
   return (
     <form
@@ -67,6 +87,7 @@ function SearchForm({ className }: { className: string }) {
         value={query}
         onChange={handleInputChange}
         onFocus={() => setIsOpen(true)}
+        onKeyDown={handleKeyDown}
       />
       {query ? (
         <button
@@ -91,7 +112,10 @@ function SearchForm({ className }: { className: string }) {
           {searchResults.map(({ x, y, label }, index) => (
             <li key={index}>
               <Link
-                className="flex rounded-lg px-2.5 py-3 hover:bg-gray-90"
+                className={clsx(
+                  'flex rounded-lg px-2.5 py-3 hover:bg-gray-90',
+                  highlightedIndex === index && 'bg-gray-90',
+                )}
                 href={`/onboarding?lat=${y}&lng=${x}` as Route<string>}
                 target="_blank"
                 rel="noopener noreferrer"
