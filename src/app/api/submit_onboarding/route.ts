@@ -86,7 +86,7 @@ export async function POST(request: Request) {
   }
 
   const magic_link =
-    process.env.NEXT_PUBLIC_PROJECT_URL +
+    process.env.NEXT_PUBLIC_DEFAULT_SITE_URL +
     `/auth/confirm?token_hash=${link_data.properties.hashed_token}&type=magiclink`;
 
   const { data, error } = await resend.emails.send({

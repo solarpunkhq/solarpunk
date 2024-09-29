@@ -18,10 +18,8 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 
-import { formatNumberAsAmount } from '@/lib/utils';
-
-import MainStat from '../MainStat';
-import StatItem from '../StatItem/stat-item';
+import MainStat from '../main-stat';
+import StatItem from '../stat-item/stat-item';
 import { submit } from './submit';
 
 console.log(L);
@@ -78,7 +76,7 @@ function Onboarding({ country }: OnboardingProps) {
     <div className="w-full text-gray-12 sm:h-screen sm:overflow-hidden">
       <div className="flex h-full w-full flex-col items-center justify-center px-8 md:flex-row md:items-stretch md:justify-start">
         <div className="flex h-full w-full flex-col items-center justify-start">
-          <div className="mb-8 mt-4 flex items-center justify-center self-start">
+          <div className="my-8 ml-4 flex items-center justify-center self-start">
             <div
               className="flex cursor-pointer items-center"
               onClick={() => (window.location.href = '/')}
@@ -95,19 +93,9 @@ function Onboarding({ country }: OnboardingProps) {
             existingAcres={[]}
             country={country}
           />
-          {/* <div className="text-sm mt-2 rounded-md bg-gray-94 p-6 text-center sm:w-1/2">
-            <span className="font-semibold">
-              ${formatNumberAsAmount(projections.revenue_per_year.toFixed(0))} Est. Yearly Revenue
-            </span>
-            {' | '}
-            <span className="text-gray-600">
-              {' '}
-              {formatNumberAsAmount(totalArea.toFixed(2))} Acres
-            </span>
-          </div> */}
         </div>
         <div className="ml-4 h-full max-h-screen w-full max-w-96">
-          <div className="mt-20 flex flex-col rounded-2xl border-2 border-gray-80 bg-gray-98 p-4">
+          <div className="mt-24 flex flex-col rounded-2xl border-2 border-gray-80 bg-gray-98 p-4">
             <h1 className="mb-4 font-title text-28 font-bold">Mark your land</h1>
             <div className="text-sm relative mb-4 flex-col overflow-x-auto">
               <div className="mb-4">
