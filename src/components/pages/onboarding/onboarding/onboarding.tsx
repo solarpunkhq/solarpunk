@@ -162,7 +162,7 @@ function Onboarding({ country }: OnboardingProps) {
                     theme="black"
                     href="https://cal.com/team/solarpunk/exploration"
                   >
-                    Contact Sales
+                    Contact us
                   </Button>
                   <Button
                     className="mt-4"
