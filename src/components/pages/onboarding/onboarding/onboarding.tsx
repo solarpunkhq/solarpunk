@@ -10,7 +10,7 @@ import { getProjectionsFromAcres, getTotalAreaFromAcreData } from '@/utils/proje
 import { Acre } from '@/utils/types';
 import * as L from 'leaflet';
 import 'leaflet.gridlayer.googlemutant/dist/Leaflet.GoogleMutant';
-import { CircleAlert, Leaf, Loader2, MapPin } from 'lucide-react';
+import { CircleAlert, Leaf, Loader2, MapPin, Zap } from 'lucide-react';
 
 import Button from '@/components/shared/button';
 import Logo from '@/components/shared/logo';
@@ -119,7 +119,7 @@ function Onboarding({ country }: OnboardingProps) {
                             unit="acres"
                           />
                           <StatItem
-                            icon={Leaf}
+                            icon={Zap}
                             label="Energy"
                             value={parseFloat(projections.mw_produced.toFixed(1))}
                             unit="MW/yr"

@@ -16,8 +16,8 @@ function StatItem({
   return (
     <div className="flex items-center space-x-4">
       <div>
-        <div className="flex items-center">
-          <Icon className="h-4 w-4 text-gray-30" />
+        <div className="mb-2 flex items-center">
+          <Icon className="-ml-1 h-6  w-6 rounded-full bg-gray-30 p-1 text-primary-green" />
           <h3 className="text-sm ml-1 font-semibold text-gray-30">{label}</h3>
         </div>
         <p className="flex items-center text-20 font-bold text-gray-20">
