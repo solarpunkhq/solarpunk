@@ -67,11 +67,10 @@ function Map({
         key={mapType}
         center={location as LatLngTuple}
         zoom={zoom}
-        className="rounded-l-2xl"
         scrollWheelZoom={true}
+        className="h-[50vh] md:h-[90vh]"
         style={{
           width: '100%',
-          height: '80vh',
           margin: '0 auto',
           borderTopLeftRadius: '1rem',
           borderBottomLeftRadius: '1rem',

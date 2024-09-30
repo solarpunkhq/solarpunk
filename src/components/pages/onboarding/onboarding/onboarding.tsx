@@ -73,99 +73,120 @@ function Onboarding({ country }: OnboardingProps) {
   };
 
   return (
-    <div className="w-full text-gray-12 sm:h-screen sm:overflow-hidden">
-      <div className="flex h-full w-full flex-col items-center justify-center px-8 md:flex-row md:items-stretch md:justify-start">
-        <div className="flex h-full w-full flex-col items-center justify-start">
-          <div className="my-8 ml-4 flex items-center justify-center self-start">
-            <div
-              className="flex cursor-pointer items-center"
-              onClick={() => (window.location.href = '/')}
-            >
-              <Logo className="h-8" />
+    <>
+      <div className="w-full text-gray-12 sm:h-screen">
+        <div className="h-full w-full flex-col items-center justify-center px-8 md:flex md:flex-row md:items-stretch md:justify-start">
+          <div className="w-full flex-col items-center justify-start md:flex md:h-full">
+            <div className="my-4 ml-4 flex items-center justify-center self-start">
+              <div
+                className="flex cursor-pointer items-center"
+                onClick={() => (window.location.href = '/')}
+              >
+                <Logo className="h-8" />
+              </div>
             </div>
+            <Map
+              zoom={zoom}
+              lat={lat}
+              lng={lng}
+              acres={acres}
+              setAcres={setAcres}
+              existingAcres={[]}
+              country={country}
+            />
           </div>
-          <Map
-            zoom={zoom}
-            lat={lat}
-            lng={lng}
-            acres={acres}
-            setAcres={setAcres}
-            existingAcres={[]}
-            country={country}
-          />
-        </div>
-        <div className="ml-4 h-full max-h-screen w-full max-w-96">
-          <div className="mt-24 flex flex-col rounded-2xl border-2 border-gray-80 bg-gray-98 p-4">
-            <h1 className="mb-4 font-title text-28 font-bold">Mark your land</h1>
-            <div className="text-sm relative mb-4 flex-col overflow-x-auto">
-              <div className="mb-4">
-                Use the tools on the left of the map to select your territory.
+          <div className="w-full pb-8 md:ml-4 md:h-full md:max-h-screen md:max-w-96">
+            <div className="mt-8 flex h-full max-h-[90vh] flex-col justify-between rounded-2xl border-2 border-gray-80 bg-gray-98 p-4 md:mt-16">
+              <div>
+                <h1 className="font-title text-28 font-bold">Mark your land</h1>
+                <div className="mb-0">
+                  Use the tools on the left of the map to select your territory.
+                </div>
               </div>
-              <div className="text-base ml-1 mt-4 font-semibold">Name</div>
-              <Input
-                placeholder="Your name"
-                className="!ml-1 !w-[97%] !border-2 !border-gray-70"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-              <div className="text-base ml-1 mt-4 font-semibold">Email</div>
-              <Input
-                placeholder="Your email"
-                className="!ml-1 !w-[97%] !border-2 !border-gray-70"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <Card className="ml-1 mt-6 w-[97%] !border-2 !border-gray-70 bg-gray-94 text-gray-20">
-                <CardContent className="p-6">
-                  <div className="space-y-6">
-                    <MainStat label="Revenue" value={projections.revenue_per_year} unit="/yr" />
-                    <Separator className="bg-gray-20" />
-                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                      <StatItem
-                        icon={MapPin}
-                        label="Area"
-                        value={parseFloat(totalArea.toFixed(1))}
-                        unit="acres"
-                      />
-                      <StatItem
-                        icon={Leaf}
-                        label="Energy"
-                        value={parseFloat(projections.mw_produced.toFixed(1))}
-                        unit="MW/yr"
-                      />
-                    </div>
+
+              <div className="text-sm relative mb-4 flex-col overflow-x-auto">
+                <div className="flex h-full flex-col justify-between">
+                  <Card className="ml-1 mt-6 w-[97%] !border-2 !border-gray-70 bg-gray-94 text-gray-20">
+                    <CardContent className="p-6">
+                      <div className="space-y-6">
+                        <MainStat label="Revenue" value={projections.revenue_per_year} unit="/yr" />
+                        <Separator className="bg-gray-20" />
+                        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                          <StatItem
+                            icon={MapPin}
+                            label="Area"
+                            value={parseFloat(totalArea.toFixed(1))}
+                            unit="acres"
+                          />
+                          <StatItem
+                            icon={Leaf}
+                            label="Energy"
+                            value={parseFloat(projections.mw_produced.toFixed(1))}
+                            unit="MW/yr"
+                          />
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                  <div className="my-2 ml-1 flex text-13 text-gray-40">
+                    <span>
+                      <CircleAlert className="relative -top-px inline h-4 w-4" /> These figures are
+                      estimates and are not guaranteed.
+                    </span>
                   </div>
-                </CardContent>
-              </Card>
-              <div className="my-2 ml-1 flex text-13 text-gray-40">
-                <span>
-                  <CircleAlert className="relative -top-px inline h-4 w-4" /> These figures are
-                  estimates and are not guaranteed.
-                </span>
+                </div>
               </div>
-              <div className="mt-2 flex flex-col items-center justify-center">
+              <div className="mb-4">
+                <div className="text-base ml-1 font-semibold">Name</div>
+                <Input
+                  placeholder="Your name"
+                  className="!ml-1 !w-[97%] !border-2 !border-gray-70"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+                <div className="text-base ml-1 mt-4 font-semibold">Email</div>
+                <Input
+                  placeholder="Your email"
+                  className="!ml-1 !w-[97%] !border-2 !border-gray-70"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+
+              <div className="-mx-[18px] -mb-[18px] flex flex-col items-center justify-center rounded-b-2xl bg-gray-20 pb-4">
                 {error && <div className="text-primary-red">{error}</div>}
-                <Button
-                  className="mt-4"
-                  size="home-sm"
-                  theme="black"
-                  onClick={() => {
-                    submitForm();
-                  }}
-                >
-                  {loading && (
-                    <div className="px-4">
-                      <Loader2 className="h-4 w-4 animate-spin" />
-                    </div>
-                  )}
-                  {loading ? '' : 'Submit'}
-                </Button>
+                <div className="flex gap-2">
+                  <Button
+                    className="mt-4"
+                    size="home-md"
+                    theme="black"
+                    href="https://cal.com/team/solarpunk/exploration"
+                  >
+                    Contact Sales
+                  </Button>
+                  <Button
+                    className="mt-4"
+                    size="home-md"
+                    theme="green"
+                    disabled={email.length === 0 || name.length === 0}
+                    onClick={() => {
+                      submitForm();
+                    }}
+                  >
+                    {loading && (
+                      <div className="px-4">
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                      </div>
+                    )}
+                    {loading ? '' : 'Continue'}
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

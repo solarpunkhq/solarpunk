@@ -39,6 +39,7 @@ type ButtonProps<T extends string> = ClassName & {
   href?: Route<T> | URL;
   size?: keyof typeof styles.size;
   theme?: keyof typeof styles.theme;
+  disabled?: boolean;
   children: React.ReactNode;
   withArrow?: boolean;
   state?: (typeof STATE)[keyof typeof STATE];
@@ -51,6 +52,7 @@ function Button({
   className: additionalClassName,
   size,
   theme,
+  disabled,
   href = undefined,
   children,
   withArrow = false,
@@ -66,6 +68,7 @@ function Button({
     theme && styles.theme[theme],
     withArrow ? theme && styles.hoverForArrowBtn[theme] : theme && styles.hoverDefault[theme],
     additionalClassName,
+    disabled && 'cursor-not-allowed opacity-50',
   );
 
   const content = (
@@ -111,7 +114,7 @@ function Button({
   }
 
   return (
-    <button className={linkClassName} disabled={state === STATE.LOADING} {...props}>
+    <button className={linkClassName} disabled={state === STATE.LOADING || disabled} {...props}>
       {content}
     </button>
   );
