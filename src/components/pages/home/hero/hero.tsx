@@ -17,13 +17,15 @@ const videoProps = {
     mp4: '/videos/pages/home/hero/hero.mp4?updated=20240919122356',
     m3u8: '/videos/pages/home/hero/hero.m3u8?updated=20240919120548',
   },
-  videoClassName:
-    'absolute inset-0 h-full w-full object-cover object-center home-lg:object-[25%_50%] home-md:object-[39%_50%] home-sm:object-center',
+  videoClassName: 'absolute inset-0 h-full w-full object-cover object-center ',
 };
 
 function Hero() {
   return (
-    <section className="hero relative mt-14 bg-hero-bg pb-9 pt-36 px-safe home-lg:pb-[47px] home-md:pb-[39px] home-sm:mt-[42px] home-sm:pb-8 home-sm:pt-[158px]">
+    <section
+      style={{ backgroundSize: 'auto 100%' }}
+      className="hero relative mt-14 bg-hero-bg bg-center pb-9 pt-36 px-safe home-lg:pb-[47px] home-md:pb-[39px] home-sm:mt-[42px] home-sm:pb-8 home-sm:pt-[158px]"
+    >
       <div className="container ">
         <div className="relative z-20 flex max-w-[726px] flex-col text-white">
           <h1 className="font-title text-96 font-semibold leading-[0.96] tracking-snug home-lg:text-81 home-md:text-60 home-sm:text-41">
