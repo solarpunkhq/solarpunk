@@ -23,14 +23,24 @@ const ANIMATION_DURATION = 7000;
 
 const slidesQty = new Array(TOTAL_SLIDES_QTY).fill(1);
 
+type SliderProps = {
+  sliderTextContent: SliderTextContent[];
+};
+
+// We use Date.now() and requestAnimationFrame to control the animation
+
 // TODO: refactoring of slider behavior logic is required
-function Slider({ sliderTextContent }: { sliderTextContent: SliderTextContent[] }) {
+function Slider({ sliderTextContent }: SliderProps) {
   const [isAnimationMounted, setIsAnimationMounted] = useState(false);
   const [isAnimationLoaded, setIsAnimationLoaded] = useState(false);
   const [currentSlide, setCurrentSlide] = useState<number>(1);
+  const [slideStartTime, setSlideStartTime] = useState(Date.now());
+  const [totalPausedTime, setTotalPausedTime] = useState<number>(0);
 
   const progressBarRefs = useRef<(HTMLSpanElement | null)[]>([]);
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const rafRef = useRef<number | null>(null);
+  const pauseStartTimeRef = useRef<number | null>(null);
+
   const { ref: preloadRef, inView: isPreloading } = useInView({
     triggerOnce: true,
     rootMargin: '500px 0px',
@@ -44,31 +54,53 @@ function Slider({ sliderTextContent }: { sliderTextContent: SliderTextContent[] 
     if (!isPreloading || isAnimationMounted) {
       return;
     }
-
     setIsAnimationMounted(true);
   }, [isPreloading, isAnimationMounted]);
 
-  const startSlideChange = useCallback(() => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-    }
-
-    intervalRef.current = setInterval(() => {
+  const checkSlideTime = useCallback(() => {
+    const elapsedTime = Date.now() - slideStartTime - totalPausedTime;
+    if (elapsedTime >= ANIMATION_DURATION) {
       setCurrentSlide((prevSlide) => (prevSlide % TOTAL_SLIDES_QTY) + 1);
-    }, ANIMATION_DURATION);
-  }, [intervalRef]);
+      setSlideStartTime(Date.now());
+      setTotalPausedTime(0);
+    }
+    rafRef.current = requestAnimationFrame(checkSlideTime);
+  }, [slideStartTime, totalPausedTime]);
 
   useEffect(() => {
     if (isPlaying && isAnimationLoaded) {
-      startSlideChange();
+      // component became visible
+      if (pauseStartTimeRef.current !== null) {
+        // calculate paused time
+        const pausedDuration = Date.now() - pauseStartTimeRef.current;
+        setTotalPausedTime((prev) => prev + pausedDuration);
+        pauseStartTimeRef.current = null;
+      }
+      rafRef.current = requestAnimationFrame(checkSlideTime);
+    } else {
+      // component became invisible
+      if (pauseStartTimeRef.current === null) {
+        pauseStartTimeRef.current = Date.now();
+      }
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = null;
+      }
     }
 
     return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = null;
       }
     };
-  }, [currentSlide, isPlaying, startSlideChange, isAnimationLoaded]);
+  }, [isPlaying, isAnimationLoaded, checkSlideTime]);
+
+  const handleSlideChange = (slideIndex: number) => {
+    setCurrentSlide(slideIndex);
+    setSlideStartTime(Date.now());
+    setTotalPausedTime(0);
+  };
 
   const handleLoadCompleted = (isLoaded: boolean) => {
     setIsAnimationLoaded(isLoaded);
@@ -108,7 +140,7 @@ function Slider({ sliderTextContent }: { sliderTextContent: SliderTextContent[] 
                   <li
                     className="group flex cursor-pointer items-center justify-center px-1 py-3 sm:px-0"
                     key={index}
-                    onClick={() => setCurrentSlide(index + 1)}
+                    onClick={() => handleSlideChange(index + 1)}
                   >
                     <span className="h-1 w-[72px] overflow-hidden rounded-[10px] bg-gray-80 transition-[transform] duration-200 [transform:translateZ(0)] group-hover:scale-y-[200%] sm:w-[68px]">
                       <span
