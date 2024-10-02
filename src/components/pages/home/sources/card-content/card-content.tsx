@@ -11,6 +11,7 @@ interface CardProps {
   type: string;
   year: number;
   description: string;
+  target?: string;
   text: string;
   buttonText: string;
   buttonUrl: Route<string>;
@@ -24,6 +25,7 @@ function CardContent({
   type,
   year,
   description,
+  target,
   text,
   buttonText,
   buttonUrl,
@@ -50,6 +52,7 @@ function CardContent({
           className="group mt-6 self-start home-lg:mt-auto home-sm:mt-[18px]"
           size="home-sm"
           theme="green"
+          target={target ? target : '_self'}
           href={buttonUrl}
           withArrow
         >
