@@ -18,5 +18,7 @@ module.exports = {
     'react/self-closing-comp': 'error',
     'jsx-a11y/alt-text': 'error',
     'import/no-extraneous-dependencies': 'error',
+    'react/display-name': 'off',
+    'react/no-unescaped-entities': 'off',
   },
 };

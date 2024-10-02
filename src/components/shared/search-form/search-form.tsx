@@ -69,7 +69,7 @@ function SearchForm({ className }: { className: string }) {
     } else if (e.key === 'Enter' && highlightedIndex >= 0) {
       const selectedResult = searchResults[highlightedIndex];
       if (selectedResult) {
-        window.open(`/onboarding?lat=${selectedResult.y}&lng=${selectedResult.x}`, '_blank');
+        window.location.href = `/onboarding?lat=${selectedResult.y}&lng=${selectedResult.x}`;
       }
     }
   }
@@ -117,7 +117,6 @@ function SearchForm({ className }: { className: string }) {
                   highlightedIndex === index && 'bg-gray-90',
                 )}
                 href={`/onboarding?lat=${y}&lng=${x}` as Route<string>}
-                target="_blank"
                 rel="noopener noreferrer"
               >
                 {label}

@@ -42,7 +42,7 @@ const Geoman = L.Control.extend({
     let areaCalculation = (value: number) => Math.round((value / 4046.86) * 100) / 100;
 
     //@ts-ignore
-    if (this.options.country && this.options.country !== 'US') {
+    if (this.options.country && this.options.country !== 'US' && this.options.country !== 'UK') {
       areaUnit = 'ha';
       areaCalculation = (value) => Math.round((value / 10000) * 100) / 100;
     }

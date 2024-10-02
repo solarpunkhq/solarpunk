@@ -112,12 +112,21 @@ function Onboarding({ country }: OnboardingProps) {
                         <MainStat label="Revenue" value={projections.revenue_per_year} unit="/yr" />
                         <Separator className="bg-gray-20" />
                         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                          <StatItem
-                            icon={MapPin}
-                            label="Area"
-                            value={parseFloat(totalArea.toFixed(1))}
-                            unit="acres"
-                          />
+                          {country === 'US' || country === 'UK' ? (
+                            <StatItem
+                              icon={MapPin}
+                              label="Area"
+                              value={parseFloat(totalArea.toFixed(1))}
+                              unit="acres"
+                            />
+                          ) : (
+                            <StatItem
+                              icon={MapPin}
+                              label="Area"
+                              value={parseFloat((totalArea / 2.471).toFixed(1))}
+                              unit="ha"
+                            />
+                          )}
                           <StatItem
                             icon={Zap}
                             label="Energy"
