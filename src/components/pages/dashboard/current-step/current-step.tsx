@@ -16,7 +16,7 @@ const steps = [
 function CurrentStep({ step }: { step: number }) {
   return (
     <div className="flex h-full w-full flex-col items-start justify-start gap-4 p-4 md:p-0">
-      <div className="mt-8 flex w-full items-center justify-between">
+      <div className="mt-4 flex w-full items-center justify-between">
         <div
           className="ml-4 mt-2 flex cursor-pointer items-center"
           onClick={() => (window.location.href = '/')}

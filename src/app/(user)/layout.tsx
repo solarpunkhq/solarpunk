@@ -4,13 +4,16 @@ import { Analytics } from '@vercel/analytics/react';
 
 import { Toaster } from '@/components/ui/toaster';
 
+import { getMetadata } from '@/lib/get-metadata';
 import { cn } from '@/lib/utils';
+
+import { SEO_DATA } from '@/constants/seo-data';
 
 import '@/styles/tailwind.css';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="text-base h-full antialiased">
+    <html lang="en" className="h-full text-base antialiased">
       <head>
         <link
           rel="stylesheet"
@@ -42,3 +45,5 @@ export const viewport = {
   viewportFit: 'cover',
   themeColor: '#000000',
 };
+
+export const metadata = getMetadata(SEO_DATA.index);
