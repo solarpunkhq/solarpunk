@@ -67,14 +67,14 @@ function Paperwork() {
                 160% Crop + Solar
               </span>
               <span className="fs-20 font-semibold text-gray-50">
-                comparing to 100% Crop yields
+                compared to only growing crops
               </span>
             </p>
             <p className="fs-24 z-10 leading-normal tracking-tight text-gray-50 home-xl:text-22 home-sm:text-18">
               <span className="font-medium text-gray-20">Dual Use.</span>{' '}
               <span>
                 By installing solar panels above the crops, the same land can produce both food and
-                energy, utilizing resourcecs to their fullest potential.
+                energy, utilizing resources to their fullest potential.
               </span>
             </p>
             <Animation {...animations.dual} />
