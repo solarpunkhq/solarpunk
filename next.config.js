@@ -4,6 +4,15 @@ module.exports = {
   experimental: {
     typedRoutes: true,
   },
+  async redirects() {
+    return [
+      {
+        source: '/agrivoltaics',
+        destination: '/blog/posts/agrivoltaics',
+        permanent: true,
+      },
+    ];
+  },
   images: {
     formats: ['image/avif', 'image/webp'],
   },
