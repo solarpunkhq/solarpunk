@@ -1,7 +1,5 @@
 'use client';
 
-import Link from 'next/link';
-
 import Button from '@/components/shared/button';
 // import Burger from '@/components/shared/header/burger';
 // import Link from '@/components/shared/link';
@@ -28,14 +26,14 @@ function Header() {
             <ul className="flex gap-x-4 uppercase">
               {MENUS.header.map(({ label, href }, index) => (
                 <li key={index}>
-                  <Link
+                  <Button
                     className="p-2 font-semibold tracking-wide"
                     size="home-xs"
-                    theme="black"
+                    theme="white"
                     href={href}
                   >
                     {label}
-                  </Link>
+                  </Button>
                 </li>
               ))}
             </ul>
