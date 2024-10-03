@@ -1,6 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useSearchParams } from 'next/navigation';
 
@@ -160,6 +161,19 @@ function Onboarding({ country }: OnboardingProps) {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
+              </div>
+              <div className="my-2 ml-1 flex text-13 text-gray-40">
+                <span>
+                  By clicking Continue, you agree to our{' '}
+                  <Link className="underline" href="/terms">
+                    Terms
+                  </Link>
+                  . Learn how we collect, use and share your data in our{' '}
+                  <Link className="underline" href="/privacy">
+                    Privacy Policy
+                  </Link>
+                  .
+                </span>
               </div>
 
               <div className="-mx-[18px] -mb-[18px] flex flex-col items-center justify-center rounded-b-2xl bg-gray-20 pb-4">
