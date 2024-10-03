@@ -5,6 +5,6 @@ export const ROUTE: Record<string, URL | Route<string>> = {
   agrivoltaics: '/blog/posts/agrivoltaics' as Route<string>,
   contactUs: 'https://cal.com/team/solarpunk/exploration',
   terms: '/terms',
-  privacy: '/privacy',
+  privacy: '/privacy' as Route<string>,
   blog: '/blog',
 };
