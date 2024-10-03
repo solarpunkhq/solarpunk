@@ -77,7 +77,7 @@ function Onboarding({ country }: OnboardingProps) {
       <div className="w-full text-gray-12 sm:h-screen">
         <div className="h-full w-full flex-col items-center justify-center px-8 md:flex md:flex-row md:items-stretch md:justify-start">
           <div className="w-full flex-col items-center justify-start md:flex md:h-full">
-            <div className="my-4 ml-4 flex items-center justify-center self-start">
+            <div className="my-3 flex items-center justify-center self-start">
               <div
                 className="flex cursor-pointer items-center"
                 onClick={() => (window.location.href = '/')}
