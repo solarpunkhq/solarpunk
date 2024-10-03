@@ -2,10 +2,14 @@ import React from 'react';
 
 import Container from '@/components/shared/container';
 
+import { getMetadata } from '@/lib/get-metadata';
+
+import { SEO_DATA } from '@/constants/seo-data';
+
 export default function Terms() {
   return (
     <Container>
-      <div className="prose">
+      <article className=" prose my-14 max-w-screen-lg">
         <h1>Terms of Service</h1>
         <p>
           Welcome to Solarpunkhq.com! These Terms of Service ("Terms") govern your use of the
@@ -50,9 +54,9 @@ export default function Terms() {
         <p>
           We respect your privacy. By using the Platform, you consent to the collection, use, and
           disclosure of your personal information as described in our{' '}
-          <a href="/privacy-policy.html">Privacy Policy</a>. Your data, including your home address
-          and other personal information, will be used to connect you with photovoltaic installers
-          in your region.
+          <a href="/privacy">Privacy Policy</a>. Your data, including your home address and other
+          personal information, will be used to connect you with photovoltaic installers in your
+          region.
         </p>
 
         <h2>5. Data Security</h2>
@@ -109,9 +113,9 @@ export default function Terms() {
           If you have any questions about these Terms or the services provided by Solarpunkhq.com,
           please contact us at <a href="mailto:support@solarpunkhq.com">support@solarpunkhq.com</a>.
         </p>
-
         <p>Last updated: 3rd October 2024</p>
-      </div>
+      </article>
     </Container>
   );
 }
+export const metadata = getMetadata(SEO_DATA.index);
