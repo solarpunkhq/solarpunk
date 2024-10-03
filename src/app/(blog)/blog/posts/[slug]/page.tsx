@@ -2,7 +2,6 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import Container from '@/components/pages/blog/container';
-import Header from '@/components/pages/blog/header';
 import { PostBody } from '@/components/pages/blog/post-body';
 import { PostHeader } from '@/components/pages/blog/post-header';
 
@@ -19,9 +18,8 @@ export default async function Post({ params }: Params) {
   const content = await markdownToHtml(post.content || '');
 
   return (
-    <main>
+    <main className="mt-24">
       <Container>
-        <Header />
         <article className="mb-32">
           <PostHeader
             title={post.title}

@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 import Button from '@/components/shared/button';
 // import Burger from '@/components/shared/header/burger';
 // import Link from '@/components/shared/link';
@@ -8,7 +10,7 @@ import MobileMenu from '@/components/shared/mobile-menu';
 
 import { useMobileMenu } from '@/hooks/use-mobile-menu';
 
-// import { MENUS } from '@/constants/menus';
+import { MENUS } from '@/constants/menus';
 import { ROUTE } from '@/constants/route';
 
 function Header() {
@@ -22,8 +24,7 @@ function Header() {
           aria-label="Global"
         >
           <Logo className="home-sm:w-[106px]" isPriorityLoading />
-          {/* TODO: uncomment when the menu is ready */}
-          {/* <nav className="absolute left-1/2 top-1/2 ml-[22px] -translate-x-1/2 -translate-y-1/2 home-lg:ml-0 home-md:hidden">
+          <nav className="absolute left-1/2 top-1/2 ml-[22px] -translate-x-1/2 -translate-y-1/2 home-lg:ml-0 home-md:hidden">
             <ul className="flex gap-x-4 uppercase">
               {MENUS.header.map(({ label, href }, index) => (
                 <li key={index}>
@@ -38,7 +39,7 @@ function Header() {
                 </li>
               ))}
             </ul>
-          </nav> */}
+          </nav>
           {/* TODO: hide on md when the menu is ready */}
           <Button
             // className="home-md:hidden"
