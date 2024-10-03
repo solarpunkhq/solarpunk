@@ -197,7 +197,7 @@ function Onboarding({ country }: OnboardingProps) {
                     }}
                   >
                     {loading && (
-                      <div className="px-4">
+                      <div className="px-8">
                         <Loader2 className="h-4 w-4 animate-spin" />
                       </div>
                     )}
