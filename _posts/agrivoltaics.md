@@ -1,13 +1,13 @@
 ---
 title: 'Agrivoltaics: A Sustainable Future for Agriculture and Energy'
 excerpt: 'Agrivoltaics (Agri PV) combines land use for agriculture and solar energy generation, offering innovative solutions for both sustainable food production and energy generation.'
-coverImage: '/blog/agrivoltaics/cover.jpg'
+coverImage: '/blog/covers/agrivoltaics.jpg'
 date: '2024-10-03'
 author:
   name: Peer Richelsen
   picture: '/blog/authors/peer.png'
 ogImage:
-  url: '/blog/agrivoltaics/cover.jpg'
+  url: '/blog/covers/agrivoltaics.jpg'
 ---
 
 ## What is agrivoltaics?
