@@ -99,12 +99,12 @@ function Onboarding({ country }: OnboardingProps) {
             <div className="mt-8 flex h-full max-h-[90vh] flex-col justify-between rounded-2xl border-2 border-gray-80 bg-gray-98 p-4 md:mt-16">
               <div>
                 <h1 className="font-title text-28 font-bold">Mark your land</h1>
-                <div className="mb-0">
+                <div className="my-2">
                   Use the tools on the left of the map to select your territory.
                 </div>
               </div>
 
-              <div className="text-sm relative mb-4 flex-col overflow-x-auto">
+              <div className="relative mb-4 flex-col overflow-x-auto text-sm">
                 <div className="flex h-full flex-col justify-between">
                   <Card className="ml-1 mt-6 w-[97%] !border-2 !border-gray-70 bg-gray-94 text-gray-20">
                     <CardContent className="p-6">
@@ -146,14 +146,14 @@ function Onboarding({ country }: OnboardingProps) {
                 </div>
               </div>
               <div className="mb-4">
-                <div className="text-base ml-1 font-semibold">Name</div>
+                <div className="ml-1 text-base font-semibold">Name</div>
                 <Input
                   placeholder="Your name"
                   className="!ml-1 !w-[97%] !border-2 !border-gray-70"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
-                <div className="text-base ml-1 mt-4 font-semibold">Email</div>
+                <div className="ml-1 mt-4 text-base font-semibold">Email</div>
                 <Input
                   placeholder="Your email"
                   className="!ml-1 !w-[97%] !border-2 !border-gray-70"

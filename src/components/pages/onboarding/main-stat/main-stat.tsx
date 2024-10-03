@@ -4,9 +4,9 @@ import AnimatedNumbers from 'react-animated-numbers';
 
 function MainStat({ label, value, unit }: { label: string; value: number; unit: string }) {
   return (
-    <div className="space-y-2 text-center">
+    <div className="space-y-6 text-center">
       <h3 className="font-title text-22 text-gray-30">{label}</h3>
-      <p className="flex items-center justify-center text-30 font-bold text-gray-20">
+      <p className="flex items-center justify-center text-30 font-bold leading-7 text-gray-20">
         <span className="flex items-center justify-center">
           $
           <AnimatedNumbers
