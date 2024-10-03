@@ -18,7 +18,7 @@ export default async function Post({ params }: Params) {
   const content = await markdownToHtml(post.content || '');
 
   return (
-    <main className="mt-24">
+    <main className="mt-10">
       <Container>
         <article className="mb-32">
           <PostHeader

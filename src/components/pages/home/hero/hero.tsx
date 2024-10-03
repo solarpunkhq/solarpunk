@@ -24,7 +24,7 @@ function Hero() {
   return (
     <section
       style={{ backgroundSize: 'auto 100%' }}
-      className="hero relative mt-14 bg-hero-bg bg-center pb-9 pt-36 px-safe home-lg:pb-[47px] home-md:pb-[39px] home-sm:mt-[42px] home-sm:pb-8 home-sm:pt-[158px]"
+      className="hero relative bg-hero-bg bg-center pb-9 pt-36 px-safe home-lg:pb-[47px] home-md:pb-[39px] home-sm:mt-[42px] home-sm:pb-8 home-sm:pt-[158px]"
     >
       <div className="container ">
         <div className="relative z-20 flex max-w-[726px] flex-col text-white">

@@ -16,3 +16,8 @@
 .markdown h3 {
   @apply mb-4 mt-8 text-2xl leading-snug;
 }
+
+.markdown strong {
+  background-color: #e0ff1f;
+  padding: 0 4px;
+}

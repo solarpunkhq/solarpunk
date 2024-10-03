@@ -55,9 +55,14 @@ With time, we discover new things that make agrivoltaics an even more obvious ch
 
 Agrivoltaics makes sense.
 
-- **Use less water**. Plants receive enough sun to focus on growth, and no longer need to waste energy fighting for water.
-- **Increased crop yield**. Crops that are grown in Agrivoltaic fields produce more yield, anywhere from 5% to 200%.
-- **Extend seasons**. Reducing crop evaporation helps maintain the right humidity levels, helping the growth seasons last longer.
-- **Diversify income**. Land owners receive an additional income from the same land, improving cashflow.
-- **Capture wasted energy**. Instead of the sun's energy dehydrating plants, it’s captured and turned into electricity.
-- **Faster implementation**. Energy providers can start capturing energy sooner than spending years stuck in bureaucratic processes.
+1. **Use less water**. Plants receive enough sun to focus on growth, and no longer need to waste energy fighting for water.
+
+2. **Increased crop yield**. Crops that are grown in Agrivoltaic fields produce more yield, anywhere from 5% to 200%.
+
+3. **Extend seasons**. Reducing crop evaporation helps maintain the right humidity levels, helping the growth seasons last longer.
+
+4. **Diversify income**. Land owners receive an additional income from the same land, improving cashflow.
+
+5. **Capture wasted energy**. Instead of the sun's energy dehydrating plants, it’s captured and turned into electricity.
+
+6. **Faster implementation**. Energy providers can start capturing energy sooner than spending years stuck in bureaucratic processes.

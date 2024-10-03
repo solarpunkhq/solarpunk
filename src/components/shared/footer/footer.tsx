@@ -1,8 +1,7 @@
 import Button from '@/components/shared/button';
-// import Link from '@/components/shared/link';
 import Logo from '@/components/shared/logo';
 
-// import { MENUS } from '@/constants/menus';
+import { MENUS } from '@/constants/menus';
 import { ROUTE } from '@/constants/route';
 
 function Footer() {
@@ -10,6 +9,17 @@ function Footer() {
     <footer className="relative py-[26px] px-safe home-sm:py-4">
       <nav className="container flex h-full items-center justify-between gap-2 home-sm:flex-col home-sm:items-start home-sm:gap-6">
         <Logo />
+        <ul className="flex items-center justify-between gap-x-8 uppercase leading-none">
+          {MENUS.footer.main.map(({ label, href }, index) => {
+            return (
+              <li key={index}>
+                <Button className="py-1 font-semibold tracking-wide" href={href} theme="white">
+                  {label}
+                </Button>
+              </li>
+            );
+          })}
+        </ul>
         <Button
           className="mr-[7px] shrink-0 home-lg:mr-0 home-sm:hidden"
           theme="black"

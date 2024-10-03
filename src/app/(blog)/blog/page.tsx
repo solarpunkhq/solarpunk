@@ -3,6 +3,9 @@ import { HeroPost } from '@/components/pages/blog/hero-post';
 import { MoreStories } from '@/components/pages/blog/more-stories';
 
 import { getAllPosts } from '@/lib/blog-api';
+import { getMetadata } from '@/lib/get-metadata';
+
+import { SEO_DATA } from '@/constants/seo-data';
 
 export default function Index() {
   const allPosts = getAllPosts();
@@ -12,7 +15,7 @@ export default function Index() {
   const morePosts = allPosts.slice(1);
 
   return (
-    <main className="mt-14 flex items-center justify-center">
+    <main className="mt-2 flex items-center justify-center">
       <Container>
         <HeroPost
           title={heroPost.title}
@@ -27,3 +30,5 @@ export default function Index() {
     </main>
   );
 }
+
+export const metadata = getMetadata(SEO_DATA.index);
