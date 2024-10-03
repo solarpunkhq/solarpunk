@@ -1,6 +1,5 @@
 import Container from '@/components/pages/blog/container';
 import { HeroPost } from '@/components/pages/blog/hero-post';
-import { Intro } from '@/components/pages/blog/intro';
 import { MoreStories } from '@/components/pages/blog/more-stories';
 
 import { getAllPosts } from '@/lib/blog-api';
@@ -13,9 +12,8 @@ export default function Index() {
   const morePosts = allPosts.slice(1);
 
   return (
-    <main className="flex items-center justify-center">
+    <main className="mt-14 flex items-center justify-center">
       <Container>
-        <Intro />
         <HeroPost
           title={heroPost.title}
           coverImage={heroPost.coverImage}
