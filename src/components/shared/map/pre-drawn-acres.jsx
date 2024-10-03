@@ -34,6 +34,13 @@ function PreDrawnAcres({ acres, country }) {
           },
         },
       });
+      layer.setStyle({
+        color: 'black',
+        fillColor: '#E2F677',
+        fillOpacity: 0.7,
+        weight: 2.5,
+        opacity: 1,
+      });
       layer.pm.addMeasurementTooltipToLayer(layer);
       layer.closeTooltip();
     }
