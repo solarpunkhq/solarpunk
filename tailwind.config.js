@@ -100,6 +100,7 @@ module.exports = {
       },
     }),
     screens: {
+      'home-2xl': { max: '1559px' },
       'home-xl': { max: '1439px' },
       'home-lg': { max: '1279px' },
       'home-md': { max: '1023px' },

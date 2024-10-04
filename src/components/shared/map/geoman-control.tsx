@@ -20,14 +20,17 @@ const Geoman = L.Control.extend({
       return;
     }
 
+    // @ts-ignore
     map.pm.addControls({
       ...this.options,
     });
 
+    // @ts-ignore
     map.pm.setGlobalOptions({
       measurements: { measurement: true, displayFormat: 'metric' },
     });
 
+    // @ts-ignore
     map.pm.enableDraw('Polygon', {
       pathOptions: {
         color: 'black',

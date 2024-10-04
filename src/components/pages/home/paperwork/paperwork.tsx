@@ -38,7 +38,7 @@ function Paperwork() {
         </p>
         <div className="mt-12 flex items-center justify-between gap-8 home-lg:mt-[50px] home-md:mt-[37px] home-md:flex-col home-md:gap-6 home-sm:mt-[41px] home-sm:gap-5">
           <Card className="bg-[url('/images/pages/home/paperwork/bg-microclimate.jpg')] bg-cover bg-center bg-repeat">
-            <ul className="fs-20 z-10 -ml-1.5 flex gap-x-8 gap-y-1 font-semibold home-lg:ml-0 home-lg:flex-col home-md:flex-row home-md:gap-x-[34px] home-sm:flex-col">
+            <ul className="fs-20 z-10 -ml-1.5 flex gap-x-8 gap-y-1 font-semibold home-2xl:flex-col home-lg:ml-0 home-md:flex-row home-md:gap-x-[34px] home-sm:flex-col">
               {items.map(({ text }, index) => {
                 return (
                   <li
