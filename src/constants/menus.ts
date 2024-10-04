@@ -2,13 +2,13 @@ import { ROUTE } from '@/constants/route';
 
 export const MENUS = {
   header: [
-    { label: 'Agrivoltaics', href: ROUTE.agrivoltaics },
+    { label: 'What is Agrivoltaics', href: ROUTE.agrivoltaics },
     { label: 'Blog', href: ROUTE.blog } /* 
     { label: 'Jobs', href: ROUTE.index }, */,
   ],
   footer: {
     main: [
-      { label: 'Agrivoltaics', href: ROUTE.agrivoltaics },
+      { label: 'What is Agrivoltaics', href: ROUTE.agrivoltaics },
       { label: 'Terms', href: ROUTE.terms },
       { label: 'Privacy Policy', href: ROUTE.privacy },
     ],
