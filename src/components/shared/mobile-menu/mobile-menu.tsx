@@ -59,14 +59,24 @@ function MobileMenu({ isOpen, onClick }: { isOpen: boolean; onClick: () => void 
                   </li>
                 ))}
               </ul>
-              <Button
-                className="absolute -bottom-5 left-1/2 !h-11 w-[calc(100%-2.5rem)] -translate-x-1/2 py-3.5"
-                theme="black"
-                size="home-sm"
-                href={ROUTE.index}
-              >
-                Contact us
-              </Button>
+              <div className="flex flex-col items-start justify-center gap-4">
+                <Button
+                  className="absolute -bottom-5 left-1/2 !h-11 w-[calc(100%-2.5rem)] -translate-x-1/2 py-3.5"
+                  theme="black"
+                  size="home-sm"
+                  href={ROUTE.login}
+                >
+                  Login
+                </Button>
+                <Button
+                  className="absolute -bottom-5 left-1/2 !h-11 w-[calc(100%-2.5rem)] -translate-x-1/2 py-3.5"
+                  theme="black"
+                  size="home-sm"
+                  href={ROUTE.index}
+                >
+                  Contact us
+                </Button>
+              </div>
             </div>
           </m.nav>
         )}
