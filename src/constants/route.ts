@@ -7,4 +7,5 @@ export const ROUTE: Record<string, URL | Route<string>> = {
   terms: '/terms',
   privacy: '/privacy' as Route<string>,
   blog: '/blog',
+  login: '/login',
 };

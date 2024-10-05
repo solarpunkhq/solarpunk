@@ -40,16 +40,28 @@ function Header() {
               ))}
             </ul>
           </nav>
-          <Button
-            className="home-md:hidden"
-            theme="black"
-            size="home-xs"
-            href={ROUTE.contactUs}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Contact us
-          </Button>
+          <div className="flex items-center justify-center gap-4">
+            <Button
+              className="home-md:hidden"
+              theme="white"
+              size="home-xs"
+              href={ROUTE.login}
+              rel="noopener noreferrer"
+            >
+              Login
+            </Button>
+            <Button
+              className="home-md:hidden"
+              theme="black"
+              size="home-xs"
+              href={ROUTE.contactUs}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Contact us
+            </Button>
+          </div>
+
           <Burger
             className="hidden home-md:block"
             isToggled={isMobileMenuOpen}

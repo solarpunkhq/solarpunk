@@ -22,7 +22,7 @@ export async function GET(request: Request) {
       id: user.id,
       name: user.name,
       email: user.email,
-      status: getStepNameFromIndex(user.current_step || 999),
+      status: getStepNameFromIndex(user.current_step ?? 999),
       total_revenue: '$' + user.total_revenue.toLocaleString(),
       created_at: user.created_timestamp.toLocaleDateString(),
     };
