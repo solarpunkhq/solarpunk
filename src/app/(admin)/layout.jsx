@@ -10,6 +10,8 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip
 
 import { cn } from '@/lib/utils';
 
+import { SEO_DATA } from '@/constants/seo-data';
+
 import '@/styles/tailwind.css';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -98,3 +100,5 @@ export default function Layout({ children }) {
     </html>
   );
 }
+
+export const metadata = getMetadata(SEO_DATA.index);
