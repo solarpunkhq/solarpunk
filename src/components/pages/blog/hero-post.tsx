@@ -27,7 +27,7 @@ export function HeroPost({ title, coverImage, date, excerpt, author, slug }: Pro
           <h3 className="mb-4 text-4xl leading-tight lg:text-5xl">
             {
               //@ts-ignore
-              <Link href={`/blog/posts/${slug}`} className="hover:underline">
+              <Link href={`/blog/${slug}`} className="hover:underline">
                 {title}
               </Link>
             }

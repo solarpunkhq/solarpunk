@@ -24,7 +24,7 @@ export function PostPreview({ title, coverImage, date, excerpt, author, slug }: 
       <h3 className="mb-3 text-3xl leading-snug">
         {
           //@ts-ignore
-          <Link href={`/blog/posts/${slug}`} className="hover:underline">
+          <Link href={`/blog/${slug}`} className="hover:underline">
             {title}
           </Link>
         }

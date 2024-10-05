@@ -8,7 +8,7 @@ module.exports = {
     return [
       {
         source: '/agrivoltaics',
-        destination: '/blog/posts/agrivoltaics',
+        destination: '/blog/agrivoltaics',
         permanent: true,
       },
     ];
