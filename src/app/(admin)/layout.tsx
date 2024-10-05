@@ -8,6 +8,7 @@ import { Home, LineChart, SheetIcon, Users2 } from 'lucide-react';
 import { Toaster } from '@/components/ui/toaster';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 
+import { getMetadata } from '@/lib/get-metadata';
 import { cn } from '@/lib/utils';
 
 import { SEO_DATA } from '@/constants/seo-data';
@@ -16,7 +17,7 @@ import '@/styles/tailwind.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export default function Layout({ children }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={'bg-neutral-950 h-full text-base antialiased'}>
       <head>
