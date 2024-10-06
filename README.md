@@ -1,6 +1,6 @@
-# Solarpunk
+# Building the Solarpunk Future.
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Solarpunk is exploring [Agrivoltaics](https://en.wikipedia.org/wiki/Agrivoltaics), the intersection of solar energy and agriculture and is on a mission to 100× the deployment solar energy.
 
 ## Table of Contents
 
