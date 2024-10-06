@@ -8,11 +8,11 @@ export const MENUS = {
   ],
   footer: {
     main: [
-      { label: 'What is Agrivoltaics', href: ROUTE.agrivoltaics },
+      { label: 'Agrivoltaics', href: ROUTE.agrivoltaics },
       { label: 'GitHub', href: ROUTE.github },
       { label: 'X', href: ROUTE.x },
       { label: 'Terms', href: ROUTE.terms },
-      { label: 'Privacy Policy', href: ROUTE.privacy },
+      { label: 'Privacy', href: ROUTE.privacy },
     ],
   },
 };
