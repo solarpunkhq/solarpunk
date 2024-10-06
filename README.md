@@ -2,6 +2,9 @@
 
 Solarpunk is exploring [Agrivoltaics](https://en.wikipedia.org/wiki/Agrivoltaics), the intersection of solar energy and agriculture and is on a mission to 100× the deployment solar energy.
 
+![Solarpunk](https://github.com/user-attachments/assets/c4785e91-8f1e-4cc8-b0fa-f154784d6205)
+
+
 ## Table of Contents
 
 - [Getting Started](#getting-started)
