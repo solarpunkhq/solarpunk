@@ -19,13 +19,13 @@ Solarpunk is exploring [Agrivoltaics](https://en.wikipedia.org/wiki/Agrivoltaics
 
 ## Getting Started
 
-1. Clone this repository or hit "Use this template" button
-
+1. Clone this repository
+   
    ```bash
-   git clone git@github.com:pixel-point/nextjs-typescript-tailwind-starter.git
+   git clone git@github.com:solarpunkhq/solarpunk.git
    ```
 
-2. Install dependencies
+3. Install dependencies
 
 ```bash
 npm install
