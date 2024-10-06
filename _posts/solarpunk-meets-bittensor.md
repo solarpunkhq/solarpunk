@@ -1,6 +1,6 @@
 ---
 title: 'Bittensor: A Decentralized Intelligence Market and How Solar Energy Can Power Its Future'
-excerpt: 'Bittensor is a decentralized AI marketplace where machine learning models collaborate and are rewarded for their contributions, and integrating solar energy as a decentralized, cost-effective power source can sustainably support the networks energy-intensive demands.'
+excerpt: 'Bittensor is a decentralized AI marketplace where models collaborate and earn rewards, and integrating solar energy offers a sustainable, cost-effective solution for its energy demands.'
 coverImage: '/blog/covers/solarpunk-meets-bittensor.jpg'
 date: '2024-10-06'
 author:

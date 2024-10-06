@@ -9,9 +9,9 @@ import DateFormatter from './date-formatter';
 type Props = {
   title: string;
   coverImage: string;
-  date: string;
+  date?: string;
   excerpt: string;
-  author: Author;
+  author?: Author;
   slug: string;
 };
 
@@ -21,19 +21,18 @@ export function PostPreview({ title, coverImage, date, excerpt, author, slug }: 
       <div className="mb-5">
         <CoverImage slug={slug} title={title} src={coverImage} />
       </div>
-      <h3 className="mb-3 text-3xl leading-snug">
-        {
-          //@ts-ignore
-          <Link href={`/blog/${slug}`} className="hover:underline">
-            {title}
-          </Link>
-        }
+      <h3 className="mb-3 text-2xl leading-snug">
+        <Link href={`/blog/${slug}`} className="hover:underline">
+          {title}
+        </Link>
       </h3>
-      <div className="mb-4 text-lg">
-        <DateFormatter dateString={date} />
-      </div>
+      {date && (
+        <div className="text-md mb-4 text-gray-50 ">
+          <DateFormatter dateString={date} />
+        </div>
+      )}
       <p className="mb-4 text-lg leading-relaxed">{excerpt}</p>
-      <Avatar name={author.name} picture={author.picture} />
+      {author && <Avatar name={author.name} picture={author.picture} />}
     </div>
   );
 }

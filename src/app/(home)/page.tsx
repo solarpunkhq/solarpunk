@@ -1,5 +1,8 @@
+import { MoreStories } from '@/components/pages/blog/more-stories';
+import { PostPreview } from '@/components/pages/blog/post-preview';
 import CTA from '@/components/pages/home/CTA';
 import Become from '@/components/pages/home/become';
+import BlogPosts from '@/components/pages/home/blog-posts';
 import Farm from '@/components/pages/home/farm';
 import Hero from '@/components/pages/home/hero';
 import Mission from '@/components/pages/home/mission';
@@ -24,6 +27,7 @@ function Home() {
       <Potential />
       <CTA />
       <Quote />
+      <BlogPosts />
     </>
   );
 }
