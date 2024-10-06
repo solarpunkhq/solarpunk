@@ -97,7 +97,7 @@ function Onboarding({ country }: OnboardingProps) {
             />
           </div>
           <div className="w-full pb-8 md:ml-4 md:h-full md:max-h-screen md:max-w-96">
-            <div className="mt-8 flex h-full max-h-[90vh] flex-col justify-between rounded-2xl border-2 border-gray-80 bg-gray-98 p-4 md:mt-16">
+            <div className="mt-8 flex h-full max-h-[90vh] flex-col justify-between rounded-2xl border-2 border-gray-80 bg-gray-98 p-4 md:mt-14">
               <div>
                 <h1 className="font-title text-28 font-bold">Mark your land</h1>
                 <div className="my-2">
