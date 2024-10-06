@@ -4,8 +4,8 @@ excerpt: 'Bittensor is a decentralized AI marketplace where machine learning mod
 coverImage: '/blog/covers/solarpunk-meets-bittensor.jpg'
 date: '2024-10-06'
 author:
-  name: Peer Richelsen
-  picture: '/blog/authors/peer.png'
+  name: The Solarpunks
+  picture: '/blog/authors/solarpunks.jpg'
 ogImage:
   url: '/blog/covers/solarpunk-meets-bittensor.jpg'
 ---

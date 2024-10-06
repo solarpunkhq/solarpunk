@@ -4,8 +4,8 @@ excerpt: 'Agrivoltaics (Agri PV) combines land use for agriculture and solar ene
 coverImage: '/blog/covers/agrivoltaics.jpg'
 date: '2024-10-03'
 author:
-  name: Peer Richelsen
-  picture: '/blog/authors/peer.png'
+  name: The Solarpunks
+  picture: '/blog/authors/solarpunks.jpg'
 ogImage:
   url: '/blog/covers/agrivoltaics.jpg'
 ---

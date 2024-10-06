@@ -4,8 +4,8 @@ excerpt: 'Some of you might know Stripe Atlas which makes incorporating a Delawa
 coverImage: '/blog/covers/stripe-atlas-for-solar.jpg'
 date: '2024-10-02'
 author:
-  name: Peer Richelsen
-  picture: '/blog/authors/peer.png'
+  name: The Solarpunks
+  picture: '/blog/authors/solarpunks.jpg'
 ogImage:
   url: '/blog/covers/stripe-atlas-for-solar.jpg'
 ---
