@@ -42,13 +42,18 @@ function MobileMenu({ isOpen, onClick }: { isOpen: boolean; onClick: () => void 
             <div className="relative flex h-full w-full flex-col justify-between pb-10 pt-14 text-left">
               <ul className="flex w-full flex-col overflow-y-auto px-5 font-semibold uppercase tracking-wide">
                 {MENUS.header.map(({ label, href }, index) => (
-                  <li
-                    className={clsx(
-                      'border-b border-black',
-                      index === MENUS.header.length - 1 && 'border-none',
-                    )}
-                    key={index}
-                  >
+                  <li className={clsx('border-b border-black')} key={index}>
+                    <Link
+                      className="block pb-[17px] pt-[18px] leading-none text-gray-5"
+                      href={href}
+                      size="home-sm"
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+                {MENUS.footer.main.map(({ label, href }, index) => (
+                  <li className={clsx('border-b border-black')} key={index}>
                     <Link
                       className="block pb-[17px] pt-[18px] leading-none text-gray-5"
                       href={href}
@@ -62,7 +67,7 @@ function MobileMenu({ isOpen, onClick }: { isOpen: boolean; onClick: () => void 
               <div className="flex flex-col items-start justify-center gap-4">
                 <Button
                   className="absolute -bottom-5 left-1/2 !h-11 w-[calc(100%-2.5rem)] -translate-x-1/2 py-3.5"
-                  theme="black"
+                  theme="white"
                   size="home-sm"
                   href={ROUTE.login}
                 >

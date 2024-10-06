@@ -1,10 +1,13 @@
 'use client';
 
+import Image from 'next/image';
+
 import { useState } from 'react';
 
 import { Loader2 } from 'lucide-react';
 
 import Button from '@/components/shared/button';
+import Header from '@/components/shared/header';
 import {
   Card,
   CardContent,
@@ -15,6 +18,8 @@ import {
 } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+
+import sectionBg from '@/images/sources/sources.jpg';
 
 export default function LoginForm() {
   const [email, setEmail] = useState('');
@@ -73,41 +78,51 @@ export default function LoginForm() {
   };
 
   return (
-    <div className="flex h-full w-full flex-col items-center justify-center">
-      <Card className="w-full max-w-sm">
-        <CardHeader>
-          <CardTitle className="text-24">Login</CardTitle>
-          <CardDescription>
-            Enter your email below to receive a magic link to sign in to your account.
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="grid gap-4">
-          <div className="grid gap-2">
-            <Label htmlFor="email">Email</Label>
-            <Input
-              id="email"
-              type="email"
-              placeholder="m@example.com"
-              value={email}
-              required
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-        </CardContent>
-        <CardFooter>
-          <div className="flex w-full flex-col items-center justify-center">
-            {error && <p className="mb-2 text-16 text-primary-red">{error}</p>}
-            <Button className="w-full py-2" theme="black" onClick={sendMagicLink}>
-              {loading && (
-                <div className="flex h-full w-full items-center justify-center py-1">
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                </div>
-              )}
-              {getButtonText()}
-            </Button>
-          </div>
-        </CardFooter>
-      </Card>
-    </div>
+    <>
+      <Header />
+      <div className="flex h-full w-full flex-col items-center justify-center p-5">
+        <Card className="w-full max-w-sm">
+          <CardHeader>
+            <CardTitle className="text-24">Login</CardTitle>
+            <CardDescription>
+              Enter your email below to receive a magic link to sign in to your account.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="grid gap-4">
+            <div className="grid gap-2">
+              <Label htmlFor="email">Email</Label>
+              <Input
+                id="email"
+                type="email"
+                placeholder="m@example.com"
+                value={email}
+                required
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+          </CardContent>
+          <CardFooter>
+            <div className="flex w-full flex-col items-center justify-center">
+              {error && <p className="mb-2 text-16 text-primary-red">{error}</p>}
+              <Button size="home-md" className="w-full py-2" theme="black" onClick={sendMagicLink}>
+                {loading && (
+                  <div className="flex h-full w-full items-center justify-center py-1">
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  </div>
+                )}
+                {getButtonText()}
+              </Button>
+            </div>
+          </CardFooter>
+        </Card>
+        <Image
+          className="absolute inset-0 -z-10 h-full w-full object-cover object-center"
+          src={sectionBg}
+          width={1920}
+          height={1104}
+          alt="Solarpunk Background"
+        />
+      </div>
+    </>
   );
 }
