@@ -9,7 +9,7 @@ export const MENUS = {
   footer: {
     main: [
       { label: 'GitHub', href: ROUTE.github },
-      { label: 'X', href: ROUTE.x },
+      { label: 'X.com', href: ROUTE.x },
       { label: 'Slack', href: ROUTE.slack },
       { label: 'Terms', href: ROUTE.terms },
       { label: 'Privacy', href: ROUTE.privacy },
