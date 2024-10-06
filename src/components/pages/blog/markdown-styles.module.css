@@ -21,3 +21,10 @@
   background-color: #e0ff1f;
   padding: 0 4px;
 }
+
+.markdown ul li {
+  list-style: disc !important;
+  list-style-position: inside !important;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
