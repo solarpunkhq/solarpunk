@@ -31,7 +31,7 @@ export function PostPreview({ title, coverImage, date, excerpt, author, slug }: 
           <DateFormatter dateString={date} />
         </div>
       )}
-      <p className="mb-4 text-lg leading-relaxed">{excerpt}</p>
+      <p className="text- mb-4 text-lg leading-relaxed">{excerpt}</p>
       {author && <Avatar name={author.name} picture={author.picture} />}
     </div>
   );
