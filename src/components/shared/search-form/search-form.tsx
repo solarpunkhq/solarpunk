@@ -66,10 +66,17 @@ function SearchForm({ className }: { className: string }) {
       setHighlightedIndex((prev) => (prev < searchResults.length - 1 ? prev + 1 : 0));
     } else if (e.key === 'ArrowUp') {
       setHighlightedIndex((prev) => (prev > 0 ? prev - 1 : searchResults.length - 1));
-    } else if (e.key === 'Enter' && highlightedIndex >= 0) {
-      const selectedResult = searchResults[highlightedIndex];
-      if (selectedResult) {
-        window.location.href = `/onboarding?lat=${selectedResult.y}&lng=${selectedResult.x}`;
+    } else if (e.key === 'Enter') {
+      if (highlightedIndex >= 0) {
+        const selectedResult = searchResults[highlightedIndex];
+        if (selectedResult) {
+          window.location.href = `/onboarding?lat=${selectedResult.y}&lng=${selectedResult.x}`;
+        }
+      } else {
+        const selectedResult = searchResults[0];
+        if (selectedResult) {
+          window.location.href = `/onboarding?lat=${selectedResult.y}&lng=${selectedResult.x}`;
+        }
       }
     }
   }
