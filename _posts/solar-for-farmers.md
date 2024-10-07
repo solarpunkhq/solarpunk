@@ -10,7 +10,7 @@ ogImage:
   url: '/blog/covers/solar-for-farmers.jpg'
 ---
 
-## What is involve in Farming?
+## What is involved in farming?
 
 Farming involves a variety of processes and activities aimed at producing food, fiber, and other products through the cultivation of plants and animals. Here are 10 key components involved in farming:
 
@@ -72,7 +72,7 @@ Overall, solar energy is a clean, renewable resource that reduces reliance on fo
 
 ## Can Farming and Solar Energy be combined?
 
-Absolutely, solar energy and farming can be effectively combined in several ways! This practice is often referred to as ["Agrivoltaics"]() or "Solar Agriculture". Here are a few key benefits and methods:
+Absolutely, solar energy and farming can be effectively combined in several ways! This practice is often referred to as "[Agrivoltaics](/blog/agrivoltaics)" or "Solar Agriculture". Here are a few key benefits and methods:
 
 **Dual Land Use:** Solar panels can be installed above crops, allowing for farming to continue beneath them. This maximizes land use and can even provide shade for certain plants, helping them thrive in hotter climates.
 

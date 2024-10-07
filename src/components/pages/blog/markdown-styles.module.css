@@ -28,3 +28,12 @@
   margin-left: 20px;
   margin-bottom: 10px;
 }
+
+.markdown a {
+  text-decoration: underline;
+  color: #221cf2;
+}
+
+.markdown a:hover {
+  color: #0700c7;
+}
