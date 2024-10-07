@@ -16,6 +16,11 @@
   body {
     @apply antialiased;
   }
+
+  .prose strong {
+    background-color: #e0ff1f;
+    padding: 0 4px;
+  }
 }
 
 @layer components {
