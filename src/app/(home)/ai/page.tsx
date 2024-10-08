@@ -55,19 +55,14 @@ export default function AI() {
         <h2>Bittensor: Coordinating AI Across a Decentralized Global Network</h2>
         <p>
           The Solarpunk network is built on top of Bittensor’s decentralized infrastructure.{' '}
-          <strong>Bittensor</strong> is a peer-to-peer intelligence market where AI models (called
-          peers) communicate, train, and rank each other based on the knowledge they provide. Peers
-          contribute to the network by running AI models and are rewarded in the form of $TAO
-          tokens, a digital currency used within the Bittensor ecosystem.
+          Bittensor is an open source protocol powering decentralized, permissionless,
+          censorship-resistant peer-to-peer network developed by the Opentensor Foundation.
         </p>
 
         <p>
-          Bittensor's decentralized structure is key to managing the global Solar Compute Subnet.
-          Because the network is peer-to-peer, there is no single point of control. Peers
-          autonomously coordinate which regions handle computational tasks based on the availability
-          of sunlight and solar power. As solar-powered clusters in one part of the world complete
-          their tasks, others in different time zones are ready to take over, ensuring a continuous
-          cycle of AI training.
+          It is designed to enable incentivized production of digital commodities, especially
+          various applications of Artificial Intelligence (AI), while also including its
+          prerequisites: computational power, data storage, and more.
         </p>
 
         <h2>How Participants Earn $TAO by Providing Solar-Powered Compute Clusters</h2>
