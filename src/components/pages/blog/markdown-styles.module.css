@@ -22,6 +22,11 @@
   padding: 0 4px;
 }
 
+.markdown em {
+  font-style: normal;
+  font-weight: bold;
+}
+
 .markdown ul li {
   list-style: disc !important;
   list-style-position: inside !important;
