@@ -39,7 +39,7 @@ function CurrentStep({ currentStep }: { currentStep: number }) {
           <li key={index} className="relative mb-6 ml-6 flex items-start">
             <div className="absolute -left-4 flex flex-col items-center">
               <span
-                className={`flex h-8 w-8 items-center justify-center rounded-full ring-2 ring-gray-20 ${
+                className={`flex h-8 w-8 items-center justify-center rounded-full ${
                   index <= currentStep
                     ? 'bg-primary-green'
                     : 'border-2 border-dashed border-gray-60 bg-primary-offwhite !ring-0'
