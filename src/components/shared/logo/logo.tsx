@@ -6,15 +6,18 @@ import Link from '@/components/shared/link';
 
 import { ClassName } from '@/types/classname';
 
+import { cn } from '@/lib/utils';
+
 import { ROUTE } from '@/constants/route';
 
 import logo from '@/svgs/logo.svg';
 
 type LogoProps = ClassName & {
   isPriorityLoading?: boolean;
+  invert?: boolean;
 };
 
-function Logo({ className, isPriorityLoading = false }: LogoProps) {
+function Logo({ className, invert, isPriorityLoading = false }: LogoProps) {
   return (
     <Link className="group mt-1.5 flex items-center gap-x-0.5" href={ROUTE.index}>
       <svg
@@ -25,10 +28,18 @@ function Logo({ className, isPriorityLoading = false }: LogoProps) {
         preserveAspectRatio="xMinYMid meet"
       >
         <rect
-          className="h-8 w-0 origin-[bottom_left] fill-[#000] transition-all duration-300 group-hover:w-8"
+          className={cn(
+            'h-8 w-0 origin-[bottom_left] transition-all duration-300 group-hover:w-8',
+            invert ? 'fill-[#fff]' : 'fill-[#000]',
+          )}
           clipPath="url(#:R35djta:-clip)"
         />
-        <use href="#:R35djta:-path" className="stroke-[#000]" fill="none" strokeWidth="2" />
+        <use
+          href="#:R35djta:-path"
+          className={cn(invert ? 'stroke-[#fff]' : 'stroke-[#000]')}
+          fill="none"
+          strokeWidth="2"
+        />
         <defs>
           <path
             id=":R35djta:-path"
@@ -40,7 +51,7 @@ function Logo({ className, isPriorityLoading = false }: LogoProps) {
         </defs>
       </svg>
       <Image
-        className={clsx(className)}
+        className={cn(className, invert ? 'invert' : '')}
         src={logo}
         width={89}
         height={19}
