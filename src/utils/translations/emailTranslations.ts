@@ -58,6 +58,13 @@ export const stepChangeTranslations = {
         'Congratulations! Your application is now in the Deployment phase. We will begin the installation of solar panels on your land shortly.',
       signature: 'Best,',
     },
+    Finished: {
+      subject: 'Your application status has changed',
+      preview: 'Your application status has changed',
+      greeting: 'Hello!',
+      content: 'Congratulations! Your Solarpunk project is now finished.',
+      signature: 'Best,',
+    },
     Rejected: {
       subject: 'Your application status has changed',
       preview: 'Your application status has changed',
@@ -83,6 +90,13 @@ export const stepChangeTranslations = {
       content:
         'Herzlichen Glückwunsch! Ihr Antrag befindet sich nun in der Phase der Ausführung. Wir werden in Kürze mit der Installation der Solarmodule auf Ihrem Grundstück beginnen.',
       signature: 'Mit besten Grüßen,',
+    },
+    Finished: {
+      subject: 'Your application status has changed',
+      preview: 'Your application status has changed',
+      greeting: 'Hello!',
+      content: 'Herzlichen Glückwunsch! Dein Solarpunk-Projekt ist nun abgeschlossen.',
+      signature: 'Best,',
     },
     Rejected: {
       subject: 'Ihr Antragsstatus hat sich geändert',
