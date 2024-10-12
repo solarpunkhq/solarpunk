@@ -31,6 +31,16 @@ function Footer() {
           Contact us
         </Button>
       </nav>
+      <p className="px-4 pt-4 text-center text-xs text-gray-50">
+        Donate on Bittensor:{' '}
+        <a
+          target="_blank"
+          className="text-gray-100 underline hover:text-black"
+          href="https://bittensor.com/scan/address/5HZHcpjgozBVD9vHRTBo1fvtrNHXvq49ZpCre3t51siXmr15"
+        >
+          5HZHcpjgozBVD9vHRTBo1fvtrNHXvq49ZpCre3t51siXmr15
+        </a>
+      </p>
     </footer>
   );
 }
