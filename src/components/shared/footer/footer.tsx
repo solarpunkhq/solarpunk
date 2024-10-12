@@ -37,7 +37,7 @@ function Footer() {
         Donate on Bittensor:{' '}
         <a
           target="_blank"
-          className="text-gray-100 underline hover:text-black"
+          className="text-gray-100 underline hover:text-white"
           href="https://bittensor.com/scan/address/5HZHcpjgozBVD9vHRTBo1fvtrNHXvq49ZpCre3t51siXmr15"
         >
           5HZHcpjgozBVD9vHRTBo1fvtrNHXvq49ZpCre3t51siXmr15
