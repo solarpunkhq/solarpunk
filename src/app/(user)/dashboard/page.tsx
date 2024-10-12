@@ -79,10 +79,13 @@ export default async function DashboardPage() {
     );
   }
 
-  const startDate = new Date(created_timestamp).toISOString().split('T')[0];
+  const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'short', day: 'numeric' };
+
+  const startDate = new Date(created_timestamp).toLocaleDateString('en-US', options);
+
   let endDate = '';
   if (step_3_timestamp !== null) {
-    endDate = new Date(step_3_timestamp).toISOString().split('T')[0];
+    endDate = new Date(step_3_timestamp).toLocaleDateString('en-US', options);
   }
 
   const getPercentage = (step: number) => {
@@ -116,7 +119,7 @@ export default async function DashboardPage() {
   } else {
     return (
       <>
-        <Header />
+        <Header isLoggedIn={true} />
         <div className="flex h-full w-full flex-col items-center justify-center p-5">
           <Card className="w-full max-w-4xl bg-primary-offwhite">
             <CardHeader>
@@ -146,11 +149,11 @@ export default async function DashboardPage() {
                 </div>
                 <Progress value={getPercentage(current_step - 1)} className="bg-white" />
               </div>
-              <div className="!mt-4 flex w-1/4 items-center justify-start rounded-md border-[1px] border-gray-80 bg-white p-2">
+              <div className="!mt-4 flex w-[30%] items-center justify-start rounded-md border-[1px] border-gray-80 bg-white p-2">
                 <Calendar />
                 <div className="ml-2 text-14 font-medium">
                   <span>{startDate} - </span>
-                  <span>{current_step === 3 ? endDate : 'Ongoing'}</span>
+                  <span>{current_step === 4 ? endDate : 'Ongoing'}</span>
                 </div>
               </div>
             </CardHeader>
