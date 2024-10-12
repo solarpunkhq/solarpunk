@@ -149,7 +149,7 @@ export default async function DashboardPage() {
                 </div>
                 <Progress value={getPercentage(current_step - 1)} className="bg-white" />
               </div>
-              <div className="!mt-4 flex w-[30%] items-center justify-start rounded-md border-[1px] border-gray-80 bg-white p-2">
+              <div className="!mt-4 flex w-3/4 items-center justify-start rounded-md border-[1px] border-gray-80 bg-white p-2 md:w-[30%]">
                 <Calendar />
                 <div className="ml-2 text-14 font-medium">
                   <span>{startDate} - </span>
