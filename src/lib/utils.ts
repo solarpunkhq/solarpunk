@@ -17,6 +17,8 @@ export const getStepNameFromIndex = (current_step: number) => {
       return 'Planning';
     case 3:
       return 'Deployment';
+    case 4:
+      return 'Finished';
     default:
       return 'Unknown';
   }

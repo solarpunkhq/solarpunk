@@ -13,7 +13,7 @@ import { ROUTE } from '@/constants/route';
 
 import Burger from './burger';
 
-function Header() {
+function Header({ isLoggedIn = false }: { isLoggedIn?: boolean }) {
   const { isMobileMenuOpen, toggleMobileMenu } = useMobileMenu();
 
   return (
@@ -41,15 +41,28 @@ function Header() {
             </ul>
           </nav>
           <div className="flex items-center justify-center gap-4">
-            <Button
-              className="home-md:hidden"
-              theme="white"
-              size="home-xs"
-              href={ROUTE.login}
-              rel="noopener noreferrer"
-            >
-              Login
-            </Button>
+            {!isLoggedIn ? (
+              <Button
+                className="home-md:hidden"
+                theme="white"
+                size="home-xs"
+                href={ROUTE.login}
+                rel="noopener noreferrer"
+              >
+                Login
+              </Button>
+            ) : (
+              <Button
+                className="home-md:hidden"
+                theme="white"
+                size="home-xs"
+                href={ROUTE.logout}
+                rel="noopener noreferrer"
+              >
+                Logout
+              </Button>
+            )}
+
             <Button
               className="home-md:hidden"
               theme="black"

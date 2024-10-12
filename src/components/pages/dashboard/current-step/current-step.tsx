@@ -1,50 +1,66 @@
 'use client';
 
-import { LogOut } from 'lucide-react';
+import { Check } from 'lucide-react';
 
-import Button from '@/components/shared/button';
-import Logo from '@/components/shared/logo';
-import { Step, type StepItem, Stepper } from '@/components/shared/stepper';
+import { Badge } from '@/components/ui/badge';
 
-const steps = [
-  { label: 'Details' },
-  { label: 'In Review' },
-  { label: 'Planning' },
-  { label: 'Deployment' },
-] satisfies StepItem[];
+function CurrentStep({ currentStep }: { currentStep: number }) {
+  const steps: Step[] = [
+    {
+      title: 'Details',
+      subtitle: "You've submitted the required details to kickstart your Solarpunk project.",
+    },
+    {
+      title: 'In Review',
+      subtitle:
+        "We reviewed your application and verified your details to make sure you're a good fit.",
+    },
+    {
+      title: 'Planning',
+      subtitle:
+        "We've reviewed your requirements, architected your solar project and are preparing for installation.",
+    },
+    {
+      title: 'Deployment',
+      subtitle: 'We deployed your solar project and everything is ready to go!',
+    },
+  ];
 
-function CurrentStep({ step }: { step: number }) {
+  interface Step {
+    title: string;
+    subtitle: string;
+    completedDate?: string;
+  }
+
   return (
-    <div className="flex h-full w-full flex-col items-start justify-start gap-4 p-4 md:p-0">
-      <div className="mt-4 flex w-full items-center justify-between">
-        <div
-          className="ml-4 mt-2 flex cursor-pointer items-center"
-          onClick={() => (window.location.href = '/')}
-        >
-          <Logo className="h-8" />
-        </div>
-        <div className="mr-8 h-6 w-6">
-          <Button
-            size="home-sm"
-            className="overflow-hidden"
-            onClick={() => (window.location.href = '/logout')}
-          >
-            <LogOut className="h-6 w-6" />
-          </Button>
-        </div>
-      </div>
-      <div className="flex h-full flex-col items-center justify-center self-center md:w-1/2">
-        <Stepper initialStep={step} steps={steps}>
-          {steps.map(({ label }, index) => {
-            return <Step key={label} label={label} />;
-          })}
-        </Stepper>
-        {step === 1 && (
-          <div className="mt-8 flex items-center justify-center">
-            We are currently reviewing your application.
-          </div>
-        )}
-      </div>
+    <div className="w-full">
+      <ol className="relative">
+        {steps.map((step, index) => (
+          <li key={index} className="relative mb-6 ml-6 flex items-start">
+            <div className="absolute -left-4 flex flex-col items-center">
+              <span
+                className={`flex h-8 w-8 items-center justify-center rounded-full ring-2 ring-gray-20 ${
+                  index <= currentStep
+                    ? 'bg-primary-green'
+                    : 'border-2 border-dashed border-gray-60 bg-primary-offwhite !ring-0'
+                }`}
+              >
+                {index <= currentStep ? <Check className="h-5 w-5 text-black" /> : null}
+              </span>
+              {index !== steps.length - 1 && <span className="h-20 w-px bg-gray-40" />}
+            </div>
+            <div className="ml-8">
+              <div className="mb-1 flex items-center">
+                <h3 className="mr-2 text-base font-semibold text-gray-8">{step.title}</h3>
+                {/* <Badge variant={step.completedDate ? 'default' : 'secondary'}>
+                  {step.completedDate || 'Pending'}
+                </Badge> */}
+              </div>
+              <p className="mb-4 text-sm font-normal text-gray-30">{step.subtitle}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
     </div>
   );
 }

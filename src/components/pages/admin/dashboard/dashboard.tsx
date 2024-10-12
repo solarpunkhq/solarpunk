@@ -94,6 +94,9 @@ function Dashboard() {
               <TabsTrigger value="deployment" className="hidden md:flex">
                 Deployment
               </TabsTrigger>
+              <TabsTrigger value="finished" className="hidden md:flex">
+                Finished
+              </TabsTrigger>
               <TabsTrigger value="rejected" className="hidden md:flex">
                 Rejected
               </TabsTrigger>
@@ -118,6 +121,7 @@ function Dashboard() {
           <DashboardTab data={data} status={'In Review'} name="review" />
           <DashboardTab data={data} status={'Planning'} name="planning" />
           <DashboardTab data={data} status={'Deployment'} name="deployment" />
+          <DashboardTab data={data} status={'Finished'} name="finished" />
           <DashboardTab data={data} status={'Rejected'} name="rejected" />
         </Tabs>
       </main>

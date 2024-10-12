@@ -9,6 +9,7 @@ import { cn } from '@/lib/utils';
 
 import { SEO_DATA } from '@/constants/seo-data';
 
+import '@/styles/globals.css';
 import '@/styles/tailwind.css';
 
 export default function Layout({ children }: { children: React.ReactNode }) {

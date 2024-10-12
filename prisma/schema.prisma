@@ -20,6 +20,10 @@ model User {
   acres               Acre[]
   country             String
   created_timestamp   DateTime @default(now())
+  rejected_timestamp    DateTime?
+  step_1_timestamp    DateTime?
+  step_2_timestamp    DateTime?
+  step_3_timestamp    DateTime?
   total_revenue       Float
 }
 

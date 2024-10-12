@@ -11,4 +11,5 @@ export const ROUTE: Record<string, URL | Route<string>> = {
   slack: 'https://join.slack.com/t/solarpunkhq/shared_invite/zt-2saklkamo-6k8ok_TosgBOxSUO9YaLTg',
   blog: '/blog',
   login: '/login',
+  logout: '/logout',
 };

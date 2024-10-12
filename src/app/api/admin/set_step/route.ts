@@ -26,12 +26,18 @@ export async function POST(request: Request) {
     return NextResponse.json({ message: 'Not admin' }, { status: 401 });
   }
 
+  let stepField = `step_${step - 1}_timestamp`;
+  if (step === -1) {
+    stepField = 'rejected_timestamp';
+  }
+
   const user = await prisma.user.update({
     where: {
       id: user_id,
     },
     data: {
       current_step: step,
+      [stepField]: new Date(),
     },
     select: {
       email: true,

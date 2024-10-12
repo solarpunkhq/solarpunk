@@ -213,6 +213,17 @@ function Submission({ data }: { data: any }) {
             {changeStep.isPending ? 'Deploying...' : 'Deploy'}
           </Button>
         )}
+        {data.current_step === 3 && (
+          <Button
+            className="bg-green-600 self-center bg-primary-green"
+            onClick={() => {
+              //@ts-ignore
+              changeStep.mutate(4);
+            }}
+          >
+            {changeStep.isPending ? 'Finishing...' : 'Finished'}
+          </Button>
+        )}
       </div>
     </div>
   );

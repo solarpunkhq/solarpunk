@@ -44,6 +44,7 @@ export async function POST(request: Request) {
       finance_option: finance_option,
       deployment_type: deployment_type,
       total_revenue: body.total_revenue,
+      step_1_timestamp: new Date(),
     },
     where: {
       email: email,
