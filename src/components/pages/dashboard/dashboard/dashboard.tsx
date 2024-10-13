@@ -47,7 +47,7 @@ function Dashboard({
     <div className="w-full text-gray-12 sm:h-screen sm:overflow-hidden">
       <div className="flex h-full w-full flex-col items-center justify-center px-8 md:flex-row md:items-stretch md:justify-start">
         <div className="flex h-full w-full flex-col items-center justify-start">
-          <div className="my-8 ml-4 flex items-center justify-center self-start">
+          <div className="my-3 flex items-center justify-center self-start">
             <div
               className="flex cursor-pointer items-center"
               onClick={() => (window.location.href = '/')}
@@ -64,7 +64,7 @@ function Dashboard({
             existingAcres={existing_acres}
             country={country}
           />
-          <div className="text-sm mt-2 rounded-md bg-gray-94 p-6 text-center sm:w-1/2">
+          {/* <div className="text-sm mt-2 rounded-md bg-gray-94 p-6 text-center sm:w-1/2">
             <span className="font-semibold">
               ${formatNumberAsAmount(projections.revenue_per_year.toFixed(0))} Est. Yearly Revenue
             </span>
@@ -73,12 +73,12 @@ function Dashboard({
               {' '}
               {formatNumberAsAmount(totalArea.toFixed(2))} Acres
             </span>
-          </div>
+          </div> */}
         </div>
 
         <div className="ml-4 h-full max-h-screen w-full max-w-96">
           <div className="mt-4 flex h-full flex-col">
-            <div className="invisible mr-4 mt-4 hidden h-6 w-6 self-end sm:visible sm:block">
+            <div className="invisible mr-4 mt-2 hidden h-6 w-6 self-end sm:visible sm:block">
               <Button
                 size="home-xs"
                 className="overflow-hidden"
