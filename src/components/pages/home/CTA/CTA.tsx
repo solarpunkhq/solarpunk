@@ -1,3 +1,4 @@
+import { Route } from 'next';
 import Image from 'next/image';
 
 import Button from '@/components/shared/button';
@@ -27,7 +28,7 @@ function CTA() {
                 className="group shrink-0 gap-0.5 home-lg:gap-0 home-sm:gap-0"
                 size="home-md"
                 theme="green"
-                href="/"
+                href={'/' as Route}
                 withArrow
               >
                 Get started

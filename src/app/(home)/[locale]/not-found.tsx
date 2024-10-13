@@ -1,3 +1,5 @@
+import { Route } from 'next';
+
 import Link from '@/components/shared/link';
 
 import { getMetadata } from '@/lib/get-metadata';
@@ -14,7 +16,7 @@ export default function NotFound() {
         <p className="mt-4 max-w-lg text-18 leading-normal tracking-tight text-[#000]/60 home-md:mt-4 home-sm:mt-3.5 home-sm:max-w-md home-sm:text-16 home-sm:leading-snug">
           We can&apos;t seem to find the page you&apos;re looking for. It might have been moved or
           no longer exists. Visit our{' '}
-          <Link href="/" className="font-medium text-[#0073E5] hover:text-[#4DA6FF]">
+          <Link href={'/' as Route} className="font-medium text-[#0073E5] hover:text-[#4DA6FF]">
             homepage
           </Link>
           .

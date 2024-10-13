@@ -1,3 +1,4 @@
+import { Route } from 'next';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
 
@@ -48,7 +49,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <aside className="bg-background fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r sm:flex">
               <nav className="flex flex-col items-center gap-4 px-2 sm:py-5">
                 <Link
-                  href="/"
+                  href={'/' as Route}
                   className="bg-primary text-primary-foreground group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full text-lg font-semibold md:h-8 md:w-8 md:text-base"
                 >
                   <Home className="h-4 w-4 transition-all group-hover:scale-110" />
@@ -57,7 +58,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <Link
-                      href="/admin"
+                      href={'/admin' as Route}
                       className="text-muted-foreground hover:text-foreground flex h-9 w-9 items-center justify-center rounded-lg transition-colors md:h-8 md:w-8"
                     >
                       <SheetIcon className="h-5 w-5" />
@@ -69,7 +70,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <Link
-                      href="/admin/admins"
+                      href={'/admin/admins' as Route}
                       className="text-muted-foreground hover:text-foreground flex h-9 w-9 items-center justify-center rounded-lg transition-colors md:h-8 md:w-8"
                     >
                       <Users2 className="h-5 w-5" />

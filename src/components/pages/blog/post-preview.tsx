@@ -1,3 +1,4 @@
+import { Route } from 'next';
 import Link from 'next/link';
 
 import { type Author } from '@/types/author';
@@ -22,7 +23,7 @@ export function PostPreview({ title, coverImage, date, excerpt, author, slug }: 
         <CoverImage slug={slug} title={title} src={coverImage} />
       </div>
       <h3 className="mb-3 text-2xl leading-snug">
-        <Link href={`/blog/${slug}`} className="hover:underline">
+        <Link href={`/blog/${slug}` as Route} className="hover:underline">
           {title}
         </Link>
       </h3>
