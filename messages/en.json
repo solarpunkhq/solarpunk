@@ -221,5 +221,18 @@
   "MissionComponent": {
     "mission": "Our mission is to 100x the deployment of solar panels and create a",
     "future": "future by 2077."
+  },
+  "PaperworkComponent": {
+    "heading": "We're here to support your solar ambitions.",
+    "subheading": "From initial sketches to the growing pains of success, we've got you covered.",
+    "listItem1": "Reduces heat stress",
+    "listItem2": "Reduces evaporation",
+    "microclimateTitle": "Microclimate Creation.",
+    "microclimateDescription": "Solar panels provide partial shade to the crops below, creating a microclimate that potentially extends growing seasons.",
+    "dualUseTitle": "Dual Use.",
+    "dualUseDescription": "By installing solar panels above the crops, the same land can produce both food and energy, utilizing resources to their fullest potential.",
+    "upTo": "Up to",
+    "cropAndSolar": "160% Crop + Solar",
+    "comparedToCropsOnly": "compared to only growing crops"
   }
 }

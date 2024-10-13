@@ -221,5 +221,18 @@
   "MissionComponent": {
     "mission": "Unser Ziel: Solarpanels 100x schneller ausrollen und eine",
     "future": "Zukunft bis 2077 gestalten."
+  },
+  "PaperworkComponent": {
+    "heading": "Wir unterstützen Ihre Solarprojekte.",
+    "subheading": "Von ersten Skizzen bis zum Erfolg – wir sind für Sie da.",
+    "listItem1": "Reduziert Hitzestress",
+    "listItem2": "Reduziert Verdunstung",
+    "microclimateTitle": "Mikroklima schaffen.",
+    "microclimateDescription": "Solarpanels spenden Schatten und schaffen ein Mikroklima, das die Anbausaison verlängern kann.",
+    "dualUseTitle": "Doppelnutzung.",
+    "dualUseDescription": "Mit Solarpanels über den Feldern produziert das Land gleichzeitig Lebensmittel und Energie.",
+    "upTo": "Bis zu",
+    "cropAndSolar": "160% Ertrag + Solar",
+    "comparedToCropsOnly": "verglichen mit reinen Ernten"
   }
 }
