@@ -1,143 +1,93 @@
+'use client';
+
+import { useTranslations } from 'next-intl';
+
 import React from 'react';
 
 import Container from '@/components/shared/container';
 
-import { getMetadata } from '@/lib/get-metadata';
+export default function Privacy() {
+  const t = useTranslations('PrivacyPage');
 
-import { SEO_DATA } from '@/constants/seo-data';
-
-export default function Terms() {
   return (
     <Container>
       <article className="prose my-14 max-w-screen-lg">
-        <h1>Privacy Policy</h1>
-        <p>
-          Your privacy is important to us. This Privacy Policy explains how Solarpunkhq.com ("we",
-          "our", "us") collects, uses, and discloses personal information when you use our platform
-          to connect with photovoltaic installers.
-        </p>
+        <h1>{t('title')}</h1>
+        <p>{t('introduction')}</p>
 
-        <h2>1. Information We Collect</h2>
-        <p>We collect certain personal data from you when you use Solarpunkhq.com, including:</p>
+        <h2>{t('information_we_collect_title')}</h2>
+        <p>{t('information_we_collect_description')}</p>
         <ul>
-          <li>Full Name</li>
-          <li>Home Address</li>
-          <li>Phone Number</li>
-          <li>Email Address</li>
-          <li>Farm Location and Details</li>
-          <li>Payment and Billing Information (if applicable)</li>
-          <li>Technical Data (e.g., IP address, browser type, operating system)</li>
+          <li>{t('full_name')}</li>
+          <li>{t('home_address')}</li>
+          <li>{t('phone_number')}</li>
+          <li>{t('email_address')}</li>
+          <li>{t('farm_location_and_details')}</li>
+          <li>{t('payment_and_billing_information')}</li>
+          <li>{t('technical_data')}</li>
         </ul>
 
-        <h2>2. How We Use Your Information</h2>
-        <p>We use the information we collect for the following purposes:</p>
+        <h2>{t('how_we_use_your_information_title')}</h2>
+        <p>{t('how_we_use_your_information_description')}</p>
         <ul>
-          <li>
-            To connect you with photovoltaic installers that match your location and energy needs.
-          </li>
-          <li>To communicate with you regarding our services and any updates or changes.</li>
-          <li>To improve our platform and provide a better user experience.</li>
-          <li>To process transactions and manage your account.</li>
-          <li>To comply with legal obligations and enforce our Terms of Service.</li>
+          <li>{t('use_connect_installers')}</li>
+          <li>{t('use_communicate_services')}</li>
+          <li>{t('use_improve_platform')}</li>
+          <li>{t('use_process_transactions')}</li>
+          <li>{t('use_legal_compliance')}</li>
         </ul>
 
-        <h2>3. How We Share Your Information</h2>
-        <p>We may share your personal information with the following third parties:</p>
+        <h2>{t('how_we_share_your_information_title')}</h2>
+        <p>{t('how_we_share_your_information_description')}</p>
         <ul>
           <li>
-            <strong>Photovoltaic Installers:</strong> We share relevant information such as your
-            name, farm location, and contact details with photovoltaic installers to facilitate your
-            solar installation.
+            <strong>{t('share_installers_title')}:</strong> {t('share_installers')}
           </li>
           <li>
-            <strong>Service Providers:</strong> We may share your information with trusted service
-            providers who assist us in operating our platform, processing payments, or performing
-            analytics.
+            <strong>{t('share_service_providers_title')}:</strong> {t('share_service_providers')}
           </li>
           <li>
-            <strong>Legal Compliance:</strong> We may disclose your information to comply with legal
-            obligations or in response to lawful requests by public authorities, including to meet
-            national security or law enforcement requirements.
+            <strong>{t('share_legal_compliance_title')}:</strong> {t('share_legal_compliance')}
           </li>
         </ul>
 
-        <h2>4. Data Security</h2>
-        <p>
-          We take reasonable steps to protect your personal information from unauthorized access,
-          alteration, disclosure, or destruction. However, no method of transmission over the
-          internet or method of electronic storage is 100% secure, and we cannot guarantee the
-          absolute security of your information.
-        </p>
+        <h2>{t('data_security_title')}</h2>
+        <p>{t('data_security_description')}</p>
 
-        <h2>5. Cookies and Tracking Technologies</h2>
-        <p>
-          We use cookies and similar tracking technologies to enhance your experience on
-          Solarpunkhq.com. Cookies are small text files stored on your device that help us
-          understand how you use our platform. You can control the use of cookies at the browser
-          level, but if you disable cookies, some features of the platform may not function
-          properly.
-        </p>
+        <h2>{t('cookies_and_tracking_title')}</h2>
+        <p>{t('cookies_and_tracking_description')}</p>
 
-        <h2>6. Your Rights and Choices</h2>
-        <p>
-          You have certain rights regarding the personal data we collect about you. Depending on
-          your location, these rights may include:
-        </p>
+        <h2>{t('your_rights_and_choices_title')}</h2>
+        <p>{t('your_rights_and_choices_description')}</p>
         <ul>
-          <li>The right to access and receive a copy of your personal data.</li>
-          <li>The right to rectify any inaccuracies in your personal data.</li>
-          <li>
-            The right to request the deletion of your personal data (subject to certain legal
-            limitations).
-          </li>
-          <li>
-            The right to object to or restrict the processing of your data in certain circumstances.
-          </li>
-          <li>
-            The right to withdraw your consent at any time (if consent is the legal basis for
-            processing).
-          </li>
+          <li>{t('right_access_data')}</li>
+          <li>{t('right_rectify_data')}</li>
+          <li>{t('right_delete_data')}</li>
+          <li>{t('right_object_processing')}</li>
+          <li>{t('right_withdraw_consent')}</li>
         </ul>
         <p>
-          To exercise any of these rights, please contact us at{' '}
+          {t('contact_to_exercise_rights')}{' '}
           <a href="mailto:privacy@solarpunkhq.com">privacy@solarpunkhq.com</a>.
         </p>
 
-        <h2>7. Retention of Your Information</h2>
+        <h2>{t('retention_of_information_title')}</h2>
+        <p>{t('retention_of_information_description')}</p>
+
+        <h2>{t('international_data_transfers_title')}</h2>
+        <p>{t('international_data_transfers_description')}</p>
+
+        <h2>{t('changes_to_policy_title')}</h2>
+        <p>{t('changes_to_policy_description')}</p>
+
+        <h2>{t('contact_us_title')}</h2>
+        <p>{t('contact_us_description')}</p>
         <p>
-          We will retain your personal information for as long as necessary to fulfill the purposes
-          for which it was collected, comply with legal obligations, resolve disputes, and enforce
-          agreements. When we no longer need your personal data, we will securely delete or
-          anonymize it.
+          {t('contact_email')} <a href="mailto:privacy@solarpunkhq.com">privacy@solarpunkhq.com</a>.
         </p>
 
-        <h2>8. International Data Transfers</h2>
-        <p>
-          If you are located outside of the jurisdiction where our servers are based, your
-          information may be transferred across international borders. We take appropriate measures
-          to ensure that these transfers comply with applicable data protection laws.
-        </p>
-
-        <h2>9. Changes to This Privacy Policy</h2>
-        <p>
-          We may update this Privacy Policy from time to time to reflect changes in our practices or
-          legal obligations. We will notify you of any material changes by posting the updated
-          policy on our website. Your continued use of Solarpunkhq.com after such changes
-          constitutes your acceptance of the updated Privacy Policy.
-        </p>
-
-        <h2>10. Contact Us</h2>
-        <p>
-          If you have any questions about this Privacy Policy or how we handle your personal data,
-          please contact us at:
-        </p>
-        <p>
-          Email: <a href="mailto:privacy@solarpunkhq.com">privacy@solarpunkhq.com</a>
-        </p>
-
-        <p>Last updated: 3rd October 2024</p>
+        <p>{t('last_updated')}</p>
       </article>
     </Container>
   );
 }
-export const metadata = getMetadata(SEO_DATA.index);

@@ -8,6 +8,10 @@ import { inter, manrope } from '@/fonts';
 import Footer from '@/components/shared/footer';
 import Header from '@/components/shared/header';
 
+import { getMetadata } from '@/lib/get-metadata';
+
+import { SEO_DATA } from '@/constants/seo-data';
+
 import '@/styles/globals.css';
 
 export default async function RootLayout({
@@ -41,3 +45,5 @@ export const viewport = {
   viewportFit: 'cover',
   themeColor: '#000000',
 };
+
+export const metadata = getMetadata(SEO_DATA.index);
