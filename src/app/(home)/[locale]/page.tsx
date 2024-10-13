@@ -1,5 +1,3 @@
-import { MoreStories } from '@/components/pages/blog/more-stories';
-import { PostPreview } from '@/components/pages/blog/post-preview';
 import CTA from '@/components/pages/home/CTA';
 import Become from '@/components/pages/home/become';
 import BlogPosts from '@/components/pages/home/blog-posts';

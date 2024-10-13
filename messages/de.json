@@ -212,5 +212,10 @@
     "future_vision_title": "Eine Vision für die Zukunft: Solarbetriebene, stets verfügbare KI",
     "future_vision_content": "Die Kombination aus Solarpunks Solar-Computing-Subnetz und Bittensors dezentralem KI-Netzwerk bietet einen Ausblick auf die Zukunft der künstlichen Intelligenz. Durch die Dezentralisierung von Rechen- und Energieressourcen entsteht ein skalierbares, nachhaltiges und demokratisiertes KI-Trainingsnetzwerk, das sowohl der Umwelt als auch den Teilnehmern zugutekommt. Stellen Sie sich eine Welt vor, in der KI-Systeme kontinuierlich laufen, ausschließlich mit Sonnenenergie betrieben. Während sich die Erde dreht, werden die Rechenlasten nahtlos von einer Region zur nächsten weitergegeben, sodass das KI-Training nie aufhört. Mit Solarpunk und Bittensor wird diese Vision Wirklichkeit – eine Zukunft, in der KI-Innovation und Nachhaltigkeit Hand in Hand gehen.",
     "contribute_message": "Wenn Sie zum Solar-Computing-Subnetz beitragen und $TAO verdienen möchten, ist jetzt der perfekte Zeitpunkt, um mitzumachen. Werden Sie Teil der Bewegung und gestalten Sie die nachhaltige KI-Revolution mit."
+  },
+  "HeroComponent": {
+    "heading": "Abdeckung von Bauernhöfen",
+    "heading_line_break": "mit Solarpanels",
+    "subtext": "Beschleunigen Sie den globalen Übergang zu erneuerbarer Energie und profitieren Sie gleichzeitig von Ihren Flächen."
   }
 }

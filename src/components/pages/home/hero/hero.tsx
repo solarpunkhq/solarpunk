@@ -1,3 +1,6 @@
+'use client';
+
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
 import HlsVideo from '@/components/shared/hls-video';
@@ -5,13 +8,6 @@ import SearchForm from '@/components/shared/search-form';
 
 import stickerImage from '@/images/hero/sticker.png';
 
-{
-  /*       
-Video optimization parameters:
-  mp4: -pix_fmt yuv420p -vf "scale=1920:-2" -movflags faststart -vcodec libx264 -g 60 -crf 20
-  m3u8: -codec: copy -start_number 0 -hls_time 2 -hls_list_size 0 -f hls output.m3u8
-*/
-}
 const videoProps = {
   src: {
     mp4: '/videos/pages/home/hero/hero.mp4?updated=20240919122356',
@@ -21,16 +17,18 @@ const videoProps = {
 };
 
 function Hero() {
+  const t = useTranslations('HeroComponent');
+
   return (
     <section className="hero relative bg-hero-bg bg-cover bg-center pb-9 pt-[158px] px-safe home-lg:pb-[47px] home-md:pb-[39px] home-sm:pb-8">
       <div className="container ">
         <div className="relative z-20 flex max-w-[726px] flex-col text-white">
           <h1 className="font-title text-96 font-semibold leading-[0.96] tracking-snug home-lg:text-81 home-md:text-60 home-sm:text-41">
-            Covering farms <br />
-            with solar panels
+            {t('heading')} <br />
+            {t('heading_line_break')}
           </h1>
           <p className="mt-3.5 max-w-[480px] text-24 font-normal leading-tight home-lg:max-w-[430px] home-lg:text-20 home-md:max-w-[380px] home-md:text-18 home-sm:max-w-[360px] home-sm:text-16">
-            Accelerate global transition to renewable energy while capitalizing on your acres.
+            {t('subtext')}
           </p>
           <SearchForm className="mt-[66px] home-md:mt-[50px]" />
         </div>

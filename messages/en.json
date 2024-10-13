@@ -212,5 +212,10 @@
     "future_vision_title": "A Vision for the Future: Solar-Powered, Always-On AI",
     "future_vision_content": "The combination of Solarpunk’s Solar Compute Subnet and Bittensor’s decentralized AI network offers a glimpse into the future of artificial intelligence. By decentralizing both compute and energy resources, this system provides a scalable, sustainable, and democratized AI training network that benefits both the environment and participants. Imagine a world where AI systems run continuously, powered entirely by the sun. As the Earth rotates, computational workloads are seamlessly handed off from one region to another, ensuring that AI training never stops. With Solarpunk and Bittensor, this vision is becoming a reality—creating a future where AI innovation and sustainability go hand in hand.",
     "contribute_message": "If you're interested in contributing to the Solar Compute Subnet and earning $TAO, now is the perfect time to get involved. Join the movement and be part of the sustainable AI revolution."
+  },
+  "HeroComponent": {
+    "heading": "Covering farms",
+    "heading_line_break": "with solar panels",
+    "subtext": "Accelerate global transition to renewable energy while capitalizing on your acres."
   }
 }
