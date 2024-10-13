@@ -12,6 +12,7 @@ export const routing = defineRouting({
     {
       domain: 'solarpunk.sh',
       defaultLocale: 'de',
+      locales: ['de'],
     },
   ],
   localePrefix: 'never',
