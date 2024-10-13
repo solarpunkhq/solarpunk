@@ -67,5 +67,29 @@
     "planning_subtitle": "We've reviewed your requirements, architected your solar project and are preparing for installation.",
     "deployment_title": "Deployment",
     "deployment_subtitle": "We deployed your solar project and everything is ready to go!"
+  },
+  "OnboardingPage": {
+    "title": "Mark your land",
+    "description": "Use the tools on the left of the map to select your territory.",
+    "revenue_label": "Revenue",
+    "revenue_unit": "/yr",
+    "area_label": "Area",
+    "area_unit_acres": "acres",
+    "area_unit_ha": "ha",
+    "energy_label": "Energy",
+    "energy_unit": "MW/yr",
+    "estimates_notice": "These figures are estimates and are not guaranteed.",
+    "name_label": "Name",
+    "name_placeholder": "Your name",
+    "email_label": "Email",
+    "email_placeholder": "Your email",
+    "terms_agreement": "By clicking Continue, you agree to our",
+    "terms_link": "Terms",
+    "privacy_policy_link": "Privacy Policy",
+    "privacy_policy_text": "Learn how we collect, use and share your data in our",
+    "contact_us": "Contact us",
+    "continue_button": "Continue",
+    "loading_message": "",
+    "error_message": "Error"
   }
 }

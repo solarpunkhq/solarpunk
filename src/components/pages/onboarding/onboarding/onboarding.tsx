@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -34,6 +35,8 @@ interface OnboardingProps {
 }
 
 function Onboarding({ country }: OnboardingProps) {
+  const t = useTranslations('OnboardingPage');
+
   const [acres, setAcres] = useState<Acre[]>([]);
   const [totalArea, setTotalArea] = useState(getTotalAreaFromAcreData(acres));
   const [projections, setProjections] = useState(getProjectionsFromAcres(totalArea, 25, 5));
@@ -52,7 +55,6 @@ function Onboarding({ country }: OnboardingProps) {
   const [error, setError] = useState('');
 
   const router = useRouter();
-
   const searchParams = useSearchParams();
 
   let lat = parseFloat(searchParams.get('lat') || '');
@@ -99,10 +101,8 @@ function Onboarding({ country }: OnboardingProps) {
           <div className="w-full pb-8 md:ml-4 md:h-full md:max-h-screen md:max-w-96">
             <div className="mt-8 flex h-full max-h-[90vh] flex-col justify-between rounded-xl border-2 border-gray-80 bg-gray-98 p-4 md:mt-16">
               <div>
-                <h1 className="font-title text-28 font-bold">Mark your land</h1>
-                <div className="my-2">
-                  Use the tools on the left of the map to select your territory.
-                </div>
+                <h1 className="font-title text-28 font-bold">{t('title')}</h1>
+                <div className="my-2">{t('description')}</div>
               </div>
 
               <div className="relative mb-4 flex-col overflow-x-auto text-sm">
@@ -110,29 +110,33 @@ function Onboarding({ country }: OnboardingProps) {
                   <Card className="ml-1 mt-6 w-[97%] !border-2 !border-gray-70 bg-gray-94 text-gray-20">
                     <CardContent className="p-6">
                       <div className="space-y-6">
-                        <MainStat label="Revenue" value={projections.revenue_per_year} unit="/yr" />
+                        <MainStat
+                          label={t('revenue_label')}
+                          value={projections.revenue_per_year}
+                          unit={t('revenue_unit')}
+                        />
                         <Separator className="bg-gray-20" />
                         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                           {country === 'US' || country === 'UK' ? (
                             <StatItem
                               icon={MapPin}
-                              label="Area"
+                              label={t('area_label')}
                               value={parseFloat(totalArea.toFixed(1))}
-                              unit="acres"
+                              unit={t('area_unit_acres')}
                             />
                           ) : (
                             <StatItem
                               icon={MapPin}
-                              label="Area"
+                              label={t('area_label')}
                               value={parseFloat((totalArea / 2.471).toFixed(1))}
-                              unit="ha"
+                              unit={t('area_unit_ha')}
                             />
                           )}
                           <StatItem
                             icon={Zap}
-                            label="Energy"
+                            label={t('energy_label')}
                             value={parseFloat(projections.mw_produced.toFixed(1))}
-                            unit="MW/yr"
+                            unit={t('energy_unit')}
                           />
                         </div>
                       </div>
@@ -140,23 +144,23 @@ function Onboarding({ country }: OnboardingProps) {
                   </Card>
                   <div className="my-2 ml-1 flex text-13 text-gray-40">
                     <span>
-                      <CircleAlert className="relative -top-px inline h-4 w-4" /> These figures are
-                      estimates and are not guaranteed.
+                      <CircleAlert className="relative -top-px inline h-4 w-4" />{' '}
+                      {t('estimates_notice')}
                     </span>
                   </div>
                 </div>
               </div>
               <div className="mb-4">
-                <div className="ml-1 text-base font-semibold">Name</div>
+                <div className="ml-1 text-base font-semibold">{t('name_label')}</div>
                 <Input
-                  placeholder="Your name"
+                  placeholder={t('name_placeholder')}
                   className="!ml-1 !w-[97%] !border-2 !border-gray-70"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
-                <div className="ml-1 mt-4 text-base font-semibold">Email</div>
+                <div className="ml-1 mt-4 text-base font-semibold">{t('email_label')}</div>
                 <Input
-                  placeholder="Your email"
+                  placeholder={t('email_placeholder')}
                   className="!ml-1 !w-[97%] !border-2 !border-gray-70"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -164,20 +168,20 @@ function Onboarding({ country }: OnboardingProps) {
               </div>
               <div className="my-2 ml-1 flex text-13 text-gray-40">
                 <span>
-                  By clicking Continue, you agree to our{' '}
+                  {t('terms_agreement')}{' '}
                   <Link className="underline" href="/terms">
-                    Terms
+                    {t('terms_link')}
                   </Link>
-                  . Learn how we collect, use and share your data in our{' '}
+                  . {t('privacy_policy_text')}{' '}
                   <Link className="underline" href="/privacy">
-                    Privacy Policy
+                    {t('privacy_policy_link')}
                   </Link>
                   .
                 </span>
               </div>
 
               <div className="-mx-[18px] -mb-[18px] flex flex-col items-center justify-center rounded-b-2xl bg-gray-20 pb-4">
-                {error && <div className="text-primary-red">{error}</div>}
+                {error && <div className="text-primary-red">{t('error_message')}</div>}
                 <div className="flex gap-2">
                   <Button
                     className="mt-4"
@@ -185,7 +189,7 @@ function Onboarding({ country }: OnboardingProps) {
                     theme="black"
                     href="https://cal.com/team/solarpunk/exploration"
                   >
-                    Contact us
+                    {t('contact_us')}
                   </Button>
                   <Button
                     className="mt-4"
@@ -201,7 +205,7 @@ function Onboarding({ country }: OnboardingProps) {
                         <Loader2 className="h-4 w-4 animate-spin" />
                       </div>
                     )}
-                    {loading ? '' : 'Continue'}
+                    {loading ? t('loading_message') : t('continue_button')}
                   </Button>
                 </div>
               </div>

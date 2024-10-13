@@ -67,5 +67,29 @@
     "planning_subtitle": "Wir haben Ihre Anforderungen geprüft, Ihr Solarprojekt entworfen und bereiten die Installation vor.",
     "deployment_title": "Bereitstellung",
     "deployment_subtitle": "Ihr Solarprojekt wurde bereitgestellt und ist einsatzbereit!"
+  },
+  "OnboardingPage": {
+    "title": "Markieren Sie Ihr Land",
+    "description": "Verwenden Sie die Werkzeuge links auf der Karte, um Ihr Gebiet auszuwählen.",
+    "revenue_label": "Umsatz",
+    "revenue_unit": "/Jahr",
+    "area_label": "Fläche",
+    "area_unit_acres": "Acres",
+    "area_unit_ha": "ha",
+    "energy_label": "Energie",
+    "energy_unit": "MW/Jahr",
+    "estimates_notice": "Diese Werte sind Schätzungen und nicht garantiert.",
+    "name_label": "Name",
+    "name_placeholder": "Ihr Name",
+    "email_label": "E-Mail",
+    "email_placeholder": "Ihre E-Mail",
+    "terms_agreement": "Indem Sie auf Weiter klicken, stimmen Sie unseren",
+    "terms_link": "Bedingungen",
+    "privacy_policy_link": "Datenschutzrichtlinien",
+    "privacy_policy_text": "Erfahren Sie, wie wir Ihre Daten erfassen, verwenden und weitergeben, in unseren",
+    "contact_us": "Kontaktieren Sie uns",
+    "continue_button": "Weiter",
+    "loading_message": "",
+    "error_message": "Fehler"
   }
 }
