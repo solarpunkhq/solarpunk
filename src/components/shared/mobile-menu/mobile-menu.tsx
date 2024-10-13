@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import clsx from 'clsx';
 import { AnimatePresence, LazyMotion, domAnimation, m } from 'framer-motion';
 
@@ -27,6 +29,8 @@ const menuVariants = {
 };
 
 function MobileMenu({ isOpen, onClick }: { isOpen: boolean; onClick: () => void }) {
+  const t = useTranslations('Header');
+
   return (
     <LazyMotion features={domAnimation}>
       <AnimatePresence>
@@ -41,17 +45,24 @@ function MobileMenu({ isOpen, onClick }: { isOpen: boolean; onClick: () => void 
           >
             <div className="relative flex h-full w-full flex-col justify-between pb-10 pt-14 text-left">
               <ul className="flex w-full flex-col overflow-y-auto px-5 font-semibold uppercase tracking-wide">
-                {MENUS.header.map(({ label, href }, index) => (
-                  <li className={clsx('border-b border-black')} key={index}>
-                    <Link
-                      className="block pb-[17px] pt-[18px] leading-none text-gray-5"
-                      href={href}
-                      size="home-sm"
-                    >
-                      {label}
-                    </Link>
-                  </li>
-                ))}
+                <li className={clsx('border-b border-black')}>
+                  <Link
+                    className="block pb-[17px] pt-[18px] leading-none text-gray-5"
+                    href={ROUTE.agrivoltaics}
+                    size="home-sm"
+                  >
+                    {t('agrivoltaics')}
+                  </Link>
+                </li>
+                <li className={clsx('border-b border-black')}>
+                  <Link
+                    className="block pb-[17px] pt-[18px] leading-none text-gray-5"
+                    href={ROUTE.blog}
+                    size="home-sm"
+                  >
+                    {t('blog')}
+                  </Link>
+                </li>
                 {MENUS.footer.main.map(({ label, href }, index) => (
                   <li className={clsx('border-b border-black')} key={index}>
                     <Link
@@ -71,15 +82,15 @@ function MobileMenu({ isOpen, onClick }: { isOpen: boolean; onClick: () => void 
                   size="home-sm"
                   href={ROUTE.login}
                 >
-                  Login
+                  {t('login')}
                 </Button>
                 <Button
                   className="absolute -bottom-5 left-1/2 !h-11 w-[calc(100%-2.5rem)] -translate-x-1/2 py-3.5"
                   theme="black"
                   size="home-sm"
-                  href={ROUTE.index}
+                  href={ROUTE.contactUs}
                 >
-                  Contact us
+                  {t('contact')}
                 </Button>
               </div>
             </div>

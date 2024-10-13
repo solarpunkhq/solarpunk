@@ -42,7 +42,11 @@
     "revenue_label": "Geschätzter Umsatz",
     "energy_label": "Geschätzte Energieproduktion",
     "alert_content": "Wenn Sie Änderungen an Ihrer Flächenauswahl vornehmen möchten, tun Sie dies bitte jetzt über die Karte links, bevor Sie das Formular absenden.",
-    "contact": "Kontaktieren Sie uns",
+    "contact": "Kontakt",
     "submit": "Absenden"
+  },
+  "Menus": {
+    "agrivoltaics": "Was ist Agri-Photovoltaik",
+    "blog": "Blog"
   }
 }

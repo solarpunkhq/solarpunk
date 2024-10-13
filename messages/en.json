@@ -44,5 +44,12 @@
     "alert_content": "If you want to make any changes to your land selection, please do so now using the map to the left before submitting the form.",
     "contact": "Contact us",
     "submit": "Submit"
+  },
+  "Header": {
+    "agrivoltaics": "What is Agrivoltaics",
+    "blog": "Blog",
+    "login": "Login",
+    "logout": "Logout",
+    "contact": "Contact us"
   }
 }
