@@ -11,8 +11,6 @@ import Button from '@/components/shared/button';
 import Logo from '@/components/shared/logo';
 import Map from '@/components/shared/map';
 
-import { formatNumberAsAmount } from '@/lib/utils';
-
 import Sidebar from '../sidebar';
 
 console.log(L);

@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { useState } from 'react';
 
 import { getProjectionsFromAcres, getTotalAreaFromAcreData } from '@/utils/projections';
@@ -15,6 +17,8 @@ import { formatNumberAsAmount } from '@/lib/utils';
 import Schedule from '../schedule';
 
 function DashboardSidebar({ user_id, acres }: { user_id: number; acres: any[] }) {
+  const t = useTranslations('DashboardPage');
+
   const [phoneNumber, setPhoneNumber] = useState('');
   const [financeOption, setFinanceOption] = useState('self_financed');
   const [deploymentType, setDeploymentType] = useState('agrivoltaics');
@@ -29,17 +33,17 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: any[] })
   const submitForm = async () => {
     setLoading(true);
     if (phoneNumber === '') {
-      setError('Phone number is required');
+      setError(t('error_phone_required'));
       setLoading(false);
       return;
     }
     if (financeOption === '') {
-      setError('Finance option is required');
+      setError(t('error_finance_option'));
       setLoading(false);
       return;
     }
     if (deploymentType === '') {
-      setError('Deployment type is required');
+      setError(t('error_deployment_type'));
       setLoading(false);
       return;
     }
@@ -78,27 +82,24 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: any[] })
   return (
     <div className="relative mb-4 mt-4 flex h-[90vh] flex-col overflow-hidden rounded-xl border-2 border-gray-80 bg-gray-98 text-14">
       <div className="flex-1 overflow-y-auto p-4">
-        <h1 className="mb-4 font-title text-28 font-bold">Your Acres</h1>
-        <div className="mb-4">
-          Please submit additional information about your land. This information will help us
-          process your application faster.
-        </div>
-        <div className="my-4 text-20 font-semibold">Personal Details</div>
-        <div className="ml-1 text-15 font-semibold">Phone Number</div>
+        <h1 className="mb-4 font-title text-28 font-bold">{t('title')}</h1>
+        <div className="mb-4">{t('description')}</div>
+        <div className="my-4 text-20 font-semibold"> {t('personal_details')}</div>
+        <div className="ml-1 text-15 font-semibold">{t('phone_number')}</div>
         <Input
-          placeholder="Your phone number"
+          placeholder={t('phone_number_placeholder')}
           className="!mb-2 !ml-1 !w-[97%] !border-2 !border-gray-70"
           value={phoneNumber}
           onChange={(e) => setPhoneNumber(e.target.value)}
         />
-        <div className="ml-1 mt-2 text-15 font-semibold">Land Information</div>
+        <div className="ml-1 mt-2 text-15 font-semibold">{t('land_information')}</div>
         <Textarea
-          placeholder="Any additional details about your land you want us to know"
+          placeholder={t('land_information_placeholder')}
           className="!ml-1 !w-[97%] !border-2 !border-gray-70"
           value={aboutLand}
           onChange={(e) => setAboutLand(e.target.value)}
         />
-        <div className="my-4 text-20 font-semibold">Deployment Type</div>
+        <div className="my-4 text-20 font-semibold">{t('deployment_type')}</div>
         <RadioGroup
           value={deploymentType}
           className="mt-6 flex flex-col gap-2"
@@ -107,8 +108,8 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: any[] })
           <Radio
             key={0}
             value={'agrivoltaics'}
-            aria-label="Agrivoltaics"
-            aria-description="New and unique way of deploying both solar and keep farming arable land"
+            aria-label={t('agrivoltaics_title')}
+            aria-description={t('agrivoltaics_description')}
             className="group relative flex cursor-pointer rounded-lg border border-gray-50 bg-white p-4 shadow-sm focus:outline-none data-[focus]:border-black data-[focus]:ring-2 data-[focus]:ring-black"
           >
             <span className="flex w-full flex-1">
@@ -118,12 +119,14 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: any[] })
                   alt="Agrivoltaics"
                   className="mb-2 w-full"
                 />
-                <span className="text-gray-18 block text-sm font-medium">Agrivoltaics</span>
+                <span className="text-gray-18 block text-sm font-medium">
+                  {t('agrivoltaics_title')}
+                </span>
                 <span className="mt-1 flex items-center text-sm text-gray-30">
-                  New and unique way of deploying both solar and keep farming arable land
+                  {t('agrivoltaics_description')}
                 </span>
                 <span className="text-gray-18 mt-6 text-sm font-medium">
-                  80% solar, 80% agriculture: 160% yield
+                  {t('agrivoltaics_breakup')}
                 </span>
               </span>
             </span>
@@ -135,8 +138,8 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: any[] })
           <Radio
             key={1}
             value={'open_space_photovoltaics'}
-            aria-label="Open Space Photovoltaics"
-            aria-description="Traditional solar deployment on acres that will not be used for agriculture"
+            aria-label={t('photovoltaics_title')}
+            aria-description={t('photovoltaics_description')}
             className="group relative flex cursor-pointer rounded-lg border border-gray-50 bg-white p-4 shadow-sm focus:outline-none data-[focus]:border-black data-[focus]:ring-2 data-[focus]:ring-black"
           >
             <span className="flex w-full flex-1">
@@ -147,13 +150,13 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: any[] })
                   className="mb-2 w-full"
                 />
                 <span className="text-gray-18 block text-sm font-medium">
-                  Open Space Photovoltaics
+                  {t('photovoltaics_title')}
                 </span>
                 <span className="mt-1 flex items-center text-sm text-gray-30">
-                  Traditional solar deployment on acres that will not be used for agriculture
+                  {t('photovoltaics_description')}
                 </span>
                 <span className="text-gray-18 mt-6 text-sm font-medium">
-                  100% solar, 0% agriculture: 100% yield
+                  {t('photovoltaics_breakup')}
                 </span>
               </span>
             </span>
@@ -165,18 +168,20 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: any[] })
           <Radio
             key={2}
             value={'help_me_decide'}
-            aria-label="Help me decide"
-            aria-description="We will assess your situation and figure out what would work best for your acres"
+            aria-label={t('help_me_decide_title')}
+            aria-description={t('help_me_decide_description')}
             className="group relative flex cursor-pointer rounded-lg border border-gray-50 bg-white p-4 shadow-sm focus:outline-none data-[focus]:border-black data-[focus]:ring-2 data-[focus]:ring-black"
           >
             <span className="flex flex-1">
               <span className="flex flex-col">
-                <span className="text-gray-18 block text-sm font-medium">Help me decide</span>
+                <span className="text-gray-18 block text-sm font-medium">
+                  {t('help_me_decide_title')}
+                </span>
                 <span className="mt-1 flex items-center text-sm text-gray-30">
-                  We will assess your situation and figure out what would work best for your acres
+                  {t('help_me_decide_description')}
                 </span>
                 <span className="text-gray-18 mt-6 text-sm font-medium">
-                  We&apos;ll decide the ideal deployment type
+                  {t('help_me_decide_breakup')}
                 </span>
               </span>
             </span>
@@ -186,7 +191,7 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: any[] })
             />
           </Radio>
         </RadioGroup>
-        <div className="my-4 text-20 font-semibold">Finance Option</div>
+        <div className="my-4 text-20 font-semibold">{t('finance_option')}</div>
         <RadioGroup
           value={financeOption}
           className="mt-6 flex flex-col gap-2"
@@ -195,15 +200,17 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: any[] })
           <Radio
             key={0}
             value={'self_financed'}
-            aria-label="Financing myself"
-            aria-description="I will finance the project myself without outside capital"
+            aria-label={t('self_finance_title')}
+            aria-description={t('self_finance_description')}
             className="group relative flex cursor-pointer rounded-lg border border-gray-50 bg-white p-4 shadow-sm focus:outline-none data-[focus]:border-black data-[focus]:ring-2 data-[focus]:ring-black"
           >
             <span className="flex flex-1">
               <span className="flex flex-col">
-                <span className="block text-sm font-semibold text-gray-8">Financing myself</span>
+                <span className="block text-sm font-semibold text-gray-8">
+                  {t('self_finance_title')}
+                </span>
                 <span className="mt-1 flex items-center text-sm text-gray-30">
-                  I will finance the project myself without outside capital
+                  {t('self_finance_description')}
                 </span>
               </span>
             </span>
@@ -219,15 +226,17 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: any[] })
           <Radio
             key={1}
             value={'loan_self_financed'}
-            aria-label="Financed by loan"
-            aria-description="$19,999 down payment, 3% APR, 72 months"
+            aria-label={t('loan_self_financed_title')}
+            aria-description={t('loan_self_financed_description')}
             className="group relative flex cursor-pointer rounded-lg border border-gray-50 bg-white p-4 shadow-sm focus:outline-none data-[focus]:border-black data-[focus]:ring-2 data-[focus]:ring-black"
           >
             <span className="flex flex-1">
               <span className="flex flex-col">
-                <span className="block text-sm font-semibold text-gray-8">Financed by loan</span>
+                <span className="block text-sm font-semibold text-gray-8">
+                  {t('loan_self_financed_title')}
+                </span>
                 <span className="mt-1 flex items-center text-sm text-gray-30">
-                  $19,999 down payment, 3% APR, 72 month loan
+                  {t('loan_self_financed_description')}
                 </span>
               </span>
             </span>
@@ -243,17 +252,17 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: any[] })
           <Radio
             key={2}
             value={'solarpunk_financed'}
-            aria-label="Financed by Solarpunk"
-            aria-description="0% risk, paid fully upfront by Solarpunk. 50% revenue share"
+            aria-label={t('solarpunk_financed_title')}
+            aria-description={t('solarpunk_financed_description')}
             className="group relative flex cursor-pointer rounded-lg border border-gray-50 bg-white p-4 shadow-sm focus:outline-none data-[focus]:border-black data-[focus]:ring-2 data-[focus]:ring-black"
           >
             <span className="flex flex-1">
               <span className="flex flex-col">
                 <span className="block text-sm font-semibold text-gray-8">
-                  Financed by Solarpunk
+                  {t('solarpunk_financed_title')}
                 </span>
                 <span className="mt-1 flex items-center text-sm text-gray-30">
-                  0% risk, paid fully upfront by Solarpunk. 50% revenue share
+                  {t('solarpunk_financed_description')}
                 </span>
               </span>
             </span>
@@ -267,22 +276,22 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: any[] })
             />
           </Radio>
         </RadioGroup>
-        <div className="mt-4 text-20 font-semibold">Summary</div>
+        <div className="mt-4 text-20 font-semibold">{t('summary_title')}</div>
         <div>
-          <b>Area: </b>
+          <b>{t('area_label')}: </b>
           {formatNumberAsAmount(totalArea.toFixed(2))} Acres
         </div>
         <div>
-          <b>Est. Revenue: </b>${formatNumberAsAmount(projections.revenue_per_year.toFixed(0))}/yr
+          <b>{t('revenue_label')}: </b>$
+          {formatNumberAsAmount(projections.revenue_per_year.toFixed(0))}/yr
         </div>
         <div>
-          <b>Est. Energy Production: </b>
+          <b>{t('energy_label')}: </b>
           {formatNumberAsAmount(projections.mw_produced.toFixed(1))} MW/yr
         </div>
         <div className="my-2 flex text-gray-40">
           <span>
-            <CircleAlert className="inline h-4 w-4" /> If you want to make any changes to your land
-            selection, please do so now using the map to the left before submitting the form.
+            <CircleAlert className="inline h-4 w-4" /> {t('alert_content')}
           </span>
         </div>
       </div>
@@ -290,7 +299,7 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: any[] })
         {error && <div className="text-primary-red">{error}</div>}
         <div className="flex gap-2 pb-2">
           <Button size="home-md" theme="black" href="https://cal.com/team/solarpunk/exploration">
-            Contact us
+            {t('contact')}
           </Button>
           <Button
             className="flex items-center justify-center !px-8"
@@ -304,7 +313,7 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: any[] })
                 <Loader2 className="h-4 w-4 animate-spin" />
               </div>
             )}
-            {loading ? '' : 'Submit'}
+            {loading ? '' : t('submit')}
           </Button>
         </div>
       </div>
