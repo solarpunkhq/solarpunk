@@ -1,0 +1,12 @@
+{
+  "LoginPage": {
+    "check_your_email": "Check your email",
+    "send_email": "Send",
+    "email_required": "Email is required",
+    "onboarding_first": "Please complete onboarding first",
+    "fetch_error": "A fetch error occurred",
+    "title": "Login",
+    "description": "Enter your email below to receive a magic link to sign in to your account.",
+    "email_label": "Email"
+  }
+}

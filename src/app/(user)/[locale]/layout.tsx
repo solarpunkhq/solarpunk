@@ -1,3 +1,6 @@
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
+
 import { inter, manrope } from '@/fonts';
 import { TooltipProvider } from '@radix-ui/react-tooltip';
 import { Analytics } from '@vercel/analytics/react';
@@ -12,9 +15,17 @@ import { SEO_DATA } from '@/constants/seo-data';
 import '@/styles/globals.css';
 import '@/styles/tailwind.css';
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default async function Layout({
+  children,
+  params: { locale },
+}: {
+  children: React.ReactNode;
+  params: { locale: string };
+}) {
+  const messages = await getMessages();
+
   return (
-    <html lang="en" className="h-full text-base antialiased">
+    <html lang={locale} className="h-full text-base antialiased">
       <head>
         <link
           rel="stylesheet"
@@ -30,10 +41,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         />
       </head>
       <body className={cn('h-full w-full font-sans antialiased', manrope.variable, inter.variable)}>
-        <TooltipProvider>
-          {children}
-          <Toaster />
-        </TooltipProvider>
+        <NextIntlClientProvider messages={messages}>
+          <TooltipProvider>
+            {children}
+            <Toaster />
+          </TooltipProvider>
+        </NextIntlClientProvider>
       </body>
       <Analytics />
     </html>

@@ -1,0 +1,12 @@
+{
+  "LoginPage": {
+    "check_your_email": "Überprüfe deine E-Mail",
+    "send_email": "Senden",
+    "email_required": "E-Mail ist erforderlich",
+    "onboarding_first": "Bitte schließe zuerst die Anmeldung ab",
+    "fetch_error": "Ein Abruf-Fehler ist aufgetreten",
+    "title": "Anmelden",
+    "description": "Gib unten deine E-Mail-Adresse ein, um einen Magic Link für die Anmeldung zu erhalten.",
+    "email_label": "E-Mail"
+  }
+}

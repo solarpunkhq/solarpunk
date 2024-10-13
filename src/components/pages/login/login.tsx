@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
 import { useState } from 'react';
@@ -22,6 +23,8 @@ import { Label } from '@/components/ui/label';
 import sectionBg from '@/images/sources/sources.jpg';
 
 function Login() {
+  const t = useTranslations('LoginPage');
+
   const [email, setEmail] = useState('');
 
   const [loading, setLoading] = useState(false);
@@ -32,16 +35,16 @@ function Login() {
     if (loading) {
       return null;
     } else if (done) {
-      return 'Check your email';
+      return t('check_your_email');
     }
-    return 'Send';
+    return t('send_email');
   };
 
   const sendMagicLink = async () => {
     setLoading(true);
     setError('');
     if (email === '') {
-      setError('Email is required');
+      setError(t('email_required'));
       setLoading(false);
       return;
     }
@@ -64,7 +67,7 @@ function Login() {
       } else {
         console.error('Error:', response.statusText);
         if (response.statusText === 'Not Found') {
-          setError('Please complete onboarding first');
+          setError(t('onboarding_first'));
         } else {
           setError(response.statusText);
         }
@@ -72,7 +75,7 @@ function Login() {
       }
     } catch (error) {
       console.error('Fetch error:', error);
-      setError('A fetch error occurred');
+      setError(t('fetch_error'));
       setLoading(false);
     }
   };
@@ -83,18 +86,16 @@ function Login() {
       <div className="flex h-full w-full flex-col items-center justify-center p-5">
         <Card className="w-full max-w-sm">
           <CardHeader>
-            <CardTitle className="text-24">Login</CardTitle>
-            <CardDescription>
-              Enter your email below to receive a magic link to sign in to your account.
-            </CardDescription>
+            <CardTitle className="text-24">{t('title')}</CardTitle>
+            <CardDescription>{t('description')}</CardDescription>
           </CardHeader>
           <CardContent className="grid gap-4">
             <div className="grid gap-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">{t('email_label')}</Label>
               <Input
                 id="email"
                 type="email"
-                placeholder="m@example.com"
+                placeholder="m@example.com" // Consider adding a translation key if needed
                 value={email}
                 required
                 onChange={(e) => setEmail(e.target.value)}
