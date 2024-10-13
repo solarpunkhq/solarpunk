@@ -1,3 +1,6 @@
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
+
 import React from 'react';
 
 import { inter, manrope } from '@/fonts';
@@ -7,16 +10,26 @@ import Header from '@/components/shared/header';
 
 import '@/styles/globals.css';
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({
+  children,
+  params: { locale },
+}: {
+  children: React.ReactNode;
+  params: { locale: string };
+}) {
+  const messages = await getMessages();
+
   return (
-    <html lang="en" className={`${inter.variable} ${manrope.variable}`}>
+    <html lang={locale} className={`${inter.variable} ${manrope.variable}`}>
       <head>
         <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       </head>
       <body className="flex min-h-full flex-col">
-        <Header />
-        <main className="mt-14 grow">{children}</main>
-        <Footer />
+        <NextIntlClientProvider messages={messages}>
+          <Header />
+          <main className="mt-14 grow">{children}</main>
+          <Footer />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

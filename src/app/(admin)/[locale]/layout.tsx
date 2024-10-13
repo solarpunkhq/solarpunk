@@ -1,4 +1,6 @@
 import { Route } from 'next';
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
 
@@ -18,9 +20,17 @@ import '@/styles/tailwind.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default async function Layout({
+  children,
+  params: { locale },
+}: {
+  children: React.ReactNode;
+  params: { locale: string };
+}) {
+  const messages = await getMessages();
+
   return (
-    <html lang="en" className={'bg-neutral-950 h-full text-base antialiased'}>
+    <html lang={locale} className={'bg-neutral-950 h-full text-base antialiased'}>
       <head>
         <link
           rel="stylesheet"
@@ -44,59 +54,61 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         />
       </head>
       <body className={cn('flex min-h-screen flex-col bg-black antialiased', inter.className)}>
-        <TooltipProvider>
-          <div className="flex min-h-screen w-full flex-col bg-white">
-            <aside className="bg-background fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r sm:flex">
-              <nav className="flex flex-col items-center gap-4 px-2 sm:py-5">
-                <Link
-                  href={'/' as Route}
-                  className="bg-primary text-primary-foreground group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full text-lg font-semibold md:h-8 md:w-8 md:text-base"
-                >
-                  <Home className="h-4 w-4 transition-all group-hover:scale-110" />
-                  <span className="sr-only">Solarpunk</span>
-                </Link>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Link
-                      href={'/admin' as Route}
-                      className="text-muted-foreground hover:text-foreground flex h-9 w-9 items-center justify-center rounded-lg transition-colors md:h-8 md:w-8"
-                    >
-                      <SheetIcon className="h-5 w-5" />
-                      <span className="sr-only">Dashboard</span>
-                    </Link>
-                  </TooltipTrigger>
-                  <TooltipContent side="right">Dashboard</TooltipContent>
-                </Tooltip>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Link
-                      href={'/admin/admins' as Route}
-                      className="text-muted-foreground hover:text-foreground flex h-9 w-9 items-center justify-center rounded-lg transition-colors md:h-8 md:w-8"
-                    >
-                      <Users2 className="h-5 w-5" />
-                      <span className="sr-only">Admins</span>
-                    </Link>
-                  </TooltipTrigger>
-                  <TooltipContent side="right">Admins</TooltipContent>
-                </Tooltip>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Link
-                      href="https://vercel.com/solarpunk/website/analytics"
-                      className="text-muted-foreground hover:text-foreground flex h-9 w-9 items-center justify-center rounded-lg transition-colors md:h-8 md:w-8"
-                    >
-                      <LineChart className="h-5 w-5" />
-                      <span className="sr-only">Analytics</span>
-                    </Link>
-                  </TooltipTrigger>
-                  <TooltipContent side="right">Analytics</TooltipContent>
-                </Tooltip>
-              </nav>
-            </aside>
-            {children}
-          </div>
-          <Toaster />
-        </TooltipProvider>
+        <NextIntlClientProvider messages={messages}>
+          <TooltipProvider>
+            <div className="flex min-h-screen w-full flex-col bg-white">
+              <aside className="bg-background fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r sm:flex">
+                <nav className="flex flex-col items-center gap-4 px-2 sm:py-5">
+                  <Link
+                    href={'/' as Route}
+                    className="bg-primary text-primary-foreground group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full text-lg font-semibold md:h-8 md:w-8 md:text-base"
+                  >
+                    <Home className="h-4 w-4 transition-all group-hover:scale-110" />
+                    <span className="sr-only">Solarpunk</span>
+                  </Link>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Link
+                        href={'/admin' as Route}
+                        className="text-muted-foreground hover:text-foreground flex h-9 w-9 items-center justify-center rounded-lg transition-colors md:h-8 md:w-8"
+                      >
+                        <SheetIcon className="h-5 w-5" />
+                        <span className="sr-only">Dashboard</span>
+                      </Link>
+                    </TooltipTrigger>
+                    <TooltipContent side="right">Dashboard</TooltipContent>
+                  </Tooltip>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Link
+                        href={'/admin/admins' as Route}
+                        className="text-muted-foreground hover:text-foreground flex h-9 w-9 items-center justify-center rounded-lg transition-colors md:h-8 md:w-8"
+                      >
+                        <Users2 className="h-5 w-5" />
+                        <span className="sr-only">Admins</span>
+                      </Link>
+                    </TooltipTrigger>
+                    <TooltipContent side="right">Admins</TooltipContent>
+                  </Tooltip>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Link
+                        href="https://vercel.com/solarpunk/website/analytics"
+                        className="text-muted-foreground hover:text-foreground flex h-9 w-9 items-center justify-center rounded-lg transition-colors md:h-8 md:w-8"
+                      >
+                        <LineChart className="h-5 w-5" />
+                        <span className="sr-only">Analytics</span>
+                      </Link>
+                    </TooltipTrigger>
+                    <TooltipContent side="right">Analytics</TooltipContent>
+                  </Tooltip>
+                </nav>
+              </aside>
+              {children}
+            </div>
+            <Toaster />
+          </TooltipProvider>
+        </NextIntlClientProvider>
       </body>
       <Analytics />
     </html>
