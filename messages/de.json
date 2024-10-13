@@ -217,5 +217,9 @@
     "heading": "Felder bedecken",
     "heading_line_break": "mit Solarpanels",
     "subtext": "Beschleunigen Sie den Umstieg auf erneuerbare Energie und nutzen Sie Ihre Flächen."
+  },
+  "MissionComponent": {
+    "mission": "Unser Ziel: Solarpanels 100x schneller ausrollen und eine",
+    "future": "Zukunft bis 2077 gestalten."
   }
 }

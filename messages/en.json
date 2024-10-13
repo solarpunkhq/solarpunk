@@ -217,5 +217,9 @@
     "heading": "Covering farms",
     "heading_line_break": "with solar panels",
     "subtext": "Accelerate global transition to renewable energy while capitalizing on your acres."
+  },
+  "MissionComponent": {
+    "mission": "Our mission is to 100x the deployment of solar panels and create a",
+    "future": "future by 2077."
   }
 }
