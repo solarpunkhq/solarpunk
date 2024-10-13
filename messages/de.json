@@ -45,8 +45,27 @@
     "contact": "Kontakt",
     "submit": "Absenden"
   },
-  "Menus": {
+  "Header": {
     "agrivoltaics": "Was ist Agri-Photovoltaik",
-    "blog": "Blog"
+    "blog": "Blog",
+    "login": "Anmelden",
+    "logout": "Abmelden",
+    "contact": "Kontaktieren Sie uns"
+  },
+  "LifecyclePage": {
+    "title": "Solarpunk Projektlebenszyklus",
+    "description": "Dies ist der aktuelle Status Ihres Projekts. Wir senden Ihnen eine E-Mail, sobald Ihr Projekt bereit ist, zum nächsten Schritt überzugehen.",
+    "complete": "Abgeschlossen",
+    "step": "Schritt",
+    "finished": "Beendet",
+    "ongoing": "Laufend",
+    "details_title": "Details",
+    "details_subtitle": "Sie haben die erforderlichen Details eingereicht, um Ihr Solarpunk-Projekt zu starten.",
+    "in_review_title": "In Prüfung",
+    "in_review_subtitle": "Wir haben Ihre Bewerbung überprüft und Ihre Angaben verifiziert, um sicherzustellen, dass Sie gut geeignet sind.",
+    "planning_title": "Planung",
+    "planning_subtitle": "Wir haben Ihre Anforderungen geprüft, Ihr Solarprojekt entworfen und bereiten die Installation vor.",
+    "deployment_title": "Bereitstellung",
+    "deployment_subtitle": "Ihr Solarprojekt wurde bereitgestellt und ist einsatzbereit!"
   }
 }

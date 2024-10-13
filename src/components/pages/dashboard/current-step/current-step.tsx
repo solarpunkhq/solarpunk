@@ -1,28 +1,30 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { Check } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 
 function CurrentStep({ currentStep }: { currentStep: number }) {
+  const t = useTranslations('LifecyclePage');
+
   const steps: Step[] = [
     {
-      title: 'Details',
-      subtitle: "You've submitted the required details to kickstart your Solarpunk project.",
+      title: t('details_title'),
+      subtitle: t('details_subtitle'),
     },
     {
-      title: 'In Review',
-      subtitle:
-        "We reviewed your application and verified your details to make sure you're a good fit.",
+      title: t('in_review_title'),
+      subtitle: t('in_review_subtitle'),
     },
     {
-      title: 'Planning',
-      subtitle:
-        "We've reviewed your requirements, architected your solar project and are preparing for installation.",
+      title: t('planning_title'),
+      subtitle: t('planning_subtitle'),
     },
     {
-      title: 'Deployment',
-      subtitle: 'We deployed your solar project and everything is ready to go!',
+      title: t('deployment_title'),
+      subtitle: t('deployment_subtitle'),
     },
   ];
 

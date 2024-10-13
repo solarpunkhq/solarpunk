@@ -51,5 +51,21 @@
     "login": "Login",
     "logout": "Logout",
     "contact": "Contact us"
+  },
+  "LifecyclePage": {
+    "title": "Solarpunk Project Lifecycle",
+    "description": "This is the current status of your project. We will send you an email when your project is ready to move to the next step.",
+    "complete": "complete",
+    "step": "Step",
+    "finished": "Finished",
+    "ongoing": "Ongoing",
+    "details_title": "Details",
+    "details_subtitle": "You've submitted the required details to kickstart your Solarpunk project.",
+    "in_review_title": "In Review",
+    "in_review_subtitle": "We reviewed your application and verified your details to make sure you're a good fit.",
+    "planning_title": "Planning",
+    "planning_subtitle": "We've reviewed your requirements, architected your solar project and are preparing for installation.",
+    "deployment_title": "Deployment",
+    "deployment_subtitle": "We deployed your solar project and everything is ready to go!"
   }
 }
