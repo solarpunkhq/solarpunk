@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 import { getLocale, unstable_setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 
+import { routing } from '@/i18n/routing';
+
 import Container from '@/components/pages/blog/container';
 import { PostBody } from '@/components/pages/blog/post-body';
 import { PostHeader } from '@/components/pages/blog/post-header';
@@ -72,9 +74,14 @@ export function generateMetadata({ params: { slug } }: { params: { slug: string 
 }
 
 export async function generateStaticParams() {
+  const locales = routing.locales;
+
   const posts = getAllPosts('en');
 
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
+  return locales.flatMap((locale) =>
+    posts.map((post) => ({
+      locale,
+      slug: post.slug,
+    })),
+  );
 }
