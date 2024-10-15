@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { getLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 
 import Container from '@/components/pages/blog/container';
@@ -8,8 +9,9 @@ import { PostHeader } from '@/components/pages/blog/post-header';
 import { getAllPosts, getPostBySlug } from '@/lib/blog-api';
 import { markdownToHtml } from '@/lib/markdownToHtml';
 
-export default async function Post({ params }: Params) {
-  const post = getPostBySlug(params.slug);
+export default async function Post({ params: { slug } }: { params: { slug: string } }) {
+  const locale = await getLocale();
+  const post = getPostBySlug(slug, locale);
 
   if (!post) {
     return notFound();
@@ -34,14 +36,10 @@ export default async function Post({ params }: Params) {
   );
 }
 
-type Params = {
-  params: {
-    slug: string;
-  };
-};
-
-export function generateMetadata({ params }: Params): Metadata {
-  const post = getPostBySlug(params.slug);
+// Generate metadata for each post
+export function generateMetadata({ params: { slug } }: { params: { slug: string } }): Metadata {
+  const locale = 'en'; // Default locale for metadata generation
+  const post = getPostBySlug(slug, locale); // Fetch post in the default locale
 
   if (!post) {
     return notFound();
@@ -73,7 +71,7 @@ export function generateMetadata({ params }: Params): Metadata {
 }
 
 export async function generateStaticParams() {
-  const posts = getAllPosts();
+  const posts = getAllPosts('en');
 
   return posts.map((post) => ({
     slug: post.slug,

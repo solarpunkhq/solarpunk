@@ -1,3 +1,5 @@
+import { useLocale } from 'next-intl';
+
 import Container from '@/components/shared/container';
 
 import { getAllPosts } from '@/lib/blog-api';
@@ -6,7 +8,9 @@ import { PostPreview } from '../../blog/post-preview';
 import BlogHeader from './blog-header';
 
 export default function BlogPosts() {
-  const allPosts = getAllPosts();
+  const locale = useLocale(); // Get the current locale from next-intl
+  const allPosts = getAllPosts(locale); // Fetch posts for the current locale
+
   return (
     <Container>
       <BlogHeader />
