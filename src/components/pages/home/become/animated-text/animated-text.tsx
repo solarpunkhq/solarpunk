@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import React, { ReactNode, useMemo, useRef } from 'react';
 
 import AnimatedIconItem from './animated-icon-item';
@@ -12,6 +14,8 @@ interface AnimatedTextProps {
 }
 
 function AnimatedText({ children }: AnimatedTextProps) {
+  const t = useTranslations('BecomeComponent');
+
   const sectionRef = useRef(null);
 
   const items = useMemo(() => {
@@ -66,7 +70,7 @@ function AnimatedText({ children }: AnimatedTextProps) {
       })}
       <span className="font-title text-60 font-semibold leading-[1.48] tracking-tighter opacity-45 home-lg:max-w-[960px] home-lg:text-51 home-md:max-w-[704px] home-md:text-44 home-sm:text-30">
         {' '}
-        without sacrificing arable land.
+        {t('heading-cont')}
       </span>
     </div>
   );

@@ -266,5 +266,9 @@
     "card3Description": "Agrivoltaics alone could surpass EU photovoltaic 2030 goals.",
     "card3Text": "Covering just 1% of the utilised agricultural area (UAA) with agrivoltaic systems could result in 944 GW direct current of installed capacity.",
     "card3ButtonText": "Go to source"
+  },
+  "BecomeComponent": {
+    "heading": "Become a solarpunk and enhance existing farmland",
+    "heading-cont": "without sacrificing arable land."
   }
 }
