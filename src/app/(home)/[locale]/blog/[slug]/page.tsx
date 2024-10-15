@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { getLocale } from 'next-intl/server';
+import { getLocale, unstable_setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 
 import Container from '@/components/pages/blog/container';
@@ -11,6 +11,7 @@ import { markdownToHtml } from '@/lib/markdownToHtml';
 
 export default async function Post({ params: { slug } }: { params: { slug: string } }) {
   const locale = await getLocale();
+  unstable_setRequestLocale(locale);
   const post = getPostBySlug(slug, locale);
 
   if (!post) {
