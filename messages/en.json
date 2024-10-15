@@ -270,5 +270,18 @@
   "BecomeComponent": {
     "heading": "Become a solarpunk and enhance existing farmland",
     "heading-cont": "without sacrificing arable land."
+  },
+  "PotentialComponent": {
+    "heading": "Discover your farm's full potential",
+    "description": "Transform your fields with solar technology, fostering a thriving environment that supports longer and healthier crop cycles.",
+    "sliderItem1Title": "Exploration",
+    "sliderItem1Description": "We will help you understand what type of Agrivoltaic project is right for you and what type of regulatory hurdles you will face. While we primarily focus on agrivoltaics, we also offer solar deployments for any non-agricultural land except residential roofs.",
+    "sliderItem2Title": "Planning",
+    "sliderItem2Description": "We'll turn the research results into a plan and get the necessary permits to start your project. We help you with the paperwork and the planning.",
+    "sliderItem3Title": "Financing",
+    "sliderItem3Description": "We partner with dept firms who can help you finance your project and who have years of experience in the energy sector.",
+    "sliderItem4Title": "Deployment",
+    "sliderItem4Description": "Solarpunk works with a dedicated team of engineers and electricians to deploy your project. We take care of the entire process and optimise for speed to get your project up and running faster than the traditional way of photovoltaics.",
+    "sliderButtonText": "Learn more"
   }
 }

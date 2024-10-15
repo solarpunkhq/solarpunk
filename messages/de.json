@@ -266,5 +266,18 @@
     "card3Description": "Agrivoltaik allein könnte die PV-Ziele der EU für 2030 übertreffen.",
     "card3Text": "Bereits 1 % der genutzten Agrarfläche (UAA) mit Agrivoltaik könnte zu einer installierten Kapazität von 944 GW Gleichstrom führen.",
     "card3ButtonText": "Zur Quelle"
+  },
+  "PotentialComponent": {
+    "heading": "Entdecken Sie das volle Potenzial Ihres Hofs",
+    "description": "Verwandeln Sie Ihre Felder mit Solartechnologie und schaffen Sie ein florierendes Umfeld, das längere und gesündere Wachstumszyklen unterstützt.",
+    "sliderItem1Title": "Erkundung",
+    "sliderItem1Description": "Wir helfen Ihnen zu verstehen, welches Agrivoltaik-Projekt für Sie geeignet ist und welche regulatorischen Hürden Sie überwinden müssen. Obwohl wir uns auf Agrivoltaik konzentrieren, bieten wir auch Solarprojekte für nicht landwirtschaftliche Flächen an, ausgenommen Wohnhausdächer.",
+    "sliderItem2Title": "Planung",
+    "sliderItem2Description": "Wir verwandeln die Forschungsergebnisse in einen Plan und holen die erforderlichen Genehmigungen ein, um Ihr Projekt zu starten. Wir unterstützen Sie bei der Papierarbeit und der Planung.",
+    "sliderItem3Title": "Finanzierung",
+    "sliderItem3Description": "Wir arbeiten mit Kreditgebern zusammen, die über jahrelange Erfahrung im Energiesektor verfügen und Ihnen bei der Finanzierung Ihres Projekts helfen können.",
+    "sliderItem4Title": "Umsetzung",
+    "sliderItem4Description": "Solarpunk arbeitet mit einem engagierten Team aus Ingenieuren und Elektrikern, um Ihr Projekt zu realisieren. Wir kümmern uns um den gesamten Prozess und optimieren die Geschwindigkeit, damit Ihr Projekt schneller als herkömmliche Photovoltaikanlagen in Betrieb genommen werden kann.",
+    "sliderButtonText": "Mehr erfahren"
   }
 }
