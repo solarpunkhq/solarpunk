@@ -234,5 +234,12 @@
     "upTo": "Bis zu",
     "cropAndSolar": "160% Ertrag + Solar",
     "comparedToCropsOnly": "verglichen mit reinen Ernten"
+  },
+  "FarmComponent": {
+    "heading": "Ihr Hof kann noch viel mehr leisten",
+    "microclimateDescription": "Solarmodule bieten Schatten und schaffen ein Mikroklima, das die Wachstumsperiode verlängern kann.",
+    "listItem1": "Verringern Sie die Abhängigkeit von fossilen Brennstoffen und senken Sie Emissionen.",
+    "listItem2": "Installieren Sie Solarmodule, um Einnahmen zu erzielen und Energiekosten zu sparen.",
+    "listItem3": "Nutzen Sie staatliche Förderungen, Zuschüsse und Steuervergünstigungen für erneuerbare Energien."
   }
 }

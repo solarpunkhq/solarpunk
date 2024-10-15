@@ -234,5 +234,12 @@
     "upTo": "Up to",
     "cropAndSolar": "160% Crop + Solar",
     "comparedToCropsOnly": "compared to only growing crops"
+  },
+  "FarmComponent": {
+    "heading": "Your farm is capable of so much more",
+    "microclimateDescription": "Solar panels provide partial shade to the crops below, creating a microclimate that potentially extends growing seasons.",
+    "listItem1": "Reduce reliance on fossil fuels and lower greenhouse gas emissions.",
+    "listItem2": "Install solar panels to earn revenue from solar energy and reduce energy costs.",
+    "listItem3": "Benefit from government incentives, grants, and tax credits for renewable energy projects."
   }
 }
