@@ -1,5 +1,6 @@
+// app/blog/[slug]/page.tsx
 import { Metadata } from 'next';
-import { getLocale, unstable_setRequestLocale } from 'next-intl/server';
+import { getLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 
 import Container from '@/components/pages/blog/container';
@@ -9,10 +10,12 @@ import { PostHeader } from '@/components/pages/blog/post-header';
 import { getAllPosts, getPostBySlug } from '@/lib/blog-api';
 import { markdownToHtml } from '@/lib/markdownToHtml';
 
-export default async function Post({ params: { slug } }: { params: { slug: string } }) {
-  const locale = await getLocale();
-  unstable_setRequestLocale(locale);
-  console.log(locale);
+export default async function Post({
+  params: { slug, locale },
+}: {
+  params: { slug: string; locale: string };
+}) {
+  console.log('locale', locale);
   const post = getPostBySlug(slug, locale);
 
   if (!post) {
@@ -38,10 +41,16 @@ export default async function Post({ params: { slug } }: { params: { slug: strin
   );
 }
 
-// Generate metadata for each post
-export function generateMetadata({ params: { slug } }: { params: { slug: string } }): Metadata {
-  const locale = 'en'; // Default locale for metadata generation
-  const post = getPostBySlug(slug, locale); // Fetch post in the default locale
+export async function generateMetadata({
+  params: { slug },
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const locales = ['en', 'de'];
+
+  const locale = getLocaleFromDomain();
+
+  const post = getPostBySlug(slug, locale);
 
   if (!post) {
     return notFound();
@@ -73,9 +82,23 @@ export function generateMetadata({ params: { slug } }: { params: { slug: string 
 }
 
 export async function generateStaticParams() {
-  const posts = getAllPosts('en');
+  const locales = ['en', 'de'];
+  const allPosts = await Promise.all(
+    locales.map(async (locale) => {
+      const posts = getAllPosts(locale);
+      return posts.map((post) => ({
+        slug: post.slug,
+        locale,
+      }));
+    }),
+  );
+  return allPosts.flat();
+}
 
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
+// Helper function to determine locale based on domain
+function getLocaleFromDomain(): string {
+  const host = typeof window !== 'undefined' ? window.location.host : 'solarpunkhq.com';
+
+  if (host.endsWith('.sh')) {return 'de';}
+  return 'en';
 }
