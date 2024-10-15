@@ -1,6 +1,6 @@
 // app/blog/[slug]/page.tsx
 import { Metadata } from 'next';
-import { getLocale } from 'next-intl/server';
+import { unstable_setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 
 import Container from '@/components/pages/blog/container';
@@ -15,6 +15,7 @@ export default async function Post({
 }: {
   params: { slug: string; locale: string };
 }) {
+  unstable_setRequestLocale(locale);
   console.log('locale', locale);
   const post = getPostBySlug(slug, locale);
 
@@ -46,8 +47,6 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }): Promise<Metadata> {
-  const locales = ['en', 'de'];
-
   const locale = getLocaleFromDomain();
 
   const post = getPostBySlug(slug, locale);
@@ -99,6 +98,8 @@ export async function generateStaticParams() {
 function getLocaleFromDomain(): string {
   const host = typeof window !== 'undefined' ? window.location.host : 'solarpunkhq.com';
 
-  if (host.endsWith('.sh')) {return 'de';}
+  if (host.endsWith('.sh')) {
+    return 'de';
+  }
   return 'en';
 }
