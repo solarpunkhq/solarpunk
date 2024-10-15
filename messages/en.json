@@ -302,5 +302,9 @@
     "heading": "Learn more?",
     "subtitle": "We got you",
     "highlight": "covered"
+  },
+  "FooterComponent": {
+    "contactUs": "Contact us",
+    "donateText": "Donate on Bittensor:"
   }
 }

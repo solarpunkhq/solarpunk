@@ -298,5 +298,9 @@
     "heading": "Mehr erfahren?",
     "subtitle": "Wir haben, was Sie brauchen",
     "highlight": "abgedeckt"
+  },
+  "FooterComponent": {
+    "contactUs": "Kontaktieren Sie uns",
+    "donateText": "Spenden Sie auf Bittensor:"
   }
 }
