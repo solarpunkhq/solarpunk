@@ -71,7 +71,11 @@ function Onboarding({ country }: OnboardingProps) {
   const submitForm = async () => {
     const magic_link = await submit(email, name, acres, setLoading, setError);
     if (magic_link) {
-      router.push(magic_link);
+      const currentSiteURL = window.location.origin;
+
+      const adjustedMagicLink = magic_link.replace(/^https?:\/\/[^\/]+/, currentSiteURL);
+
+      router.push(adjustedMagicLink);
     }
   };
 
