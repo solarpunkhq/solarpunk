@@ -267,6 +267,10 @@
     "card3Text": "Bereits 1 % der genutzten Agrarfläche (UAA) mit Agrivoltaik könnte zu einer installierten Kapazität von 944 GW Gleichstrom führen.",
     "card3ButtonText": "Zur Quelle"
   },
+  "BecomeComponent": {
+    "heading": "Werden Sie ein Solarpunk und verbessern Sie bestehendes Ackerland",
+    "heading-cont": "ohne landwirtschaftliche Flächen zu opfern."
+  },
   "PotentialComponent": {
     "heading": "Entdecken Sie das volle Potenzial Ihres Hofs",
     "description": "Verwandeln Sie Ihre Felder mit Solartechnologie und schaffen Sie ein florierendes Umfeld, das längere und gesündere Wachstumszyklen unterstützt.",
