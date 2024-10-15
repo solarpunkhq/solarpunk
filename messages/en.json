@@ -241,5 +241,30 @@
     "listItem1": "Reduce reliance on fossil fuels and lower greenhouse gas emissions.",
     "listItem2": "Install solar panels to earn revenue from solar energy and reduce energy costs.",
     "listItem3": "Benefit from government incentives, grants, and tax credits for renewable energy projects."
+  },
+  "SourcesComponent": {
+    "card1Title": "HARVESTING",
+    "card1Subtitle": "SYNERGY",
+    "card1Type": "Report",
+    "card1Year": "2023",
+    "card1Description": "Growing crops under solar panels makes food — and creates healthier solar panels.",
+    "card1Text": "Agrivoltaics, putting agriculture under solar installations, is a good way to maximize land use. It also makes the solar panels last longer.",
+    "card1ButtonText": "Go to source",
+
+    "card2Title": "AGRIVOLTAIC",
+    "card2Subtitle": "FARMING",
+    "card2Type": "Report",
+    "card2Year": "2022",
+    "card2Description": "Can crops grow better under solar panels? Here's all you need to know about 'agrivoltaic farming'.",
+    "card2Text": "Agrivoltaic farming is the practice of growing crops underneath solar panels. Scientific studies show some crops thrive when grown in this way.",
+    "card2ButtonText": "Go to source",
+
+    "card3Title": "SHADED",
+    "card3Subtitle": "SUCCESS",
+    "card3Type": "Report",
+    "card3Year": "2023",
+    "card3Description": "Agrivoltaics alone could surpass EU photovoltaic 2030 goals.",
+    "card3Text": "Covering just 1% of the utilised agricultural area (UAA) with agrivoltaic systems could result in 944 GW direct current of installed capacity.",
+    "card3ButtonText": "Go to source"
   }
 }

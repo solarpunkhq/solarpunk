@@ -1,6 +1,7 @@
 'use client';
 
 import { Route } from 'next';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
 import { LazyMotion, domAnimation, m } from 'framer-motion';
@@ -17,42 +18,38 @@ import CardContent from './card-content';
 
 const cards = [
   {
-    title: 'HARVESTING',
-    subtitle: 'SYNERGY',
-    type: 'Report',
-    year: 2023,
-    target: '_blank',
-    description:
-      'Growing crops under solar panels makes food — and creates healthier solar panels.',
-    text: 'Agrivoltaics, putting agriculture under solar installations, is a good way to maximize land use. It also makes the solar panels last longer.',
-    buttonText: 'Go to source',
+    title: 'card1Title',
+    subtitle: 'card1Subtitle',
+    type: 'card1Type',
+    year: 'card1Year',
+    description: 'card1Description',
+    text: 'card1Text',
+    buttonText: 'card1ButtonText',
     buttonUrl:
       'https://www.fastcompany.com/90861486/agrivoltaics-crops-under-solar-panels-good-for-panels' as Route<string>,
     blurImg: bgBlurCard1,
     blurImgMobile: bgBlurCard1Mobile,
   },
   {
-    title: 'AGRIVOLTAIC',
-    subtitle: 'FARMING',
-    type: 'Report',
-    year: 2022,
-    target: '_blank',
-    description: `Can crops grow better under solar panels? Here's all you need to know about 'agrivoltaic farming'.`,
-    buttonText: 'Go to source',
-    text: 'Agrivoltaic farming is the practice of growing crops underneath solar panels. Scientific studies show some crops thrive when grown in this way.',
+    title: 'card2Title',
+    subtitle: 'card2Subtitle',
+    type: 'card2Type',
+    year: 'card2Year',
+    description: 'card2Description',
+    text: 'card2Text',
+    buttonText: 'card2ButtonText',
     buttonUrl:
       'https://www.weforum.org/agenda/2022/07/agrivoltaic-farming-solar-energy/' as Route<string>,
     blurImg: bgBlurCard2,
   },
   {
-    title: 'SHADED',
-    subtitle: 'SUCCESS',
-    type: 'Report',
-    year: 2023,
-    target: '_blank',
-    text: 'Covering just 1% of the utilised agricultural area (UAA) with agrivoltaic systems could result in 944 GW direct current of installed capacity.',
-    buttonText: 'Go to source',
-    description: 'Agrivoltaics alone could surpass EU photovoltaic 2030 goals',
+    title: 'card3Title',
+    subtitle: 'card3Subtitle',
+    type: 'card3Type',
+    year: 'card3Year',
+    description: 'card3Description',
+    text: 'card3Text',
+    buttonText: 'card3ButtonText',
     buttonUrl:
       'https://joint-research-centre.ec.europa.eu/jrc-news-and-updates/agrivoltaics-alone-could-surpass-eu-photovoltaic-2030-goals-2023-10-12_en' as Route<string>,
     blurImg: bgBlurCard3,
@@ -74,40 +71,24 @@ const variants = {
     backdropFilter: 'blur(32px)',
     WebkitBackdropFilter: 'blur(32px)',
     transition: {
-      opacity: {
-        duration: 1,
-        ease: 'linear',
-        delay: i * 0.2,
-      },
-      y: {
-        duration: 1,
-        ease: [0.35, 0.01, 0, 1],
-        delay: i * 0.2,
-      },
-      scale: {
-        duration: 1,
-        ease: [0.35, 0.01, 0, 1],
-        delay: i * 0.2,
-      },
+      opacity: { duration: 1, ease: 'linear', delay: i * 0.2 },
+      y: { duration: 1, ease: [0.35, 0.01, 0, 1], delay: i * 0.2 },
+      scale: { duration: 1, ease: [0.35, 0.01, 0, 1], delay: i * 0.2 },
     },
   }),
 };
 
 const contentVariants = {
-  hidden: {
-    opacity: 0,
-    delay: 0.5,
-  },
+  hidden: { opacity: 0, delay: 0.5 },
   visible: (i: number) => ({
     opacity: 1,
-    transition: {
-      duration: 1,
-      delay: i * 0.25,
-    },
+    transition: { duration: 1, delay: i * 0.25 },
   }),
 };
 
 function Sources() {
+  const t = useTranslations('SourcesComponent');
+
   return (
     <LazyMotion features={domAnimation}>
       <section className="sources relative px-safe">
@@ -132,7 +113,18 @@ function Sources() {
                   variants={contentVariants}
                   className="flex flex-col home-md:min-h-[252px] home-md:flex-row home-sm:flex-col"
                 >
-                  <CardContent {...item} />
+                  <CardContent
+                    {...{
+                      ...item,
+                      title: t(item.title),
+                      subtitle: t(item.subtitle),
+                      type: t(item.type),
+                      year: Number(t(item.year)),
+                      description: t(item.description),
+                      text: t(item.text),
+                      buttonText: t(item.buttonText),
+                    }}
+                  />
                 </m.div>
               </m.li>
             );

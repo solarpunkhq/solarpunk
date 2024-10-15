@@ -241,5 +241,30 @@
     "listItem1": "Verringern Sie die Abhängigkeit von fossilen Brennstoffen und senken Sie Emissionen.",
     "listItem2": "Installieren Sie Solarmodule, um Einnahmen zu erzielen und Energiekosten zu sparen.",
     "listItem3": "Nutzen Sie staatliche Förderungen, Zuschüsse und Steuervergünstigungen für erneuerbare Energien."
+  },
+  "SourcesComponent": {
+    "card1Title": "ERNTE",
+    "card1Subtitle": "SYNERGIE",
+    "card1Type": "Bericht",
+    "card1Year": "2023",
+    "card1Description": "Der Anbau unter Solarmodulen fördert Lebensmittelproduktion und sorgt für langlebigere Solarpaneele.",
+    "card1Text": "Agrivoltaik maximiert die Landnutzung, indem Landwirtschaft unter Solarmodulen betrieben wird. Zudem erhöht sie die Lebensdauer der Solarmodule.",
+    "card1ButtonText": "Zur Quelle",
+
+    "card2Title": "AGRIVOLTAISCHE",
+    "card2Subtitle": "LANDWIRTSCHAFT",
+    "card2Type": "Bericht",
+    "card2Year": "2022",
+    "card2Description": "Wachsen Pflanzen besser unter Solarpaneelen? Hier erfahren Sie alles über agrivoltaische Landwirtschaft.",
+    "card2Text": "Agrivoltaische Landwirtschaft bedeutet, Pflanzen unter Solarmodulen anzubauen. Studien zeigen, dass manche Pflanzen unter diesen Bedingungen besser gedeihen.",
+    "card2ButtonText": "Zur Quelle",
+
+    "card3Title": "SCHATTEN",
+    "card3Subtitle": "ERFOLG",
+    "card3Type": "Bericht",
+    "card3Year": "2023",
+    "card3Description": "Agrivoltaik allein könnte die PV-Ziele der EU für 2030 übertreffen.",
+    "card3Text": "Bereits 1 % der genutzten Agrarfläche (UAA) mit Agrivoltaik könnte zu einer installierten Kapazität von 944 GW Gleichstrom führen.",
+    "card3ButtonText": "Zur Quelle"
   }
 }
