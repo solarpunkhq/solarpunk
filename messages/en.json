@@ -283,5 +283,13 @@
     "sliderItem4Title": "Deployment",
     "sliderItem4Description": "Solarpunk works with a dedicated team of engineers and electricians to deploy your project. We take care of the entire process and optimise for speed to get your project up and running faster than the traditional way of photovoltaics.",
     "sliderButtonText": "Learn more"
+  },
+  "CTAComponent": {
+    "card1Title": "Deploy solar installations with Solarpunk in weeks, not years",
+    "card1Description": "We will help you understand what type of Agrivoltaic project is right for you and what type of regulatory hurdles you will face.",
+    "card1ButtonText": "Get started",
+    "card2Title": "Not interested in agrivoltaics?",
+    "card2Description": "We also help with open space solar deployment without agriculture.",
+    "card2ButtonText": "Contact us"
   }
 }

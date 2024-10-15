@@ -279,5 +279,13 @@
     "sliderItem4Title": "Umsetzung",
     "sliderItem4Description": "Solarpunk arbeitet mit einem engagierten Team aus Ingenieuren und Elektrikern, um Ihr Projekt zu realisieren. Wir kümmern uns um den gesamten Prozess und optimieren die Geschwindigkeit, damit Ihr Projekt schneller als herkömmliche Photovoltaikanlagen in Betrieb genommen werden kann.",
     "sliderButtonText": "Mehr erfahren"
+  },
+  "CTAComponent": {
+    "card1Title": "Solarinstallationen mit Solarpunk in Wochen statt Jahren umsetzen",
+    "card1Description": "Wir helfen Ihnen zu verstehen, welches Agrivoltaik-Projekt zu Ihnen passt und welche regulatorischen Hürden zu überwinden sind.",
+    "card1ButtonText": "Loslegen",
+    "card2Title": "Nicht an Agrivoltaik interessiert?",
+    "card2Description": "Wir unterstützen auch bei Solarprojekten auf Freiflächen ohne Landwirtschaft.",
+    "card2ButtonText": "Kontaktieren Sie uns"
   }
 }
