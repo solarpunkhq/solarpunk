@@ -291,5 +291,11 @@
     "card2Title": "Not interested in agrivoltaics?",
     "card2Description": "We also help with open space solar deployment without agriculture.",
     "card2ButtonText": "Contact us"
+  },
+  "QuoteComponent": {
+    "author": "– Thomas Edison",
+    "quote": "We are like tenant farmers chopping down the fence around our house for fuel when we should be using nature's inexhaustible sources of energy – sun, wind and tide. I'd put my money on the sun and solar energy. What a source of power! I hope we don't have to wait until oil and coal run out before we tackle that.",
+    "firstHighlight": "chopping down",
+    "secondHighlight": "sun, wind and tide"
   }
 }
