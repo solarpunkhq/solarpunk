@@ -31,5 +31,3 @@ function Home() {
 }
 
 export default Home;
-
-export const metadata = getMetadata(SEO_DATA.index);

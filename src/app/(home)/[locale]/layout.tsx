@@ -46,4 +46,16 @@ export const viewport = {
   themeColor: '#000000',
 };
 
-export const metadata = getMetadata(SEO_DATA.index);
+type Locale = 'de' | 'en';
+
+function getLocaleFromDomain(): string {
+  const host = typeof window !== 'undefined' ? window.location.host : 'solarpunkhq.com';
+
+  if (host.endsWith('.sh')) {
+    return 'de';
+  }
+  return 'en';
+}
+
+const locale = getLocaleFromDomain() as Locale;
+export const metadata = getMetadata(SEO_DATA.index[locale]);

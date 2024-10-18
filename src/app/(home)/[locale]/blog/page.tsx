@@ -5,9 +5,6 @@ import { HeroPost } from '@/components/pages/blog/hero-post';
 import { MoreStories } from '@/components/pages/blog/more-stories';
 
 import { getAllPosts } from '@/lib/blog-api';
-import { getMetadata } from '@/lib/get-metadata';
-
-import { SEO_DATA } from '@/constants/seo-data';
 
 export default function Index() {
   const locale = useLocale(); // Detect current locale based on domain
@@ -32,5 +29,3 @@ export default function Index() {
     </main>
   );
 }
-
-export const metadata = getMetadata(SEO_DATA.index);
