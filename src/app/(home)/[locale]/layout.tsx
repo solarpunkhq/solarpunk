@@ -57,5 +57,7 @@ function getLocaleFromDomain(): string {
   return 'en';
 }
 
-const locale = getLocaleFromDomain() as Locale;
-export const metadata = getMetadata(SEO_DATA.index[locale]);
+export async function generateMetadata() {
+  const locale = getLocaleFromDomain() as Locale;
+  return getMetadata(SEO_DATA.index[locale]);
+}
