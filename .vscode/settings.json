@@ -18,5 +18,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.rulers": [100],
-  "cSpell.words": ["agrivoltaic", "BIPV", "solarpunks"]
+  "cSpell.words": ["agrivoltaic", "BIPV", "solarpunks"],
+  "i18n-ally.localesPaths": ["messages", "src/i18n"]
 }
