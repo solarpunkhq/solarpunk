@@ -216,7 +216,8 @@
   "HeroComponent": {
     "heading": "Covering farms",
     "heading_line_break": "with solar panels",
-    "subtext": "Accelerate global transition to renewable energy while capitalizing on your acres."
+    "subtext": "Accelerate global transition to renewable energy while capitalizing on your acres.",
+    "search_form": "Enter your address, neighborhood, city or ZIP code"
   },
   "MissionComponent": {
     "mission": "Our mission is to 100x the deployment of solar panels and create a",
@@ -269,7 +270,9 @@
   },
   "BecomeComponent": {
     "heading": "Become a solarpunk and enhance existing farmland",
-    "heading-cont": "without sacrificing arable land."
+    "heading-cont": "without sacrificing arable land.",
+    "animated-1": "with ",
+    "animated-2": "energy"
   },
   "PotentialComponent": {
     "heading": "Discover your farm's full potential",

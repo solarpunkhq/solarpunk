@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import React, { ReactNode, useMemo } from 'react';
 
 import { LazyMotion, domAnimation, m, useTransform } from 'framer-motion';
@@ -124,6 +126,7 @@ function AnimatedIconItem({ index, totalItems, sectionRef }: ItemProps) {
 
   const { circleXPosition, circleBgColor, underlayBgColor, circleBoxShadow, textXPosition } =
     UseStyleTransforms(index, totalItems, sectionRef, width);
+  const t = useTranslations('BecomeComponent');
 
   return (
     <LazyMotion features={domAnimation}>
@@ -134,7 +137,7 @@ function AnimatedIconItem({ index, totalItems, sectionRef }: ItemProps) {
             opacity: UseGetTextOpacity(index - 1, totalItems, sectionRef),
           }}
         >
-          with{' '}
+          {t('animated-1')}
         </m.span>
         <m.span className="solar-wrapper relative inline-block">
           <m.span
@@ -166,7 +169,7 @@ function AnimatedIconItem({ index, totalItems, sectionRef }: ItemProps) {
           }}
         >
           {' '}
-          energy
+          {t('animated-2')}
         </m.span>
       </m.span>
     </LazyMotion>

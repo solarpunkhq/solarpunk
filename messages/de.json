@@ -216,7 +216,8 @@
   "HeroComponent": {
     "heading": "Felder bedecken",
     "heading_line_break": "mit Solarpanels",
-    "subtext": "Beschleunigen Sie den Umstieg auf erneuerbare Energie und nutzen Sie Ihre Flächen."
+    "subtext": "Beschleunigen Sie den Umstieg auf erneuerbare Energie und nutzen Sie Ihre Flächen. Ihr Partner aus Schleswig-Holstein.",
+    "search_form": "Geben Sie Ihre Adresse, Nachbarschaft, Stadt oder Postleitzahl ein"
   },
   "MissionComponent": {
     "mission": "Unser Ziel: Solarpanels 100x schneller ausrollen und eine",
@@ -269,7 +270,9 @@
   },
   "BecomeComponent": {
     "heading": "Werden Sie ein Solarpunk und verbessern Sie bestehendes Ackerland",
-    "heading-cont": "ohne landwirtschaftliche Flächen zu opfern."
+    "heading-cont": "ohne landwirtschaftliche Flächen zu opfern.",
+    "animated-1": "mit ",
+    "animated-2": "energie"
   },
   "PotentialComponent": {
     "heading": "Entdecken Sie das volle Potenzial Ihres Hofs",

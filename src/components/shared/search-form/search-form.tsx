@@ -1,6 +1,7 @@
 'use client';
 
 import { Route } from 'next';
+import { useTranslations } from 'next-intl';
 
 import React, { useEffect, useRef, useState } from 'react';
 
@@ -26,6 +27,8 @@ function SearchForm({ className }: { className: string }) {
   const provider = customSearchProvider({
     apiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY || '',
   });
+
+  const t = useTranslations('HeroComponent');
 
   const wrapperRef = useRef(null);
   const [query, setQuery] = useState('');
@@ -90,7 +93,7 @@ function SearchForm({ className }: { className: string }) {
       <input
         className="remove-autocomplete-styles placeholder:text-grey-50 h-12 w-full truncate rounded-full border border-[#EBEBEB] pl-[18px] pr-11 text-15 font-medium text-gray-12 outline-none placeholder:font-normal placeholder:leading-none placeholder:tracking-tight home-xs:h-11 home-xs:text-14"
         type="text"
-        placeholder="Enter your address, neighborhood, city or ZIP code"
+        placeholder={t('search_form')}
         value={query}
         onChange={handleInputChange}
         onFocus={() => setIsOpen(true)}
