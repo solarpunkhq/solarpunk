@@ -1,8 +1,8 @@
 ---
-title: 'The Benefits of Solar Grazing vs. Solar Crop Production'
+title: 'The Benefits Of Solar Grazing vs. Solar Crop Production'
 excerpt: 'Learn the benefits of each method—whether providing livestock forage or cultivating cash crops—and find the best fit for your operation.'
 coverImage: '/blog/covers/agrivoltaics-categories.png'
-date: '2024-10-18'
+date: '2024-10-14'
 author:
   name: The Solarpunks
   picture: '/blog/authors/solarpunks.jpg'

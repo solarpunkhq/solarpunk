@@ -1,5 +1,5 @@
 ---
-title: 'Stripe Atlas for Solar Deployment on Farms'
+title: 'Stripe Atlas For Solar Deployment On Farms'
 excerpt: 'Some of you might know Stripe Atlas which makes incorporating a Delaware C-Corp a breeze. We are doing the same for solar deployment on farms.'
 coverImage: '/blog/covers/stripe-atlas-for-solar.jpg'
 date: '2024-10-02'

@@ -1,5 +1,5 @@
 ---
-title: 'Exploring Agrivoltaics: Configurations and Benefits for Solar Farms'
+title: 'Exploring Agrivoltaics: Configurations And Benefits For Solar Farms'
 excerpt: 'Solar farms can be configured in many different ways, each with its own benefits and challenges. This article will explore the different configurations available and how they can be used to optimize your solar farm.'
 coverImage: '/blog/covers/solar-configurations.jpg'
 date: '2024-10-10'
