@@ -12,7 +12,7 @@ export const SEO_DATA = {
       description:
         'Entdecken Sie, wie Solarpunk Solarpaneele in landwirtschaftliche Betriebe integriert und durch innovative Agrivoltaik-Lösungen die Energieproduktion und Ernteerträge steigert.​',
       pathname: ROUTE.index as string,
-      imagePath: '/images/og-image-de.jpg',
+      imagePath: '/images/og-image-de.png',
     },
     en: {
       title: 'Covering farms with solar panels',
