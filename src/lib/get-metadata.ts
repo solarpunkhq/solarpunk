@@ -6,7 +6,7 @@ type Metadata = {
   type?: string;
 };
 
-export const DEFAULT_IMAGE_PATH = '/images/og-image.jpg';
+export const DEFAULT_IMAGE_PATH = '/images/og-image-en.jpg';
 
 export function getMetadata({
   title,

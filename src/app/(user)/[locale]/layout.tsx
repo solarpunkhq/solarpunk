@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 
@@ -71,8 +72,6 @@ function getLocaleFromDomain(): string {
   return 'en';
 }
 
-export async function generateMetadata() {
-  const locale = getLocaleFromDomain() as Locale;
-  console.log(SEO_DATA.index[locale], locale);
+export async function generateMetadata({ params: { locale } }: { params: { locale: Locale } }) {
   return getMetadata(SEO_DATA.index[locale]);
 }

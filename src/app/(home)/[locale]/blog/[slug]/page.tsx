@@ -43,12 +43,10 @@ export default async function Post({
 }
 
 export async function generateMetadata({
-  params: { slug },
+  params: { locale, slug },
 }: {
-  params: { slug: string };
+  params: { locale: string; slug: string };
 }): Promise<Metadata> {
-  const locale = getLocaleFromDomain();
-
   const post = getPostBySlug(slug, locale);
 
   if (!post) {
@@ -92,14 +90,4 @@ export async function generateStaticParams() {
     }),
   );
   return allPosts.flat();
-}
-
-// Helper function to determine locale based on domain
-function getLocaleFromDomain(): string {
-  const host = typeof window !== 'undefined' ? window.location.host : 'solarpunkhq.com';
-
-  if (host.endsWith('.sh')) {
-    return 'de';
-  }
-  return 'en';
 }

@@ -117,16 +117,6 @@ export default async function Layout({
 
 type Locale = 'de' | 'en';
 
-function getLocaleFromDomain(): string {
-  const host = typeof window !== 'undefined' ? window.location.host : 'solarpunkhq.com';
-
-  if (host.endsWith('.sh')) {
-    return 'de';
-  }
-  return 'en';
-}
-
-export async function generateMetadata() {
-  const locale = getLocaleFromDomain() as Locale;
+export async function generateMetadata({ params: { locale } }: { params: { locale: Locale } }) {
   return getMetadata(SEO_DATA.index[locale]);
 }
