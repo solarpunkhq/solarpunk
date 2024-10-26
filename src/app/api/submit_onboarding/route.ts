@@ -2,15 +2,61 @@ import { NextResponse } from 'next/server';
 
 import { SubmittedTemplate } from '@/email_templates/submitted-template';
 import { ThankYouTemplate } from '@/email_templates/thank-you-template';
+import { getProjectionsFromAcres, getTotalAreaFromAcreData } from '@/utils/projections';
 import { authEmailTranslations } from '@/utils/translations/authEmailTranslations';
 import { onboardingTranslations } from '@/utils/translations/emailTranslations';
 import { iso1A2Code } from '@rapideditor/country-coder';
 import { createClient } from '@supabase/supabase-js';
+import fetch from 'node-fetch';
 import { Resend } from 'resend';
 
 import { prisma } from '@/lib/prisma';
+import { formatNumberAsAmount } from '@/lib/utils';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+
+interface SlackMessageBody {
+  email: string;
+  name: string;
+  country: string;
+  total_projected_revenue: string;
+  total_area: string;
+}
+
+async function sendSlackMessage(body: SlackMessageBody): Promise<void> {
+  const webhookUrl = process.env.SLACK_WEBHOOK_URL;
+
+  if (!webhookUrl) {
+    throw new Error('SLACK_WEBHOOK_URL is not defined in environment variables');
+  }
+
+  const message = {
+    text: `:sunny: *New Lead Received* :sunny:\n
+    *Email*: ${body.email}
+    *Name*: ${body.name}
+    *Country*: ${body.country}
+    *Total Area*: ${body.total_area} acres
+    *Total Projected Revenue*: $${body.total_projected_revenue}`,
+  };
+
+  try {
+    const response = await fetch(webhookUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(message),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Slack API responded with status ${response.status}`);
+    }
+
+    console.log('Message sent successfully');
+  } catch (error) {
+    console.error('Error sending message to Slack:', error);
+  }
+}
 
 export async function POST(request: Request) {
   const body = await request.json();
@@ -19,11 +65,9 @@ export async function POST(request: Request) {
   const coords = body.acres[0].latlngs[0];
   const country = iso1A2Code([coords[0].lng, coords[0].lat]) || 'US';
 
-  let total_revenue = 0;
-  for (const acre of body.acres) {
-    let revenue = acre.revenue;
-    total_revenue += revenue;
-  }
+  const totalArea = getTotalAreaFromAcreData(body.acres);
+  const projections = getProjectionsFromAcres(totalArea, 25, 5);
+  const total_revenue = projections.revenue_per_year;
 
   const user = await prisma.user.findUnique({
     where: {
@@ -89,7 +133,7 @@ export async function POST(request: Request) {
     process.env.NEXT_PUBLIC_DEFAULT_SITE_URL +
     `/auth/confirm?token_hash=${link_data.properties.hashed_token}&type=magiclink`;
 
-  const { data, error } = await resend.emails.send({
+  await resend.emails.send({
     from: process.env.ONBOARDING_SEND_FROM_EMAIL || '',
     to: body.email,
     subject: translations.subject,
@@ -99,11 +143,19 @@ export async function POST(request: Request) {
     }),
   });
 
-  const { data: data_two, error: error_two } = await resend.emails.send({
+  await resend.emails.send({
     from: process.env.ONBOARDING_SEND_FROM_EMAIL || '',
     to: process.env.ONBOARDING_ALERT_EMAIL || '',
     subject: 'New Acres Submitted',
     react: SubmittedTemplate({ name: body.name }),
+  });
+
+  await sendSlackMessage({
+    email: body.email,
+    name: body.name,
+    country: country,
+    total_projected_revenue: formatNumberAsAmount(total_revenue.toFixed(0)),
+    total_area: totalArea.toFixed(2),
   });
 
   return NextResponse.json(
