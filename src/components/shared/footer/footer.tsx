@@ -36,16 +36,6 @@ function Footer() {
           {t('contactUs')}
         </Button>
       </nav>
-      <p className="px-4 pt-4 text-xs text-gray-50 sm:text-center">
-        {t('donateText')}{' '}
-        <a
-          target="_blank"
-          className="text-gray-100 break-all underline hover:text-white"
-          href="https://bittensor.com/scan/address/5HZHcpjgozBVD9vHRTBo1fvtrNHXvq49ZpCre3t51siXmr15"
-        >
-          5HZHcpjgozBVD9vHRTBo1fvtrNHXvq49ZpCre3t51siXmr15
-        </a>
-      </p>
     </footer>
   );
 }
