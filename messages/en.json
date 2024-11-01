@@ -307,7 +307,6 @@
     "highlight": "covered"
   },
   "FooterComponent": {
-    "contactUs": "Contact us",
-    "donateText": "Donate on Bittensor:"
+    "contactUs": "Contact us"
   }
 }
