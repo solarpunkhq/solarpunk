@@ -58,6 +58,9 @@ function SubmissionComponent({ submission_id, locale }: { submission_id: string;
   }
 
   let totalArea = parseFloat(data.total_area);
+  if (locale !== 'US' && locale !== 'UK') {
+    totalArea = totalArea * 0.404686;
+  }
   const totalAreaStr = totalArea.toFixed(2);
 
   const deploymentType = data.deployment_type;
