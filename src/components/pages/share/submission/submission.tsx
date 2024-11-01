@@ -51,7 +51,9 @@ function SubmissionComponent({ submission_id, locale }: { submission_id: string;
   }, [submission_id]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex h-full w-full flex-col items-center justify-center p-5">Loading...</div>
+    );
   }
   if (error || data === null || data === undefined) {
     return notFound();
@@ -77,7 +79,7 @@ function SubmissionComponent({ submission_id, locale }: { submission_id: string;
     financeOption === undefined
   ) {
     return (
-      <div className="my-auto flex items-center justify-center">
+      <div className="flex h-full w-full flex-col items-center justify-center p-5">
         User has not submitted additional details yet.
       </div>
     );
