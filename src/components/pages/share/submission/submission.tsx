@@ -101,6 +101,7 @@ function SubmissionComponent({ submission_id, locale }: { submission_id: string;
               theme="green"
               href={('https://cal.com/team/solarpunk/intro?project=' + submission_id) as Route}
               size="home-sm"
+              className="invisible hidden md:visible md:flex"
             >
               {t('request_intro')}
             </Button>
@@ -125,7 +126,7 @@ function SubmissionComponent({ submission_id, locale }: { submission_id: string;
           </CardDescription>
         </CardHeader>
         <CardContent className="grid gap-4 text-sm">
-          <div className="pointer-events-none h-full w-full blur-sm">
+          <div className="pointer-events-none h-full w-2/3 blur-sm md:w-full">
             <Map
               zoom={15}
               lat={lat}
@@ -137,6 +138,14 @@ function SubmissionComponent({ submission_id, locale }: { submission_id: string;
               displayOnly={true}
             />
           </div>
+          <Button
+            theme="green"
+            href={('https://cal.com/team/solarpunk/intro?project=' + submission_id) as Route}
+            size="home-sm"
+            className="visible flex w-2/3 md:invisible md:hidden"
+          >
+            {t('request_intro')}
+          </Button>
         </CardContent>
       </Card>
       <Image
