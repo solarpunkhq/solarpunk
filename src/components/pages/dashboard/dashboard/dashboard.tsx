@@ -30,7 +30,6 @@ function Dashboard({
   const lng = existing_acres[0][0][0].lng;
 
   const [acres, setAcres] = useState(acre_data);
-
   const [totalArea, setTotalArea] = useState(getTotalAreaFromAcreData(acres));
   const [projections, setProjections] = useState(getProjectionsFromAcres(totalArea, 25, 5));
 
@@ -62,16 +61,6 @@ function Dashboard({
             existingAcres={existing_acres}
             country={country}
           />
-          {/* <div className="text-sm mt-2 rounded-md bg-gray-94 p-6 text-center sm:w-1/2">
-            <span className="font-semibold">
-              ${formatNumberAsAmount(projections.revenue_per_year.toFixed(0))} Est. Yearly Revenue
-            </span>
-            {' | '}
-            <span className="text-gray-30">
-              {' '}
-              {formatNumberAsAmount(totalArea.toFixed(2))} Acres
-            </span>
-          </div> */}
         </div>
 
         <div className="ml-4 h-full max-h-screen w-full max-w-96">

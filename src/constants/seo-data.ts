@@ -23,3 +23,26 @@ export const SEO_DATA = {
     },
   },
 };
+
+export const SHARE_METADATA = {
+  notFound: {
+    title: 'Page Not Found - Solarpunk',
+    description: 'Page Not Found - Solarpunk',
+    pathname: '',
+  },
+  index: {
+    de: {
+      title: 'Wir haben ein Geschäft für Sie!',
+      description:
+        'Wir haben ein Geschäft für Sie. Interessiert daran, mit dieser Person in Kontakt zu treten?​',
+      pathname: ROUTE.index as string,
+      imagePath: '/images/og-image-de.png',
+    },
+    en: {
+      title: 'We have business for you!',
+      description: 'We have business for you. Interested in connecting to this person?',
+      pathname: ROUTE.index as string,
+      imagePath: '/images/og-image-en.jpg',
+    },
+  },
+};

@@ -1,6 +1,8 @@
+import { Acre as PrismaAcre } from '@prisma/client';
+
 import { Acre } from './types';
 
-export const getTotalAreaFromAcreData = (acreData: Acre[]) => {
+export const getTotalAreaFromAcreData = (acreData: Acre[] | PrismaAcre[]) => {
   return acreData.reduce((total, acre) => total + acre.area, 0);
 };
 

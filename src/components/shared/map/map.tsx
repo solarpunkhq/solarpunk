@@ -49,6 +49,7 @@ function Map({
   setAcres,
   existingAcres,
   country,
+  displayOnly,
 }: {
   zoom: number;
   lat: number;
@@ -57,6 +58,7 @@ function Map({
   setAcres: any;
   existingAcres: any;
   country: string;
+  displayOnly?: boolean;
 }) {
   const [location, setLocation] = useState([lat, lng]);
   const [mapType, setMapType] = useState('hybrid');
@@ -68,7 +70,7 @@ function Map({
         center={location as LatLngTuple}
         zoom={zoom}
         scrollWheelZoom={true}
-        className="h-[50vh] md:h-[90vh]"
+        className={displayOnly ? 'h-[70vh]' : 'h-[50vh] md:h-[90vh]'}
         style={{
           width: '100%',
           margin: '0 auto',

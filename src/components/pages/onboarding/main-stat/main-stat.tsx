@@ -2,7 +2,17 @@
 
 import AnimatedNumbers from 'react-animated-numbers';
 
-function MainStat({ label, value, unit }: { label: string; value: number; unit: string }) {
+function MainStat({
+  label,
+  value,
+  unit,
+  blur = false,
+}: {
+  label: string;
+  value: number;
+  unit: string;
+  blur?: boolean;
+}) {
   return (
     <div className="space-y-6 text-center">
       <h3 className="font-title text-22 text-gray-30">{label}</h3>
@@ -15,6 +25,7 @@ function MainStat({ label, value, unit }: { label: string; value: number; unit: 
               duration: 1.5 + index * 0.2,
             })}
             animateToNumber={parseInt(value.toFixed(0))}
+            className={blur ? 'blur' : ''}
             includeComma
           />
         </span>
