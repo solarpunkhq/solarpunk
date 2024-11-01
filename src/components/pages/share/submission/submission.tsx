@@ -88,6 +88,19 @@ function SubmissionComponent({ submission_id, locale }: { submission_id: string;
   const lat = existing_acres[1][0][0].lat;
   const lng = existing_acres[1][0][0].lng;
 
+  if (
+    deploymentType === undefined ||
+    deploymentType === null ||
+    financeOption === null ||
+    financeOption === undefined
+  ) {
+    return (
+      <div className="flex items-center justify-center">
+        User has not submitted additional details yet.
+      </div>
+    );
+  }
+
   return (
     <div className="h-full">
       <h1 className="text-5xl">We have business for you</h1>

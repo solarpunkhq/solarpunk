@@ -16,6 +16,7 @@ import { formatNumberAsAmount } from '@/lib/utils';
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 interface SlackMessageBody {
+  id: string;
   email: string;
   name: string;
   country: string;
@@ -36,7 +37,9 @@ async function sendSlackMessage(body: SlackMessageBody): Promise<void> {
     *Name*: ${body.name}
     *Country*: ${body.country}
     *Total Area*: ${body.total_area} acres
-    *Total Projected Revenue*: $${body.total_projected_revenue}`,
+    *Total Projected Revenue*: $${body.total_projected_revenue}
+    *Share Link*: https://solarpunkhq.com/share/${body.id}
+    `,
   };
 
   try {
@@ -79,7 +82,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ message: 'User already exists' }, { status: 500 });
   }
 
-  await prisma.user.create({
+  const userData = await prisma.user.create({
     data: {
       email: body.email,
       name: body.name,
@@ -114,7 +117,7 @@ export async function POST(request: Request) {
   if (!authTranslations) {
     authTranslations = authEmailTranslations.default;
   }
-  const { data: create_data, error: create_error } = await supabase.auth.admin.createUser({
+  await supabase.auth.admin.createUser({
     email: body.email,
     email_confirm: true,
     user_metadata: authTranslations,
@@ -156,6 +159,7 @@ export async function POST(request: Request) {
     country: country,
     total_projected_revenue: formatNumberAsAmount(total_revenue.toFixed(0)),
     total_area: totalArea.toFixed(2),
+    id: userData.id.toString(),
   });
 
   return NextResponse.json(
