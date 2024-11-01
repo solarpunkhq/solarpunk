@@ -1,6 +1,7 @@
 'use client';
 
 import { Route } from 'next';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
 import { useEffect, useState } from 'react';
@@ -14,8 +15,11 @@ import MainStat from '@/components/pages/onboarding/main-stat';
 import StatItem from '@/components/pages/onboarding/stat-item';
 import Button from '@/components/shared/button';
 import Map from '@/components/shared/map';
-import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
+
+import sectionBg from '@/images/sources/sources.jpg';
 
 console.log(L);
 
@@ -95,84 +99,71 @@ function SubmissionComponent({ submission_id, locale }: { submission_id: string;
     financeOption === undefined
   ) {
     return (
-      <div className="flex items-center justify-center">
+      <div className="my-auto flex items-center justify-center">
         User has not submitted additional details yet.
       </div>
     );
   }
 
   return (
-    <div className="h-full">
-      <h1 className="text-5xl">We have business for you</h1>
-      <h2 className="my-2 text-xl">Interested in connecting with this person?</h2>
-      <p>
-        <span className="blur-sm">Varun</span> want’s to build <b>{totalAreaStr} acres</b> of solar
-        and we can connect the two of you immediately.
-      </p>
-      <div className=" mb-32 mt-8 flex h-full w-full items-center justify-center gap-8">
-        <div className="pointer-events-none h-full w-3/4 blur-sm">
-          <Map
-            zoom={16}
-            lat={lat}
-            lng={lng}
-            acres={null}
-            setAcres={null}
-            existingAcres={existing_acres}
-            country="US"
-            displayOnly={true}
-          />
-        </div>
-        <div className="flex h-[70vh] w-1/4 flex-col justify-start self-start">
-          <Card className="ml-1 w-full !border-2 !border-gray-70 bg-gray-94 text-gray-20">
-            <CardContent className="p-6">
-              <div className="space-y-6">
-                <MainStat label="Revenue" value={1325000} unit="/yr" blur={true} />
-                <Separator className="bg-gray-20" />
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                  <StatItem
-                    icon={MapPin}
-                    label="Area"
-                    value={parseFloat(totalArea.toFixed(2))}
-                    unit="acres"
-                    blur={false}
-                  />
-                  <StatItem icon={Zap} label="Energy" value={57.7} unit="MW/yr" blur={true} />
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-          <div className="mb-4 mt-8">
-            <span>
-              <span className="blur-sm">Varun</span> wants to deploy{' '}
-            </span>
-            <span className="font-semibold">
-              {' '}
-              {deploymentType.replace(/_/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase())}
-              {', '}
-            </span>
-            <span className="">{getDeploymentDescription(deploymentType)}</span>
+    <div className="flex h-full w-full flex-col items-center justify-center p-5">
+      <Card className="w-full max-w-4xl bg-primary-offwhite">
+        <CardHeader>
+          <CardTitle className="flex w-full items-center justify-between">
+            <div className="flex items-center justify-start gap-2">
+              <img
+                src="/images/pages/dashboard/lifecycle_icon.svg"
+                className="h-10 w-10"
+                alt=""
+                role="presentation"
+              />
+              {'We have business for you'}
+            </div>
+            <Button
+              theme="green"
+              href={('https://cal.com/team/solarpunk/intro?project=' + submission_id) as Route}
+              size="home-sm"
+            >
+              Request introduction
+            </Button>
+          </CardTitle>
+          <CardDescription className="!text-pretty text-gray-12">
+            <div className="flex gap-2">
+              <Badge>
+                {deploymentType.replace(/_/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase())}
+              </Badge>
+              <Badge>
+                {financeOption.replace(/_/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase())}
+              </Badge>
+            </div>
+            <p className="mt-2 text-sm">
+              <span className="blur-sm">Varun</span> want’s to build <b>{totalAreaStr} acres</b> of
+              solar and we can connect the two of you immediately.
+            </p>
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="grid gap-4 text-sm">
+          <div className="pointer-events-none h-full w-full blur-sm">
+            <Map
+              zoom={16}
+              lat={lat}
+              lng={lng}
+              acres={null}
+              setAcres={null}
+              existingAcres={existing_acres}
+              country="US"
+              displayOnly={true}
+            />
           </div>
-          <div className="">
-            <span>
-              <span className="blur-sm">Varun</span> wants to finance it{' '}
-            </span>
-            <span className="font-semibold">
-              {' '}
-              {financeOption.replace(/_/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase())}
-              {', '}
-            </span>
-            <span className="">{getFinanceDescription(financeOption)}</span>
-          </div>
-          <Button
-            theme="black"
-            href={('https://cal.com/team/solarpunk/intro?project=' + submission_id) as Route}
-            size="home-md"
-            className="mt-auto cursor-pointer"
-          >
-            Request introduction
-          </Button>
-        </div>
-      </div>
+        </CardContent>
+      </Card>
+      <Image
+        className="absolute inset-0 -z-10 h-full w-full object-cover object-center"
+        src={sectionBg}
+        width={1920}
+        height={1104}
+        alt="Solarpunk Background"
+      />
     </div>
   );
 }

@@ -70,7 +70,7 @@ function Map({
         center={location as LatLngTuple}
         zoom={zoom}
         scrollWheelZoom={true}
-        className={displayOnly ? 'h-[70vh]' : 'h-[50vh] md:h-[90vh]'}
+        className={displayOnly ? 'h-[50vh]' : 'h-[50vh] md:h-[90vh]'}
         style={{
           width: '100%',
           margin: '0 auto',

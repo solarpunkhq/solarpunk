@@ -20,7 +20,7 @@ export default async function Submission({
   return (
     <div className="h-screen">
       <Header />
-      <main className="mx-8 mt-20">
+      <main className="mx-8 mt-20 min-h-screen">
         <SubmissionComponent submission_id={submission_id} locale={locale} />
       </main>
       <Footer />
