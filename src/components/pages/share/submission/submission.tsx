@@ -1,23 +1,18 @@
 'use client';
 
 import { Route } from 'next';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
 import { useEffect, useState } from 'react';
 
-import { sub } from 'date-fns';
 import * as L from 'leaflet';
-import 'leaflet.gridlayer.googlemutant/dist/Leaflet.GoogleMutant';
-import { MapPin, Zap } from 'lucide-react';
 
-import MainStat from '@/components/pages/onboarding/main-stat';
-import StatItem from '@/components/pages/onboarding/stat-item';
 import Button from '@/components/shared/button';
 import Map from '@/components/shared/map';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
 
 import sectionBg from '@/images/sources/sources.jpg';
 
@@ -29,29 +24,9 @@ interface PublicInfo {
   finance_option: string;
 }
 
-function getDeploymentDescription(deploymentType: string) {
-  switch (deploymentType) {
-    case 'agrivoltaics':
-      return 'a new and unique way of deploying both solar and keep farming arable land.';
-    case 'open_space_photovoltaics':
-      return 'traditional solar deployment on land that will not be used for agriculture.';
-    case 'help_me_decide':
-      return 'where we assess their situation and help them decide what works best for their land.';
-  }
-}
-
-function getFinanceDescription(financeOption: string) {
-  switch (financeOption) {
-    case 'self_financed':
-      return 'where they finance it themselves, without outside capital.';
-    case 'loan_self_financed':
-      return 'where they finance it themselves, but with a loan.';
-    case 'solarpunk_financed':
-      return 'where Solarpunk finances it in exchange for a revenue sharing agreement.';
-  }
-}
-
 function SubmissionComponent({ submission_id, locale }: { submission_id: string; locale: string }) {
+  const t = useTranslations('SharePage');
+
   const [data, setData] = useState<PublicInfo | null>(null);
   const [error, setError] = useState<Error | null>(null);
   const [loading, setLoading] = useState(true);
@@ -124,7 +99,7 @@ function SubmissionComponent({ submission_id, locale }: { submission_id: string;
               href={('https://cal.com/team/solarpunk/intro?project=' + submission_id) as Route}
               size="home-sm"
             >
-              Request introduction
+              {t('request_intro')}
             </Button>
           </CardTitle>
           <CardDescription className="!text-pretty text-gray-12">
@@ -137,15 +112,19 @@ function SubmissionComponent({ submission_id, locale }: { submission_id: string;
               </Badge>
             </div>
             <p className="mt-2 text-sm">
-              <span className="blur-sm">Varun</span> want’s to build <b>{totalAreaStr} acres</b> of
-              solar and we can connect the two of you immediately.
+              <span className="blur-sm">Varun</span>
+              {t('subtitle_1')}{' '}
+              <b>
+                {totalAreaStr} {t('area_unit')}
+              </b>{' '}
+              {t('subtitle_2')}
             </p>
           </CardDescription>
         </CardHeader>
         <CardContent className="grid gap-4 text-sm">
           <div className="pointer-events-none h-full w-full blur-sm">
             <Map
-              zoom={16}
+              zoom={15}
               lat={lat}
               lng={lng}
               acres={null}

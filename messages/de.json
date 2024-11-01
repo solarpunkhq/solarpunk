@@ -308,5 +308,11 @@
   },
   "FooterComponent": {
     "contactUs": "Kontaktieren Sie uns"
+  },
+  "SharePage": {
+    "request_intro": "Anfrage einleiten",
+    "subtitle_1": "möchte ",
+    "area_unit": "Hektar",
+    "subtitle_2": "Solarfläche bauen und wir können euch sofort verbinden."
   }
 }

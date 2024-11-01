@@ -308,5 +308,11 @@
   },
   "FooterComponent": {
     "contactUs": "Contact us"
+  },
+  "SharePage": {
+    "request_intro": "Request introduction",
+    "subtitle_1": "want’s to build ",
+    "area_unit": "acres",
+    "subtitle_2": "of solar and we can connect the two of you immediately."
   }
 }
