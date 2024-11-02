@@ -1,6 +1,6 @@
 import type { Route } from 'next';
-import NextLink from 'next/link';
 
+import { Link as NextLink } from '@/i18n/routing';
 import clsx from 'clsx';
 
 // Example of the code — https://user-images.githubusercontent.com/20713191/144221096-1939c382-4ab8-4d28-b0e6-7bbe3a8f8556.png

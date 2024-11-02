@@ -1,3 +1,4 @@
+import { headers } from 'next/headers';
 import { type NextRequest, NextResponse } from 'next/server';
 
 import { createClient } from '@/utils/supabase/server';
@@ -14,6 +15,12 @@ export async function GET(request: NextRequest) {
   redirectTo.searchParams.delete('token_hash');
   redirectTo.searchParams.delete('type');
 
+  const countryCode = headers().get('x-vercel-ip-country');
+  let prefix = '/en';
+  if (countryCode === 'DE') {
+    prefix = '/de';
+  }
+
   if (token_hash && type) {
     const supabase = createClient();
 
@@ -23,11 +30,11 @@ export async function GET(request: NextRequest) {
     });
     if (!error) {
       redirectTo.searchParams.delete('next');
-      redirectTo.pathname = '/dashboard';
+      redirectTo.pathname = prefix + '/dashboard';
       return NextResponse.redirect(redirectTo);
     }
   }
 
-  redirectTo.pathname = '/login';
+  redirectTo.pathname = prefix + '/login';
   return NextResponse.redirect(redirectTo);
 }

@@ -2,12 +2,12 @@
 
 import { useTranslations } from 'next-intl';
 import dynamic from 'next/dynamic';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { useSearchParams } from 'next/navigation';
 
 import { useEffect, useState } from 'react';
 
+import { Link } from '@/i18n/routing';
+import { useRouter } from '@/i18n/routing';
 import { getProjectionsFromAcres, getTotalAreaFromAcreData } from '@/utils/projections';
 import { Acre } from '@/utils/types';
 import * as L from 'leaflet';
@@ -79,6 +79,8 @@ function Onboarding({ country }: OnboardingProps) {
     }
   };
 
+  const basePath =
+    window.location.origin + window.location.pathname.split('/').slice(0, 2).join('/');
   return (
     <>
       <div className="w-full text-gray-12 sm:h-screen">
@@ -87,7 +89,7 @@ function Onboarding({ country }: OnboardingProps) {
             <div className="my-3 flex items-center justify-center self-start">
               <div
                 className="flex cursor-pointer items-center"
-                onClick={() => (window.location.href = '/')}
+                onClick={() => (window.location.href = `${basePath}/`)}
               >
                 <Logo className="h-8" />
               </div>

@@ -40,6 +40,8 @@ function Dashboard({
     setProjections(newProjections);
   }, [acres]);
 
+  const basePath =
+    window.location.origin + window.location.pathname.split('/').slice(0, 2).join('/');
   return (
     <div className="w-full text-gray-12 sm:h-screen sm:overflow-hidden">
       <div className="flex h-full w-full flex-col items-center justify-center px-8 md:flex-row md:items-stretch md:justify-start">
@@ -47,7 +49,7 @@ function Dashboard({
           <div className="my-3 flex items-center justify-center self-start">
             <div
               className="flex cursor-pointer items-center"
-              onClick={() => (window.location.href = '/')}
+              onClick={() => (window.location.href = `${basePath}/`)}
             >
               <Logo className="h-8" />
             </div>
@@ -69,7 +71,7 @@ function Dashboard({
               <Button
                 size="home-xs"
                 className="overflow-hidden"
-                onClick={() => (window.location.href = '/logout')}
+                onClick={() => (window.location.href = `${basePath}/logout`)}
               >
                 <LogOut className="h-6 w-6" />
               </Button>

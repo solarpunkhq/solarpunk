@@ -2,8 +2,8 @@ import { Route } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { Inter } from 'next/font/google';
-import Link from 'next/link';
 
+import { Link } from '@/i18n/routing';
 import { TooltipProvider } from '@radix-ui/react-tooltip';
 import { Analytics } from '@vercel/analytics/react';
 import { Home, LineChart, SheetIcon, Users2 } from 'lucide-react';

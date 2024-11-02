@@ -70,15 +70,17 @@ function SearchForm({ className }: { className: string }) {
     } else if (e.key === 'ArrowUp') {
       setHighlightedIndex((prev) => (prev > 0 ? prev - 1 : searchResults.length - 1));
     } else if (e.key === 'Enter') {
+      const basePath =
+        window.location.origin + window.location.pathname.split('/').slice(0, 2).join('/');
       if (highlightedIndex >= 0) {
         const selectedResult = searchResults[highlightedIndex];
         if (selectedResult) {
-          window.location.href = `/onboarding?lat=${selectedResult.y}&lng=${selectedResult.x}`;
+          window.location.href = `${basePath}/onboarding?lat=${selectedResult.y}&lng=${selectedResult.x}`;
         }
       } else {
         const selectedResult = searchResults[0];
         if (selectedResult) {
-          window.location.href = `/onboarding?lat=${selectedResult.y}&lng=${selectedResult.x}`;
+          window.location.href = `${basePath}/onboarding?lat=${selectedResult.y}&lng=${selectedResult.x}`;
         }
       }
     }

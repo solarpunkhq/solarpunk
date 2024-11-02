@@ -1,5 +1,4 @@
-import { redirect, useSearchParams } from 'next/navigation';
-
+import { redirect } from '@/i18n/routing';
 import { createClient } from '@/utils/supabase/server';
 
 import Dashboard from '@/components/pages/dashboard/dashboard';
@@ -15,8 +14,9 @@ export default async function DashboardPage() {
 
   const { user } = data;
 
-  if (user === null || user === undefined) {
+  if (!user) {
     redirect('/login');
+    return;
   }
 
   const userData = await prisma.user.findUnique({

@@ -2,8 +2,8 @@
 
 import { Route } from 'next';
 import dynamic from 'next/dynamic';
-import Link from 'next/link';
 
+import { Link } from '@/i18n/routing';
 import { useMutation } from '@tanstack/react-query';
 import * as L from 'leaflet';
 import 'leaflet.gridlayer.googlemutant/dist/Leaflet.GoogleMutant';

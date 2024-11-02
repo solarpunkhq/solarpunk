@@ -1,9 +1,10 @@
 'use client';
 
 import { Route } from 'next';
-import { useRouter } from 'next/navigation';
 
 import { useState } from 'react';
+
+import { useRouter } from '@/i18n/routing';
 
 import { Badge } from '@/components/ui/badge';
 import {

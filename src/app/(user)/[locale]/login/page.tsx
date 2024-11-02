@@ -1,5 +1,4 @@
-import { redirect } from 'next/navigation';
-
+import { redirect } from '@/i18n/routing';
 import { createClient } from '@/utils/supabase/server';
 
 import Login from '@/components/pages/login';

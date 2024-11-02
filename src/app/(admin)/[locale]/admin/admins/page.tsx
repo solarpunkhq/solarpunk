@@ -1,5 +1,4 @@
-import { redirect } from 'next/navigation';
-
+import { redirect } from '@/i18n/routing';
 import { createClient } from '@/utils/supabase/server';
 
 import AdminsList from '@/components/pages/admin/admins-list';
@@ -12,11 +11,11 @@ export default async function AdminsPage() {
 
   const { user } = supabase_data;
 
-  if (user === null || user === undefined) {
+  if (!user) {
     redirect('/login');
   }
 
-  if (user.app_metadata.role !== 'admin') {
+  if (user?.app_metadata?.role !== 'admin') {
     redirect('/dashboard');
   }
 

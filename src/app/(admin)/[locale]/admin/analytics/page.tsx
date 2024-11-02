@@ -1,5 +1,4 @@
-import { redirect, useSearchParams } from 'next/navigation';
-
+import { redirect } from '@/i18n/routing';
 import { createClient } from '@/utils/supabase/server';
 
 import Analytics from '@/components/pages/admin/analytics';
@@ -12,11 +11,11 @@ export default async function AnalyticsPage() {
 
   const { user } = supabase_data;
 
-  if (user === null || user === undefined) {
+  if (!user) {
     redirect('/login');
   }
 
-  if (user.app_metadata.role !== 'admin') {
+  if (user?.app_metadata?.role !== 'admin') {
     redirect('/dashboard');
   }
 

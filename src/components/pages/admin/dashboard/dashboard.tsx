@@ -72,6 +72,8 @@ function Dashboard() {
     document.body.removeChild(link);
   }
 
+  const basePath =
+    window.location.origin + window.location.pathname.split('/').slice(0, 2).join('/');
   return (
     <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
       <Header breadcrumbs={[{ href: '/admin', label: 'Dashboard' }]} />
@@ -109,7 +111,7 @@ function Dashboard() {
               <Button
                 size="sm"
                 className="h-8 gap-1"
-                onClick={() => (window.location.href = '/onboarding')}
+                onClick={() => (window.location.href = `${basePath}/onboarding`)}
               >
                 <PlusCircle className="h-3.5 w-3.5" />
                 <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">Add Submission</span>

@@ -1,8 +1,8 @@
 'use client';
 
 import { Route } from 'next';
-import Link from 'next/link';
 
+import { Link } from '@/i18n/routing';
 import { Home, LineChart, LogOut, PanelLeft, Search, SheetIcon, Users2 } from 'lucide-react';
 
 import {
@@ -15,6 +15,8 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 function Header({ breadcrumbs }: { breadcrumbs: { href: string; label: string }[] }) {
+  const basePath =
+    window.location.origin + window.location.pathname.split('/').slice(0, 2).join('/');
   return (
     <header className="bg-background sticky top-0 z-30 flex h-14 items-center gap-4 border-b px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
       <Sheet>
@@ -72,7 +74,7 @@ function Header({ breadcrumbs }: { breadcrumbs: { href: string; label: string }[
         <Button
           size="icon"
           className="overflow-hidden"
-          onClick={() => (window.location.href = '/logout')}
+          onClick={() => (window.location.href = `${basePath}/logout`)}
         >
           <LogOut className="h-6 w-6" />
         </Button>
