@@ -15,7 +15,13 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: 'https://solarpunk.sh',
+        source: '/',
+        has: [
+          {
+            type: 'host',
+            value: 'solarpunk.sh',
+          },
+        ],
         destination: 'https://solarpunkhq.com/de',
         permanent: true,
       },
