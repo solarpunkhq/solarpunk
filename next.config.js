@@ -14,6 +14,11 @@ const nextConfig = {
         destination: '/blog/agrivoltaics',
         permanent: true,
       },
+      {
+        source: 'https://solarpunk.sh',
+        destination: 'https://solarpunkhq.com/de',
+        permanent: true,
+      },
     ];
   },
   images: {
