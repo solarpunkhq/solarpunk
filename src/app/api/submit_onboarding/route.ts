@@ -38,7 +38,8 @@ async function sendSlackMessage(body: SlackMessageBody): Promise<void> {
     *Country*: ${body.country}
     *Total Area*: ${body.total_area} acres
     *Total Projected Revenue*: $${body.total_projected_revenue}
-    *Share Link*: https://solarpunkhq.com/share/${body.id}
+    *English Share Link*: https://solarpunkhq.com/en/share/${body.id}
+    *German Share Link*: https://solarpunkhq.com/de/share/${body.id}
     `,
   };
 
