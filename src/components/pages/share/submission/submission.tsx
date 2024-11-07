@@ -86,7 +86,7 @@ function SubmissionComponent({ submission_id, locale }: { submission_id: string;
   }
 
   return (
-    <div className="flex h-full w-full flex-col items-center justify-center p-5">
+    <div className="flex h-full w-full flex-col items-center justify-center px-5 pt-[3.5rem] md:p-5">
       <Card className="w-full max-w-4xl bg-primary-offwhite">
         <CardHeader>
           <CardTitle className="flex w-full items-center justify-between">
