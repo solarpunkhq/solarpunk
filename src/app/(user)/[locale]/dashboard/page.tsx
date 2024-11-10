@@ -26,6 +26,8 @@ export default async function DashboardPage() {
     select: {
       current_step: true,
       id: true,
+      email: true,
+      name: true,
       country: true,
       created_timestamp: true,
       step_3_timestamp: true,
@@ -39,7 +41,7 @@ export default async function DashboardPage() {
       </div>
     );
   }
-  const { current_step, id, country, created_timestamp, step_3_timestamp } = userData;
+  const { current_step, id, name, email, country, created_timestamp, step_3_timestamp } = userData;
 
   const acreData = await prisma.acre.findMany({
     where: {
@@ -92,7 +94,14 @@ export default async function DashboardPage() {
     return (
       <>
         <Header isLoggedIn={true} />
-        <LifecycleCard current_step={current_step} startDate={startDate} endDate={endDate} />
+        <LifecycleCard
+          current_step={current_step}
+          startDate={startDate}
+          endDate={endDate}
+          id={id.toString()}
+          name={name}
+          email={email}
+        />
       </>
     );
   }

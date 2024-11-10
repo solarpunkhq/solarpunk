@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { Calendar, Leaf } from 'lucide-react';
 
 import CurrentStep from '@/components/pages/dashboard/current-step';
+import CalEmbed from '@/components/shared/cal-embed';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 
@@ -15,10 +16,16 @@ function LifecycleCard({
   current_step,
   startDate,
   endDate,
+  id,
+  name,
+  email,
 }: {
   current_step: number;
   startDate: string;
   endDate: string;
+  id: string;
+  name: string;
+  email: string;
 }) {
   const getPercentage = (step: number) => {
     if (step === 0) {
@@ -76,7 +83,14 @@ function LifecycleCard({
           </div>
         </CardHeader>
         <CardContent className="grid gap-4">
-          <CurrentStep currentStep={current_step - 1} />
+          {current_step === 1 ? (
+            <div className="flex flex-col items-start justify-start">
+              <div className="!text-pretty text-sm text-gray-30">{t('book_call')}</div>
+              <CalEmbed id={id} email={email} name={name} />
+            </div>
+          ) : (
+            <CurrentStep currentStep={current_step - 1} />
+          )}
         </CardContent>
       </Card>
       <Image
