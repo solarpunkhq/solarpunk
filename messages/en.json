@@ -313,6 +313,12 @@
     "request_intro": "Request introduction",
     "subtitle_1": "want’s to build ",
     "area_unit": "acres",
-    "subtitle_2": "of solar and we can connect the two of you immediately."
+    "subtitle_2": "of solar and we can connect the two of you immediately.",
+    "agrivoltaics": "Agrivoltaics",
+    "open_space_photovoltaics": "Open Space Photovoltaics",
+    "help_me_decide": "Help Them Decide",
+    "self_financed": "Self Financed",
+    "loan_self_financed": "Loan Self Financed",
+    "solarpunk_financed": "Solarpunk Financed"
   }
 }

@@ -110,12 +110,8 @@ function SubmissionComponent({ submission_id, locale }: { submission_id: string;
           </CardTitle>
           <CardDescription className="!text-pretty text-gray-12">
             <div className="flex gap-2">
-              <Badge>
-                {deploymentType.replace(/_/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase())}
-              </Badge>
-              <Badge>
-                {financeOption.replace(/_/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase())}
-              </Badge>
+              <Badge>{t(deploymentType)}</Badge>
+              <Badge>{t(financeOption)}</Badge>
             </div>
             <p className="mt-2 text-sm">
               <span className="blur-sm">Varun</span>
