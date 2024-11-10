@@ -7,7 +7,7 @@ import { MoreStories } from '@/components/pages/blog/more-stories';
 import { getAllPosts } from '@/lib/blog-api';
 
 export default function Index() {
-  const locale = useLocale(); // Detect current locale based on domain
+  const locale = useLocale();
   const allPosts = getAllPosts(locale); // Fetch posts for the current locale
 
   const heroPost = allPosts[0];

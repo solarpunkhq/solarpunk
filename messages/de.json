@@ -91,7 +91,8 @@
     "contact_us": "Kontaktieren Sie uns",
     "continue_button": "Weiter",
     "loading_message": "",
-    "error_message": "Fehler"
+    "error_message": "Fehler",
+    "currency": "€"
   },
   "TermsPage": {
     "title": "Nutzungsbedingungen",

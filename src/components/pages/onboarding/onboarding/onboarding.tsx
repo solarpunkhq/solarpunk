@@ -1,6 +1,6 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import dynamic from 'next/dynamic';
 import { useSearchParams } from 'next/navigation';
 
@@ -36,6 +36,7 @@ interface OnboardingProps {
 
 function Onboarding({ country }: OnboardingProps) {
   const t = useTranslations('OnboardingPage');
+  const isGerman = useLocale() === 'de';
 
   const [acres, setAcres] = useState<Acre[]>([]);
   const [totalArea, setTotalArea] = useState(getTotalAreaFromAcreData(acres));
@@ -118,7 +119,11 @@ function Onboarding({ country }: OnboardingProps) {
                       <div className="space-y-6">
                         <MainStat
                           label={t('revenue_label')}
-                          value={projections.revenue_per_year}
+                          value={
+                            isGerman
+                              ? projections.revenue_per_year * 0.93
+                              : projections.revenue_per_year
+                          }
                           unit={t('revenue_unit')}
                         />
                         <Separator className="bg-gray-20" />
@@ -187,7 +192,7 @@ function Onboarding({ country }: OnboardingProps) {
               </div>
 
               <div className="-mx-[18px] -mb-[18px] flex flex-col items-center justify-center rounded-b-2xl bg-gray-20 pb-4">
-                {error && <div className="text-primary-red">{t('error_message')}</div>}
+                {error && <div className="text-primary-red">{error}</div>}
                 <div className="flex gap-2">
                   <Button
                     className="mt-4"

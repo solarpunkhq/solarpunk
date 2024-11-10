@@ -91,7 +91,8 @@
     "contact_us": "Contact us",
     "continue_button": "Continue",
     "loading_message": "",
-    "error_message": "Error"
+    "error_message": "An error occurred.",
+    "currency": "$"
   },
   "TermsPage": {
     "title": "Terms of Service",

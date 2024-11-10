@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import AnimatedNumbers from 'react-animated-numbers';
 
 function MainStat({
@@ -13,12 +15,14 @@ function MainStat({
   unit: string;
   blur?: boolean;
 }) {
+  const t = useTranslations('OnboardingPage');
+
   return (
     <div className="space-y-6 text-center">
       <h3 className="font-title text-22 text-gray-30">{label}</h3>
       <p className="flex items-center justify-center text-30 font-bold leading-7 text-gray-20">
         <span className="flex items-center justify-center">
-          $
+          {t('currency')}
           <AnimatedNumbers
             transitions={(index) => ({
               type: 'spring',
