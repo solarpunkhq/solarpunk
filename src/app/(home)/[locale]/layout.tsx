@@ -57,7 +57,7 @@ export default async function RootLayout({
                   Upvote Now <span aria-hidden="true">&rarr;</span>
                 </Button>
               </div>
-              <div className="flex flex-1 justify-end"></div>
+              <div className="flex flex-1 justify-end" />
             </div>
             {children}
           </main>
