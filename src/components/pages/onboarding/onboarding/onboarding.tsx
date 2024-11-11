@@ -49,14 +49,16 @@ function Onboarding({ country }: OnboardingProps) {
     setProjections(newProjections);
   }, [acres]);
 
-  const [email, setEmail] = useState('');
+  const searchParams = useSearchParams();
+  let prefilledEmail = searchParams.get('email') || '';
+
+  const [email, setEmail] = useState(prefilledEmail);
   const [name, setName] = useState('');
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
   const router = useRouter();
-  const searchParams = useSearchParams();
 
   let lat = parseFloat(searchParams.get('lat') || '');
   let zoom = 15;

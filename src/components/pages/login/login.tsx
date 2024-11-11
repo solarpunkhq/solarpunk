@@ -31,6 +31,10 @@ function Login() {
   const [done, setDone] = useState(false);
   const [error, setError] = useState('');
 
+  const basePath =
+    window.location.origin + window.location.pathname.split('/').slice(0, 2).join('/');
+  console.log(basePath);
+
   const getButtonText = () => {
     if (loading) {
       return null;
@@ -59,15 +63,17 @@ function Login() {
         }),
       });
 
+      const data = await response.json();
       if (response.ok) {
-        const data = await response.json();
         console.log('Response data:', data);
         setLoading(false);
         setDone(true);
       } else {
-        console.error('Error:', response.statusText);
-        if (response.statusText === 'Not Found') {
+        if (data['message'] !== undefined && data['message'] === 'User not found') {
           setError(t('onboarding_first'));
+          setTimeout(() => {
+            window.location.href = basePath + '/onboarding?email=' + email;
+          }, 2000);
         } else {
           setError(response.statusText);
         }
