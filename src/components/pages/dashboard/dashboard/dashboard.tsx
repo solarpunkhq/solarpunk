@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 
 import { getProjectionsFromAcres, getTotalAreaFromAcreData } from '@/utils/projections';
+import { Acre, LatLng } from '@/utils/types';
 import * as L from 'leaflet';
 import 'leaflet.gridlayer.googlemutant/dist/Leaflet.GoogleMutant';
 import { LogOut } from 'lucide-react';
@@ -23,7 +24,7 @@ function Dashboard({
 }: {
   user_id: number;
   existing_acres: any[];
-  acre_data: any[];
+  acre_data: Acre[];
   country: string;
 }) {
   const lat = existing_acres[0][0][0].lat;

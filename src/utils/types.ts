@@ -8,6 +8,8 @@ export interface LatLng {
 
 export interface Acre {
   area: number;
-  latlngs: LatLng[];
+  latlngs: LatLng[] | JsonValue[];
   revenue: number;
+  id?: number;
+  userId?: number;
 }

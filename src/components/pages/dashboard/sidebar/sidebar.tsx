@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 
 import { getProjectionsFromAcres, getTotalAreaFromAcreData } from '@/utils/projections';
+import { Acre } from '@/utils/types';
 import { Radio, RadioGroup } from '@headlessui/react';
 import { CheckCircle, CircleAlert, Loader2 } from 'lucide-react';
 
@@ -16,7 +17,7 @@ import { formatNumberAsAmount } from '@/lib/utils';
 
 import Schedule from '../schedule';
 
-function DashboardSidebar({ user_id, acres }: { user_id: number; acres: any[] }) {
+function DashboardSidebar({ user_id, acres }: { user_id: number; acres: Acre[] }) {
   const t = useTranslations('DashboardPage');
 
   const [phoneNumber, setPhoneNumber] = useState('');
