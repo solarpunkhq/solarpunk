@@ -14,7 +14,7 @@ import greyBgImage from '@/images/cta/gray-bg-blured.jpg';
 import Card from './card';
 
 function CTA() {
-  const t = useTranslations('CTAComponent');
+  const t = useTranslations('translations');
 
   return (
     <section className="cta mt-[230px] px-safe home-xl:mt-[168px] home-lg:mt-[155px] home-md:mt-[136px] home-sm:mt-[104px]">

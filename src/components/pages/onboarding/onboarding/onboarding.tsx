@@ -35,7 +35,7 @@ interface OnboardingProps {
 }
 
 function Onboarding({ country }: OnboardingProps) {
-  const t = useTranslations('OnboardingPage');
+  const t = useTranslations('translations');
   const isGerman = useLocale() === 'de';
 
   const [acres, setAcres] = useState<Acre[]>([]);

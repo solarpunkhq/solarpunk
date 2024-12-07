@@ -25,7 +25,7 @@ interface PublicInfo {
 }
 
 function SubmissionComponent({ submission_id, locale }: { submission_id: string; locale: string }) {
-  const t = useTranslations('SharePage');
+  const t = useTranslations('translations');
 
   const [data, setData] = useState<PublicInfo | null>(null);
   const [error, setError] = useState<Error | null>(null);
@@ -97,7 +97,7 @@ function SubmissionComponent({ submission_id, locale }: { submission_id: string;
                 alt=""
                 role="presentation"
               />
-              {'We have business for you'}
+              {t('share_title')}
             </div>
             <Button
               theme="green"
@@ -105,21 +105,21 @@ function SubmissionComponent({ submission_id, locale }: { submission_id: string;
               size="home-sm"
               className="invisible hidden md:visible md:flex"
             >
-              {t('request_intro')}
+              {t('share_request_intro')}
             </Button>
           </CardTitle>
           <CardDescription className="!text-pretty text-gray-12">
             <div className="flex gap-2">
-              <Badge>{t(deploymentType)}</Badge>
-              <Badge>{t(financeOption)}</Badge>
+              <Badge>{t('share_' + deploymentType)}</Badge>
+              <Badge>{t('share_' + financeOption)}</Badge>
             </div>
             <p className="mt-2 text-sm">
               <span className="blur-sm">Varun</span>
-              {t('subtitle_1')}{' '}
+              {t('share_subtitle_1')}{' '}
               <b>
                 {totalAreaStr} {t('area_unit')}
               </b>{' '}
-              {t('subtitle_2')}
+              {t('share_subtitle_2')}
             </p>
           </CardDescription>
         </CardHeader>
@@ -142,7 +142,7 @@ function SubmissionComponent({ submission_id, locale }: { submission_id: string;
             size="home-sm"
             className="visible mt-4 flex w-full md:invisible md:hidden"
           >
-            {t('request_intro')}
+            {t('share_request_intro')}
           </Button>
         </CardContent>
       </Card>

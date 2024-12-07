@@ -23,7 +23,7 @@ import { Label } from '@/components/ui/label';
 import sectionBg from '@/images/sources/sources.jpg';
 
 function Login() {
-  const t = useTranslations('LoginPage');
+  const t = useTranslations('translations');
 
   const [email, setEmail] = useState('');
 
@@ -39,16 +39,16 @@ function Login() {
     if (loading) {
       return null;
     } else if (done) {
-      return t('check_your_email');
+      return t('login_check_your_email');
     }
-    return t('send_email');
+    return t('login_send_email');
   };
 
   const sendMagicLink = async () => {
     setLoading(true);
     setError('');
     if (email === '') {
-      setError(t('email_required'));
+      setError(t('login_email_required'));
       setLoading(false);
       return;
     }
@@ -70,7 +70,7 @@ function Login() {
         setDone(true);
       } else {
         if (data['message'] !== undefined && data['message'] === 'User not found') {
-          setError(t('onboarding_first'));
+          setError(t('login_onboarding_first'));
           setTimeout(() => {
             window.location.href = basePath + '/onboarding?email=' + email;
           }, 2000);
@@ -81,7 +81,7 @@ function Login() {
       }
     } catch (error) {
       console.error('Fetch error:', error);
-      setError(t('fetch_error'));
+      setError(t('login_fetch_error'));
       setLoading(false);
     }
   };
@@ -92,12 +92,12 @@ function Login() {
       <div className="flex h-full w-full flex-col items-center justify-center p-5">
         <Card className="w-full max-w-sm">
           <CardHeader>
-            <CardTitle className="text-24">{t('title')}</CardTitle>
-            <CardDescription>{t('description')}</CardDescription>
+            <CardTitle className="text-24">{t('login_title')}</CardTitle>
+            <CardDescription>{t('login_description')}</CardDescription>
           </CardHeader>
           <CardContent className="grid gap-4">
             <div className="grid gap-2">
-              <Label htmlFor="email">{t('email_label')}</Label>
+              <Label htmlFor="email">{t('login_email_label')}</Label>
               <Input
                 id="email"
                 type="email"

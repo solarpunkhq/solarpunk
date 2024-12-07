@@ -6,7 +6,7 @@ import React, { useEffect, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 function Quote() {
-  const t = useTranslations('QuoteComponent');
+  const t = useTranslations('translations');
   const firstHighlightRef = useRef<HTMLSpanElement | null>(null);
   const secondHighlightRef = useRef<HTMLSpanElement | null>(null);
   const { ref, inView } = useInView({

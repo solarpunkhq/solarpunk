@@ -7,24 +7,24 @@ import { Check } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 function CurrentStep({ currentStep }: { currentStep: number }) {
-  const t = useTranslations('LifecyclePage');
+  const t = useTranslations('translations');
 
   const steps: Step[] = [
     {
-      title: t('details_title'),
-      subtitle: t('details_subtitle'),
+      title: t('lifecycle_details_title'),
+      subtitle: t('lifecycle_details_subtitle'),
     },
     {
-      title: t('in_review_title'),
-      subtitle: t('in_review_subtitle'),
+      title: t('lifecycle_in_review_title'),
+      subtitle: t('lifecycle_in_review_subtitle'),
     },
     {
-      title: t('planning_title'),
-      subtitle: t('planning_subtitle'),
+      title: t('lifecycle_planning_title'),
+      subtitle: t('lifecycle_planning_subtitle'),
     },
     {
-      title: t('deployment_title'),
-      subtitle: t('deployment_subtitle'),
+      title: t('lifecycle_deployment_title'),
+      subtitle: t('lifecycle_deployment_subtitle'),
     },
   ];
 

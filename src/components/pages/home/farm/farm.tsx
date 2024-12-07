@@ -42,7 +42,7 @@ const videoProps = {
 };
 
 function Farm() {
-  const t = useTranslations('FarmComponent');
+  const t = useTranslations('translations');
 
   return (
     <section className="farm mb-[220px] mt-[221px] px-safe home-lg:mb-[157px] home-lg:mt-40 home-md:mb-[135px] home-md:mt-[134px] home-sm:mb-[104px] home-sm:mt-[103px]">

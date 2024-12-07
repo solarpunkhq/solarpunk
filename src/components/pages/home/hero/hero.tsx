@@ -17,7 +17,7 @@ const videoProps = {
 };
 
 function Hero() {
-  const t = useTranslations('HeroComponent');
+  const t = useTranslations('translations');
 
   return (
     <section className="hero relative bg-hero-bg bg-cover bg-center pb-9 pt-[158px] px-safe home-lg:pb-[47px] home-md:pb-[39px] home-sm:pb-8">

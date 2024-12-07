@@ -29,7 +29,7 @@ const menuVariants = {
 };
 
 function MobileMenu({ isOpen, onClick }: { isOpen: boolean; onClick: () => void }) {
-  const t = useTranslations('Header');
+  const t = useTranslations('translations');
 
   return (
     <LazyMotion features={domAnimation}>
@@ -51,7 +51,7 @@ function MobileMenu({ isOpen, onClick }: { isOpen: boolean; onClick: () => void 
                     href={ROUTE.agrivoltaics}
                     size="home-sm"
                   >
-                    {t('agrivoltaics')}
+                    {t('header_agrivoltaics')}
                   </Link>
                 </li>
                 <li className={clsx('border-b border-black')}>
@@ -60,7 +60,7 @@ function MobileMenu({ isOpen, onClick }: { isOpen: boolean; onClick: () => void 
                     href={ROUTE.blog}
                     size="home-sm"
                   >
-                    {t('blog')}
+                    {t('header_blog')}
                   </Link>
                 </li>
                 {MENUS.footer.main.map(({ label, href }, index) => (
@@ -82,7 +82,7 @@ function MobileMenu({ isOpen, onClick }: { isOpen: boolean; onClick: () => void 
                   size="home-sm"
                   href={ROUTE.login}
                 >
-                  {t('login')}
+                  {t('header_login')}
                 </Button>
                 <Button
                   className="absolute -bottom-5 left-1/2 !h-11 w-[calc(100%-2.5rem)] -translate-x-1/2 py-3.5"
@@ -90,7 +90,7 @@ function MobileMenu({ isOpen, onClick }: { isOpen: boolean; onClick: () => void 
                   size="home-sm"
                   href={ROUTE.contactUs}
                 >
-                  {t('contact')}
+                  {t('header_contact')}
                 </Button>
               </div>
             </div>

@@ -87,7 +87,7 @@ const contentVariants = {
 };
 
 function Sources() {
-  const t = useTranslations('SourcesComponent');
+  const t = useTranslations('translations');
 
   return (
     <LazyMotion features={domAnimation}>

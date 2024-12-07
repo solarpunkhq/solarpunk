@@ -24,7 +24,7 @@ const animations = {
 const items = [{ text: 'listItem1' }, { text: 'listItem2' }];
 
 function Paperwork() {
-  const t = useTranslations('PaperworkComponent');
+  const t = useTranslations('translations');
   return (
     <section className="paperwork mt-36 px-safe home-lg:mt-[119px] home-md:mt-[88px] home-sm:mt-20">
       <div className="container">

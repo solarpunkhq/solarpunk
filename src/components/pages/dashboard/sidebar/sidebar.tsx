@@ -18,7 +18,7 @@ import { formatNumberAsAmount } from '@/lib/utils';
 import Schedule from '../schedule';
 
 function DashboardSidebar({ user_id, acres }: { user_id: number; acres: Acre[] }) {
-  const t = useTranslations('DashboardPage');
+  const t = useTranslations('translations');
 
   const [phoneNumber, setPhoneNumber] = useState('');
   const [financeOption, setFinanceOption] = useState('self_financed');
@@ -34,17 +34,17 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: Acre[] }
   const submitForm = async () => {
     setLoading(true);
     if (phoneNumber === '') {
-      setError(t('error_phone_required'));
+      setError(t('dashboard_error_phone_required'));
       setLoading(false);
       return;
     }
     if (financeOption === '') {
-      setError(t('error_finance_option'));
+      setError(t('dashboard_error_finance_option'));
       setLoading(false);
       return;
     }
     if (deploymentType === '') {
-      setError(t('error_deployment_type'));
+      setError(t('dashboard_error_deployment_type'));
       setLoading(false);
       return;
     }
@@ -83,24 +83,24 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: Acre[] }
   return (
     <div className="relative mb-4 mt-4 flex h-[90vh] flex-col overflow-hidden rounded-xl border-2 border-gray-80 bg-gray-98 text-14">
       <div className="flex-1 overflow-y-auto p-4">
-        <h1 className="mb-4 font-title text-28 font-bold">{t('title')}</h1>
-        <div className="mb-4">{t('description')}</div>
-        <div className="my-4 text-20 font-semibold"> {t('personal_details')}</div>
-        <div className="ml-1 text-15 font-semibold">{t('phone_number')}</div>
+        <h1 className="mb-4 font-title text-28 font-bold">{t('dashboard_title')}</h1>
+        <div className="mb-4">{t('dashboard_description')}</div>
+        <div className="my-4 text-20 font-semibold"> {t('dashboard_personal_details')}</div>
+        <div className="ml-1 text-15 font-semibold">{t('dashboard_phone_number')}</div>
         <Input
-          placeholder={t('phone_number_placeholder')}
+          placeholder={t('dashboard_phone_number_placeholder')}
           className="!mb-2 !ml-1 !w-[97%] !border-2 !border-gray-70"
           value={phoneNumber}
           onChange={(e) => setPhoneNumber(e.target.value)}
         />
-        <div className="ml-1 mt-2 text-15 font-semibold">{t('land_information')}</div>
+        <div className="ml-1 mt-2 text-15 font-semibold">{t('dashboard_land_information')}</div>
         <Textarea
-          placeholder={t('land_information_placeholder')}
+          placeholder={t('dashboard_land_information_placeholder')}
           className="!ml-1 !w-[97%] !border-2 !border-gray-70"
           value={aboutLand}
           onChange={(e) => setAboutLand(e.target.value)}
         />
-        <div className="my-4 text-20 font-semibold">{t('deployment_type')}</div>
+        <div className="my-4 text-20 font-semibold">{t('dashboard_deployment_type')}</div>
         <RadioGroup
           value={deploymentType}
           className="mt-6 flex flex-col gap-2"
@@ -109,8 +109,8 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: Acre[] }
           <Radio
             key={0}
             value={'agrivoltaics'}
-            aria-label={t('agrivoltaics_title')}
-            aria-description={t('agrivoltaics_description')}
+            aria-label={t('dashboard_agrivoltaics_title')}
+            aria-description={t('dashboard_agrivoltaics_description')}
             className="group relative flex cursor-pointer rounded-lg border border-gray-50 bg-white p-4 shadow-sm focus:outline-none data-[focus]:border-black data-[focus]:ring-2 data-[focus]:ring-black"
           >
             <span className="flex w-full flex-1">
@@ -121,13 +121,13 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: Acre[] }
                   className="mb-2 w-full"
                 />
                 <span className="text-gray-18 block text-sm font-medium">
-                  {t('agrivoltaics_title')}
+                  {t('dashboard_agrivoltaics_title')}
                 </span>
                 <span className="mt-1 flex items-center text-sm text-gray-30">
-                  {t('agrivoltaics_description')}
+                  {t('dashboard_agrivoltaics_description')}
                 </span>
                 <span className="text-gray-18 mt-6 text-sm font-medium">
-                  {t('agrivoltaics_breakup')}
+                  {t('dashboard_agrivoltaics_breakup')}
                 </span>
               </span>
             </span>
@@ -139,8 +139,8 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: Acre[] }
           <Radio
             key={1}
             value={'open_space_photovoltaics'}
-            aria-label={t('photovoltaics_title')}
-            aria-description={t('photovoltaics_description')}
+            aria-label={t('dashboard_photovoltaics_title')}
+            aria-description={t('dashboard_photovoltaics_description')}
             className="group relative flex cursor-pointer rounded-lg border border-gray-50 bg-white p-4 shadow-sm focus:outline-none data-[focus]:border-black data-[focus]:ring-2 data-[focus]:ring-black"
           >
             <span className="flex w-full flex-1">
@@ -151,13 +151,13 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: Acre[] }
                   className="mb-2 w-full"
                 />
                 <span className="text-gray-18 block text-sm font-medium">
-                  {t('photovoltaics_title')}
+                  {t('dashboard_photovoltaics_title')}
                 </span>
                 <span className="mt-1 flex items-center text-sm text-gray-30">
-                  {t('photovoltaics_description')}
+                  {t('dashboard_photovoltaics_description')}
                 </span>
                 <span className="text-gray-18 mt-6 text-sm font-medium">
-                  {t('photovoltaics_breakup')}
+                  {t('dashboard_photovoltaics_breakup')}
                 </span>
               </span>
             </span>
@@ -169,20 +169,20 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: Acre[] }
           <Radio
             key={2}
             value={'help_me_decide'}
-            aria-label={t('help_me_decide_title')}
-            aria-description={t('help_me_decide_description')}
+            aria-label={t('dashboard_help_me_decide_title')}
+            aria-description={t('dashboard_help_me_decide_description')}
             className="group relative flex cursor-pointer rounded-lg border border-gray-50 bg-white p-4 shadow-sm focus:outline-none data-[focus]:border-black data-[focus]:ring-2 data-[focus]:ring-black"
           >
             <span className="flex flex-1">
               <span className="flex flex-col">
                 <span className="text-gray-18 block text-sm font-medium">
-                  {t('help_me_decide_title')}
+                  {t('dashboard_help_me_decide_title')}
                 </span>
                 <span className="mt-1 flex items-center text-sm text-gray-30">
-                  {t('help_me_decide_description')}
+                  {t('dashboard_help_me_decide_description')}
                 </span>
                 <span className="text-gray-18 mt-6 text-sm font-medium">
-                  {t('help_me_decide_breakup')}
+                  {t('dashboard_help_me_decide_breakup')}
                 </span>
               </span>
             </span>
@@ -192,7 +192,7 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: Acre[] }
             />
           </Radio>
         </RadioGroup>
-        <div className="my-4 text-20 font-semibold">{t('finance_option')}</div>
+        <div className="my-4 text-20 font-semibold">{t('dashboard_finance_option')}</div>
         <RadioGroup
           value={financeOption}
           className="mt-6 flex flex-col gap-2"
@@ -201,17 +201,17 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: Acre[] }
           <Radio
             key={0}
             value={'self_financed'}
-            aria-label={t('self_finance_title')}
-            aria-description={t('self_finance_description')}
+            aria-label={t('dashboard_self_finance_title')}
+            aria-description={t('dashboard_self_finance_description')}
             className="group relative flex cursor-pointer rounded-lg border border-gray-50 bg-white p-4 shadow-sm focus:outline-none data-[focus]:border-black data-[focus]:ring-2 data-[focus]:ring-black"
           >
             <span className="flex flex-1">
               <span className="flex flex-col">
                 <span className="block text-sm font-semibold text-gray-8">
-                  {t('self_finance_title')}
+                  {t('dashboard_self_finance_title')}
                 </span>
                 <span className="mt-1 flex items-center text-sm text-gray-30">
-                  {t('self_finance_description')}
+                  {t('dashboard_self_finance_description')}
                 </span>
               </span>
             </span>
@@ -227,17 +227,17 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: Acre[] }
           <Radio
             key={1}
             value={'loan_self_financed'}
-            aria-label={t('loan_self_financed_title')}
-            aria-description={t('loan_self_financed_description')}
+            aria-label={t('dashboard_loan_self_financed_title')}
+            aria-description={t('dashboard_loan_self_financed_description')}
             className="group relative flex cursor-pointer rounded-lg border border-gray-50 bg-white p-4 shadow-sm focus:outline-none data-[focus]:border-black data-[focus]:ring-2 data-[focus]:ring-black"
           >
             <span className="flex flex-1">
               <span className="flex flex-col">
                 <span className="block text-sm font-semibold text-gray-8">
-                  {t('loan_self_financed_title')}
+                  {t('dashboard_loan_self_financed_title')}
                 </span>
                 <span className="mt-1 flex items-center text-sm text-gray-30">
-                  {t('loan_self_financed_description')}
+                  {t('dashboard_loan_self_financed_description')}
                 </span>
               </span>
             </span>
@@ -253,17 +253,17 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: Acre[] }
           <Radio
             key={2}
             value={'solarpunk_financed'}
-            aria-label={t('solarpunk_financed_title')}
-            aria-description={t('solarpunk_financed_description')}
+            aria-label={t('dashboard_solarpunk_financed_title')}
+            aria-description={t('dashboard_solarpunk_financed_description')}
             className="group relative flex cursor-pointer rounded-lg border border-gray-50 bg-white p-4 shadow-sm focus:outline-none data-[focus]:border-black data-[focus]:ring-2 data-[focus]:ring-black"
           >
             <span className="flex flex-1">
               <span className="flex flex-col">
                 <span className="block text-sm font-semibold text-gray-8">
-                  {t('solarpunk_financed_title')}
+                  {t('dashboard_solarpunk_financed_title')}
                 </span>
                 <span className="mt-1 flex items-center text-sm text-gray-30">
-                  {t('solarpunk_financed_description')}
+                  {t('dashboard_solarpunk_financed_description')}
                 </span>
               </span>
             </span>
@@ -277,22 +277,22 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: Acre[] }
             />
           </Radio>
         </RadioGroup>
-        <div className="mt-4 text-20 font-semibold">{t('summary_title')}</div>
+        <div className="mt-4 text-20 font-semibold">{t('dashboard_summary_title')}</div>
         <div>
-          <b>{t('area_label')}: </b>
+          <b>{t('dashboard_area_label')}: </b>
           {formatNumberAsAmount(totalArea.toFixed(2))} Acres
         </div>
         <div>
-          <b>{t('revenue_label')}: </b>$
+          <b>{t('dashboard_revenue_label')}: </b>$
           {formatNumberAsAmount(projections.revenue_per_year.toFixed(0))}/yr
         </div>
         <div>
-          <b>{t('energy_label')}: </b>
+          <b>{t('dashboard_energy_label')}: </b>
           {formatNumberAsAmount(projections.mw_produced.toFixed(1))} MW/yr
         </div>
         <div className="my-2 flex text-gray-40">
           <span>
-            <CircleAlert className="inline h-4 w-4" /> {t('alert_content')}
+            <CircleAlert className="inline h-4 w-4" /> {t('dashboard_alert_content')}
           </span>
         </div>
       </div>
@@ -300,7 +300,7 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: Acre[] }
         {error && <div className="text-primary-red">{error}</div>}
         <div className="flex gap-2 pb-2">
           <Button size="home-md" theme="black" href="https://cal.com/team/solarpunk/exploration">
-            {t('contact')}
+            {t('dashboard_contact')}
           </Button>
           <Button
             className="flex items-center justify-center !px-8"
@@ -314,7 +314,7 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: Acre[] }
                 <Loader2 className="h-4 w-4 animate-spin" />
               </div>
             )}
-            {loading ? '' : t('submit')}
+            {loading ? '' : t('dashboard_submit')}
           </Button>
         </div>
       </div>

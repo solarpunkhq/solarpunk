@@ -6,7 +6,7 @@ import Image from 'next/image';
 import solarPunk from '@/images/mission/solarpunk.png';
 
 function Mission() {
-  const t = useTranslations('MissionComponent');
+  const t = useTranslations('translations');
   return (
     <section className="mission relative bg-secondary-green pb-[21px] pt-[24px] px-safe home-lg:pb-[17px] home-lg:pt-[19px] home-md:pb-[12px] home-md:pt-[15px] home-sm:py-4">
       <div className="container">

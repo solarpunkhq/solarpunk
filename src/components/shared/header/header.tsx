@@ -13,7 +13,7 @@ import { ROUTE } from '@/constants/route';
 import Burger from './burger';
 
 function Header({ isLoggedIn = false }: { isLoggedIn?: boolean }) {
-  const t = useTranslations('Header');
+  const t = useTranslations('translations');
 
   const { isMobileMenuOpen, toggleMobileMenu } = useMobileMenu();
 
@@ -34,7 +34,7 @@ function Header({ isLoggedIn = false }: { isLoggedIn?: boolean }) {
                   theme="white"
                   href={ROUTE.agrivoltaics}
                 >
-                  {t('agrivoltaics')}
+                  {t('header_agrivoltaics')}
                 </Button>
               </li>
               <li>
@@ -44,7 +44,7 @@ function Header({ isLoggedIn = false }: { isLoggedIn?: boolean }) {
                   theme="white"
                   href={ROUTE.blog}
                 >
-                  {t('blog')}
+                  {t('header_blog')}
                 </Button>
               </li>
             </ul>
@@ -58,7 +58,7 @@ function Header({ isLoggedIn = false }: { isLoggedIn?: boolean }) {
                 href={ROUTE.login}
                 rel="noopener noreferrer"
               >
-                {t('login')}
+                {t('header_login')}
               </Button>
             ) : (
               <Button
@@ -68,7 +68,7 @@ function Header({ isLoggedIn = false }: { isLoggedIn?: boolean }) {
                 href={ROUTE.logout}
                 rel="noopener noreferrer"
               >
-                {t('logout')}
+                {t('header_logout')}
               </Button>
             )}
 
@@ -80,7 +80,7 @@ function Header({ isLoggedIn = false }: { isLoggedIn?: boolean }) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              {t('contact')}
+              {t('header_contact')}
             </Button>
           </div>
 

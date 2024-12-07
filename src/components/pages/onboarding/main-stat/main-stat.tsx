@@ -15,7 +15,7 @@ function MainStat({
   unit: string;
   blur?: boolean;
 }) {
-  const t = useTranslations('OnboardingPage');
+  const t = useTranslations('translations');
 
   return (
     <div className="space-y-6 text-center">

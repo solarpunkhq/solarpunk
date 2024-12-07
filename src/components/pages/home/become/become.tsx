@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import AnimatedText from './animated-text';
 
 function Become() {
-  const t = useTranslations('BecomeComponent');
+  const t = useTranslations('translations');
 
   return (
     <section className="become mt-40 px-safe home-lg:mt-[122px] home-md:mt-[93px] home-sm:mt-[74px]">

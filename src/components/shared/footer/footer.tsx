@@ -10,7 +10,7 @@ import { MENUS } from '@/constants/menus';
 import { ROUTE } from '@/constants/route';
 
 function Footer() {
-  const t = useTranslations('FooterComponent');
+  const t = useTranslations('translations');
 
   return (
     <footer className="relative bg-gray-12 py-[26px] px-safe home-sm:py-4">
@@ -33,7 +33,7 @@ function Footer() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          {t('contactUs')}
+          {t('footer_contactUs')}
         </Button>
       </nav>
     </footer>

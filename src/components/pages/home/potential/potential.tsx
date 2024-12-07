@@ -6,7 +6,7 @@ import { useTranslations } from 'next-intl';
 import Slider from './slider';
 
 function Potential() {
-  const t = useTranslations('PotentialComponent');
+  const t = useTranslations('translations');
 
   const sliderTextContent = [
     {

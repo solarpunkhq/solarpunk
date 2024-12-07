@@ -126,7 +126,7 @@ function AnimatedIconItem({ index, totalItems, sectionRef }: ItemProps) {
 
   const { circleXPosition, circleBgColor, underlayBgColor, circleBoxShadow, textXPosition } =
     UseStyleTransforms(index, totalItems, sectionRef, width);
-  const t = useTranslations('BecomeComponent');
+  const t = useTranslations('translations');
 
   return (
     <LazyMotion features={domAnimation}>

@@ -14,7 +14,7 @@ interface AnimatedTextProps {
 }
 
 function AnimatedText({ children }: AnimatedTextProps) {
-  const t = useTranslations('BecomeComponent');
+  const t = useTranslations('translations');
 
   const sectionRef = useRef(null);
 

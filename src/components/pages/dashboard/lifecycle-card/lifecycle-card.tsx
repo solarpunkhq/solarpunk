@@ -41,7 +41,7 @@ function LifecycleCard({
       return 100;
     }
   };
-  const t = useTranslations('LifecyclePage');
+  const t = useTranslations('translations');
 
   return (
     <div className="flex h-full w-full flex-col items-center justify-center p-5">
@@ -54,22 +54,22 @@ function LifecycleCard({
               alt=""
               role="presentation"
             />
-            {t('title')}
+            {t('lifecycle_title')}
           </CardTitle>
           <CardDescription className="!text-pretty text-gray-40">
-            {t('description')}
+            {t('lifecycle_description')}
           </CardDescription>
           <div className="!mt-2 flex w-full flex-col items-center justify-start">
             <div className="flex w-full items-center justify-between">
               <div className="text-14 font-semibold">
-                {getPercentage(current_step - 1)}% {t('complete')}
+                {getPercentage(current_step - 1)}% {t('lifecycle_complete')}
               </div>
               {current_step < 4 ? (
                 <div className="text-14 text-gray-40">
-                  {t('step')} {current_step + 1} of 4
+                  {t('lifecycle_step')} {current_step + 1} of 4
                 </div>
               ) : (
-                <div className="text-14 text-gray-40">{t('finished')}</div>
+                <div className="text-14 text-gray-40">{t('lifecycle_finished')}</div>
               )}
             </div>
             <Progress value={getPercentage(current_step - 1)} className="bg-white" />
@@ -78,14 +78,14 @@ function LifecycleCard({
             <Calendar />
             <div className="ml-2 text-14 font-medium">
               <span>{startDate} - </span>
-              <span>{current_step === 4 ? endDate : t('ongoing')}</span>
+              <span>{current_step === 4 ? endDate : t('lifecycle_ongoing')}</span>
             </div>
           </div>
         </CardHeader>
         <CardContent className="grid gap-4">
           {current_step === 1 ? (
             <div className="flex flex-col items-start justify-start">
-              <div className="!text-pretty text-sm text-gray-30">{t('book_call')}</div>
+              <div className="!text-pretty text-sm text-gray-30">{t('lifecycle_book_call')}</div>
               <CalEmbed id={id} email={email} name={name} />
             </div>
           ) : (
