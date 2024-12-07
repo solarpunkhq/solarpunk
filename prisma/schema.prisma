@@ -16,6 +16,7 @@ model User {
   about_farm          String?
   current_step        Int?
   finance_option      String?
+  availability_option String?
   deployment_type     String?
   acres               Acre[]
   country             String

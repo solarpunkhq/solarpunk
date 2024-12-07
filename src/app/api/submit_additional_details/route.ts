@@ -14,6 +14,7 @@ export async function POST(request: Request) {
   const phone_number = body.phone_number;
   const finance_option = body.finance_option;
   const deployment_type = body.deployment_type;
+  const availability_option = body.availability_option;
 
   const supabase = createClient();
 
@@ -43,6 +44,7 @@ export async function POST(request: Request) {
       phone_number: phone_number,
       finance_option: finance_option,
       deployment_type: deployment_type,
+      availability_option: availability_option,
       total_revenue: body.total_revenue,
       step_1_timestamp: new Date(),
     },

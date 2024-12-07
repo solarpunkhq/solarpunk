@@ -111,6 +111,10 @@ function Submission({ data }: { data: any }) {
               <b>Deployment Type: </b>
               {data.deployment_type?.replaceAll('_', ' ')}
             </p>
+            <p className="text-sm">
+              <b>Availability Option: </b>
+              {data.availability_option?.replaceAll('_', ' ')}
+            </p>
           </div>
           <div>
             <h2 className="mt-4 text-base font-semibold">Contact Information</h2>

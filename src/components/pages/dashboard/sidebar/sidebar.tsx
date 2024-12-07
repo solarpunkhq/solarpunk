@@ -22,6 +22,7 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: Acre[] }
 
   const [phoneNumber, setPhoneNumber] = useState('');
   const [financeOption, setFinanceOption] = useState('self_financed');
+  const [availabilityOption, setAvailabilityOption] = useState('available_now');
   const [deploymentType, setDeploymentType] = useState('agrivoltaics');
   const [aboutLand, setAboutLand] = useState('');
 
@@ -48,6 +49,11 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: Acre[] }
       setLoading(false);
       return;
     }
+    if (availabilityOption === '') {
+      setError(t('dashboard_error_availability_option'));
+      setLoading(false);
+      return;
+    }
     console.log(acres);
     try {
       const response = await fetch('/api/submit_additional_details', {
@@ -61,6 +67,7 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: Acre[] }
           about_farm: aboutLand,
           finance_option: financeOption,
           deployment_type: deploymentType,
+          availability_option: availabilityOption,
           acres,
           total_revenue: projections.total_revenue,
         }),
@@ -264,6 +271,117 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: Acre[] }
                 </span>
                 <span className="mt-1 flex items-center text-sm text-gray-30">
                   {t('dashboard_solarpunk_financed_description')}
+                </span>
+              </span>
+            </span>
+            <CheckCircle
+              aria-hidden="true"
+              className="h-5 w-5 text-black [.group:not([data-checked])_&]:invisible"
+            />
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute -inset-px rounded-lg border-2 border-transparent group-data-[focus]:border group-data-[checked]:border-black"
+            />
+          </Radio>
+        </RadioGroup>
+        <div className="my-4 text-20 font-semibold">{t('dashboard_availability_option')}</div>
+        <RadioGroup
+          value={availabilityOption}
+          className="mt-6 flex flex-col gap-2"
+          onChange={setAvailabilityOption}
+        >
+          <Radio
+            key={0}
+            value={'available_now'}
+            aria-label={t('dashboard_available_now_title')}
+            aria-description={t('dashboard_available_now_description')}
+            className="group relative flex cursor-pointer rounded-lg border border-gray-50 bg-white p-4 shadow-sm focus:outline-none data-[focus]:border-black data-[focus]:ring-2 data-[focus]:ring-black"
+          >
+            <span className="flex flex-1">
+              <span className="flex flex-col">
+                <span className="block text-sm font-semibold text-gray-8">
+                  {t('dashboard_available_now_title')}
+                </span>
+                <span className="mt-1 flex items-center text-sm text-gray-30">
+                  {t('dashboard_available_now_description')}
+                </span>
+              </span>
+            </span>
+            <CheckCircle
+              aria-hidden="true"
+              className="h-5 w-5 text-black [.group:not([data-checked])_&]:invisible"
+            />
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute -inset-px rounded-lg border-2 border-transparent group-data-[focus]:border group-data-[checked]:border-black"
+            />
+          </Radio>
+          <Radio
+            key={1}
+            value={'available_in_6_to_12_months'}
+            aria-label={t('dashboard_available_in_6_to_12_months_title')}
+            aria-description={t('dashboard_available_in_6_to_12_months_description')}
+            className="group relative flex cursor-pointer rounded-lg border border-gray-50 bg-white p-4 shadow-sm focus:outline-none data-[focus]:border-black data-[focus]:ring-2 data-[focus]:ring-black"
+          >
+            <span className="flex flex-1">
+              <span className="flex flex-col">
+                <span className="block text-sm font-semibold text-gray-8">
+                  {t('dashboard_available_in_6_to_12_months_title')}
+                </span>
+                <span className="mt-1 flex items-center text-sm text-gray-30">
+                  {t('dashboard_available_in_6_to_12_months_description')}
+                </span>
+              </span>
+            </span>
+            <CheckCircle
+              aria-hidden="true"
+              className="h-5 w-5 text-black [.group:not([data-checked])_&]:invisible"
+            />
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute -inset-px rounded-lg border-2 border-transparent group-data-[focus]:border group-data-[checked]:border-black"
+            />
+          </Radio>
+          <Radio
+            key={2}
+            value={'available_in_12_to_24_months'}
+            aria-label={t('dashboard_available_in_12_to_24_months_title')}
+            aria-description={t('dashboard_available_in_12_to_24_months_description')}
+            className="group relative flex cursor-pointer rounded-lg border border-gray-50 bg-white p-4 shadow-sm focus:outline-none data-[focus]:border-black data-[focus]:ring-2 data-[focus]:ring-black"
+          >
+            <span className="flex flex-1">
+              <span className="flex flex-col">
+                <span className="block text-sm font-semibold text-gray-8">
+                  {t('dashboard_available_in_12_to_24_months_title')}
+                </span>
+                <span className="mt-1 flex items-center text-sm text-gray-30">
+                  {t('dashboard_available_in_12_to_24_months_description')}
+                </span>
+              </span>
+            </span>
+            <CheckCircle
+              aria-hidden="true"
+              className="h-5 w-5 text-black [.group:not([data-checked])_&]:invisible"
+            />
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute -inset-px rounded-lg border-2 border-transparent group-data-[focus]:border group-data-[checked]:border-black"
+            />
+          </Radio>
+          <Radio
+            key={3}
+            value={'available_after_24_months'}
+            aria-label={t('dashboard_available_after_24_months_title')}
+            aria-description={t('dashboard_available_after_24_months_description')}
+            className="group relative flex cursor-pointer rounded-lg border border-gray-50 bg-white p-4 shadow-sm focus:outline-none data-[focus]:border-black data-[focus]:ring-2 data-[focus]:ring-black"
+          >
+            <span className="flex flex-1">
+              <span className="flex flex-col">
+                <span className="block text-sm font-semibold text-gray-8">
+                  {t('dashboard_available_after_24_months_title')}
+                </span>
+                <span className="mt-1 flex items-center text-sm text-gray-30">
+                  {t('dashboard_available_after_24_months_description')}
                 </span>
               </span>
             </span>
