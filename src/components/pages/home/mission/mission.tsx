@@ -23,7 +23,7 @@ function Mission() {
               priority
             />
           </span>
-          {t('future')}
+          {t('mission_future')}
         </p>
       </div>
     </section>

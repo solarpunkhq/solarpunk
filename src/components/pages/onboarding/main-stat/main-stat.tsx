@@ -22,7 +22,7 @@ function MainStat({
       <h3 className="font-title text-22 text-gray-30">{label}</h3>
       <p className="flex items-center justify-center text-30 font-bold leading-7 text-gray-20">
         <span className="flex items-center justify-center">
-          {t('currency')}
+          {t('onboarding_currency')}
           <AnimatedNumbers
             transitions={(index) => ({
               type: 'spring',

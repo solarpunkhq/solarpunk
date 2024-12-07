@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { useInView } from 'react-intersection-observer';
 
 import clsx from 'clsx';
@@ -14,6 +16,8 @@ function Marquee() {
     rootMargin: '-300px 0px',
   });
 
+  const t = useTranslations('translations');
+
   return (
     <div
       className="mt-8 rounded-xl bg-gray-20 py-[38px] home-lg:py-[35px] home-md:mt-6 home-md:py-[34px] home-sm:mt-5 home-sm:py-6"
@@ -26,7 +30,7 @@ function Marquee() {
             inView && 'animate-first-title',
           )}
         >
-          Less paperwork
+          {t('paperwork_marquee_lessPaperwork')}
         </p>
         <div className="flex gap-[18px] home-sm:hidden">
           {arrowsQty.map((_, index) => {
@@ -152,7 +156,7 @@ function Marquee() {
             inView && 'animate-second-title',
           )}
         >
-          More action
+          {t('paperwork_marquee_moreAction')}
         </p>
       </div>
     </div>

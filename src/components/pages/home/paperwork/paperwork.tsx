@@ -29,10 +29,10 @@ function Paperwork() {
     <section className="paperwork mt-36 px-safe home-lg:mt-[119px] home-md:mt-[88px] home-sm:mt-20">
       <div className="container">
         <h2 className="max-w-[1128px] font-title text-60 font-semibold leading-dense tracking-tighter text-gray-20 home-lg:text-51 home-md:inline home-md:text-45 home-sm:block home-sm:text-33">
-          {t('heading')}
+          {t('paperwork_heading')}
         </h2>
         <p className="max-w-[1148px] font-title text-60 font-semibold leading-dense tracking-tighter text-gray-60 home-lg:text-51 home-md:ml-2 home-md:inline home-md:text-45 home-sm:ml-0 home-sm:block home-sm:text-33">
-          {t('subheading')}
+          {t('paperwork_subheading')}
         </p>
         <div className="mt-12 flex items-center justify-between gap-8 home-lg:mt-[50px] home-md:mt-[37px] home-md:flex-col home-md:gap-6 home-sm:mt-[41px] home-sm:gap-5">
           <Card className="bg-[url('/images/pages/home/paperwork/bg-microclimate.jpg')] bg-cover bg-center bg-repeat">
@@ -43,27 +43,29 @@ function Paperwork() {
                   key={index}
                 >
                   <ArrowIcon className="w-3.5 fill-gray-20" />
-                  <span>{t(text)}</span>
+                  <span>{t(`paperwork_${text}`)}</span>
                 </li>
               ))}
             </ul>
             <p className="fs-24 z-10 leading-normal tracking-tight text-gray-50 home-xl:text-22 home-sm:text-18">
-              <span className="font-medium text-gray-20">{t('microclimateTitle')}</span>{' '}
-              <span>{t('microclimateDescription')}</span>
+              <span className="font-medium text-gray-20">{t('paperwork_microclimateTitle')}</span>{' '}
+              <span>{t('paperwork_microclimateDescription')}</span>
             </p>
             <Animation {...animations.microclimate} />
           </Card>
           <Card className="bg-[url('/images/pages/home/paperwork/bg-dual.jpg')] bg-cover bg-center bg-repeat">
             <p className="z-10 flex flex-col gap-1.5 home-lg:gap-1 home-sm:gap-0.5">
-              <span className="fs-20 font-semibold text-gray-50">{t('upTo')}</span>
+              <span className="fs-20 font-semibold text-gray-50">{t('paperwork_upTo')}</span>
               <span className="fs-40 font-medium leading-dense text-gray-20">
-                {t('cropAndSolar')}
+                {t('paperwork_cropAndSolar')}
               </span>
-              <span className="fs-20 font-semibold text-gray-50">{t('comparedToCropsOnly')}</span>
+              <span className="fs-20 font-semibold text-gray-50">
+                {t('paperwork_comparedToCropsOnly')}
+              </span>
             </p>
             <p className="fs-24 z-10 leading-normal tracking-tight text-gray-50 home-xl:text-22 home-sm:text-18">
-              <span className="font-medium text-gray-20">{t('dualUseTitle')}</span>{' '}
-              <span>{t('dualUseDescription')}</span>
+              <span className="font-medium text-gray-20">{t('paperwork_dualUseTitle')}</span>{' '}
+              <span>{t('paperwork_dualUseDescription')}</span>
             </p>
             <Animation {...animations.dual} />
           </Card>

@@ -116,13 +116,13 @@ function Sources() {
                   <CardContent
                     {...{
                       ...item,
-                      title: t(item.title),
-                      subtitle: t(item.subtitle),
-                      type: t(item.type),
-                      year: Number(t(item.year)),
-                      description: t(item.description),
-                      text: t(item.text),
-                      buttonText: t(item.buttonText),
+                      title: t(`sources_${item.title}`),
+                      subtitle: t(`sources_${item.subtitle}`),
+                      type: t(`sources_${item.type}`),
+                      year: Number(t(`sources_${item.year}`)),
+                      description: t(`sources_${item.description}`),
+                      text: t(`sources_${item.text}`),
+                      buttonText: t(`sources_${item.buttonText}`),
                     }}
                   />
                 </m.div>

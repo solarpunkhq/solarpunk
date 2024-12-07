@@ -34,18 +34,18 @@ function Quote() {
       <div className="container">
         <figure className="relative flex max-w-[1344px] justify-between gap-2 home-sm:flex-col home-sm:gap-5">
           <figcaption className="fs-24 mt-2 leading-none tracking-tighter text-gray-40 home-lg:mt-3 home-md:mt-0">
-            {t('author')}
+            {t('quote_author')}
           </figcaption>
           <blockquote className="fs-28 max-w-[738px] font-medium leading-snug tracking-tighter home-lg:max-w-[640px] home-md:max-w-[448px] home-sm:max-w-none">
-            {t('quote').split(t('firstHighlight'))[0]}
+            {t('quote').split(t('quote_firstHighlight'))[0]}
             <mark className="highlight" ref={firstHighlightRef}>
-              {t('firstHighlight')}
+              {t('quote_firstHighlight')}
             </mark>
-            {t('quote').split(t('firstHighlight'))[1].split(t('secondHighlight'))[0]}
+            {t('quote').split(t('quote_firstHighlight'))[1].split(t('quote_secondHighlight'))[0]}
             <mark className="highlight" ref={secondHighlightRef}>
-              {t('secondHighlight')}
+              {t('quote_secondHighlight')}
             </mark>
-            {t('quote').split(t('secondHighlight'))[1]}
+            {t('quote').split(t('quote_secondHighlight'))[1]}
           </blockquote>
         </figure>
       </div>

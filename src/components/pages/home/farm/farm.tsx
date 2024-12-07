@@ -10,15 +10,15 @@ import IconAnimation from './icon-animation';
 
 const items = [
   {
-    text: 'listItem1',
+    text: 'farm_listItem1',
     artboard: 'icon-1',
   },
   {
-    text: 'listItem2',
+    text: 'farm_listItem2',
     artboard: 'icon-2',
   },
   {
-    text: 'listItem3',
+    text: 'farm_listItem3',
     artboard: 'icon-3',
   },
 ];
@@ -49,10 +49,10 @@ function Farm() {
       <div className="container flex max-w-[1408px] justify-between home-lg:gap-x-8 home-md:max-w-lg home-md:flex-col home-md:items-center home-md:gap-y-11 home-sm:gap-y-10">
         <div className="flex max-w-xl flex-col">
           <h2 className="font-title text-60 font-bold leading-[1.1] tracking-snug text-gray-20 home-lg:text-48 home-md:text-45 home-sm:text-33">
-            {t('heading')}
+            {t('farm_heading')}
           </h2>
           <p className="mt-5 text-25 leading-snug tracking-tighter text-gray-40 home-lg:mt-[26px] home-lg:text-20 home-md:text-18 home-sm:mt-4 home-sm:text-16">
-            {t('microclimateDescription')}
+            {t('farm_microclimateDescription')}
           </p>
           <ul className="relative mt-auto home-md:mt-[41px] home-sm:mt-10">
             {items.map(({ text, artboard }, index) => (

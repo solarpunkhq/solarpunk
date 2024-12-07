@@ -137,7 +137,7 @@ function AnimatedIconItem({ index, totalItems, sectionRef }: ItemProps) {
             opacity: UseGetTextOpacity(index - 1, totalItems, sectionRef),
           }}
         >
-          {t('animated-1')}
+          {t('become_animated_1')}
         </m.span>
         <m.span className="solar-wrapper relative inline-block">
           <m.span
@@ -169,7 +169,7 @@ function AnimatedIconItem({ index, totalItems, sectionRef }: ItemProps) {
           }}
         >
           {' '}
-          {t('animated-2')}
+          {t('become_animated_2')}
         </m.span>
       </m.span>
     </LazyMotion>

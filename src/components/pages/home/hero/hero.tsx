@@ -24,11 +24,11 @@ function Hero() {
       <div className="container ">
         <div className="relative z-20 flex max-w-[726px] flex-col text-white">
           <h1 className="font-title text-96 font-semibold leading-[0.96] tracking-snug home-lg:text-81 home-md:text-60 home-sm:text-41">
-            {t('heading')} <br />
-            {t('heading_line_break')}
+            {t('hero_heading')} <br />
+            {t('hero_heading_line_break')}
           </h1>
           <p className="mt-3.5 max-w-[480px] text-24 font-normal leading-tight home-lg:max-w-[430px] home-lg:text-20 home-md:max-w-[380px] home-md:text-18 home-sm:max-w-[360px] home-sm:text-16">
-            {t('subtext')}
+            {t('hero_subtext')}
           </p>
           <SearchForm className="mt-[66px] home-md:mt-[50px]" />
         </div>

@@ -110,8 +110,8 @@ function Onboarding({ country }: OnboardingProps) {
           <div className="w-full pb-8 md:ml-4 md:h-full md:max-h-screen md:max-w-96">
             <div className="mt-8 flex h-full max-h-[90vh] flex-col justify-between rounded-xl border-2 border-gray-80 bg-gray-98 p-4 md:mt-16">
               <div>
-                <h1 className="font-title text-28 font-bold">{t('title')}</h1>
-                <div className="my-2">{t('description')}</div>
+                <h1 className="font-title text-28 font-bold">{t('onboarding_title')}</h1>
+                <div className="my-2">{t('onboarding_description')}</div>
               </div>
 
               <div className="relative mb-4 flex-col overflow-x-auto text-sm">
@@ -120,36 +120,36 @@ function Onboarding({ country }: OnboardingProps) {
                     <CardContent className="p-6">
                       <div className="space-y-6">
                         <MainStat
-                          label={t('revenue_label')}
+                          label={t('onboarding_revenue_label')}
                           value={
                             isGerman
                               ? projections.revenue_per_year * 0.93
                               : projections.revenue_per_year
                           }
-                          unit={t('revenue_unit')}
+                          unit={t('onboarding_revenue_unit')}
                         />
                         <Separator className="bg-gray-20" />
                         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                           {country === 'US' || country === 'UK' ? (
                             <StatItem
                               icon={MapPin}
-                              label={t('area_label')}
+                              label={t('onboarding_area_label')}
                               value={parseFloat(totalArea.toFixed(1))}
-                              unit={t('area_unit_acres')}
+                              unit={t('onboarding_area_unit_acres')}
                             />
                           ) : (
                             <StatItem
                               icon={MapPin}
-                              label={t('area_label')}
+                              label={t('onboarding_area_label')}
                               value={parseFloat((totalArea / 2.471).toFixed(1))}
-                              unit={t('area_unit_ha')}
+                              unit={t('onboarding_area_unit_ha')}
                             />
                           )}
                           <StatItem
                             icon={Zap}
-                            label={t('energy_label')}
+                            label={t('onboarding_energy_label')}
                             value={parseFloat(projections.mw_produced.toFixed(1))}
-                            unit={t('energy_unit')}
+                            unit={t('onboarding_energy_unit')}
                           />
                         </div>
                       </div>
@@ -158,22 +158,24 @@ function Onboarding({ country }: OnboardingProps) {
                   <div className="my-2 ml-1 flex text-13 text-gray-40">
                     <span>
                       <CircleAlert className="relative -top-px inline h-4 w-4" />{' '}
-                      {t('estimates_notice')}
+                      {t('onboarding_estimates_notice')}
                     </span>
                   </div>
                 </div>
               </div>
               <div className="mb-4">
-                <div className="ml-1 text-base font-semibold">{t('name_label')}</div>
+                <div className="ml-1 text-base font-semibold">{t('onboarding_name_label')}</div>
                 <Input
-                  placeholder={t('name_placeholder')}
+                  placeholder={t('onboarding_name_placeholder')}
                   className="!ml-1 !w-[97%] !border-2 !border-gray-70"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
-                <div className="ml-1 mt-4 text-base font-semibold">{t('email_label')}</div>
+                <div className="ml-1 mt-4 text-base font-semibold">
+                  {t('onboarding_email_label')}
+                </div>
                 <Input
-                  placeholder={t('email_placeholder')}
+                  placeholder={t('onboarding_email_placeholder')}
                   className="!ml-1 !w-[97%] !border-2 !border-gray-70"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -181,13 +183,13 @@ function Onboarding({ country }: OnboardingProps) {
               </div>
               <div className="my-2 ml-1 flex text-13 text-gray-40">
                 <span>
-                  {t('terms_agreement')}{' '}
+                  {t('onboarding_terms_agreement')}{' '}
                   <Link className="underline" href="/terms">
-                    {t('terms_link')}
+                    {t('onboarding_terms_link')}
                   </Link>
-                  . {t('privacy_policy_text')}{' '}
+                  . {t('onboarding_privacy_policy_text')}{' '}
                   <Link className="underline" href="/privacy">
-                    {t('privacy_policy_link')}
+                    {t('onboarding_privacy_policy_link')}
                   </Link>
                   .
                 </span>
@@ -202,7 +204,7 @@ function Onboarding({ country }: OnboardingProps) {
                     theme="black"
                     href="https://cal.com/team/solarpunk/exploration"
                   >
-                    {t('contact_us')}
+                    {t('onboarding_contact_us')}
                   </Button>
                   <Button
                     className="mt-4"
@@ -218,7 +220,7 @@ function Onboarding({ country }: OnboardingProps) {
                         <Loader2 className="h-4 w-4 animate-spin" />
                       </div>
                     )}
-                    {loading ? t('loading_message') : t('continue_button')}
+                    {loading ? t('onboarding_loading_message') : t('onboarding_continue_button')}
                   </Button>
                 </div>
               </div>

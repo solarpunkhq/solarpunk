@@ -70,7 +70,7 @@ function AnimatedText({ children }: AnimatedTextProps) {
       })}
       <span className="font-title text-60 font-semibold leading-[1.48] tracking-tighter opacity-45 home-lg:max-w-[960px] home-lg:text-51 home-md:max-w-[704px] home-md:text-44 home-sm:text-30">
         {' '}
-        {t('heading-cont')}
+        {t('become_heading_cont')}
       </span>
     </div>
   );

@@ -22,11 +22,11 @@ function CTA() {
         <div className="flex items-center justify-between gap-8 home-md:flex-col home-md:gap-6 home-sm:gap-6">
           <Card secondaryBg="bg-cta-card-bg home-sm:bg-cta-card-bg-sm">
             <h2 className="font-title text-44 font-semibold leading-[1.2] tracking-tight text-white home-xl:text-40 home-lg:text-37 home-md:max-w-[500px] home-md:text-29 home-sm:text-26">
-              {t('card1Title')}
+              {t('cta_card1Title')}
             </h2>
             <div className="flex items-end justify-between gap-3.5 home-xl:flex-col home-xl:items-start home-md:flex-row home-md:items-end home-sm:flex-col home-sm:items-start home-sm:gap-y-5">
               <p className="fs-20 max-w-[480px] font-medium leading-snug tracking-tighter text-white home-xl:max-w-[404px] home-md:max-w-[452px] home-sm:text-16">
-                {t('card1Description')}
+                {t('cta_card1Description')}
               </p>
               <Button
                 className="group shrink-0 gap-0.5 home-lg:gap-0 home-sm:gap-0"
@@ -35,7 +35,7 @@ function CTA() {
                 href={'/' as Route}
                 withArrow
               >
-                {t('card1ButtonText')}
+                {t('cta_card1ButtonText')}
               </Button>
               <Image
                 className="absolute inset-0 -z-10 h-full w-full translate-x-[13px] scale-[1.135] object-cover object-center home-lg:translate-x-[59px] home-lg:translate-y-[-11px] home-lg:scale-[1.44] home-md:translate-x-[-25px] home-md:translate-y-[-27px] home-md:scale-[1.213] home-sm:translate-x-[61px] home-sm:translate-y-[-55px] home-sm:scale-[1.75]"
@@ -48,11 +48,11 @@ function CTA() {
           </Card>
           <Card className="home-sm:min-h-[383px] home-sm:justify-start home-sm:gap-y-2">
             <h2 className="max-w-[430px] font-title text-60 font-semibold leading-[1.16] tracking-tight text-gray-20 home-xl:max-w-[392px] home-xl:text-52 home-md:max-w-[352px] home-md:text-45 home-sm:text-30">
-              {t('card2Title')}
+              {t('cta_card2Title')}
             </h2>
             <div className="flex items-end justify-between gap-3.5 home-xl:flex-col home-xl:items-start home-md:flex-row home-md:items-end home-sm:flex-col home-sm:items-start home-sm:gap-y-5">
               <p className="fs-20 max-w-[327px] font-medium leading-snug tracking-tighter text-gray-50 home-xl:max-w-[299px] home-md:max-w-[372px] home-md:text-20 home-sm:max-w-[245px] home-sm:text-16">
-                {t('card2Description')}
+                {t('cta_card2Description')}
               </p>
               <Button
                 className="group shrink-0 gap-0.5 home-lg:gap-0 home-sm:gap-0"
@@ -61,7 +61,7 @@ function CTA() {
                 href={ROUTE.contactUs}
                 withArrow
               >
-                {t('card2ButtonText')}
+                {t('cta_card2ButtonText')}
               </Button>
             </div>
             <Image
