@@ -4,8 +4,8 @@ import Container from '@/components/shared/container';
 
 import { getAllPosts } from '@/lib/blog-api';
 
-import { PostPreview } from '../../blog/post-preview';
 import BlogHeader from './blog-header';
+import PostItem from './post-item';
 
 export default function BlogPosts() {
   const locale = useLocale(); // Get the current locale from next-intl
@@ -14,9 +14,9 @@ export default function BlogPosts() {
   return (
     <Container>
       <BlogHeader />
-      <div className="grid-col-1 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid-col-1 mb-28 grid gap-x-4 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
         {allPosts.map((post) => (
-          <PostPreview
+          <PostItem
             key={post.slug}
             title={post.title}
             coverImage={post.coverImage}
