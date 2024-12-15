@@ -26,6 +26,9 @@ export const reminderTranslations = {
     greeting: 'Hello!',
     content:
       'This is a reminder to please submit additional details about your land. This information will help us process your application faster. You can submit the details using the link below.',
+    reminder_number_1: 'This is your first reminder, you will receive another one in 3 days',
+    reminder_number_2: 'This is your second reminder, you will receive another one in 7 days.',
+    reminder_number_3: 'This is your third reminder, you will not receive any more reminders.',
     button: 'Submit Details',
     signature: 'Best,',
   },
@@ -35,6 +38,9 @@ export const reminderTranslations = {
     greeting: 'Hallo!',
     content:
       'Dies ist eine Erinnerung, bitte zusätzliche Details zu Ihrem Grundstück einzureichen. Diese Informationen helfen uns, Ihre Bewerbung schneller zu bearbeiten. Sie können die Details über den untenstehenden Link einreichen.',
+    reminder_number_1: 'Dies ist Ihre erste Erinnerung, Sie erhalten eine weitere in 3 Tagen.',
+    reminder_number_2: 'Dies ist Ihre zweite Erinnerung, Sie erhalten eine weitere in 7 Tagen.',
+    reminder_number_3: 'Dies ist Ihre dritte Erinnerung, Sie erhalten keine weiteren Erinnerungen.',
     button: 'Details einreichen',
     signature: 'Beste,',
   },

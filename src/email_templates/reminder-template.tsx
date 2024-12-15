@@ -19,9 +19,18 @@ interface Translations {
   content: string;
   button: string;
   signature: string;
+  reminder_number_1: string;
+  reminder_number_2: string;
+  reminder_number_3: string;
 }
 
-export const ReminderTemplate = ({ translations }: { translations: Translations }) => {
+export const ReminderTemplate = ({
+  translations,
+  reminder_number,
+}: {
+  translations: Translations;
+  reminder_number?: number;
+}) => {
   return (
     <Html>
       <Head />
@@ -37,6 +46,10 @@ export const ReminderTemplate = ({ translations }: { translations: Translations 
           />
           <Text style={paragraph}>{translations['greeting']}</Text>
           <Text style={paragraph}>{translations['content']}</Text>
+          {reminder_number && (
+            //@ts-ignore
+            <Text style={paragraph}>{translations['reminder_number_' + reminder_number]}</Text>
+          )}
           <Section style={btnContainer}>
             <Button style={button} href="https://solarpunkhq.com/login">
               {translations['button']}
