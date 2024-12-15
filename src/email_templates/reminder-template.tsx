@@ -51,7 +51,7 @@ export const ReminderTemplate = ({
             <Text style={paragraph}>{translations['reminder_number_' + reminder_number]}</Text>
           )}
           <Section style={btnContainer}>
-            <Button style={button} href="https://solarpunkhq.com/login">
+            <Button style={button} href="https://solarpunkhq.com/en/login">
               {translations['button']}
             </Button>
           </Section>
