@@ -2,9 +2,9 @@ import { NextResponse } from 'next/server';
 
 import { SubmittedTemplate } from '@/email_templates/submitted-template';
 import { ThankYouTemplate } from '@/email_templates/thank-you-template';
+import { authTranslations } from '@/utils/emailTranslations';
+import { onboardingTranslations } from '@/utils/emailTranslations';
 import { getProjectionsFromAcres, getTotalAreaFromAcreData } from '@/utils/projections';
-import { authEmailTranslations } from '@/utils/translations/authEmailTranslations';
-import { onboardingTranslations } from '@/utils/translations/emailTranslations';
 import { iso1A2Code } from '@rapideditor/country-coder';
 import { createClient } from '@supabase/supabase-js';
 import fetch from 'node-fetch';
@@ -114,14 +114,14 @@ export async function POST(request: Request) {
   );
 
   //@ts-ignore
-  let authTranslations = authEmailTranslations[country];
-  if (!authTranslations) {
-    authTranslations = authEmailTranslations.default;
+  let authTranslationsForUser = authTranslations[country];
+  if (!authTranslationsForUser) {
+    authTranslationsForUser = authTranslations.default;
   }
   await supabase.auth.admin.createUser({
     email: body.email,
     email_confirm: true,
-    user_metadata: authTranslations,
+    user_metadata: authTranslationsForUser,
   });
 
   const { data: link_data, error: link_error } = await supabase.auth.admin.generateLink({

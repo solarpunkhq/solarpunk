@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server';
 
 import ReminderTemplate from '@/email_templates/reminder-template';
+import { reminderTranslations } from '@/utils/emailTranslations';
 import { createClient } from '@/utils/supabase/server';
-import { reminderTranslations } from '@/utils/translations/emailTranslations';
 import { Resend } from 'resend';
 
 import { prisma } from '@/lib/prisma';

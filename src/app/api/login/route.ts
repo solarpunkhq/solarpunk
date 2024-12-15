@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
+import { authTranslations } from '@/utils/emailTranslations';
 import { createClient } from '@/utils/supabase/server';
-import { authEmailTranslations } from '@/utils/translations/authEmailTranslations';
 
 import { prisma } from '@/lib/prisma';
 
@@ -21,9 +21,9 @@ export async function POST(request: Request) {
   }
 
   //@ts-ignore
-  let translations = authEmailTranslations[user.country];
+  let translations = authTranslations[user.country];
   if (!translations) {
-    translations = authEmailTranslations.default;
+    translations = authTranslations.default;
   }
 
   const { data, error } = await supabase.auth.signInWithOtp({

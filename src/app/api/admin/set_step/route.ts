@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server';
 
 import StepChangeTemplate from '@/email_templates/step-change-template';
+import { stepChangeTranslations } from '@/utils/emailTranslations';
 import { createClient } from '@/utils/supabase/server';
-import { stepChangeTranslations } from '@/utils/translations/emailTranslations';
 import { Resend } from 'resend';
 
 import { prisma } from '@/lib/prisma';

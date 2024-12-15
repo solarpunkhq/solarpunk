@@ -2,7 +2,7 @@ import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
 import ReminderTemplate from '@/email_templates/reminder-template';
-import { reminderTranslations } from '@/utils/translations/emailTranslations';
+import { reminderTranslations } from '@/utils/emailTranslations';
 import { Resend } from 'resend';
 
 import { prisma } from '@/lib/prisma';
