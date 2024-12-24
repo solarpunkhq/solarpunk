@@ -26,7 +26,13 @@ export default function BlogPosts() {
           />
         ))}{' '}
       </div>
-      <Button className="mb-28 " size="home-md" theme="green" href="/blog" withArrow>
+      <Button
+        className="mb-28 "
+        size="home-md"
+        theme="green"
+        href="https://solarpunkhq.com/blog"
+        withArrow
+      >
         Read more
       </Button>
     </Container>
