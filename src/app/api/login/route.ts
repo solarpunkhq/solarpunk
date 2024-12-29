@@ -21,9 +21,9 @@ export async function POST(request: Request) {
   }
 
   //@ts-ignore
-  let translations = authTranslations[user.country];
+  let translations = authTranslations[user.locale];
   if (!translations) {
-    translations = authTranslations.default;
+    translations = authTranslations.en;
   }
 
   const { data, error } = await supabase.auth.signInWithOtp({
@@ -34,7 +34,7 @@ export async function POST(request: Request) {
       data: translations,
     },
   });
-  console.log(data, error);
+  console.log(error);
 
   return NextResponse.json({ message: 'Submitted Successfully' }, { status: 200 });
 }

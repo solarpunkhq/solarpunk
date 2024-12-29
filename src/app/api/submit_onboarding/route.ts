@@ -64,7 +64,6 @@ async function sendSlackMessage(body: SlackMessageBody): Promise<void> {
 
 export async function POST(request: Request) {
   const body = await request.json();
-  console.log(body);
 
   const coords = body.acres[0].latlngs[0];
   const country = iso1A2Code([coords[0].lng, coords[0].lat]) || 'US';
@@ -72,6 +71,9 @@ export async function POST(request: Request) {
   const totalArea = getTotalAreaFromAcreData(body.acres);
   const projections = getProjectionsFromAcres(totalArea, 25, 5);
   const total_revenue = projections.revenue_per_year;
+
+  let locale = body.locale;
+  if (locale === '') {locale = 'en';}
 
   const user = await prisma.user.findUnique({
     where: {
@@ -93,13 +95,14 @@ export async function POST(request: Request) {
       current_step: 0,
       country: country,
       total_revenue: total_revenue,
+      locale: locale,
     },
   });
 
   //@ts-ignore
-  let translations = onboardingTranslations[country];
+  let translations = onboardingTranslations[locale];
   if (!translations) {
-    translations = onboardingTranslations.default;
+    translations = onboardingTranslations.en;
   }
 
   const supabase = createClient(
@@ -114,10 +117,11 @@ export async function POST(request: Request) {
   );
 
   //@ts-ignore
-  let authTranslationsForUser = authTranslations[country];
+  let authTranslationsForUser = authTranslations[locale];
   if (!authTranslationsForUser) {
-    authTranslationsForUser = authTranslations.default;
+    authTranslationsForUser = authTranslations.en;
   }
+  authTranslationsForUser.Locale = locale;
   await supabase.auth.admin.createUser({
     email: body.email,
     email_confirm: true,

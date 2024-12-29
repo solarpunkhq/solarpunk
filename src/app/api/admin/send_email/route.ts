@@ -31,7 +31,7 @@ export async function POST(request: Request) {
     },
     select: {
       email: true,
-      country: true,
+      locale: true,
     },
   });
 
@@ -42,8 +42,8 @@ export async function POST(request: Request) {
   const { data, error } = await resend.emails.send({
     from: process.env.ONBOARDING_SEND_FROM_EMAIL || '',
     to: user.email,
-    subject: getTranslations(email_template, user.country).subject,
-    react: getTemplate(email_template, user.country),
+    subject: getTranslations(email_template, user.locale).subject,
+    react: getTemplate(email_template, user.locale),
   });
 
   if (error) {
@@ -53,23 +53,23 @@ export async function POST(request: Request) {
   return NextResponse.json({ message: 'Email send successfully' }, { status: 200 });
 }
 
-const getTranslations = (email_template: any, country: string) => {
+const getTranslations = (email_template: any, locale: string) => {
   switch (email_template) {
     case 'details_reminder':
       //@ts-ignore
-      let translations = reminderTranslations[country];
+      let translations = reminderTranslations[locale];
       if (!translations) {
-        translations = reminderTranslations.default;
+        translations = reminderTranslations.en;
       }
       return translations;
   }
 };
 
-const getTemplate = (email_template: string, country: string) => {
+const getTemplate = (email_template: string, locale: string) => {
   switch (email_template) {
     case 'details_reminder':
       return ReminderTemplate({
-        translations: getTranslations(email_template, country),
+        translations: getTranslations(email_template, locale),
       });
   }
 };

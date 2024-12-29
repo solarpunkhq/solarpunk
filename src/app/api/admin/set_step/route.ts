@@ -41,7 +41,7 @@ export async function POST(request: Request) {
     },
     select: {
       email: true,
-      country: true,
+      locale: true,
     },
   });
 
@@ -50,10 +50,10 @@ export async function POST(request: Request) {
   }
 
   //@ts-ignore
-  let translations = stepChangeTranslations[user.country];
+  let translations = stepChangeTranslations[user.locale];
   if (!translations) {
     //@ts-ignore
-    translations = stepChangeTranslations.default[getStepNameFromIndex(step)];
+    translations = stepChangeTranslations.en[getStepNameFromIndex(step)];
   }
 
   const { data, error } = await resend.emails.send({

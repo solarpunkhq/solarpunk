@@ -36,7 +36,8 @@ interface OnboardingProps {
 
 function Onboarding({ country }: OnboardingProps) {
   const t = useTranslations('translations');
-  const isGerman = useLocale() === 'de';
+  const locale = useLocale();
+  const isGerman = locale === 'de';
 
   const [acres, setAcres] = useState<Acre[]>([]);
   const [totalArea, setTotalArea] = useState(getTotalAreaFromAcreData(acres));
@@ -72,7 +73,7 @@ function Onboarding({ country }: OnboardingProps) {
   }
 
   const submitForm = async () => {
-    const magic_link = await submit(email, name, acres, setLoading, setError);
+    const magic_link = await submit(email, name, acres, locale, setLoading, setError);
     if (magic_link) {
       const currentSiteURL = window.location.origin;
 

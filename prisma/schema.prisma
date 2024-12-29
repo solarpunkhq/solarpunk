@@ -28,6 +28,7 @@ model User {
   total_revenue       Float
   reminders_sent      Int? @default(0)
   last_reminder_sent  DateTime?
+  locale              String
 }
 
 model Acre {

@@ -16,7 +16,7 @@ const sendReminder = async (userId: number, reminder_number: number) => {
     },
     select: {
       email: true,
-      country: true,
+      locale: true,
     },
   });
 
@@ -25,9 +25,9 @@ const sendReminder = async (userId: number, reminder_number: number) => {
   }
 
   //@ts-ignore
-  let translations = reminderTranslations[user.country];
+  let translations = reminderTranslations[user.locale];
   if (!translations) {
-    translations = reminderTranslations.default;
+    translations = reminderTranslations.en;
   }
 
   const { data, error } = await resend.emails.send({

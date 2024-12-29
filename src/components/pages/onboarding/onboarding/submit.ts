@@ -2,6 +2,7 @@ export const submit = async (
   email: string,
   name: string,
   acres: any,
+  locale: string,
   setLoading: React.Dispatch<React.SetStateAction<boolean>>,
   setError: React.Dispatch<React.SetStateAction<string>>,
 ) => {
@@ -37,6 +38,7 @@ export const submit = async (
         email: formatted_email,
         name,
         acres,
+        locale,
       }),
     });
 

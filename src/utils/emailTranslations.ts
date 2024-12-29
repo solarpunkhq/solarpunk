@@ -1,5 +1,5 @@
 export const onboardingTranslations = {
-  default: {
+  en: {
     subject: 'Welcome to Solarpunk',
     preview: 'Thank you for submitting your acres',
     greeting: 'Hello!',
@@ -8,7 +8,7 @@ export const onboardingTranslations = {
     button: 'Login',
     signature: 'Best,',
   },
-  DE: {
+  de: {
     subject: 'Willkommen bei Solarpunk',
     preview: 'Vielen Dank für die Einreichung Ihrer Flächen',
     greeting: 'Hallo!',
@@ -20,14 +20,14 @@ export const onboardingTranslations = {
 };
 
 export const authTranslations = {
-  default: {
+  en: {
     Preview: 'Log in with this magic link.',
     Heading: 'Your account is ready',
     LinkText: 'Click here to sign in',
     Subtext: "If you didn't request this, please ignore this email.",
     Signature: 'Best,',
   },
-  DE: {
+  de: {
     Preview: 'Melden Sie sich mit diesem magischen Link an.',
     Heading: 'Dein Konto ist bereit',
     LinkText: 'Klicken Sie hier, um sich anzumelden',
@@ -37,7 +37,7 @@ export const authTranslations = {
 };
 
 export const reminderTranslations = {
-  default: {
+  en: {
     subject: 'Reminder: Please submit additional details about your land',
     preview: 'Please submit additional details about your land',
     greeting: 'Hello!',
@@ -49,7 +49,7 @@ export const reminderTranslations = {
     button: 'Submit Details',
     signature: 'Best,',
   },
-  DE: {
+  de: {
     subject: 'Erinnerung: Bitte zusätzliche Details zu Ihrem Grundstück einreichen',
     preview: 'Bitte reichen Sie zusätzliche Details zu Ihrem Grundstück ein',
     greeting: 'Hallo!',
@@ -64,7 +64,7 @@ export const reminderTranslations = {
 };
 
 export const stepChangeTranslations = {
-  default: {
+  en: {
     Planning: {
       subject: 'Your application status has changed',
       preview: 'Your application status has changed',
@@ -97,7 +97,7 @@ export const stepChangeTranslations = {
     },
   },
 
-  DE: {
+  de: {
     Planning: {
       subject: 'Ihr Antragsstatus hat sich geändert',
       preview: 'Ihr Antragsstatus hat sich geändert',
