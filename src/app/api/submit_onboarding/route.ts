@@ -19,6 +19,7 @@ interface SlackMessageBody {
   id: string;
   email: string;
   name: string;
+  phone: string;
   country: string;
   total_projected_revenue: string;
   total_area: string;
@@ -34,6 +35,7 @@ async function sendSlackMessage(body: SlackMessageBody): Promise<void> {
   const message = {
     text: `:sunny: *New Lead Received* :sunny:\n
     *Email*: ${body.email}
+    *Phone*: ${body.phone}
     *Name*: ${body.name}
     *Country*: ${body.country}
     *Total Area*: ${body.total_area} acres
@@ -73,7 +75,9 @@ export async function POST(request: Request) {
   const total_revenue = projections.revenue_per_year;
 
   let locale = body.locale;
-  if (locale === '') {locale = 'en';}
+  if (locale === '') {
+    locale = 'en';
+  }
 
   const user = await prisma.user.findUnique({
     where: {
@@ -89,6 +93,7 @@ export async function POST(request: Request) {
     data: {
       email: body.email,
       name: body.name,
+      phone_number: body.phone,
       acres: {
         create: body.acres,
       },
@@ -161,6 +166,7 @@ export async function POST(request: Request) {
   await sendSlackMessage({
     email: body.email,
     name: body.name,
+    phone: body.phone,
     country: country,
     total_projected_revenue: formatNumberAsAmount(total_revenue.toFixed(0)),
     total_area: totalArea.toFixed(2),

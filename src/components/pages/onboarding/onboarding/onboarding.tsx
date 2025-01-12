@@ -55,6 +55,7 @@ function Onboarding({ country }: OnboardingProps) {
 
   const [email, setEmail] = useState(prefilledEmail);
   const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -73,7 +74,7 @@ function Onboarding({ country }: OnboardingProps) {
   }
 
   const submitForm = async () => {
-    const magic_link = await submit(email, name, acres, locale, setLoading, setError);
+    const magic_link = await submit(email, name, phone, acres, locale, setLoading, setError);
     if (magic_link) {
       const currentSiteURL = window.location.origin;
 
@@ -181,8 +182,17 @@ function Onboarding({ country }: OnboardingProps) {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
+                <div className="ml-1 mt-4 text-base font-semibold">
+                  {t('onboarding_phone_label')}
+                </div>
+                <Input
+                  placeholder={t('onboarding_phone_placeholder')}
+                  className="!ml-1 !w-[97%] !border-2 !border-gray-70"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                />
               </div>
-              <div className="my-2 ml-1 flex text-13 text-gray-40">
+              <div className="my-2 ml-1 flex text-xs text-gray-40">
                 <span>
                   {t('onboarding_terms_agreement')}{' '}
                   <Link className="underline" href="/terms">

@@ -14,6 +14,7 @@ model User {
   email               String  @unique
   phone_number        String?
   about_farm          String?
+  about_self          String?
   current_step        Int?
   finance_option      String?
   availability_option String?

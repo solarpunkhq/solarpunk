@@ -1,6 +1,7 @@
 export const submit = async (
   email: string,
   name: string,
+  phone: string,
   acres: any,
   locale: string,
   setLoading: React.Dispatch<React.SetStateAction<boolean>>,
@@ -22,6 +23,16 @@ export const submit = async (
     setLoading(false);
     return;
   }
+  if (phone === '') {
+    setError('Phone number is required');
+    setLoading(false);
+    return;
+  }
+  if (!/\d/.test(phone)) {
+    setError('Phone number invalid');
+    setLoading(false);
+    return;
+  }
   if (acres.length === 0) {
     setError('Please select an area');
     setLoading(false);
@@ -37,6 +48,7 @@ export const submit = async (
       body: JSON.stringify({
         email: formatted_email,
         name,
+        phone,
         acres,
         locale,
       }),

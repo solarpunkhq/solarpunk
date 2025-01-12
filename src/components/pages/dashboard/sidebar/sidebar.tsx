@@ -10,21 +10,18 @@ import { Radio, RadioGroup } from '@headlessui/react';
 import { CheckCircle, CircleAlert, Loader2 } from 'lucide-react';
 
 import Button from '@/components/shared/button';
-import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 
 import { formatNumberAsAmount } from '@/lib/utils';
 
-import Schedule from '../schedule';
-
 function DashboardSidebar({ user_id, acres }: { user_id: number; acres: Acre[] }) {
   const t = useTranslations('translations');
 
-  const [phoneNumber, setPhoneNumber] = useState('');
   const [financeOption, setFinanceOption] = useState('self_financed');
   const [availabilityOption, setAvailabilityOption] = useState('available_now');
   const [deploymentType, setDeploymentType] = useState('agrivoltaics');
   const [aboutLand, setAboutLand] = useState('');
+  const [aboutSelf, setAboutSelf] = useState('');
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -34,11 +31,6 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: Acre[] }
 
   const submitForm = async () => {
     setLoading(true);
-    if (phoneNumber === '') {
-      setError(t('dashboard_error_phone_required'));
-      setLoading(false);
-      return;
-    }
     if (financeOption === '') {
       setError(t('dashboard_error_finance_option'));
       setLoading(false);
@@ -63,8 +55,8 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: Acre[] }
         },
         body: JSON.stringify({
           user_id,
-          phone_number: phoneNumber,
           about_farm: aboutLand,
+          about_self: aboutSelf,
           finance_option: financeOption,
           deployment_type: deploymentType,
           availability_option: availabilityOption,
@@ -92,21 +84,6 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: Acre[] }
       <div className="flex-1 overflow-y-auto p-4">
         <h1 className="mb-4 font-title text-28 font-bold">{t('dashboard_title')}</h1>
         <div className="mb-4">{t('dashboard_description')}</div>
-        <div className="my-4 text-20 font-semibold"> {t('dashboard_personal_details')}</div>
-        <div className="ml-1 text-15 font-semibold">{t('dashboard_phone_number')}</div>
-        <Input
-          placeholder={t('dashboard_phone_number_placeholder')}
-          className="!mb-2 !ml-1 !w-[97%] !border-2 !border-gray-70"
-          value={phoneNumber}
-          onChange={(e) => setPhoneNumber(e.target.value)}
-        />
-        <div className="ml-1 mt-2 text-15 font-semibold">{t('dashboard_land_information')}</div>
-        <Textarea
-          placeholder={t('dashboard_land_information_placeholder')}
-          className="!ml-1 !w-[97%] !border-2 !border-gray-70"
-          value={aboutLand}
-          onChange={(e) => setAboutLand(e.target.value)}
-        />
         <div className="my-4 text-20 font-semibold">{t('dashboard_deployment_type')}</div>
         <RadioGroup
           value={deploymentType}
@@ -395,6 +372,21 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: Acre[] }
             />
           </Radio>
         </RadioGroup>
+        <div className="my-4 text-20 font-semibold"> {t('dashboard_additional_details')}</div>
+        <div className="ml-1 mt-2 text-15 font-semibold">{t('dashboard_personal_information')}</div>
+        <Textarea
+          placeholder={t('dashboard_personal_information_placeholder')}
+          className="!ml-1 !w-[97%] !border-2 !border-gray-70"
+          value={aboutSelf}
+          onChange={(e) => setAboutSelf(e.target.value)}
+        />
+        <div className="ml-1 mt-2 text-15 font-semibold">{t('dashboard_land_information')}</div>
+        <Textarea
+          placeholder={t('dashboard_land_information_placeholder')}
+          className="!ml-1 !w-[97%] !border-2 !border-gray-70"
+          value={aboutLand}
+          onChange={(e) => setAboutLand(e.target.value)}
+        />
         <div className="mt-4 text-20 font-semibold">{t('dashboard_summary_title')}</div>
         <div>
           <b>{t('dashboard_area_label')}: </b>
@@ -424,7 +416,6 @@ function DashboardSidebar({ user_id, acres }: { user_id: number; acres: Acre[] }
             className="flex items-center justify-center !px-8"
             size="home-md"
             theme="green"
-            disabled={phoneNumber.length === 0}
             onClick={submitForm}
           >
             {loading && (

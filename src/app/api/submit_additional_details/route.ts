@@ -11,7 +11,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST(request: Request) {
   const body = await request.json();
   const about_farm = body.about_farm;
-  const phone_number = body.phone_number;
+  const about_self = body.about_self;
   const finance_option = body.finance_option;
   const deployment_type = body.deployment_type;
   const availability_option = body.availability_option;
@@ -41,12 +41,12 @@ export async function POST(request: Request) {
     data: {
       about_farm: about_farm,
       current_step: 1,
-      phone_number: phone_number,
       finance_option: finance_option,
       deployment_type: deployment_type,
       availability_option: availability_option,
       total_revenue: body.total_revenue,
       step_1_timestamp: new Date(),
+      about_self: about_self,
     },
     where: {
       email: email,
