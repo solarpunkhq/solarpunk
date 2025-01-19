@@ -32,7 +32,7 @@ export default function Listing({
   details: string;
 }) {
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="mx-auto py-8 md:mx-4">
       <h1 className="mb-4 font-title text-3xl">{title}</h1>
 
       <div className="text-gray-600 mb-4 text-sm">
@@ -82,7 +82,7 @@ export default function Listing({
 
           <div className="mb-6">
             <h3 className="mb-4 text-xl font-semibold">What the Solarpunk Farm offers</h3>
-            <ul className="grid grid-cols-3 gap-4">
+            <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {amenities.map((amenity, index) => (
                 <li key={index} className="flex items-center">
                   <amenity.icon className="mr-2 h-5 w-5" />
