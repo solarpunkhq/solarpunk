@@ -20,12 +20,16 @@ export default function Listing({
   images,
   amenities,
   apply,
+  type,
+  details,
 }: {
   title: string;
   description: string;
   images: { src: string; alt: string }[];
   amenities: { icon: React.ElementType; text: string }[];
   apply: string;
+  type: string;
+  details: string;
 }) {
   return (
     <div className="container mx-auto px-4 py-8">
@@ -52,8 +56,8 @@ export default function Listing({
         <div className="md:col-span-2">
           <div className="my-4 flex items-start justify-between">
             <div>
-              <h2 className="mb-2 text-2xl font-semibold">Studio Apartment</h2>
-              <p className="text-gray-600">2 residents · 1 bedrooms · 1 bed · 1 bath</p>
+              <h2 className="mb-2 text-2xl font-semibold">{type}</h2>
+              <p className="text-gray-600">{details}</p>
             </div>
             <div className="h-16 w-16 overflow-hidden rounded-full">
               <img

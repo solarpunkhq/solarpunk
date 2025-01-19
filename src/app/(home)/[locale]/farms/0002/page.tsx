@@ -17,7 +17,7 @@ export default function Farms() {
       alt: 'Solar Punk Farm Photos',
     },
     {
-      src: '/studio-1.jpg',
+      src: '/1br-1.jpg',
       alt: 'Solar Punk Farm Photos',
     },
     {
@@ -29,7 +29,7 @@ export default function Farms() {
       alt: 'Solar Punk Farm Photos',
     },
     {
-      src: '/studio-2.jpg',
+      src: '/1br-2.jpg',
       alt: 'Exterior view of the beach house',
     },
     {
@@ -41,7 +41,7 @@ export default function Farms() {
       alt: 'Solar Punk Farm Photos',
     },
     {
-      src: '/studio-3.jpg',
+      src: '/1br-3.jpg',
       alt: 'Solar Punk Farm Photos',
     },
 
@@ -50,7 +50,19 @@ export default function Farms() {
       alt: 'Solar Punk Farm Photos',
     },
     {
-      src: '/studio-4.jpg',
+      src: '/1br-4.jpg',
+      alt: 'Solar Punk Farm Photos',
+    },
+    {
+      src: '/1br-5.jpg',
+      alt: 'Solar Punk Farm Photos',
+    },
+    {
+      src: '/1br-6.jpg',
+      alt: 'Solar Punk Farm Photos',
+    },
+    {
+      src: '/1br-7.jpg',
       alt: 'Solar Punk Farm Photos',
     },
   ];
@@ -68,9 +80,9 @@ export default function Farms() {
   return (
     <Container>
       <Listing
-        title="Solarpunk Farm #0001 – Studio Apartment"
-        type="Studio Apartment"
-        details="2 residents · 1 bedrooms · 1 bed · 1 bath"
+        title="Solarpunk Farm #0002 – 1 Bedroom Apartment"
+        type="1 Bedroom Apartment"
+        details="2 residents · 1 bedroom · 1 bed · 1 bath"
         description="Move into the #0001 Solar Punk Farm Studio Apartment, a beautiful new building with
               80m² apartment, large garden, free electric car charging, co-working space, sauna,
               jacuzzi, salt-water in-door swimming pool included. 100% carbon neutral, solar-powered
