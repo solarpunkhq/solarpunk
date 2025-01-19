@@ -13,6 +13,10 @@ export default function Farms() {
   const t = useTranslations('translations');
   const images = [
     {
+      src: '/entrance.jpg',
+      alt: 'Solar Punk Farm Photos',
+    },
+    {
       src: '/studio-1.jpg',
       alt: 'Solar Punk Farm Photos',
     },

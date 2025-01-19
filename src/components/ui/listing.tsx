@@ -93,7 +93,7 @@ export default function Listing({
         </div>
 
         <div>
-          <div className="sticky top-8 -ml-2 -mt-9 mr-4 min-w-[280px] rounded-xl border bg-white p-6 shadow-lg">
+          <div className="sticky top-8 -mt-9 min-w-[280px] rounded-xl border bg-white p-6 shadow-lg md:-ml-2 md:mr-4">
             <div className="mb-4 flex items-center justify-between">
               <div>
                 <span className="text-2xl font-bold">$999</span> / month
