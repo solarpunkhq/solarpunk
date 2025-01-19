@@ -19,16 +19,19 @@ const styles = {
       'text-20 pl-5 home-md:text-18 home-sm:text-16 pr-[19px] h-[47px] home-sm:h-10 home-md:h-11',
   },
   theme: {
+    outline: 'bg-white border border-gray-200 text-gray-20',
     white: 'bg-white text-gray-20',
     black: 'bg-gray-12 text-white',
     green: 'bg-primary-green text-gray-8',
   },
   hoverDefault: {
+    outline: 'hover:bg-primary-green hover:text-gray-20',
     white: 'hover:bg-primary-green hover:text-gray-20',
     black: 'hover:bg-primary-green hover:text-gray-8',
     green: 'hover:bg-white hover:text-gray-20',
   },
   hoverForArrowBtn: {
+    outline: 'hover:bg-gray-98',
     white: 'hover:bg-gray-98',
     black: 'hover:bg-gray-20',
     green: 'hover:bg-[#e3ff58]',
