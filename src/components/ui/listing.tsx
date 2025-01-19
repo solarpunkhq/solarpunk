@@ -130,7 +130,7 @@ export default function Listing({
                 <div>Under construction</div>
               </div>
               <div className=" rounded-bl-lg border-b border-l border-r p-2">
-                <div className="text-xs font-semibold">MOVE IN-DATE</div>
+                <div className="text-xs font-semibold">READY BY</div>
                 <div>2026</div>
               </div>
               <div className="-ml-2 rounded-br-lg border-b border-r p-2">
