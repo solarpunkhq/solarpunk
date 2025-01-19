@@ -32,12 +32,7 @@ export default function ImageSlider({ images }: ImageSliderProps) {
         <Slider ref={sliderRef} {...settings}>
           {images.map((image, index) => (
             <div key={index} className="aspect-w-16 aspect-h-9 relative">
-              <Image
-                src={image.src || '/placeholder.svg'}
-                alt={image.alt}
-                layout="fill"
-                objectFit="cover"
-              />
+              <Image src="/studio-1.jpg" layout="fill" alt={image.alt} />
             </div>
           ))}
         </Slider>

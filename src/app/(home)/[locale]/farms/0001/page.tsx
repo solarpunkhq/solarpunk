@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 
 import React from 'react';
 
-import { CarIcon, LaptopIcon, PlugZap, UtensilsIcon, WifiIcon } from 'lucide-react';
+import { Bath, CarIcon, Heater, LaptopIcon, PlugZap, UtensilsIcon, WifiIcon } from 'lucide-react';
 
 import Container from '@/components/shared/container';
 import Listing from '@/components/ui/listing';
@@ -13,7 +13,7 @@ export default function Farms() {
   const t = useTranslations('translations');
   const images = [
     {
-      src: '',
+      src: '/studio-1.png',
       alt: 'Cozy living room with ocean view',
     },
     {
@@ -33,7 +33,9 @@ export default function Farms() {
   const amenities = [
     { icon: WifiIcon, text: 'High-speed fiber WiFi' },
     { icon: LaptopIcon, text: 'Coworking included' },
-    { icon: PlugZap, text: 'Free Electric car charging' },
+    { icon: Bath, text: 'Hot Tub included' },
+    { icon: Heater, text: 'Sauna included' },
+    { icon: PlugZap, text: 'Free electric car charging' },
     { icon: CarIcon, text: 'Free parking on premises' },
     { icon: UtensilsIcon, text: 'Fully equipped kitchen' },
   ];
