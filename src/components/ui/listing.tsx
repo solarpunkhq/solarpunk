@@ -11,6 +11,8 @@ import {
   WifiIcon,
 } from 'lucide-react';
 
+import useWindowSize from '@/hooks/use-window-size';
+
 import Button from '../shared/button';
 import ImageSlider from './image-slider';
 
@@ -21,6 +23,7 @@ export default function Listing({
   amenities,
   apply,
   type,
+  rent,
   details,
 }: {
   title: string;
@@ -29,26 +32,43 @@ export default function Listing({
   amenities: { icon: React.ElementType; text: string }[];
   apply: string;
   type: string;
+  rent: string;
   details: string;
 }) {
   return (
     <div className="mx-auto py-8 md:mx-4">
       <h1 className="mb-4 font-title text-3xl">{title}</h1>
 
-      <div className="text-gray-600 mb-4 text-sm">
-        <LeafIcon className="mr-1 inline h-4 w-4" />
-        <span className="mr-4">Eco-friendly</span>
-        <SunIcon className="mr-1 inline h-4 w-4" />
-        <span className="mr-4">Solar-powered</span>
-        <DumbbellIcon className="mr-1 inline h-4 w-4" />
-        <span className="mr-4">Home-gym</span>
-        <LaptopIcon className="mr-1 inline h-4 w-4" />
-        <span className="mr-4">Co-working space</span>
-        <MapPinIcon className="mr-1 inline h-4 w-4" />
-        <span>Schleswig Holstein, Germany</span>
+      <div className="text-gray-600 mb-2 text-sm">
+        <div className="mb-2 inline-block">
+          <LeafIcon className="mr-1 inline h-4 w-4" />
+          <span className="mr-4">Eco-friendly</span>
+        </div>
+        <div className="mb-2 inline-block">
+          <SunIcon className="mr-1 inline h-4 w-4" />
+          <span className="mr-4">Solar-powered</span>
+        </div>
+        <div className="mb-2 inline-block">
+          <DumbbellIcon className="mr-1 inline h-4 w-4" />
+          <span className="mr-4">Home-gym</span>
+        </div>
+        <div className="mb-2 inline-block">
+          <LaptopIcon className="mr-1 inline h-4 w-4" />
+          <span className="mr-4">Co-working space</span>
+        </div>
+        <div className="mb-2 inline-block">
+          <MapPinIcon className="mr-1 inline h-4 w-4" />
+          <span>Schleswig Holstein, Germany</span>
+        </div>
       </div>
 
-      <ImageSlider images={images} />
+      <div className="hidden md:block">
+        <ImageSlider slides={2} images={images} />
+      </div>
+
+      <div className="block md:hidden">
+        <ImageSlider slides={1} images={images} />
+      </div>
 
       <div className="relative -mt-2 mb-2 h-3 rounded-b-lg bg-secondary-green " />
 
@@ -100,7 +120,7 @@ export default function Listing({
           <div className="sticky top-8 -mt-9 min-w-[280px] rounded-xl border bg-white p-6 shadow-lg md:-ml-2 md:mr-4">
             <div className="mb-4 flex items-center justify-between">
               <div>
-                <span className="text-2xl font-bold">$999</span> / month
+                <span className="text-2xl font-bold">{rent}</span> / month
               </div>
             </div>
 

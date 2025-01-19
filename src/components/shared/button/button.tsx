@@ -28,7 +28,7 @@ const styles = {
     outline: 'hover:bg-primary-green hover:text-gray-20',
     white: 'hover:bg-primary-green hover:text-gray-20',
     black: 'hover:bg-primary-green hover:text-gray-8',
-    green: 'hover:bg-white hover:text-gray-20',
+    green: 'hover:opacity-90 hover:text-gray-20',
   },
   hoverForArrowBtn: {
     outline: 'hover:bg-gray-98',

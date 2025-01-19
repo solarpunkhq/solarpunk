@@ -11,9 +11,10 @@ import 'slick-carousel/slick/slick.css';
 
 interface ImageSliderProps {
   images: { src: string; alt: string }[];
+  slides: 1 | 2;
 }
 
-export default function ImageSlider({ images }: ImageSliderProps) {
+export default function ImageSlider({ images, slides }: ImageSliderProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef<Slider>(null);
 
@@ -21,7 +22,7 @@ export default function ImageSlider({ images }: ImageSliderProps) {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 2,
+    slidesToShow: slides,
     slidesToScroll: 1,
     beforeChange: (current: number, next: number) => setCurrentSlide(next),
   };

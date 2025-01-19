@@ -82,14 +82,15 @@ export default function Farms() {
       <Listing
         title="Solarpunk Farm #0002 – 1 Bedroom Apartment"
         type="1 Bedroom Apartment"
+        rent="$1699"
         details="2 residents · 1 bedroom · 1 bed · 1 bath"
-        description="Move into the #0001 Solar Punk Farm Studio Apartment, a beautiful new building with
-              80m² apartment, large garden, free electric car charging, co-working space, sauna,
+        description="Move into the #0002 Solar Punk Farm 1 Bedroom Apartment, a beautiful new building with
+              120m² apartment, large garden, free electric car charging, co-working space, sauna,
               jacuzzi, salt-water in-door swimming pool included. 100% carbon neutral, solar-powered
               and ecofriendly."
         images={images}
         amenities={amenities}
-        apply="https://cal.com/team/solarpunk/0001-studio"
+        apply="https://cal.com/team/solarpunk/0002-studio"
       />
     </Container>
   );

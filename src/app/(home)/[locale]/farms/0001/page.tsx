@@ -69,6 +69,7 @@ export default function Farms() {
     <Container>
       <Listing
         title="Solarpunk Farm #0001 – Studio Apartment"
+        rent="$999"
         type="Studio Apartment"
         details="2 residents · 1 bedrooms · 1 bed · 1 bath"
         description="Move into the #0001 Solar Punk Farm Studio Apartment, a beautiful new building with

@@ -1,6 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import { usePathname } from 'next/navigation';
 
 import Button from '@/components/shared/button';
 import Logo from '@/components/shared/logo';
@@ -16,6 +17,7 @@ function Header({ isLoggedIn = false }: { isLoggedIn?: boolean }) {
   const t = useTranslations('translations');
 
   const { isMobileMenuOpen, toggleMobileMenu } = useMobileMenu();
+  const pathname = usePathname();
 
   return (
     <>
@@ -31,7 +33,7 @@ function Header({ isLoggedIn = false }: { isLoggedIn?: boolean }) {
                 <Button
                   className="p-2 font-semibold tracking-wide"
                   size="home-xs"
-                  theme="white"
+                  theme={pathname.includes('/blog/agrivoltaics') ? 'green' : 'white'}
                   href={ROUTE.agrivoltaics}
                 >
                   {t('header_agrivoltaics')}
@@ -41,7 +43,17 @@ function Header({ isLoggedIn = false }: { isLoggedIn?: boolean }) {
                 <Button
                   className="p-2 font-semibold tracking-wide"
                   size="home-xs"
-                  theme="white"
+                  theme={pathname.includes('/farms') ? 'green' : 'white'}
+                  href={'/farms'}
+                >
+                  Rent an apartment
+                </Button>
+              </li>
+              <li>
+                <Button
+                  className="p-2 font-semibold tracking-wide"
+                  size="home-xs"
+                  theme={pathname.endsWith('/blog') ? 'green' : 'white'}
                   href={ROUTE.blog}
                 >
                   {t('header_blog')}
