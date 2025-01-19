@@ -4,7 +4,22 @@ import { useTranslations } from 'next-intl';
 
 import React from 'react';
 
-import { Bath, CarIcon, Heater, LaptopIcon, PlugZap, UtensilsIcon, WifiIcon } from 'lucide-react';
+import {
+  Bath,
+  Beef,
+  Bitcoin,
+  CarIcon,
+  Carrot,
+  CigaretteOff,
+  Dog,
+  Heater,
+  LaptopIcon,
+  PlugZap,
+  Sprout,
+  ThermometerSun,
+  UtensilsIcon,
+  WifiIcon,
+} from 'lucide-react';
 
 import Container from '@/components/shared/container';
 import Listing from '@/components/ui/listing';
@@ -68,13 +83,18 @@ export default function Farms() {
   ];
 
   const amenities = [
-    { icon: WifiIcon, text: 'High-speed fiber WiFi' },
-    { icon: LaptopIcon, text: 'Coworking included' },
-    { icon: Bath, text: 'Hot Tub included' },
-    { icon: Heater, text: 'Sauna included' },
-    { icon: PlugZap, text: 'Free electric car charging' },
-    { icon: CarIcon, text: 'Free parking on premises' },
-    { icon: UtensilsIcon, text: 'Fully equipped kitchen' },
+    { icon: WifiIcon, text: 'high-speed fiber WiFi' },
+    { icon: LaptopIcon, text: 'coworking space included' },
+    { icon: Carrot, text: 'homegrown vegetables' },
+    { icon: Beef, text: 'local-grown beef' },
+    { icon: Sprout, text: 'heated greenhouse' },
+    { icon: ThermometerSun, text: 'cedar hot tub included' },
+    { icon: Heater, text: 'sauna included' },
+    { icon: Bitcoin, text: 'bitcoin-mined heating system' },
+    { icon: PlugZap, text: 'electric car charging included' },
+    { icon: CarIcon, text: 'parking on premises included' },
+    { icon: UtensilsIcon, text: 'fully equipped kitchen' },
+    { icon: CigaretteOff, text: 'no smoking' },
   ];
 
   return (

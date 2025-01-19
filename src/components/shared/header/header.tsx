@@ -39,16 +39,18 @@ function Header({ isLoggedIn = false }: { isLoggedIn?: boolean }) {
                   {t('header_agrivoltaics')}
                 </Button>
               </li>
-              <li>
-                <Button
-                  className="p-2 font-semibold tracking-wide"
-                  size="home-xs"
-                  theme={pathname.includes('/farms') ? 'green' : 'white'}
-                  href={'/farms'}
-                >
-                  Rent an apartment
-                </Button>
-              </li>
+              {pathname.includes('/farms') && (
+                <li>
+                  <Button
+                    className="p-2 font-semibold tracking-wide"
+                    size="home-xs"
+                    theme={pathname.includes('/farms') ? 'green' : 'white'}
+                    href={'/farms'}
+                  >
+                    Rent an apartment
+                  </Button>
+                </li>
+              )}
               <li>
                 <Button
                   className="p-2 font-semibold tracking-wide"

@@ -110,8 +110,22 @@ export default function Listing({
                 </li>
               ))}
             </ul>
-            <Button theme="outline" size="home-sm" className="mt-4 p-0">
-              Show all amenities
+          </div>
+
+          <hr className="my-6 border-gray-90" />
+
+          <div className="mb-6">
+            <h3 className="mb-4 text-xl font-semibold">About the landlord</h3>
+            <p className="text-gray-600">
+              Peer Richelsen is the cofounder of Cal.com, angel investor and open source evangelist.
+            </p>
+            <Button
+              theme="outline"
+              size="home-sm"
+              href="https://x.com/peer_rich"
+              className="mt-4 p-0"
+            >
+              X.com
             </Button>
           </div>
         </div>
