@@ -19,11 +19,13 @@ export default function Listing({
   description,
   images,
   amenities,
+  apply,
 }: {
   title: string;
   description: string;
   images: { src: string; alt: string }[];
   amenities: { icon: React.ElementType; text: string }[];
+  apply: string;
 }) {
   return (
     <div className="container mx-auto px-4 py-8">
@@ -114,7 +116,7 @@ export default function Listing({
             </div>
 
             <Button
-              href="https://cal.com/team/solarpunk"
+              href={apply}
               target="_blank"
               size="home-md"
               theme="green"

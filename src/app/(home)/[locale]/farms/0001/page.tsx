@@ -13,20 +13,41 @@ export default function Farms() {
   const t = useTranslations('translations');
   const images = [
     {
-      src: '/studio-1.png',
-      alt: 'Cozy living room with ocean view',
+      src: '/studio-1.jpg',
+      alt: 'Solar Punk Farm Photos',
     },
     {
-      src: '',
+      src: '/outdoor-1.jpg',
+      alt: 'Solar Punk Farm Photos',
+    },
+    {
+      src: '/outdoor-2.jpg',
+      alt: 'Solar Punk Farm Photos',
+    },
+    {
+      src: '/studio-2.jpg',
       alt: 'Exterior view of the beach house',
     },
     {
-      src: '',
-      alt: 'Modern kitchen in the cottage',
+      src: '/outdoor-3.jpg',
+      alt: 'Solar Punk Farm Photos',
     },
     {
-      src: '',
-      alt: 'Bedroom with large windows facing the ocean',
+      src: '/outdoor-4.jpg',
+      alt: 'Solar Punk Farm Photos',
+    },
+    {
+      src: '/studio-3.jpg',
+      alt: 'Solar Punk Farm Photos',
+    },
+
+    {
+      src: '/outdoor-5.jpg',
+      alt: 'Solar Punk Farm Photos',
+    },
+    {
+      src: '/studio-4.jpg',
+      alt: 'Solar Punk Farm Photos',
     },
   ];
 
@@ -50,6 +71,7 @@ export default function Farms() {
               and ecofriendly."
         images={images}
         amenities={amenities}
+        apply="https://cal.com/team/solarpunk/0001-studio"
       />
     </Container>
   );

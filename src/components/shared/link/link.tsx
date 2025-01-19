@@ -19,7 +19,7 @@ const styles = {
 
 type LinkProps<T extends string = string> = {
   className?: string;
-  href: Route<T> | URL;
+  href: Route<T> | URL | string;
   size?: keyof typeof styles.size;
   theme?: keyof typeof styles.theme;
   children: React.ReactNode;

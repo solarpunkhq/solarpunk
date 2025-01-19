@@ -31,8 +31,14 @@ export default function ImageSlider({ images }: ImageSliderProps) {
       <div className="relative overflow-hidden rounded-lg">
         <Slider ref={sliderRef} {...settings}>
           {images.map((image, index) => (
-            <div key={index} className="aspect-w-16 aspect-h-9 relative">
-              <Image src="/studio-1.jpg" layout="fill" alt={image.alt} />
+            <div key={index} className="aspect-w-4 aspect-h-3 relative min-h-[300px] px-1">
+              <Image
+                src={image.src || '/placeholder.svg'}
+                alt={image.alt}
+                sizes="(max-width: 640px) 100vw, 50vw"
+                className="object-cover"
+                fill
+              />
             </div>
           ))}
         </Slider>
