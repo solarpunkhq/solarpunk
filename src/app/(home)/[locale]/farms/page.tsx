@@ -43,7 +43,7 @@ export default function FarmsPage() {
 
           <hr className="my-4 border-gray-90" />
 
-          <Link href="/en/farms/0001">
+          <Link href="/en/farms/0002">
             <Image
               className="mb-4 rounded-xl"
               src="/1br-1.jpg"
