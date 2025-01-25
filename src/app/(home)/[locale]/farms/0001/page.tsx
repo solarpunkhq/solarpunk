@@ -4,22 +4,6 @@ import { useTranslations } from 'next-intl';
 
 import React from 'react';
 
-import {
-  Bath,
-  Beef,
-  Bitcoin,
-  CarIcon,
-  Carrot,
-  CigaretteOff,
-  Heater,
-  LaptopIcon,
-  PlugZap,
-  Sprout,
-  ThermometerSun,
-  UtensilsIcon,
-  WifiIcon,
-} from 'lucide-react';
-
 import Container from '@/components/shared/container';
 import Listing from '@/components/ui/listing';
 
@@ -69,34 +53,54 @@ export default function Farms() {
     },
   ];
 
-  const amenities = [
-    { icon: WifiIcon, text: 'high-speed fiber WiFi' },
-    { icon: LaptopIcon, text: 'coworking space included' },
-    { icon: Carrot, text: 'homegrown vegetables' },
-    { icon: Beef, text: 'local-grown beef' },
-    { icon: Sprout, text: 'heated greenhouse' },
-    { icon: ThermometerSun, text: 'cedar hot tub included' },
-    { icon: Heater, text: 'sauna included' },
-    { icon: Bitcoin, text: 'bitcoin-mined heating system' },
-    { icon: PlugZap, text: 'electric car charging included' },
-    { icon: CarIcon, text: 'parking on premises included' },
-    { icon: UtensilsIcon, text: 'fully equipped kitchen' },
-    { icon: CigaretteOff, text: 'no smoking' },
-  ];
-
   return (
     <Container>
       <Listing
         title="Solarpunk Farm #0001 – Studio Apartment"
         rent="$999"
+        squareMeters="70m²"
         type="Studio Apartment"
         details="2 residents · 1 bedrooms · 1 bed · 1 bath"
-        description="Move into the #0001 Solar Punk Farm Studio Apartment, a beautiful new building with
-              80m² apartment, large garden, free electric car charging, co-working space, sauna,
-              jacuzzi, salt-water in-door swimming pool included. 100% carbon neutral, solar-powered
-              and ecofriendly."
+        description={
+          <>
+            <p>
+              Discover a harmonious blend of modern comfort and eco-conscious living in this
+              charming studio apartment, located on a serene remote farm. Surrounded by the peaceful
+              rhythms of nature, this is the perfect escape from the chaos of urban life. Here,
+              silence reigns, and the absence of light pollution unveils a breathtaking canopy of
+              stars, offering a retreat that soothes the soul.
+            </p>
+            <p>
+              This apartment is part of a 100% carbon-neutral property powered entirely by solar
+              energy, allowing you to live sustainably without compromising on convenience.
+            </p>
+            <p>
+              Electric vehicle owners will also enjoy free on-site charging stations, further
+              supporting an eco-friendly lifestyle. Despite its rural charm, the farm is
+              well-connected: a quick 15-minute drive takes you to the nearest city, and a fully
+              stocked supermarket is just four minutes away.
+            </p>
+          </>
+        }
+        moreDescription={
+          <>
+            <p>
+              Inside, high-speed internet keeps you connected, making this an ideal home for remote
+              work or streaming your favorite shows. You’ll also have access to a thoughtfully
+              designed coworking space, perfect for staying productive while embracing a slower pace
+              of life. For fitness and wellness, enjoy the on-site home gym, a heated indoor
+              swimming pool, a sauna, and a relaxing jacuzzi to unwind after a long day.
+            </p>
+            <p>
+              Life on the farm means fresh, locally grown produce at your fingertips, bringing the
+              farm-to-table lifestyle to your kitchen. This is more than just a home—it’s a
+              sanctuary where sustainability, luxury, and nature coexist in perfect balance. Whether
+              you’re seeking a quiet retreat or an inspiring work-from-home environment, this
+              apartment offers the best of both worlds.
+            </p>
+          </>
+        }
         images={images}
-        amenities={amenities}
         apply="https://cal.com/team/solarpunk/0001-studio"
       />
     </Container>

@@ -1,17 +1,30 @@
+import { useState } from 'react';
+
 import {
+  Beef,
+  Bitcoin,
+  Building2,
+  BusFront,
   CarIcon,
+  Carrot,
+  CigaretteOff,
   DumbbellIcon,
+  Heater,
   LaptopIcon,
   LeafIcon,
   MapPinIcon,
+  Plane,
   PlugZap,
+  Proportions,
+  ShoppingBasket,
+  Sprout,
   StarIcon,
   SunIcon,
+  ThermometerSun,
+  TreePalm,
   UtensilsIcon,
   WifiIcon,
 } from 'lucide-react';
-
-import useWindowSize from '@/hooks/use-window-size';
 
 import Button from '../shared/button';
 import ImageSlider from './image-slider';
@@ -19,22 +32,46 @@ import ImageSlider from './image-slider';
 export default function Listing({
   title,
   description,
+  moreDescription,
   images,
-  amenities,
   apply,
   type,
   rent,
   details,
+  squareMeters,
 }: {
   title: string;
-  description: string;
+  description: React.ReactNode;
+  moreDescription?: React.ReactNode;
   images: { src: string; alt: string }[];
-  amenities: { icon: React.ElementType; text: string }[];
   apply: string;
   type: string;
+  squareMeters?: string;
   rent: string;
   details: string;
 }) {
+  const amenities = [
+    { icon: WifiIcon, text: 'high-speed fiber WiFi' },
+    { icon: LaptopIcon, text: 'coworking space included' },
+    { icon: Carrot, text: 'homegrown vegetables' },
+    { icon: Beef, text: 'local-grown beef' },
+    { icon: Sprout, text: 'heated greenhouse' },
+    { icon: ThermometerSun, text: 'cedar hot tub included' },
+    { icon: Heater, text: 'sauna included' },
+    { icon: Bitcoin, text: 'bitcoin-mining heating system' },
+    { icon: PlugZap, text: 'electric car charging included' },
+    { icon: CarIcon, text: 'parking on premises included' },
+    { icon: UtensilsIcon, text: 'fully equipped kitchen' },
+    { icon: CigaretteOff, text: 'no smoking' },
+    { icon: ShoppingBasket, text: '4min to closest supermarket' },
+    { icon: Building2, text: '15min to closest city' },
+    { icon: TreePalm, text: '20min to closest beach' },
+    { icon: Plane, text: '90min to international airport' },
+    { icon: BusFront, text: 'airport shuttle available' },
+  ];
+
+  const [showMore, setShowMore] = useState(false);
+
   return (
     <div className="mx-auto py-8 md:mx-4">
       <h1 className="mb-4 font-title text-3xl">{title}</h1>
@@ -91,11 +128,22 @@ export default function Listing({
           <hr className="my-6 border-gray-90" />
 
           <div className="mb-6">
-            <h3 className="mb-4 text-xl font-semibold">About this space</h3>
-            <p className="text-gray-600">{description}</p>
-            <Button theme="outline" size="home-sm" className="mt-4 p-0">
-              Read more
-            </Button>
+            <h3 className="mb-4 text-xl font-semibold">About this Solarpunk Farm</h3>
+            <div className="prose">
+              <p className="text-gray-600">{description}</p>
+              {showMore && <p className="text-gray-600">{moreDescription}</p>}
+              {!showMore && <p>...</p>}
+            </div>
+            {!showMore && (
+              <Button
+                theme="outline"
+                size="home-sm"
+                className="mt-4 p-0"
+                onClick={() => setShowMore(!showMore)}
+              >
+                Read more
+              </Button>
+            )}
           </div>
 
           <hr className="my-6 border-gray-90" />
@@ -135,6 +183,10 @@ export default function Listing({
             <div className="mb-4 flex items-center justify-between">
               <div>
                 <span className="text-2xl font-bold">{rent}</span> / month
+              </div>
+              <div className="flex items-center">
+                <Proportions className="mr-1 h-4 w-4" />
+                <span className="font-semibold">{squareMeters}</span>
               </div>
             </div>
 
