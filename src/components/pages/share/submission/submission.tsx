@@ -117,7 +117,7 @@ function SubmissionComponent({ submission_id, locale }: { submission_id: string;
               <span className="blur-sm">Varun</span>
               {t('share_subtitle_1')}{' '}
               <b>
-                {totalAreaStr} {t('area_unit')}
+                {totalAreaStr} {t('share_area_unit')}
               </b>{' '}
               {t('share_subtitle_2')}
             </p>
