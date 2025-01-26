@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Slider from 'react-slick';
 
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -27,6 +27,32 @@ export default function ImageSlider({ images, slides }: ImageSliderProps) {
     beforeChange: (current: number, next: number) => setCurrentSlide(next),
   };
 
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImage, setCurrentImage] = useState<ImageSliderProps | null>(null);
+
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setLightboxOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleEscape);
+
+    return () => {
+      window.removeEventListener('keydown', handleEscape);
+    };
+  }, []);
+
+  const openLightbox = (image: ImageSliderProps) => {
+    setCurrentImage(image);
+    setLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+  };
+
   return (
     <>
       <div className="relative overflow-hidden rounded-lg">
@@ -39,10 +65,35 @@ export default function ImageSlider({ images, slides }: ImageSliderProps) {
                 sizes="(max-width: 640px) 100vw, 50vw"
                 className="object-cover"
                 fill
+                onClick={() =>
+                  openLightbox({
+                    images: [image],
+                    slides: 1,
+                    ...image,
+                  })
+                }
               />
             </div>
           ))}
         </Slider>
+
+        {lightboxOpen && currentImage && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80"
+            onClick={closeLightbox}
+          >
+            <div className="max-h-[90%] max-w-[90%]" onClick={(e) => e.stopPropagation()}>
+              <Image
+                src={currentImage.images[0].src || '/placeholder.svg'}
+                sizes="(max-width: 640px) 100vw, 50vw"
+                className="h-full w-full object-contain"
+                alt={currentImage.images[0].alt}
+                fill
+                onClick={closeLightbox}
+              />
+            </div>
+          </div>
+        )}
 
         <div className="absolute bottom-4 left-4 rounded-full bg-white px-2 py-1 text-sm">
           {currentSlide + 1} / {images.length}
