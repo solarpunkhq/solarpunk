@@ -29,28 +29,46 @@ export default function ImageSlider({ images, slides }: ImageSliderProps) {
 
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState<ImageSliderProps | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
 
   useEffect(() => {
-    const handleEscape = (event: KeyboardEvent) => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (!lightboxOpen) {
+        return;
+      }
+
       if (event.key === 'Escape') {
         setLightboxOpen(false);
+      } else if (event.key === 'ArrowLeft') {
+        setLightboxIndex((prev) => (prev > 0 ? prev - 1 : images.length - 1));
+      } else if (event.key === 'ArrowRight') {
+        setLightboxIndex((prev) => (prev < images.length - 1 ? prev + 1 : 0));
       }
     };
 
-    window.addEventListener('keydown', handleEscape);
+    window.addEventListener('keydown', handleKeyDown);
 
     return () => {
-      window.removeEventListener('keydown', handleEscape);
+      window.removeEventListener('keydown', handleKeyDown);
     };
-  }, []);
+  }, [lightboxOpen, images.length]);
 
-  const openLightbox = (image: ImageSliderProps) => {
+  const openLightbox = (image: ImageSliderProps, index: number) => {
     setCurrentImage(image);
+    setLightboxIndex(index);
     setLightboxOpen(true);
   };
 
   const closeLightbox = () => {
     setLightboxOpen(false);
+  };
+
+  const prevLightboxImage = () => {
+    setLightboxIndex((prev) => (prev > 0 ? prev - 1 : images.length - 1));
+  };
+
+  const nextLightboxImage = () => {
+    setLightboxIndex((prev) => (prev < images.length - 1 ? prev + 1 : 0));
   };
 
   return (
@@ -66,11 +84,14 @@ export default function ImageSlider({ images, slides }: ImageSliderProps) {
                 className="object-cover"
                 fill
                 onClick={() =>
-                  openLightbox({
-                    images: [image],
-                    slides: 1,
-                    ...image,
-                  })
+                  openLightbox(
+                    {
+                      images: [image],
+                      slides: 1,
+                      ...image,
+                    },
+                    index,
+                  )
                 }
               />
             </div>
@@ -82,15 +103,45 @@ export default function ImageSlider({ images, slides }: ImageSliderProps) {
             className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80"
             onClick={closeLightbox}
           >
-            <div className="max-h-[90%] max-w-[90%]" onClick={(e) => e.stopPropagation()}>
-              <Image
-                src={currentImage.images[0].src || '/placeholder.svg'}
-                sizes="(max-width: 640px) 100vw, 50vw"
-                className="h-full w-full object-contain"
-                alt={currentImage.images[0].alt}
-                fill
-                onClick={closeLightbox}
-              />
+            <div className="relative flex h-[90vh] w-[90vw] flex-col gap-2" onClick={closeLightbox}>
+              <div className="relative flex-1">
+                <Image
+                  src={images[lightboxIndex].src || '/placeholder.svg'}
+                  sizes="90vw"
+                  className="object-contain object-bottom"
+                  alt={images[lightboxIndex].alt}
+                  fill
+                  onClick={closeLightbox}
+                />
+              </div>
+              <div className="relative flex-1">
+                <Image
+                  src={images[(lightboxIndex + 1) % images.length].src || '/placeholder.svg'}
+                  sizes="90vw"
+                  className="object-contain object-top"
+                  alt={images[(lightboxIndex + 1) % images.length].alt}
+                  fill
+                  onClick={closeLightbox}
+                />
+              </div>
+              <button
+                className="absolute left-4 top-1/2 -translate-y-1/2 transform rounded-full bg-white p-2 shadow-md"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  prevLightboxImage();
+                }}
+              >
+                <ChevronLeft className="h-6 w-6" />
+              </button>
+              <button
+                className="absolute right-4 top-1/2 -translate-y-1/2 transform rounded-full bg-white p-2 shadow-md"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  nextLightboxImage();
+                }}
+              >
+                <ChevronRight className="h-6 w-6" />
+              </button>
             </div>
           </div>
         )}
