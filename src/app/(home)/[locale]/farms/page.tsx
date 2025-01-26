@@ -22,9 +22,7 @@ export default function FarmsPage() {
               height={555}
             />
             <div>
-              <h2 className="mb-2 text-2xl font-semibold">
-                Solarpunk Farm #0001 – Studio Apartment
-              </h2>
+              <h2 className="mb-2 text-2xl font-semibold">Solarpunk Farm #0001 – 70m² Apartment</h2>
 
               <div className="text-gray-600 mb-4 text-sm">
                 <LeafIcon className="mr-1 inline h-4 w-4" />
@@ -54,7 +52,7 @@ export default function FarmsPage() {
 
             <div>
               <h2 className="mb-2 text-2xl font-semibold">
-                Solarpunk Farm #0002 – 1 Bedroom Apartment
+                Solarpunk Farm #0002 – 140m² Apartment
               </h2>
               <div className="text-gray-600 mb-4 text-sm">
                 <LeafIcon className="mr-1 inline h-4 w-4" />
