@@ -24,6 +24,30 @@ export const SEO_DATA = {
   },
 };
 
+export const SEO_FARMS_DATA = {
+  notFound: {
+    title: 'Page Not Found - Solarpunk',
+    description: 'Page Not Found - Solarpunk',
+    pathname: '',
+  },
+  index: {
+    de: {
+      title: 'Auf einer Solarpunk einziehen',
+      description:
+        'Ziehen Sie auf eine Solarpunk Farm ein. Hier finden Sie Informationen zu den Vorteilen und den Anforderungen.',
+      pathname: ROUTE.index as string,
+      imagePath: '/images/og-image-farm.jpg',
+    },
+    en: {
+      title: 'Move into a Solarpunk Farm',
+      description:
+        'Move into a Solarpunk Farm. Here you will find information about the benefits and requirements.',
+      pathname: ROUTE.index as string,
+      imagePath: '/images/og-image-farm.jpg',
+    },
+  },
+};
+
 export const SHARE_METADATA = {
   notFound: {
     title: 'Page Not Found - Solarpunk',
