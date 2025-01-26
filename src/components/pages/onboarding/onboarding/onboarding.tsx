@@ -16,6 +16,7 @@ import { CircleAlert, Leaf, Loader2, MapPin, Zap } from 'lucide-react';
 
 import Button from '@/components/shared/button';
 import Logo from '@/components/shared/logo';
+import { PhoneInput, getPhoneData } from '@/components/shared/phone-input';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
@@ -55,6 +56,7 @@ function Onboarding({ country }: OnboardingProps) {
 
   const [email, setEmail] = useState(prefilledEmail);
   const [name, setName] = useState('');
+
   const [phone, setPhone] = useState('');
 
   const [loading, setLoading] = useState(false);
@@ -185,12 +187,7 @@ function Onboarding({ country }: OnboardingProps) {
                 <div className="ml-1 mt-4 text-base font-semibold">
                   {t('onboarding_phone_label')}
                 </div>
-                <Input
-                  placeholder={t('onboarding_phone_placeholder')}
-                  className="!ml-1 !w-[97%] !border-2 !border-gray-70"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                />
+                <PhoneInput value={phone} onChange={(e) => setPhone(e.target.value)} />
               </div>
               <div className="my-2 ml-1 flex text-xs text-gray-40">
                 <span>
