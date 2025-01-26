@@ -1,6 +1,5 @@
 import Image from 'next/image';
-
-import clsx from 'clsx';
+import { usePathname } from 'next/navigation';
 
 import Link from '@/components/shared/link';
 
@@ -18,8 +17,13 @@ type LogoProps = ClassName & {
 };
 
 function Logo({ className, invert, isPriorityLoading = false }: LogoProps) {
+  const pathname = usePathname();
+
   return (
-    <Link className="group mt-1.5 flex items-center gap-x-0.5" href={ROUTE.index}>
+    <Link
+      className="group mt-1.5 flex items-center gap-x-0.5"
+      href={pathname.includes('/farms') ? '/farms' : ROUTE.index}
+    >
       <svg
         className="-translate-y-0.5"
         viewBox="-2 -2 34 36"
