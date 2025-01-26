@@ -17,7 +17,7 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
-    "@calcom/embed-react": "^1.5.1",
+    "@calcom/embed-react": "^1.5.2",
     "@geoman-io/leaflet-geoman-free": "^2.17.0",
     "@geoman-io/leaflet-geoman-pro": "^2.13.0",
     "@googlemaps/js-api-loader": "^1.16.8",

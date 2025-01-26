@@ -114,7 +114,7 @@ export default function Farms() {
           </>
         }
         images={images}
-        apply="https://cal.com/team/solarpunk/0002-studio"
+        apply="team/solarpunk/0002-studio"
       />
     </Container>
   );

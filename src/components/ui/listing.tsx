@@ -1,5 +1,9 @@
-import { useState } from 'react';
+import Image from 'next/image';
 
+import { useState } from 'react';
+import { useEffect } from 'react';
+
+import { getCalApi } from '@calcom/embed-react';
 import {
   Beef,
   Bitcoin,
@@ -21,8 +25,10 @@ import {
   StarIcon,
   SunIcon,
   ThermometerSun,
+  ThumbsDown,
   TreePalm,
   UtensilsIcon,
+  VerifiedIcon,
   WifiIcon,
 } from 'lucide-react';
 
@@ -71,7 +77,12 @@ export default function Listing({
   ];
 
   const [showMore, setShowMore] = useState(false);
-
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi({ namespace: '0001-studio' });
+      cal('ui', { hideEventTypeDetails: false, layout: 'month_view' });
+    })();
+  }, []);
   return (
     <div className="mx-auto py-8 md:mx-4">
       <h1 className="mb-4 font-title text-3xl">{title}</h1>
@@ -117,10 +128,12 @@ export default function Listing({
               <p className="text-gray-600">{details}</p>
             </div>
             <div className="h-16 w-16 overflow-hidden rounded-full">
-              <img
-                src="https://pbs.twimg.com/profile_images/1816814706000080897/uSIidPHz_400x400.png"
+              <Image
+                src="/landlord.jpeg"
                 alt="Peer Richelsen"
                 className="h-full w-full object-cover"
+                width={100}
+                height={100}
               />
             </div>
           </div>
@@ -157,25 +170,72 @@ export default function Listing({
                   <span>{amenity.text}</span>
                 </li>
               ))}
+              <li className="flex items-center">
+                <ThumbsDown className="mr-2 h-5 w-5" />
+                <s>bad vibes</s>
+              </li>
             </ul>
           </div>
 
           <hr className="my-6 border-gray-90" />
-
           <div className="mb-6">
-            <h3 className="mb-4 text-xl font-semibold">About the landlord</h3>
-            <p className="text-gray-600">
-              Peer Richelsen is the cofounder of Cal.com, angel investor and open source evangelist.
-            </p>
-            <Button
-              theme="outline"
-              size="home-sm"
-              href="https://x.com/peer_rich"
-              className="mt-4 p-0"
-            >
-              X.com
-            </Button>
+            <h3 className="mb-4 text-xl font-semibold">Closest city</h3>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d85506.94828730404!2d9.399120084460916!3d54.78637612322894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b342bd1a1ab9e9%3A0x5bcf632c834e4467!2sFlensburg!5e1!3m2!1sen!2sde!4v1737900164846!5m2!1sen!2sde"
+              width="100%"
+              height="450"
+              loading="lazy"
+              className="rounded-lg"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
           </div>
+
+          <hr className="my-6 border-gray-90" />
+          <div className="mb-6">
+            <h3 className="mb-2 text-xl font-semibold">About the landlord</h3>
+            <div className="flex items-center gap-2">
+              <div className="rounded-lg p-4 text-center">
+                <Image
+                  src="/landlord.jpeg"
+                  alt="Peer Richelsen"
+                  className="h-full w-full rounded-full object-cover"
+                  width={100}
+                  height={100}
+                />
+                <VerifiedIcon className=" absolute -mt-4 ml-10 rounded-full bg-secondary-green" />
+                <h2 className="mt-3 text-xl font-semibold">Peer</h2>
+                <h2 className="-mt-1 text-xs">Host</h2>
+              </div>
+              <div>
+                <p className="text-gray-600">
+                  Peer Richelsen is the cofounder of Cal.com, angel investor and open source
+                  evangelist. Together with his partner they recently moved on a farm and are
+                  building a unique new coliving experience.
+                </p>
+                <div className="flex gap-2">
+                  <Button
+                    theme="black"
+                    size="home-sm"
+                    href="https://x.com/peer_rich"
+                    className="mt-4 p-0"
+                  >
+                    X.com
+                  </Button>
+                  <Button
+                    theme="outline"
+                    size="home-sm"
+                    href="linkedin.com/in/peer-richelsen-221233138"
+                    className="mt-4 p-0"
+                  >
+                    Linkedin
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr className="my-6 border-gray-90" />
         </div>
 
         <div>
@@ -206,9 +266,10 @@ export default function Listing({
             </div>
 
             <Button
-              href={apply}
-              target="_blank"
               size="home-md"
+              data-cal-namespace="0001-studio"
+              data-cal-link={apply}
+              data-cal-config='{"layout":"month_view"}'
               theme="green"
               className="mb-4 w-full"
             >
