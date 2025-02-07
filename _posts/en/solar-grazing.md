@@ -10,9 +10,9 @@ ogImage:
   url: '/blog/covers/solar-grazing.jpg'
 ---
 
-As the push for renewable energy intensifies, innovative farming practices like [Solar Grazing](/blog/agrivoltaics-categories) are gaining traction. This approach not only optimizes land use but also fosters healthier ecosystems by incorporating livestock to manage vegetation beneath and around solar panels. However, choosing the right animals for solar grazing is essential for maximizing productivity and sustainability.
+As the push for renewable energy intensifies, innovative farming practices like [Solar Grazing](/en/blog/agrivoltaics-categories) are gaining traction. This approach not only optimizes land use but also fosters healthier ecosystems by incorporating livestock to manage vegetation beneath and around solar panels. However, choosing the right animals for solar grazing is essential for maximizing productivity and sustainability.
 
-When we think of Solar Grazing, the first image that often comes to mind is a cute sheep relaxing in the shade of solar panels on a sunny day. It's well-known that sheep are the most commonly used animals for this purpose, and research indicates they are also the best-suited species for it. However, it is important to note that the benefits of Solar Grazing are not limited to sheep alone. Other animals, such as goats, cattle, and poultry, can also be used for solar grazing, depending on the specific [Solar Configuration](/blog/solar-configurations) you have decided to use and the needs of your farm.
+When we think of Solar Grazing, the first image that often comes to mind is a cute sheep relaxing in the shade of solar panels on a sunny day. It's well-known that sheep are the most commonly used animals for this purpose, and research indicates they are also the best-suited species for it. However, it is important to note that the benefits of Solar Grazing are not limited to sheep alone. Other animals, such as goats, cattle, and poultry, can also be used for solar grazing, depending on the specific [Solar Configuration](/en/blog/solar-configurations) you have decided to use and the needs of your farm.
 
 ## 1. Sheep
 

@@ -72,4 +72,4 @@ In conclusion, embracing solar grazing or solar crop production isn't just a sma
 
 By adopting these innovative practices, you’re not only investing in the future of your farm but also playing a crucial role in building a greener planet. Whether you choose to integrate livestock with solar panels or cultivate crops alongside renewable energy, the benefits are clear: improved yields, reduced costs, and a positive environmental impact.
 
-Our team of experts can help you decide which [Agrivoltaics](/blog/agrivoltaics) subdivision works best for you. [Start your Solarpunk journey!](/onboarding)
+Our team of experts can help you decide which [Agrivoltaics](/en/blog/agrivoltaics) subdivision works best for you. [Start your Solarpunk journey!](/onboarding)

@@ -12,7 +12,7 @@ ogImage:
 
 ##
 
-If you are here, it means that you already know that [Agrivoltaics](/blog/agrivoltaics) is the practice of combining agriculture and solar energy generation on the same land, and that it offers several configurations to maximize land use and efficiency. Here are some common configurations:
+If you are here, it means that you already know that [Agrivoltaics](/en/blog/agrivoltaics) is the practice of combining agriculture and solar energy generation on the same land, and that it offers several configurations to maximize land use and efficiency. Here are some common configurations:
 
 ### Ground-Mounted Solar Panels
 
@@ -53,7 +53,7 @@ Each configuration is designed to maximize land use and can vary based on the ty
 
 ## How do I know which configuration is right for me?
 
-Choosing the best [Agrivoltaics](/blog/agrivoltaics) configuration depends on several factors, including the type of crops you grow, the climate, and your farming practices. Here’s a step-by-step approach to help you decide:
+Choosing the best [Agrivoltaics](/en/blog/agrivoltaics) configuration depends on several factors, including the type of crops you grow, the climate, and your farming practices. Here’s a step-by-step approach to help you decide:
 
 ### 1. Assess Your Land
 
@@ -95,6 +95,6 @@ Choosing the best [Agrivoltaics](/blog/agrivoltaics) configuration depends on se
 - _Pilot Projects:_ If possible, consider starting with a small pilot project to evaluate how a particular configuration works for your specific conditions.
 - _Feedback Loop:_ Monitor performance and make adjustments based on what you learn.
 
-By taking all these factors into account, you'll be better positioned to choose the [Agrivoltaics](/blog/agrivoltaics) configuration that works best for you.
+By taking all these factors into account, you'll be better positioned to choose the [Agrivoltaics](/en/blog/agrivoltaics) configuration that works best for you.
 
 Our team of experts can help you decide which type of Agrivoltaics configuration is right for you. [Start your Solarpunk journey!](/onboarding)
